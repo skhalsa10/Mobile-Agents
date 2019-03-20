@@ -3,19 +3,27 @@ package mobileAgents;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class Node implements Runnable {
-    private final Location location;
+    //private final Location location;
+    private Location location;
     private ArrayList<Node> neighbors = new ArrayList<>();
     private State state;
     //TODO possible timer to trigger fire spread
     private LinkedBlockingQueue<Message> messages = new LinkedBlockingQueue<>();
 
+    public Node() {}
+
     public Node(Location location, State state) {
         this.location = location;
         this.state = state;
+    }
+
+    //another node constructor without state
+    public Node(Location location) {
+        this.location = location;
+        this.state = State.NOTONFIRE;
     }
 
     public void addNeighbor(Node node) {
@@ -38,9 +46,9 @@ public class Node implements Runnable {
             @Override
             public void run() {
                 setState(State.ONFIRE);
-                System.out.println("Change state");
+                System.out.println("Node at " + location.getX() + " " + location.getY() + " is on fire");
             }
-        }, 20000);
+        }, 5000);
     }
 
     public void processMessage(Message message) throws InterruptedException {
