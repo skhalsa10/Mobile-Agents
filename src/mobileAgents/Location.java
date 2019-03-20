@@ -16,4 +16,18 @@ public class Location {
     public int getY() {
         return y;
     }
+
+    //may need this later
+    @Override
+    public boolean equals(Object o) {
+        if(o == this) {
+            return true;
+        }
+        if(!(o instanceof Location)) {
+            return false;
+        }
+        Location loc = (Location) o;
+
+        return x == loc.x && y == loc.y;
+    }
 }
