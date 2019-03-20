@@ -1,18 +1,18 @@
 package mobileAgents;
 
 public class Node {
-    private final Location location;
+    //private final Location location;
     //TODO possible list of edges
-    private State state;
+    //private State state;
     //TODO possible timer to trigger fire spread
 
-    public Node(Location location, State state);
+    //public Node(Location location, State state);
 
-    public synchronized setState();
+    //public synchronized setState();
 
-    public synchronized? sendMessage();
+    //public synchronized? sendMessage();
 
-    public spreadFire();
+    //public spreadFire();
 
     //TODO getters
 

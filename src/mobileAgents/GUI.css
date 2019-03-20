@@ -1,0 +1,15 @@
+.root{
+    -fx-background-color: lightblue;
+}
+
+
+#logs{
+    -fx-background-color: black;
+}
+
+#log-log{
+    -fx-fill: lime;
+    -fx-font-size: 20;
+    -fx-font-family:   "Ani";
+}
+
