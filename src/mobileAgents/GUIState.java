@@ -31,12 +31,12 @@ public class GUIState {
      * @param state this is a string representing state change
      * @return
      */
-    public boolean addState(String state){
+    public boolean addState(Message state){
         //Should this be add(state) or offer(state)? ... does it matter?
         return stateQueue.add(state);
     }
 
-    public String pollState(){
+    public Message pollState(){
         return stateQueue.poll();
     }
 }

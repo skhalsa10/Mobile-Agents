@@ -1,21 +1,22 @@
 package mobileAgents.Graphics;
 
 import javafx.scene.canvas.GraphicsContext;
+import mobileAgents.Location;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Fire {
+public class Fire implements UpdateAndRenderable{
 
     private ArrayList<Particle> particles;
     private double x, y;
     private Emitter emitter;
 
-    public Fire(double x, double y){
+    public Fire(Location location){
         particles  = new ArrayList<>();
         emitter = new FireEmitter();
-        this.x = x;
-        this.y = y;
+        this.x = (double)location.getX();
+        this.y = (double)location.getY();
     }
 
     public void update(){
