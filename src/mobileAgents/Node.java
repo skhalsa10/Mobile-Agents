@@ -55,7 +55,30 @@ public class Node implements Runnable {
         messages.put(message);
     }
 
-    //TODO getters
+    public Location getLocation() {
+        return location;
+    }
+
+    public ArrayList<Node> getNeighbors() {
+        return neighbors;
+    }
+
+    public State getState() {
+        return state;
+    }
+
+    public void printNode() {
+        System.out.println("Node at: " + getLocation().getX() + " " + getLocation().getY());
+    }
+
+    public void printNeighbors() {
+        System.out.println("Neighbors: ");
+        for(Node n: neighbors) {
+            n.printNode();
+        }
+        System.out.println();
+    }
+
 
 
 
