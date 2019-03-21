@@ -30,6 +30,7 @@ public class Forest {
     }
 
     public void readInfo(String line) {
+        //TODO handle weird config files
         //node info
         if(line.matches("^[nN].*$")) {
             addNode(line);
@@ -40,7 +41,7 @@ public class Forest {
         }
         // base info
         else if(line.matches( "^[sS].*$")) {
-
+            addBaseStation(line);
         }
         // fire info
         else if(line.matches("^[fF].*$")) {
@@ -76,6 +77,18 @@ public class Forest {
             }
         }
         return false;
+    }
+
+    public void addBaseStation(String line) {
+        String[] parsedLine = line.split(" ");
+        int x = Integer.parseInt(parsedLine[1]);
+        int y = Integer.parseInt(parsedLine[2]);
+        Location loc = new Location(x, y);
+        Node node;
+        if(nodeExists(loc)) {
+            node = findNode(loc);
+            node.setState(Node.State.ONFIRE);
+        }
     }
 
     public void connectNodes(Edge edge) {
