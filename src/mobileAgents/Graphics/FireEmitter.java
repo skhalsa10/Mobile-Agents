@@ -19,7 +19,7 @@ public class FireEmitter implements Emitter {
 
         for(int i = 0; i < numP;i++){
             Particle p = new Particle(x,y,new Point2D((Math.random()-.5)*.8,(Math.random())*-2),
-                    10,.7, Color.rgb(240,26,10), BlendMode.ADD);
+                    20,.7, Color.rgb(240,26,10), BlendMode.ADD);
             particles.add(p);
         }
 
