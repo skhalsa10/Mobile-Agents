@@ -55,7 +55,7 @@ public class Forest {
         int x =  Integer.parseInt(parsedLine[1]);
         int y = Integer.parseInt(parsedLine[2]);
         Location location = new Location(x, y);
-        Node newNode = new Node (location);
+        Node newNode = new Node (location, Node.State.NOTONFIRE);
         forest.add(newNode);
     }
 
@@ -89,6 +89,18 @@ public class Forest {
         if(nodeExists(loc)) {
             node = findNode(loc);
             node.setState(Node.State.ONFIRE);
+        }
+    }
+
+    public void addBaseStation(String line) {
+        String[] parsedLine = line.split(" ");
+        int x = Integer.parseInt(parsedLine[1]);
+        int y = Integer.parseInt(parsedLine[2]);
+        Location loc = new Location(x, y);
+        Node node;
+        if (nodeExists(loc)) {
+            node = findNode(loc);
+            node = new Base(loc, Node.State.ONFIRE);
         }
     }
 
