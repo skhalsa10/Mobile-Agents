@@ -41,7 +41,7 @@ public class Forest {
         }
         // base info
         else if(line.matches( "^[sS].*$")) {
-
+            addBaseStation(line);
         }
         // fire info
         else if(line.matches("^[fF].*$")) {

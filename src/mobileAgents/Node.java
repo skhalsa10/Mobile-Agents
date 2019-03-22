@@ -68,7 +68,8 @@ public class Node implements Runnable {
     }
 
     public void printNode() {
-        System.out.println("Node at: " + getLocation().getX() + " " + getLocation().getY());
+        System.out.println("Node at: " + getLocation().getX() + " " + getLocation().getY()
+        + " is " + state);
     }
 
     public void printNeighbors() {
