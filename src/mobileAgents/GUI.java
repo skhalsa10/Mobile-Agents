@@ -17,8 +17,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import mobileAgents.Graphics.Sensor;
+import mobileAgents.Graphics.Agent;
 
-import java.util.ArrayList;
+
 import java.util.HashMap;
 
 
@@ -46,6 +47,7 @@ public class GUI extends AnimationTimer {
     private HashMap<Location,Location> edges;
     private int largestX;
     private int largestY;
+    private Agent a;
 
     public GUI(Stage stage, GUIState state){
         this.stage = stage;
@@ -106,6 +108,7 @@ public class GUI extends AnimationTimer {
                 "station 0 0\n" +
                 "fire 5 5\n";
         initForrest();
+        a = new Agent(getGuiSensorLoc(2,3));
 
         graph.setWidth(largestX*RADIUS+50);
         graph.setHeight(largestY*RADIUS+50);
@@ -232,6 +235,7 @@ public class GUI extends AnimationTimer {
         }
 
         //TODO we should update and render the agents here.
+        a.updateAndRender(gc);
 
 
         Text test = new Text(String.valueOf(now));

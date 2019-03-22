@@ -13,3 +13,34 @@
     -fx-font-family:   "Ani";
 }
 
+.scroll-pane{
+    -fx-background-color: black;
+    -fx-border-color: black;
+}
+
+.scroll-pane > .corner {
+    -fx-background-color: black;
+}
+
+
+.scroll-bar{
+    -fx-background-color: black;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color: purple;
+    -fx-background-radius: 5em;
+}
+
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track{
+    -fx-background-color: black;
+    -fx-border-color: black;
+    -fx-background-radius: 0em;
+}
+
+.scroll-bar > .increment-button > .increment-arrow,
+.scroll-bar > .decrement-button > .decrement-arrow {
+    -fx-background-color: purple;
+}
