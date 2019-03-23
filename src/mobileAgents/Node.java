@@ -1,15 +1,13 @@
 package mobileAgents;
 
-
 import java.util.ArrayList;
 import java.util.concurrent.LinkedBlockingQueue;
-import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.LinkedBlockingQueue;
+
 
 public class Node implements Runnable {
-    //private final Location location;
+
     private Location location;
     private ArrayList<Node> neighbors = new ArrayList<>();
     private State state;

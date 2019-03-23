@@ -10,7 +10,7 @@ public class Agent {
     private double x;
     private double y;
     private double radius;
-    private final double RADIUSCAP = 25.0;
+    private final double RADIUSCAP = 21.0;
     private Paint color;
     private double offset;
 

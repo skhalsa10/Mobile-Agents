@@ -1,5 +1,15 @@
 .root{
     -fx-background-color: black;
+    -fx-border-color: orange;
+    -fx-border-width: 1px;
+}
+
+#h-box{
+    -fx-background-color: black;
+}
+
+#center-pane{
+    -fx-background: black;
 }
 
 
@@ -14,8 +24,9 @@
 }
 
 .scroll-pane{
-    -fx-background-color: black;
-    -fx-border-color: black;
+    -fx-background: black;
+    -fx-border-color: orange;
+    -fx-border-width: 1px;
 }
 
 .scroll-pane > .corner {
@@ -44,3 +55,22 @@
 .scroll-bar > .decrement-button > .decrement-arrow {
     -fx-background-color: purple;
 }
+
+.play-button{
+    -fx-text-fill: lime;
+    -fx-font-size: 25px;
+    -fx-border-color: lime;
+    -fx-border-radius: 20;
+    -fx-background-color: black;
+
+}
+
+.play-button:pressed{
+    -fx-text-fill: black;
+    -fx-font-size: 25px;
+    -fx-border-color: black;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-background-color: lime;
+}
+

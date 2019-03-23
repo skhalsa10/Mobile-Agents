@@ -10,9 +10,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.effect.BlendMode;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -35,11 +33,18 @@ public class GUI extends AnimationTimer {
     private VBox root;
     private ScrollPane logsPane;
     private VBox logs;
+
+    //graph related panes
     private Canvas graph;
     private GraphicsContext gc;
     private StackPane graphPane;
+    private ScrollPane graphScrollPane;
+    private VBox graphVBox;
+
+    //button stuff
     private HBox buttonPane;
     private Button play;
+
 
     private boolean isPlaying;
 
@@ -50,10 +55,9 @@ public class GUI extends AnimationTimer {
     private Agent a;
 
     public GUI(Stage stage, GUIState state){
+        //set stage up
         this.stage = stage;
         this.stage.setTitle("Mobile Agents");
-        //stage.setMinWidth(400);
-        //stage.setMinHeight(400);
         this.state = state;
 
         //initialize the mane panes
@@ -61,13 +65,22 @@ public class GUI extends AnimationTimer {
         root.setAlignment(Pos.CENTER);
         logsPane = new ScrollPane();
         logsPane.setMaxHeight(200);
+        logsPane.setMinHeight(100);
         logs = new VBox();
         logs.setId("logs");
         logs.minWidthProperty().bind(logsPane.widthProperty());
+
+        //graph related
+        //the scroll pane will be placed in root
+        graphScrollPane = new ScrollPane();
+        graphScrollPane.setMaxHeight(800);
+
+        graphVBox = new VBox();
         graphPane = new StackPane();
         graphPane.setAlignment(Pos.CENTER);
         graph = new Canvas(600,600);
         gc = graph.getGraphicsContext2D();
+
         buttonPane = new HBox();
         buttonPane.setAlignment(Pos.CENTER);
         play = new Button("Play");
@@ -77,12 +90,19 @@ public class GUI extends AnimationTimer {
                 playHandle();
             }
         });
+        play.getStyleClass().add("play-button");
 
         //add nodes to containers
-        logsPane.setContent(logs);
+        graphScrollPane.setContent(graphPane);
+        graphPane.minWidthProperty().bind(graphScrollPane.widthProperty());
+        graphPane.minHeightProperty().bind(graphScrollPane.heightProperty());
         graphPane.getChildren().add(graph);
+        //logs
+        logsPane.setContent(logs);
+        //button row
         buttonPane.getChildren().add(play);
-        root.getChildren().addAll(graphPane,logsPane,buttonPane);
+        root.getChildren().addAll(graphScrollPane,logsPane,buttonPane);
+        root.setVgrow(graphScrollPane,Priority.ALWAYS);
 
         //create scene and set style sheet
         scene = new Scene(root, 500, 500);
@@ -101,21 +121,41 @@ public class GUI extends AnimationTimer {
                 "node 3 4\n" +
                 "node 2 3\n" +
                 "node 5 5\n" +
+                //"node 3 20\n" +
+                //"node 10 14\n" +
+                //"node 45 11\n" +
+                //"node 1 0\n" +
+                //"node 3 40\n" +
+                //"node 20 3\n" +
+                //"node 17 65\n" +
+                "node 3 20\n" +
+                "node 14 87\n" +
+                "node 43 11\n" +
                 "edge 0 0 2 3\n" +
                 "edge 2 3 3 4\n" +
                 "edge 3 4 5 5\n" +
                 "edge 5 5 0 0\n" +
                 "station 0 0\n" +
+                //"fire 20 3\n" +
+                //"fire 17 65\n" +
+                //"fire 3 20\n" +
+                //"fire 100 14\n" +
                 "fire 5 5\n";
         initForrest();
         a = new Agent(getGuiSensorLoc(2,3));
 
-        graph.setWidth(largestX*RADIUS+50);
-        graph.setHeight(largestY*RADIUS+50);
+        setSize();
 
         this.start();
         isPlaying = true;
 
+    }
+
+    private void setSize() {
+        graph.setWidth(largestX*RADIUS+100);
+        graph.setHeight(largestY*RADIUS+100);
+        stage.setMinWidth(1400);
+        stage.setMinHeight(1000);
     }
 
     private void initForrest() {
@@ -222,6 +262,10 @@ public class GUI extends AnimationTimer {
         gc.setFill(Color.BLACK);
         gc.fillRect(0,0,graph.getWidth(),graph.getHeight());
 
+        //set defualts
+        gc.setStroke(Color.BLACK);
+        gc.setLineWidth(1);
+
         //draw the edges first so everything else draws on top.
         gc.setStroke(Color.WHITE);
         for (Location l:edges.keySet()) {
@@ -238,11 +282,9 @@ public class GUI extends AnimationTimer {
         a.updateAndRender(gc);
 
 
-        Text test = new Text(String.valueOf(now));
-        test.setId("log-log");
-        logs.getChildren().add(test);
-
-
+        //Text test = new Text(String.valueOf(now));
+        //test.setId("log-log");
+        //logs.getChildren().add(test);
 
     }
 }

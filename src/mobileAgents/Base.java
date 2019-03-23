@@ -1,6 +1,6 @@
 package mobileAgents;
 
-public class Base extends Node{
+public class Base {
 
     //private final Log log;
 
