@@ -6,9 +6,10 @@ public class Base extends Node{
         super(location, state);
     }
 
-    //private final Log log;
+    private Log log;
 
-    //TODO public createAgent();
+
+
     //TODO processMessage()
 
 }

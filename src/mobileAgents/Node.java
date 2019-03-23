@@ -12,12 +12,14 @@ public class Node implements Runnable {
     private State state;
     //TODO possible timer to trigger fire spread
     private LinkedBlockingQueue<Message> messages = new LinkedBlockingQueue<>();
+    private Agent agent;
 
     public Node() {}
 
     public Node(Location location, State state) {
         this.location = location;
         this.state = state;
+        this.agent = null;
     }
 
     //another node constructor without state
@@ -93,6 +95,10 @@ public class Node implements Runnable {
         return state;
     }
 
+    public Agent getAgent() {
+        return agent;
+    }
+
     public void printNode() {
         System.out.println("Node at: " + getLocation().getX() + " " + getLocation().getY() + " " + state);
     }
@@ -105,6 +111,11 @@ public class Node implements Runnable {
         System.out.println();
     }
 
+    public void createAgent(boolean canWalk) {
+        agent = new Agent(getLocation(),this, canWalk);
+        System.out.println("agent created");
+    }
+
 
 
 
@@ -114,7 +125,11 @@ public class Node implements Runnable {
     @Override
     public void run(){
         while(true) {
-            printNode();
+            //printNode();
+            if(this instanceof Base && agent == null) {
+                printNode();
+                createAgent(true);
+            }
         }
 
     }
