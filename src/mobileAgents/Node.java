@@ -32,15 +32,39 @@ public class Node implements Runnable {
 
 
     public synchronized void setState(State nextState) {
+
         state = nextState;
         if(state == State.NEARFIRE) {
-            spreadFire();
+            startFireTimer();
         }
+        else if(state == State.ONFIRE) {
+            checkNeighbors();
+        }
+    }
+
+    //might not need synch
+    public synchronized void checkNeighbors() {
+        System.out.println("checkNeighbors called");
+        System.out.println("size: " + neighbors.size());
+        for(Node n: neighbors) {
+
+            if(checkCurrentState(n)) {
+                System.out.println("checkCurrentstate");
+                setState(State.NEARFIRE);
+            }
+        }
+    }
+
+    public boolean checkCurrentState(Node neighbor) {
+        if(neighbor.getState() == State.NOTONFIRE) {
+            return true;
+        }
+        return false;
     }
 
     //public synchronized? sendMessage();
 
-    public synchronized void spreadFire() {
+    public synchronized void startFireTimer() {
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
@@ -48,8 +72,10 @@ public class Node implements Runnable {
                 setState(State.ONFIRE);
                 System.out.println("Node at " + location.getX() + " " + location.getY() + " is on fire");
             }
-        }, 5000);
+        }, 2000);
     }
+
+
 
     public void processMessage(Message message) throws InterruptedException {
         messages.put(message);
@@ -68,7 +94,7 @@ public class Node implements Runnable {
     }
 
     public void printNode() {
-        System.out.println("Node at: " + getLocation().getX() + " " + getLocation().getY());
+        System.out.println("Node at: " + getLocation().getX() + " " + getLocation().getY() + " " + state);
     }
 
     public void printNeighbors() {
@@ -86,7 +112,12 @@ public class Node implements Runnable {
     public enum State { ONFIRE, NEARFIRE, NOTONFIRE, DEAD}
 
     @Override
-    public void run(){}
+    public void run(){
+        while(true) {
+            //printNode();
+        }
+
+    }
 
     public static void main (String[] args) {
         Location location = new Location(0,0);

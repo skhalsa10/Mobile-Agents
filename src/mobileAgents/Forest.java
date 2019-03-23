@@ -143,13 +143,20 @@ public class Forest {
         }
     }
 
+    public void startThreads() {
+        for(Node n: forest) {
+            new Thread(n).start();
+        }
+    }
+
 
 
     public static void main(String[] args) {
         if(args.length > 0) {
             Forest f = new Forest(args[0]);
             f.connectGraph();
-            f.printForest();
+            //f.printForest();
+            f.startThreads();
         }
     }
 }
