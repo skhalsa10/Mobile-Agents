@@ -44,13 +44,13 @@ public class Node implements Runnable {
 
     //might not need synch
     public synchronized void checkNeighbors() {
-        System.out.println("checkNeighbors called");
-        System.out.println("size: " + neighbors.size());
+        //System.out.println("checkNeighbors called");
+        //System.out.println("size: " + neighbors.size());
         for(Node n: neighbors) {
 
             if(checkCurrentState(n)) {
-                System.out.println("checkCurrentstate");
-                setState(State.NEARFIRE);
+                //System.out.println("checkCurrentstate");
+                n.setState(State.NEARFIRE);
             }
         }
     }
@@ -114,7 +114,7 @@ public class Node implements Runnable {
     @Override
     public void run(){
         while(true) {
-            //printNode();
+            printNode();
         }
 
     }

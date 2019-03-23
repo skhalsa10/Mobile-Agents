@@ -41,10 +41,12 @@ public class Forest {
         }
         // base info
         else if(line.matches( "^[sS].*$")) {
+            addBaseStation(line);
 
         }
         // fire info
         else if(line.matches("^[fF].*$")) {
+            connectGraph();
             addFireNode(line);
         }
 
@@ -154,7 +156,7 @@ public class Forest {
     public static void main(String[] args) {
         if(args.length > 0) {
             Forest f = new Forest(args[0]);
-            f.connectGraph();
+            //f.connectGraph();
             //f.printForest();
             f.startThreads();
         }
