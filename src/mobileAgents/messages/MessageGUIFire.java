@@ -21,6 +21,15 @@ public class MessageGUIFire implements Message {
         nearFire = new ArrayList<>();
     }
 
+
+    public Location getFireLoc(){
+        return fire;
+    }
+
+    public ArrayList<Location> getNearFireList() {
+        return nearFire;
+    }
+
     /**
      * this will add the location representing a node with NEARFIRE state
      * @param nearFireLoc
@@ -36,9 +45,11 @@ public class MessageGUIFire implements Message {
     @Override
     public String readMessage() {
         StringBuilder output = new StringBuilder();
-        output.append("Node at " + fire.getX()+","+fire.getY()+ " now ONFIRE\n");
+        String s = "Node at " + fire.getX()+","+fire.getY()+ " now ONFIRE\n";
+        output.append(s);
         for (Location l: nearFire) {
-            output.append("Node at " + l.getX()+","+l.getY()+ " now NEARFIRE\n");
+            s = "Node at " + l.getX()+","+l.getY()+ " now NEARFIRE\n";
+            output.append(s);
         }
         return output.toString();
     }
