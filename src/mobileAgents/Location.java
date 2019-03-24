@@ -17,6 +17,7 @@ public class Location {
         return y;
     }
 
+
     @Override
     public int hashCode() {
         int prime = 31;
