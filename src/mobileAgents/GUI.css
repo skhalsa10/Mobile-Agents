@@ -17,10 +17,16 @@
     -fx-background-color: black;
 }
 
-#log-log{
+#log-state{
     -fx-fill: lime;
     -fx-font-size: 20;
-    -fx-font-family:   "Ani";
+    -fx-font-family:   "cursive";
+}
+
+#log-log{
+    -fx-fill: white;
+    -fx-font-size: 20;
+    -fx-font-family:   "cursive";
 }
 
 .scroll-pane{

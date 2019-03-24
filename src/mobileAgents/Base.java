@@ -1,9 +1,9 @@
 package mobileAgents;
 
-public class Base {
+public class Base extends Node{
 
     public Base(Location location, Node.State state) {
-        //super(location, state);
+        super(location, state);
     }
 
 

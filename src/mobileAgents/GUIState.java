@@ -1,5 +1,7 @@
 package mobileAgents;
 
+import mobileAgents.messages.Message;
+
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
@@ -36,7 +38,19 @@ public class GUIState {
         return stateQueue.add(state);
     }
 
+    /**
+     * this will remove and return the head of the queue or null if there is nothing there
+     * @return
+     */
     public Message pollState(){
         return stateQueue.poll();
+    }
+
+    /**
+     * peeks at the head of the queue without removing anything
+     * @return the message at the head of the Queue
+     */
+    public Message peekState(){
+        return stateQueue.peek();
     }
 }

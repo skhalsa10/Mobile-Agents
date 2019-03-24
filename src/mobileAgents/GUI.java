@@ -16,9 +16,14 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import mobileAgents.Graphics.Sensor;
 import mobileAgents.Graphics.Agent;
+import mobileAgents.messages.Message;
+import mobileAgents.messages.MessageGUINode;
 
 
 import java.util.HashMap;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.LinkedBlockingQueue;
 
 
 public class GUI extends AnimationTimer {
@@ -47,9 +52,10 @@ public class GUI extends AnimationTimer {
 
 
     private boolean isPlaying;
-
+    private Timer stateTimer;
     private HashMap<Location,Sensor> sensors;
     private HashMap<Location,Location> edges;
+    private LinkedBlockingQueue<Text> textQueue;
     private int largestX;
     private int largestY;
     private Agent a;
@@ -59,6 +65,9 @@ public class GUI extends AnimationTimer {
         this.stage = stage;
         this.stage.setTitle("Mobile Agents");
         this.state = state;
+
+        //non javafx init
+        textQueue = new LinkedBlockingQueue<>();
 
         //initialize the mane panes
         root = new VBox();
@@ -83,7 +92,7 @@ public class GUI extends AnimationTimer {
 
         buttonPane = new HBox();
         buttonPane.setAlignment(Pos.CENTER);
-        play = new Button("Play");
+        play = new Button("Play or Pause");
         play.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -121,16 +130,14 @@ public class GUI extends AnimationTimer {
                 "node 3 4\n" +
                 "node 2 3\n" +
                 "node 5 5\n" +
-                //"node 3 20\n" +
-                //"node 10 14\n" +
-                //"node 45 11\n" +
+                "node 1 1\n" +
+                "node 1 2\n" +
+                "node 2 2\n" +
                 //"node 1 0\n" +
                 //"node 3 40\n" +
-                //"node 20 3\n" +
-                //"node 17 65\n" +
-                "node 3 20\n" +
-                "node 14 87\n" +
-                "node 43 11\n" +
+                "node 6 3\n" +
+                "node 3 6\n" +
+                "node 3 2\n" +
                 "edge 0 0 2 3\n" +
                 "edge 2 3 3 4\n" +
                 "edge 3 4 5 5\n" +
@@ -144,13 +151,21 @@ public class GUI extends AnimationTimer {
         initForrest();
         a = new Agent(getGuiSensorLoc(2,3));
 
+        state.addState(new MessageGUINode(getGuiSensorLoc(6,3),Node.State.NEARFIRE));
+        startStateTimer();
+
+
         setSize();
+
 
         this.start();
         isPlaying = true;
 
     }
 
+    /**
+     * this sets up the dimensions of the canvas and the stage/window
+     */
     private void setSize() {
         graph.setWidth(largestX*RADIUS+100);
         graph.setHeight(largestY*RADIUS+100);
@@ -158,6 +173,9 @@ public class GUI extends AnimationTimer {
         stage.setMinHeight(1000);
     }
 
+    /**
+     * this assumes that the config file was
+     */
     private void initForrest() {
         String[] objects = config.split("\n");
         for(int i = 0; i< objects.length;i++){
@@ -238,17 +256,60 @@ public class GUI extends AnimationTimer {
         return (new Location(x*RADIUS,y*RADIUS));
     }
 
+    /**
+     * this method /translates the location coordinates from a GUI representation to the original Simulation coordinates
+     * @param GUILoc Location to convert
+     * @return new Location with original SImulation coordinates
+     */
+    private Location sensorLocGUItoSim(Location GUILoc){
+        return (new Location(GUILoc.getX()/RADIUS,GUILoc.getY()/RADIUS));
+    }
+
+    /**
+     * This is the button handler method that is called when the play/pause button is pressed
+     */
     private void playHandle() {
         if(isPlaying){
             isPlaying = false;
             this.stop();
+            stateTimer.cancel();
         }else {
             this.start();
             isPlaying = true;
+            startStateTimer();
         }
     }
 
-    long lastUpdate = 0;
+
+    public synchronized void startStateTimer() {
+        stateTimer = new Timer();
+
+        stateTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                processNextState();
+            }
+        }, 5000,10000);
+    }
+
+    private synchronized void processNextState() {
+        Message m = state.pollState();
+        if (m == null) {
+            System.out.println("handling null in queue");
+            return;
+        }
+        if(m instanceof MessageGUINode){
+            MessageGUINode n = (MessageGUINode) m;
+            sensors.get(n.getLocation()).setState(n.getNewState());
+            Text t = new Text(m.readMessage());
+            t.setId("log-state");
+            try {
+                textQueue.put(t);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
     @Override
     public void handle(long now) {
@@ -281,10 +342,10 @@ public class GUI extends AnimationTimer {
         //TODO we should update and render the agents here.
         a.updateAndRender(gc);
 
-
-        //Text test = new Text(String.valueOf(now));
-        //test.setId("log-log");
-        //logs.getChildren().add(test);
-
+        //update the log and add all the text object that are have been added to the textQueue
+        Text t;
+        while((t = textQueue.poll()) != null){
+            logs.getChildren().add(t);
+        }
     }
 }
