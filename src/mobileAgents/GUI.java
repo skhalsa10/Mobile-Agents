@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import mobileAgents.Graphics.Sensor;
 import mobileAgents.Graphics.Agent;
 import mobileAgents.messages.Message;
+import mobileAgents.messages.MessageGUIFire;
 import mobileAgents.messages.MessageGUINode;
 
 
@@ -297,6 +298,11 @@ public class GUI extends AnimationTimer {
         if (m == null) {
             System.out.println("handling null in queue");
             return;
+        }
+        if(m instanceof MessageGUIFire){
+            MessageGUIFire f = (MessageGUIFire) m;
+            //first we will change the fire node
+            sensors.get(getGuiSensorLoc())
         }
         if(m instanceof MessageGUINode){
             MessageGUINode n = (MessageGUINode) m;
