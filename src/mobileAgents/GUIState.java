@@ -34,7 +34,7 @@ public class GUIState {
      * @param state this is a string representing state change
      * @return
      */
-    public void putaddState(Message state){
+    public void putState(Message state){
         //Should this be add(state) or offer(state)? ... does it matter?
         try {
             stateQueue.put(state);

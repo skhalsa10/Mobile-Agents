@@ -19,7 +19,7 @@ public class GUIAgent {
         this.y = (double)l.getY();
         this.radius = 0;
         this.offset = 10;
-        this.color = Color.GREEN;
+        this.color = Color.LIME;
     }
 
     public void updateAndRender(GraphicsContext gc){

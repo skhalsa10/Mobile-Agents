@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import mobileAgents.Graphics.Sensor;
 import mobileAgents.Graphics.GUIAgent;
 import mobileAgents.messages.Message;
+import mobileAgents.messages.MessageGUIAgent;
 import mobileAgents.messages.MessageGUIConfig;
 import mobileAgents.messages.MessageGUIFire;
 
@@ -58,6 +59,7 @@ public class GUI extends AnimationTimer {
     private boolean simIsOver;
     private Timer stateTimer;
     private HashMap<Location,Sensor> sensors;
+    private HashMap<Location,GUIAgent> GUIAgents;
     private HashMap<Location,Location> edges;
     private LinkedBlockingQueue<Text> textQueue;
     private int largestX;
@@ -129,6 +131,7 @@ public class GUI extends AnimationTimer {
         simIsOver = false;
         edges = new HashMap<>();
         sensors = new HashMap<>();
+        GUIAgents = new HashMap<>();
         isInitialized = false;
         largestX = 0;
         largestY = 0;
@@ -136,7 +139,7 @@ public class GUI extends AnimationTimer {
         if(config != null) {
             initForrest();
         }
-        a = new GUIAgent(getGuiSensorLoc(2,3));
+
 
         if(isInitialized) {
             startStateTimer();
@@ -145,6 +148,12 @@ public class GUI extends AnimationTimer {
         this.start();
         isPlaying = true;
 
+        generateTestMessages();
+
+
+    }
+
+    private void generateTestMessages() {
         Message c = new MessageGUIConfig("node 0 0\n" +
                 "node 3 4\n" +
                 "node 2 3\n" +
@@ -158,8 +167,20 @@ public class GUI extends AnimationTimer {
         Message f = new MessageGUIFire(new Location(5,5));
         ((MessageGUIFire) f).addNearFireLoc(new Location(0,0));
         ((MessageGUIFire) f).addNearFireLoc(new Location(3,4));
-        state.putaddState(c);
-        state.putaddState(f);
+        MessageGUIAgent a1 = new MessageGUIAgent(new Location(0,0));
+        MessageGUIAgent a2 = new MessageGUIAgent(new Location(2,3));
+        a2.movedFrom(new Location(0,0));
+        System.out.println(a2.getMovedFrom());
+        MessageGUIAgent a3 = new MessageGUIAgent(new Location(3,4));
+        a3.movedFrom(new Location(2,3));
+        MessageGUIAgent a4 = new MessageGUIAgent(new Location(2,3));
+
+
+        state.putState(c);
+        state.putState(f);
+        state.putState(a1);
+        state.putState(a2);
+        state.putState(a3);
 
     }
 
@@ -207,6 +228,8 @@ public class GUI extends AnimationTimer {
                     if(y>largestY){largestY = y;}
                     Location l = getGuiSensorLoc(x,y);
                     sensors.put(l, new Sensor(l));
+                    //lets also add a null value to the GUIAgents map
+                    GUIAgents.put(l,null);
                     break;
                 }
                 case "edge": {
@@ -341,6 +364,29 @@ public class GUI extends AnimationTimer {
             }
 
         }
+        if(m instanceof MessageGUIAgent){
+            MessageGUIAgent a = (MessageGUIAgent) m;
+            //first process removing the move from
+            if(a.getMovedFrom() != null){
+                Location l = getGuiSensorLoc(a.getMovedFrom().getX(),a.getMovedFrom().getY());
+                if(!GUIAgents.containsKey(l)){
+                    System.out.println("GUI AGENT ERROR");
+                }else{
+                    GUIAgents.replace(l, null);
+                }
+            }
+            //now deal with the new Agent
+            Location l = getGuiSensorLoc(a.getAgentLoc().getX(),a.getAgentLoc().getY());
+            GUIAgents.replace(l, new GUIAgent(l));
+            //create text for log
+            Text t = new Text(a.readMessage());
+            t.setId("log-state");
+            try {
+                textQueue.put(t);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
         /*if(m instanceof MessageGUINode){
             MessageGUINode n = (MessageGUINode) m;
             sensors.get(n.getLocation()).setState(n.getNewState());
@@ -395,7 +441,12 @@ public class GUI extends AnimationTimer {
             }
 
             //TODO we should update and render the agents here.
-            a.updateAndRender(gc);
+            for (Location l:GUIAgents.keySet()) {
+                if(GUIAgents.get(l) != null){
+                    GUIAgents.get(l).updateAndRender(gc);
+                }
+
+            }
 
             //update the log and add all the text object that are have been added to the textQueue
             Text t;
