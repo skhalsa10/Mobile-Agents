@@ -17,8 +17,8 @@ public class MessageGUIAgent implements Message {
      * @param newAgentLoc
      */
     public MessageGUIAgent(Location newAgentLoc){
-        agentLoc = new Location(newAgentLoc.getX(),newAgentLoc.getY());
-        movedFrom = null;
+        this.agentLoc = new Location(newAgentLoc.getX(),newAgentLoc.getY());
+        this.movedFrom = null;
 
     }
 
@@ -27,7 +27,7 @@ public class MessageGUIAgent implements Message {
      * @param movedFrom
      */
     public void movedFrom(Location movedFrom){
-        movedFrom = new Location(movedFrom.getX(),movedFrom.getY());
+        this.movedFrom = new Location(movedFrom.getX(),movedFrom.getY());
     }
 
     /**
