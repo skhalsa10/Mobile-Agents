@@ -28,11 +28,24 @@ public class Agent implements Runnable {
         }
     }
 
+    // queue/stack for visited nodes?
+    //Simple traversal BFS or DFS
+    // fire spreads by "levels" in our simulation so DFS sufficient?
+    // do we need a timer?
     public void walk() {
+        //start from current location
+
+        // choose a neighbor node
+        //
 
     }
 
-    public void run() {}
+    public void run() {
+        //while(canWalk) {
+        // walk();
+        // }
+        //makeCopy();
+    }
 
 
 
