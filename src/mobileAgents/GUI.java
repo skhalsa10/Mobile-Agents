@@ -15,10 +15,10 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import mobileAgents.Graphics.Sensor;
-import mobileAgents.Graphics.Agent;
+import mobileAgents.Graphics.GUIAgent;
 import mobileAgents.messages.Message;
+import mobileAgents.messages.MessageGUIConfig;
 import mobileAgents.messages.MessageGUIFire;
-import mobileAgents.messages.MessageGUINode;
 
 
 import java.util.HashMap;
@@ -30,9 +30,11 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class GUI extends AnimationTimer {
 
     private final int RADIUS = 20;
+    private long lastUpdate = 0;
 
     private GUIState state;
     private String config;
+    private boolean isInitialized;
 
     private Stage stage;
     private Scene scene;
@@ -53,13 +55,14 @@ public class GUI extends AnimationTimer {
 
 
     private boolean isPlaying;
+    private boolean simIsOver;
     private Timer stateTimer;
     private HashMap<Location,Sensor> sensors;
     private HashMap<Location,Location> edges;
     private LinkedBlockingQueue<Text> textQueue;
     private int largestX;
     private int largestY;
-    private Agent a;
+    private GUIAgent a;
 
     public GUI(Stage stage, GUIState state){
         //set stage up
@@ -123,45 +126,54 @@ public class GUI extends AnimationTimer {
         stage.show();
 
         //TESTING
+        simIsOver = false;
         edges = new HashMap<>();
         sensors = new HashMap<>();
+        isInitialized = false;
         largestX = 0;
         largestY = 0;
-        config = "node 0 0\n" +
+        config = getConfig();
+        if(config != null) {
+            initForrest();
+        }
+        a = new GUIAgent(getGuiSensorLoc(2,3));
+
+        if(isInitialized) {
+            startStateTimer();
+        }
+        setSize();
+        this.start();
+        isPlaying = true;
+
+        Message c = new MessageGUIConfig("node 0 0\n" +
                 "node 3 4\n" +
                 "node 2 3\n" +
                 "node 5 5\n" +
-                "node 1 1\n" +
-                "node 1 2\n" +
-                "node 2 2\n" +
-                //"node 1 0\n" +
-                //"node 3 40\n" +
-                "node 6 3\n" +
-                "node 3 6\n" +
-                "node 3 2\n" +
                 "edge 0 0 2 3\n" +
                 "edge 2 3 3 4\n" +
                 "edge 3 4 5 5\n" +
                 "edge 5 5 0 0\n" +
                 "station 0 0\n" +
-                //"fire 20 3\n" +
-                //"fire 17 65\n" +
-                //"fire 3 20\n" +
-                //"fire 100 14\n" +
-                "fire 5 5\n";
-        initForrest();
-        a = new Agent(getGuiSensorLoc(2,3));
+                "fire 5 5");
+        Message f = new MessageGUIFire(new Location(5,5));
+        ((MessageGUIFire) f).addNearFireLoc(new Location(0,0));
+        ((MessageGUIFire) f).addNearFireLoc(new Location(3,4));
+        state.putaddState(c);
+        state.putaddState(f);
 
-        state.addState(new MessageGUINode(getGuiSensorLoc(6,3),Node.State.NEARFIRE));
-        startStateTimer();
+    }
 
-
-        setSize();
-
-
-        this.start();
-        isPlaying = true;
-
+    private String getConfig() {
+        Message test = state.peekState();
+        if(test == null){
+            return null;
+        }
+        if(test instanceof MessageGUIConfig){
+            MessageGUIConfig m = (MessageGUIConfig) state.pollState();
+            return m.readMessage();
+        }else{
+            return null;
+        }
     }
 
     /**
@@ -175,7 +187,7 @@ public class GUI extends AnimationTimer {
     }
 
     /**
-     * this assumes that the config file was
+     * this assumes that the config file was already checked for correctness
      */
     private void initForrest() {
         String[] objects = config.split("\n");
@@ -214,7 +226,7 @@ public class GUI extends AnimationTimer {
                     edges.put(left, right);
                     break;
                 }
-                case "fire":{
+                /*case "fire":{
                     if(entry.length != 3){
                         System.out.println("error parsing fire");
                         System.out.println(entry.length);
@@ -226,11 +238,11 @@ public class GUI extends AnimationTimer {
                     Location l = getGuiSensorLoc(x,y);
                     sensors.get(l).setState(Node.State.ONFIRE);
                     break;
-                }
+                }*/
             }
         }
 
-        System.out.println();
+        isInitialized = true;
     }
 
     /**
@@ -277,11 +289,16 @@ public class GUI extends AnimationTimer {
         }else {
             this.start();
             isPlaying = true;
-            startStateTimer();
+            if(isInitialized) {
+                startStateTimer();
+            }
         }
     }
 
 
+    /**
+     * this will start the State Timer
+     */
     public synchronized void startStateTimer() {
         stateTimer = new Timer();
 
@@ -293,18 +310,38 @@ public class GUI extends AnimationTimer {
         }, 5000,10000);
     }
 
+    /**
+     * this will pop off a message from the shared state QUEUE and update the state accordingly
+     */
     private synchronized void processNextState() {
+
         Message m = state.pollState();
         if (m == null) {
             System.out.println("handling null in queue");
             return;
         }
+        if(m instanceof MessageGUIConfig){
+            System.out.println("should nto be processing a config file this should already be configured");
+            return;
+        }
         if(m instanceof MessageGUIFire){
             MessageGUIFire f = (MessageGUIFire) m;
             //first we will change the fire node
-            sensors.get(getGuiSensorLoc())
+            sensors.get(getGuiSensorLoc(f.getFireLoc().getX(),f.getFireLoc().getY())).setState(Node.State.ONFIRE);
+            //now we need to set all the NEARFIRE
+            for(Location l: f.getNearFireList()){
+                sensors.get(getGuiSensorLoc(l.getX(),l.getY())).setState(Node.State.NEARFIRE);
+            }
+            Text t = new Text(f.readMessage());
+            t.setId("log-state");
+            try {
+                textQueue.put(t);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
         }
-        if(m instanceof MessageGUINode){
+        /*if(m instanceof MessageGUINode){
             MessageGUINode n = (MessageGUINode) m;
             sensors.get(n.getLocation()).setState(n.getNewState());
             Text t = new Text(m.readMessage());
@@ -314,44 +351,59 @@ public class GUI extends AnimationTimer {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        }
+        }*/
     }
+
 
     @Override
     public void handle(long now) {
-
-        //if (now - lastUpdate >= 28_000_000) {
-
-        //draw a black rectangle to clear the canvas
-        gc.setGlobalAlpha(1.0);
-        gc.setGlobalBlendMode(BlendMode.SRC_OVER);
-        //gc.setFill(Color.rgb(0,59,0));
-        gc.setFill(Color.BLACK);
-        gc.fillRect(0,0,graph.getWidth(),graph.getHeight());
-
-        //set defualts
-        gc.setStroke(Color.BLACK);
-        gc.setLineWidth(1);
-
-        //draw the edges first so everything else draws on top.
-        gc.setStroke(Color.WHITE);
-        for (Location l:edges.keySet()) {
-            gc.strokeLine(l.getX(),l.getY(),edges.get(l).getX(),edges.get(l).getY());
+        if(!isInitialized){
+            System.out.println("not initialized");
+            config = getConfig();
+            if(config != null) {
+                initForrest();
+            }
+            setSize();
+            startStateTimer();
         }
 
-        //draw the sensors after the edges
-        gc.setStroke(Color.BLACK);
-        for (Location l:sensors.keySet() ) {
-            sensors.get(l).updateAndRender(gc);
-        }
+        //this forces the animation to run a 60 frames a second roughly.
+        //there are 1000 miliseconds in a second. if we divide this by 60 there are 16.666667 ms between frame draws
+        if (now - lastUpdate >= 16_667_000) {
 
-        //TODO we should update and render the agents here.
-        a.updateAndRender(gc);
+            //draw a black rectangle to clear the canvas
+            gc.setGlobalAlpha(1.0);
+            gc.setGlobalBlendMode(BlendMode.SRC_OVER);
+            //gc.setFill(Color.rgb(0,59,0));
+            gc.setFill(Color.BLACK);
+            gc.fillRect(0, 0, graph.getWidth(), graph.getHeight());
 
-        //update the log and add all the text object that are have been added to the textQueue
-        Text t;
-        while((t = textQueue.poll()) != null){
-            logs.getChildren().add(t);
+            //set defualts
+            gc.setStroke(Color.BLACK);
+            gc.setLineWidth(1);
+
+            //draw the edges first so everything else draws on top.
+            gc.setStroke(Color.WHITE);
+            for (Location l : edges.keySet()) {
+                gc.strokeLine(l.getX(), l.getY(), edges.get(l).getX(), edges.get(l).getY());
+            }
+
+            //draw the sensors after the edges
+            gc.setStroke(Color.BLACK);
+            for (Location l : sensors.keySet()) {
+                sensors.get(l).updateAndRender(gc);
+            }
+
+            //TODO we should update and render the agents here.
+            a.updateAndRender(gc);
+
+            //update the log and add all the text object that are have been added to the textQueue
+            Text t;
+            while ((t = textQueue.poll()) != null) {
+                logs.getChildren().add(t);
+            }
+
+            lastUpdate = now;
         }
     }
 }

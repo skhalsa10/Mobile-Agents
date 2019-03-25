@@ -3,6 +3,7 @@ package mobileAgents;
 import mobileAgents.messages.Message;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * The purpose of this class is to have a concurrent shared data structure.
@@ -20,10 +21,10 @@ import java.util.concurrent.ConcurrentLinkedQueue;
  *
  */
 public class GUIState {
-    private ConcurrentLinkedQueue<Message> stateQueue;
+    private LinkedBlockingQueue<Message> stateQueue;
 
     public GUIState(){
-        stateQueue = new ConcurrentLinkedQueue();
+        stateQueue = new LinkedBlockingQueue<>();
     }
 
     /**
@@ -33,9 +34,13 @@ public class GUIState {
      * @param state this is a string representing state change
      * @return
      */
-    public boolean addState(Message state){
+    public void putaddState(Message state){
         //Should this be add(state) or offer(state)? ... does it matter?
-        return stateQueue.add(state);
+        try {
+            stateQueue.put(state);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     /**

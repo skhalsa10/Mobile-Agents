@@ -6,7 +6,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import mobileAgents.Location;
 
-public class Agent {
+public class GUIAgent {
     private double x;
     private double y;
     private double radius;
@@ -14,7 +14,7 @@ public class Agent {
     private Paint color;
     private double offset;
 
-    public Agent(Location l){
+    public GUIAgent(Location l){
         this.x = (double)l.getX();
         this.y = (double)l.getY();
         this.radius = 0;
