@@ -7,7 +7,8 @@ public class Agent implements Runnable {
     private Location currentLoc;
     private Node currentNode;
     private boolean canWalk;
-    private Stack<Node> visitedNodes = new Stack<>();
+    private Stack<Node> visitedPath = new Stack<>();
+    private ArrayList<Node> visitedNodes = new ArrayList<>();
 
     //sendMessage()
     public Agent(Location location, Node node, boolean canWalk) {
@@ -15,7 +16,8 @@ public class Agent implements Runnable {
         this.currentLoc = location;
         this.currentNode = node;
         this.canWalk = canWalk;
-        visitedNodes.push(this.currentNode);
+        visitedPath.push(this.currentNode);
+        visitedNodes.add(this.currentNode);
     }
 
     // Haven't tested yet
@@ -37,15 +39,17 @@ public class Agent implements Runnable {
             Node nextNode = walkToNext();
             if(nextNode != null) {
                 currentNode = nextNode;
-                visitedNodes.push(currentNode);
+                visitedPath.push(currentNode);
+                visitedNodes.add(currentNode);
             }
             // back track
             else {
-                nextNode = visitedNodes.pop();
-                currentNode = nextNode;
+                if(!visitedPath.isEmpty()) {
+                    currentNode = visitedPath.pop();
+                }
             }
             //System.out.println("Base agent node is at: ");
-            //nextNode.printNode();
+            currentNode.printNode();
         }
     }
 
@@ -82,10 +86,22 @@ public class Agent implements Runnable {
     public Node walkToNext() {
         for(Node n: currentNode.getNeighbors()) {
             if(!visitedNodes.contains(n) && n.getState() != Node.State.ONFIRE) {
+                /*if(!visitedNodes.contains(n)){
+                    System.out.println("node is unvisited: ");
+                    n.printNode();
+                    printVisitedNodes();
+                }*/
                 return n;
             }
         }
         return null;
+    }
+
+    public void printVisitedNodes() {
+        System.out.println("Visited Nodes: ");
+        for(Node n: visitedPath) {
+            n.printNode();
+        }
     }
 
     public void run() {
