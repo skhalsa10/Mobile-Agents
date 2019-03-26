@@ -22,5 +22,5 @@ edge 0 15 5 17
 edge 0 15 10 15
 edge 5 12 10 15
 edge 10 15 5 17
-base 0 0
+station 0 0
 fire 5 17
