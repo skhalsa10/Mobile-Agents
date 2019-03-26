@@ -127,9 +127,14 @@ public class Node implements Runnable {
         while(true) {
             //printNode();
             if(this instanceof Base && agent == null) {
+                System.out.println("create agent");
                 printNode();
                 createAgent(true);
             }
+            if(agent != null) {
+                agent.run();
+            }
+
         }
 
     }
