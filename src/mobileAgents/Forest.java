@@ -12,6 +12,8 @@ import java.util.ArrayList;
 public class Forest {
     private ArrayList<Node> forest = new ArrayList<>();
     private ArrayList<Edge> edges = new ArrayList<>();
+    private Node baseStation;
+    private Node onFireNode;
 
     public Forest(String config) {
         Path configFile = Paths.get(config);
@@ -107,6 +109,16 @@ public class Forest {
             forest.remove(node);
             forest.add(newNode);
         }
+    }
+
+    public void setDistances() {
+        //start at base
+        //for each neighbor, distance add +1
+        //
+    }
+
+    public void setDistance(Node node) {
+
     }
 
 
