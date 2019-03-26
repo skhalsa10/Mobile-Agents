@@ -22,6 +22,11 @@
     -fx-font-size: 20;
     -fx-font-family:   "cursive";
 }
+#log-end{
+    -fx-fill: red;
+    -fx-font-size: 20;
+    -fx-font-family:   "cursive";
+}
 
 #log-log{
     -fx-fill: white;

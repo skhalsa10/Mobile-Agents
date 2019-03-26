@@ -16,10 +16,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import mobileAgents.Graphics.Sensor;
 import mobileAgents.Graphics.GUIAgent;
-import mobileAgents.messages.Message;
-import mobileAgents.messages.MessageGUIAgent;
-import mobileAgents.messages.MessageGUIConfig;
-import mobileAgents.messages.MessageGUIFire;
+import mobileAgents.messages.*;
 
 
 import java.util.HashMap;
@@ -153,6 +150,9 @@ public class GUI extends AnimationTimer {
 
     }
 
+    /**
+     * this method just generates fake state to test.
+     */
     private void generateTestMessages() {
         Message c = new MessageGUIConfig("node 0 0\n" +
                 "node 3 4\n" +
@@ -174,6 +174,7 @@ public class GUI extends AnimationTimer {
         MessageGUIAgent a3 = new MessageGUIAgent(new Location(3,4));
         a3.movedFrom(new Location(2,3));
         MessageGUIAgent a4 = new MessageGUIAgent(new Location(2,3));
+        MessageGUIEnd  e = new MessageGUIEnd();
 
 
         state.putState(c);
@@ -181,9 +182,15 @@ public class GUI extends AnimationTimer {
         state.putState(a1);
         state.putState(a2);
         state.putState(a3);
+        state.putState(a4);
+        state.putState(e);
 
     }
 
+    /**
+     * this will get the config string from the MessageGUIConfig
+     * @return
+     */
     private String getConfig() {
         Message test = state.peekState();
         if(test == null){
@@ -387,17 +394,16 @@ public class GUI extends AnimationTimer {
                 e.printStackTrace();
             }
         }
-        /*if(m instanceof MessageGUINode){
-            MessageGUINode n = (MessageGUINode) m;
-            sensors.get(n.getLocation()).setState(n.getNewState());
+        if(m instanceof MessageGUIEnd){
+            simIsOver = true;
             Text t = new Text(m.readMessage());
-            t.setId("log-state");
+            t.setId("log-end");
             try {
                 textQueue.put(t);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        }*/
+        }
     }
 
 
