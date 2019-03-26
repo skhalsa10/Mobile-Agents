@@ -14,18 +14,15 @@ public class Node implements Runnable {
     private LinkedBlockingQueue<Message> messages = new LinkedBlockingQueue<>();
     private Agent agent;
 
+    private int distanceFromBase;
+
     public Node() {}
 
     public Node(Location location, State state) {
         this.location = location;
         this.state = state;
         this.agent = null;
-    }
-
-    //another node constructor without state
-    public Node(Location location) {
-        this.location = location;
-        this.state = State.NOTONFIRE;
+        distanceFromBase = 0;
     }
 
     public void addNeighbor(Node node) {
@@ -111,7 +108,7 @@ public class Node implements Runnable {
         System.out.println();
     }
 
-    public void createAgent(boolean canWalk) {
+    public synchronized void createAgent(boolean canWalk) {
         agent = new Agent(getLocation(),this, canWalk);
         System.out.println("agent created");
     }
