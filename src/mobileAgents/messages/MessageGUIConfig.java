@@ -23,13 +23,19 @@ package mobileAgents.messages;
 public class MessageGUIConfig implements Message {
 
     private StringBuilder configRep;
+    private final long timeStamp;
+
 
     public MessageGUIConfig(){
+
         configRep = new StringBuilder();
+        this.timeStamp = System.nanoTime();
     }
 
     public MessageGUIConfig(String string){
+
         configRep = new StringBuilder(string);
+        this.timeStamp = System.nanoTime();
     }
 
     public void appendStr(String s){
@@ -44,5 +50,20 @@ public class MessageGUIConfig implements Message {
     @Override
     public String readMessage() {
         return configRep.toString();
+    }
+
+    @Override
+    public long getTimeStamp() {
+        return timeStamp;
+    }
+
+    @Override
+    public int compareTo(Message o) {
+        long result = (this.timeStamp) - o.getTimeStamp();
+        if(result>0){return 1;}
+        else if (result ==0){return 0;}
+        else{
+            return -1;
+        }
     }
 }

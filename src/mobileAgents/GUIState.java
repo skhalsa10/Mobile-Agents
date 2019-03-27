@@ -1,9 +1,8 @@
 package mobileAgents;
 
 import mobileAgents.messages.Message;
+import java.util.concurrent.PriorityBlockingQueue;
 
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * The purpose of this class is to have a concurrent shared data structure.
@@ -19,12 +18,23 @@ import java.util.concurrent.LinkedBlockingQueue;
  *
  * Per class this seems like this could cause a busy wait. and I should probably use LinkedBlockingQueue
  *
+ *
+ * Which I do below
+ *
+ * @author  Siri Khalsa
+ * @version 1.0 Used Concurrent Linked Queue
+ * @version 2.0 is Using LinkedBlockingQueue
+ *
+ * We may need to use a priorityblockingQueue and sort it based on a timestamp of the messages
+ *
  */
 public class GUIState {
-    private LinkedBlockingQueue<Message> stateQueue;
+    //private LinkedBlockingQueue<Message> stateQueue;
+    private PriorityBlockingQueue<Message> stateQueue;
 
     public GUIState(){
-        stateQueue = new LinkedBlockingQueue<>();
+        //stateQueue = new LinkedBlockingQueue<>();
+        stateQueue = new PriorityBlockingQueue<Message>();
     }
 
     /**
@@ -36,11 +46,7 @@ public class GUIState {
      */
     public void putState(Message state){
         //Should this be add(state) or offer(state)? ... does it matter?
-        try {
-            stateQueue.put(state);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        stateQueue.put(state);
     }
 
     /**
@@ -58,4 +64,5 @@ public class GUIState {
     public Message peekState(){
         return stateQueue.peek();
     }
+
 }

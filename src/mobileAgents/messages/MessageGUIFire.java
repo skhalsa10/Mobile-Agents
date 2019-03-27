@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class MessageGUIFire implements Message {
     private Location fire;
     private ArrayList<Location> nearFire;
+    private final long timeStamp;
 
     /**
      * construct this message with a fire.
@@ -19,6 +20,7 @@ public class MessageGUIFire implements Message {
     public MessageGUIFire(Location onFire){
         fire = new Location(onFire.getX(), onFire.getY());
         nearFire = new ArrayList<>();
+        this.timeStamp = System.nanoTime();
     }
 
 
@@ -52,5 +54,20 @@ public class MessageGUIFire implements Message {
             output.append(s);
         }
         return output.toString();
+    }
+
+    @Override
+    public long getTimeStamp() {
+        return timeStamp;
+    }
+
+    @Override
+    public int compareTo(Message o) {
+        long result = (this.timeStamp) - o.getTimeStamp();
+        if(result>0){return 1;}
+        else if (result ==0){return 0;}
+        else{
+            return -1;
+        }
     }
 }

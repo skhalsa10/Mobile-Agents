@@ -11,12 +11,14 @@ import mobileAgents.Location;
 public class MessageGUIAgent implements Message {
     private Location agentLoc;
     private Location movedFrom;
+    private final long timeStamp;
 
     /**
      * contstruct this message with the location of either the new agent or where the current agent moved to
      * @param newAgentLoc
      */
     public MessageGUIAgent(Location newAgentLoc){
+        this.timeStamp = System.nanoTime();
         this.agentLoc = new Location(newAgentLoc.getX(),newAgentLoc.getY());
         this.movedFrom = null;
 
@@ -56,6 +58,21 @@ public class MessageGUIAgent implements Message {
             return "Agent created at ("+agentLoc.getX()+","+agentLoc.getY()+")";
         }else {
             return "Agent moved from (" + movedFrom.getX() + "," + movedFrom.getY() + ") to (" + agentLoc.getX() + "," + agentLoc.getY() + ")";
+        }
+    }
+
+    @Override
+    public long getTimeStamp() {
+        return timeStamp;
+    }
+
+    @Override
+    public int compareTo(Message o) {
+        long result = (this.timeStamp) - o.getTimeStamp();
+        if(result>0){return 1;}
+        else if (result ==0){return 0;}
+        else{
+            return -1;
         }
     }
 }
