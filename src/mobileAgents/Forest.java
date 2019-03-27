@@ -250,11 +250,11 @@ public class Forest {
     public static void main(String[] args) {
         if(args.length > 0) {
             Forest f = new Forest(args[0]);
-            f.connectGraph();
+            //f.connectGraph();
             //f.printForest();
-            //f.startThreads();
-            f.setDistances();
-            f.printForest();
+            f.startThreads();
+            //f.setDistances();
+            //f.printForest();
 
         }
     }

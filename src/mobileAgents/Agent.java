@@ -2,6 +2,9 @@ package mobileAgents;
 
 import java.util.*;
 
+/**
+ * Agent Class
+ */
 public class Agent implements Runnable {
     private final String uid;
     private Location currentLoc;
@@ -11,6 +14,13 @@ public class Agent implements Runnable {
     private ArrayList<Node> visitedNodes = new ArrayList<>();
 
     //sendMessage()
+
+    /**
+     * Constructs an agent
+     * @param location current location of agent
+     * @param node node where agent is currently on
+     * @param canWalk boolean to determine if agent can walk or not
+     */
     public Agent(Location location, Node node, boolean canWalk) {
         this.uid = "" + location.getX() + "" + location.getY();
         this.currentLoc = location;
@@ -18,6 +28,7 @@ public class Agent implements Runnable {
         this.canWalk = canWalk;
         visitedPath.push(this.currentNode);
         visitedNodes.add(this.currentNode);
+        new Thread(this).start();
     }
 
     // Haven't tested yet
@@ -34,7 +45,7 @@ public class Agent implements Runnable {
     //Simple traversal BFS or DFS
     // fire spreads by "levels" in our simulation so DFS sufficient?
     // do we need a timer?
-    public synchronized void walk() {
+    public synchronized void walkOneNode() {
         if(hasPath()) {
             Node nextNode = walkToNext();
             if(nextNode != null) {
@@ -48,9 +59,15 @@ public class Agent implements Runnable {
                     currentNode = visitedPath.pop();
                 }
             }
-            //System.out.println("Base agent node is at: ");
-            currentNode.printNode();
         }
+        if(currentNode.getState() == Node.State.NEARFIRE) {
+            canWalk = false;
+        }
+        if(canWalk) {
+            startWalkTimer();
+        }
+        System.out.println("Base agent node is at: ");
+        currentNode.printNode();
     }
 
     public boolean hasPath() {
@@ -67,7 +84,7 @@ public class Agent implements Runnable {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                walk();
+                walkOneNode();
                 timer.cancel();
             }
         }, 1000);
@@ -83,14 +100,9 @@ public class Agent implements Runnable {
         }
         return walkToNextRandomNode();
     }
-    public Node walkToNext() {
+    public synchronized Node walkToNext() {
         for(Node n: currentNode.getNeighbors()) {
             if(!visitedNodes.contains(n) && n.getState() != Node.State.ONFIRE) {
-                /*if(!visitedNodes.contains(n)){
-                    System.out.println("node is unvisited: ");
-                    n.printNode();
-                    printVisitedNodes();
-                }*/
                 return n;
             }
         }
@@ -105,15 +117,12 @@ public class Agent implements Runnable {
     }
 
     public void run() {
-        while(canWalk) {
-            if(currentNode.getState() == Node.State.NEARFIRE) {
-                canWalk = false;
-                System.out.println("base node at: ");
-                currentNode.printNode();
-            }
-            startWalkTimer();
-        }
+        startWalkTimer();
        // makeCopy();
+    }
+
+    public static void main(String[] args) {
+
     }
 
 

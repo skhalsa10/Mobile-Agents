@@ -140,10 +140,6 @@ public class Node implements Runnable {
                 printNode();
                 createAgent(true);
             }
-            if(agent != null) {
-                agent.run();
-            }
-
         }
 
     }
