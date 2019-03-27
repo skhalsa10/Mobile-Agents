@@ -1,5 +1,6 @@
 /**
  * Forest class that connects nodes together in a graph
+ * from a config file
  */
 package mobileAgents;
 
@@ -147,12 +148,24 @@ public class Forest {
         }
     }
 
+    /**
+     * Sets Distances from base station for all nodes
+     * Used for agent traversal
+     */
     public void setDistances() {
         LinkedList<Node> nodesToVisit = new LinkedList<>();
         ArrayList<Node> visitedNodes = new ArrayList<>();
         setDistance(baseStation, nodesToVisit, visitedNodes);
     }
 
+    /**
+     * Helper function for setDistances()
+     * Sets the distance from the base for each neighbor node
+     * Uses bfs traversal to compute distances
+     * @param node current node
+     * @param nodesToVisit queue of nodes to visit
+     * @param visitedNodes list of visited nodes
+     */
     public void setDistance(Node node, LinkedList<Node> nodesToVisit, ArrayList<Node> visitedNodes) {
         int dist = node.getDistanceFromBase();
         int neighborDist;
@@ -169,8 +182,10 @@ public class Forest {
         }
     }
 
-
-
+    /**
+     * Connects two nodes in the forest
+     * @param edge edge that connects two nodes
+     */
     public void connectNodes(Edge edge) {
         Location first = edge.getFirst();
         Location second = edge.getSecond();
@@ -184,6 +199,11 @@ public class Forest {
         }
     }
 
+    /**
+     * Finds the node that corresponds to given location
+     * @param loc given location
+     * @return node with given location
+     */
     public Node findNode(Location loc) {
         for(Node n: forest) {
             if(n.getLocation().equals(loc)) {
@@ -193,6 +213,9 @@ public class Forest {
         return null;
     }
 
+    /**
+     * Connects nodes together to form graph
+     */
     public void connectGraph() {
         for(Edge e: edges) {
             if(nodeExists(e.getFirst()) && nodeExists(e.getSecond())) {
@@ -201,6 +224,10 @@ public class Forest {
         }
     }
 
+    /**
+     * Print forest
+     * Used for debugging purposes
+     */
     public void printForest() {
         for(Node n: forest) {
             n.printNode();
@@ -209,6 +236,9 @@ public class Forest {
         }
     }
 
+    /**
+     * Starts node threads
+     */
     public void startThreads() {
         for(Node n: forest) {
             new Thread(n).start();
