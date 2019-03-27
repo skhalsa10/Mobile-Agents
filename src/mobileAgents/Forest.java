@@ -118,7 +118,14 @@ public class Forest {
     }
 
     public void setDistance(Node node) {
-
+        int dist = node.getDistanceFromBase();
+        int neighborDist;
+        for(Node n: node.getNeighbors()) {
+            neighborDist = n.getDistanceFromBase();
+            if(neighborDist == 0) {
+                n.setDistanceFromBase(dist+1);
+            }
+        }
     }
 
 

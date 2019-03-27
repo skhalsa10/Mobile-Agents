@@ -96,6 +96,14 @@ public class Node implements Runnable {
         return agent;
     }
 
+    public int getDistanceFromBase() {
+        return distanceFromBase;
+    }
+
+    public void setDistanceFromBase(int distance) {
+        this.distanceFromBase = distance;
+    }
+
     public void printNode() {
         System.out.println("Node at: " + getLocation().getX() + " " + getLocation().getY() + " " + state);
     }
