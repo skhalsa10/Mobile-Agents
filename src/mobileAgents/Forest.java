@@ -1,5 +1,7 @@
 package mobileAgents;
 
+import mobileAgents.messages.MessageGUIConfig;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,19 +11,28 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
+import static java.lang.Thread.sleep;
+
 public class Forest {
     private ArrayList<Node> forest = new ArrayList<>();
     private ArrayList<Edge> edges = new ArrayList<>();
+    private GUIState GUIStateQueue;
 
-    public Forest(String config) {
+    public Forest(String config, GUIState GUIStateQueue) {
+        //One GUIStateQueue needs to be shared with everything that tells the GUI something so it will be passed in here.
+        this.GUIStateQueue = GUIStateQueue;
+        MessageGUIConfig configMessage = new MessageGUIConfig();
         Path configFile = Paths.get(config);
         try {
             InputStream in = Files.newInputStream(configFile);
             BufferedReader reader = new BufferedReader(new InputStreamReader(in));
             String line;
             while((line = reader.readLine()) != null) {
+                configMessage.appendStr(line);
                 readInfo(line);
             }
+
+            GUIStateQueue.putState(configMessage);
 
         }
         catch(IOException e) {
@@ -57,7 +68,8 @@ public class Forest {
         int x =  Integer.parseInt(parsedLine[1]);
         int y = Integer.parseInt(parsedLine[2]);
         Location location = new Location(x, y);
-        Node newNode = new Node (location, Node.State.NOTONFIRE);
+        //I updated this to take the GUIStateQueue
+        Node newNode = new Node (location, Node.State.NOTONFIRE, GUIStateQueue);
         forest.add(newNode);
     }
 
@@ -102,7 +114,7 @@ public class Forest {
         Node node;
         if (nodeExists(loc)) {
             node = findNode(loc);
-            node = new Base(loc, Node.State.ONFIRE);
+            node = new Base(loc, Node.State.ONFIRE, GUIStateQueue);
         }
     }
 
@@ -155,10 +167,22 @@ public class Forest {
 
     public static void main(String[] args) {
         if(args.length > 0) {
-            Forest f = new Forest(args[0]);
+            GUIState s = new GUIState();
+            Forest f = new Forest(args[0], s);
             f.connectGraph();
-            f.printForest();
+            //f.printForest();
             f.startThreads();
+
+            try {
+                sleep(100000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            for(int i = 0;i<10;i++){
+                System.out.println(s.pollState());
+            }
+
         }
     }
 }

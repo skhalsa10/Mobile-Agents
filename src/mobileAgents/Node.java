@@ -1,6 +1,7 @@
 package mobileAgents;
 
 import mobileAgents.messages.Message;
+import mobileAgents.messages.MessageGUIFire;
 
 import java.util.ArrayList;
 import java.util.Timer;
@@ -19,6 +20,7 @@ public class Node implements Runnable {
     private ArrayList<Node> neighbors = new ArrayList<>();
     private State state;
     private LinkedBlockingQueue<Message> messages = new LinkedBlockingQueue<>();
+    private GUIState GUIStateQueue;
 
 
     /**
@@ -26,7 +28,8 @@ public class Node implements Runnable {
      * @param location
      * @param state
      */
-    public Node(Location location, State state) {
+    public Node(Location location, State state, GUIState GUIStateQueue) {
+        this.GUIStateQueue = GUIStateQueue;
         this.location = location;
         this.state = state;
     }
@@ -35,7 +38,8 @@ public class Node implements Runnable {
      * initialize node with default state of NOTONFIRE
      * @param location
      */
-    public Node(Location location) {
+    public Node(Location location, GUIState GUIStateQueue) {
+        this.GUIStateQueue = GUIStateQueue;
         this.location = location;
         this.state = State.NOTONFIRE;
     }
@@ -61,21 +65,24 @@ public class Node implements Runnable {
             startFireTimer();
         }
         else if(state == State.ONFIRE) {
-            checkNeighbors();
+            //creating a Message that keeps track of what location is on fire
+            MessageGUIFire m = new MessageGUIFire(this.getLocation());
+            checkNeighbors(m);
+            GUIStateQueue.putState(m);
         }
     }
 
     /**
      * this will Iterate through all neighbors and set the state to NEARFIRE if applicable
+     *
+     * I have added
+     *
      */
-    private synchronized void checkNeighbors() {
-        //System.out.println("checkNeighbors called");
-        //System.out.println("size: " + neighbors.size());
+    private synchronized void checkNeighbors(MessageGUIFire m) {
         for(Node n: neighbors) {
-
             if(checkCurrentState(n)) {
-                //System.out.println("checkCurrentstate");
                 n.setState(State.NEARFIRE);
+                m.addNearFireLoc(n.getLocation());
             }
         }
     }
@@ -103,7 +110,7 @@ public class Node implements Runnable {
             @Override
             public void run() {
                 setState(State.ONFIRE);
-                System.out.println("Node at " + location.getX() + " " + location.getY() + " is on fire");
+                //System.out.println("Node at " + location.getX() + " " + location.getY() + " is on fire");
                 timer.cancel();
             }
         }, 2000);
@@ -165,18 +172,9 @@ public class Node implements Runnable {
 
     @Override
     public void run(){
-        while(true) {
-            printNode();
+        while(state != State.NOTONFIRE) {
+            //printNode();
         }
-
-    }
-
-    public static void main (String[] args) {
-        Location location = new Location(0,0);
-        State state = State.NEARFIRE;
-        Node node = new Node(location,state);
-        node.run();
-        node.setState(State.NEARFIRE);
 
     }
 
