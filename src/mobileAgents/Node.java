@@ -116,6 +116,10 @@ public class Node implements Runnable {
         System.out.println();
     }
 
+    public void printDistance() {
+        System.out.println("Has Distance: " + getDistanceFromBase());
+    }
+
     public synchronized void createAgent(boolean canWalk) {
         agent = new Agent(getLocation(),this, canWalk);
         System.out.println("agent created");

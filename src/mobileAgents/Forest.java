@@ -1,3 +1,6 @@
+/**
+ * Forest class that connects nodes together in a graph
+ */
 package mobileAgents;
 
 import java.io.BufferedReader;
@@ -8,6 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Forest {
     private ArrayList<Node> forest = new ArrayList<>();
@@ -15,6 +19,10 @@ public class Forest {
     private Node baseStation;
     private Node onFireNode;
 
+    /**
+     * Constructs the Forest from a config file
+     * @param config string path of config file
+     */
     public Forest(String config) {
         Path configFile = Paths.get(config);
         try {
@@ -24,13 +32,17 @@ public class Forest {
             while((line = reader.readLine()) != null) {
                 readInfo(line);
             }
-
         }
         catch(IOException e) {
             System.err.println(e);
         }
     }
 
+    /**
+     * Reads and stores info for nodes, edges,
+     * base station, fire node from config file
+     * @param line one line in config file
+     */
     public void readInfo(String line) {
         //TODO handle weird config files
         //node info
@@ -54,6 +66,10 @@ public class Forest {
 
     }
 
+    /**
+     * Adds node to forest
+     * @param line config file line with node info
+     */
     public void addNode(String line) {
         String[] parsedLine = line.split(" ");
         int x =  Integer.parseInt(parsedLine[1]);
@@ -63,6 +79,10 @@ public class Forest {
         forest.add(newNode);
     }
 
+    /**
+     * Adds edge to forest
+     * @param line config file line with edge info
+     */
     public void addEdge(String line) {
         String[] parsedLine = line.split(" ");
         int x1 = Integer.parseInt(parsedLine[1]);
@@ -75,6 +95,12 @@ public class Forest {
         edges.add(newEdge);
     }
 
+    /**
+     * Checks if node exists in forest
+     * Used to check if edges, base station and fire node are valid
+     * @param location location of node
+     * @return true or false
+     */
     public boolean nodeExists(Location location) {
         for(Node n: forest) {
             if(location.equals(n.getLocation())) {
@@ -84,6 +110,10 @@ public class Forest {
         return false;
     }
 
+    /**
+     * Adds fire node to forest
+     * @param line config file line with fire node info
+     */
     public void addFireNode(String line) {
         String[] parsedLine = line.split(" ");
         int x = Integer.parseInt(parsedLine[1]);
@@ -96,6 +126,10 @@ public class Forest {
         }
     }
 
+    /**
+     * Adds base station to forest
+     * @param line config file line with base station info
+     */
     public void addBaseStation(String line) {
         String[] parsedLine = line.split(" ");
         int x = Integer.parseInt(parsedLine[1]);
@@ -108,23 +142,30 @@ public class Forest {
             newNode = new Base(loc, Node.State.NOTONFIRE);
             forest.remove(node);
             forest.add(newNode);
+            //set as base
+            baseStation = newNode;
         }
     }
 
     public void setDistances() {
-        //start at base
-        //for each neighbor, distance add +1
-        //
+        LinkedList<Node> nodesToVisit = new LinkedList<>();
+        ArrayList<Node> visitedNodes = new ArrayList<>();
+        setDistance(baseStation, nodesToVisit, visitedNodes);
     }
 
-    public void setDistance(Node node) {
+    public void setDistance(Node node, LinkedList<Node> nodesToVisit, ArrayList<Node> visitedNodes) {
         int dist = node.getDistanceFromBase();
         int neighborDist;
+        visitedNodes.add(node);
         for(Node n: node.getNeighbors()) {
             neighborDist = n.getDistanceFromBase();
-            if(neighborDist == 0) {
+            if(neighborDist == 0 && !(n instanceof Base)) {
                 n.setDistanceFromBase(dist+1);
+                nodesToVisit.add(n);
             }
+        }
+        if(!nodesToVisit.isEmpty()) {
+            setDistance(nodesToVisit.poll(), nodesToVisit,visitedNodes);
         }
     }
 
@@ -163,7 +204,8 @@ public class Forest {
     public void printForest() {
         for(Node n: forest) {
             n.printNode();
-            n.printNeighbors();
+            //n.printNeighbors();
+            n.printDistance();
         }
     }
 
@@ -178,9 +220,12 @@ public class Forest {
     public static void main(String[] args) {
         if(args.length > 0) {
             Forest f = new Forest(args[0]);
-            //f.connectGraph();
+            f.connectGraph();
             //f.printForest();
-            f.startThreads();
+            //f.startThreads();
+            f.setDistances();
+            f.printForest();
+
         }
     }
 }
