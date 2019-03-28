@@ -32,8 +32,8 @@ public class Agent implements Runnable {
         this.currentLoc = location;
         this.currentNode = node;
         this.canWalk = canWalk;
-        visitedPath.push(this.currentNode);
-        visitedNodes.add(this.currentNode);
+        //visitedPath.push(this.currentNode);
+        //visitedNodes.add(this.currentNode);
         new Thread(this).start();
     }
 
@@ -63,9 +63,9 @@ public class Agent implements Runnable {
         if(hasPath() && canWalk) {
             Node nextNode = walkToNext();
             if(nextNode != null) {
-                currentNode = nextNode;
                 visitedPath.push(currentNode);
                 visitedNodes.add(currentNode);
+                currentNode = nextNode;
                 System.out.println("no backtrack");
             }
             // back track
@@ -74,6 +74,7 @@ public class Agent implements Runnable {
                     currentNode = visitedPath.pop();
                     System.out.println("backtrack");
                 }
+
             }
         }
         System.out.println("Agent " + uid + " is at: ");
@@ -130,11 +131,25 @@ public class Agent implements Runnable {
      * Chooses the next node to walk to
      * @return next node to walk to
      */
-    private Node walkToNext() {
+    /*private Node walkToNext() {
         ArrayList<Node> availableNodes = new ArrayList<>();
         for(Node n: currentNode.getNeighbors()) {
             if(!visitedNodes.contains(n) && n.getState() != Node.State.ONFIRE) {
                 availableNodes.add(n);
+            }
+        }
+        return pickNextRandomNode(availableNodes);
+    }*/
+    private Node walkToNext() {
+        ArrayList<Node> availableNodes = new ArrayList<>();
+        int nextDistance;
+        int currentDistance = currentNode.getDistanceFromBase();
+        for(Node n: currentNode.getNeighbors()) {
+            if(!visitedNodes.contains(n) && n.getState() != Node.State.ONFIRE) {
+                nextDistance = n.getDistanceFromBase();
+                if(nextDistance >= currentDistance) {
+                    availableNodes.add(n);
+                }
             }
         }
         return pickNextRandomNode(availableNodes);
