@@ -1,7 +1,3 @@
-/**
- * Forest class that connects nodes together in a graph
- * from a config file
- */
 package mobileAgents;
 
 import java.io.BufferedReader;
@@ -14,6 +10,10 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+/**
+ * Forest class that connects nodes together in a graph
+ * from a config file
+ */
 public class Forest {
     private ArrayList<Node> forest = new ArrayList<>();
     private ArrayList<Edge> edges = new ArrayList<>();
@@ -44,7 +44,7 @@ public class Forest {
      * base station, fire node from config file
      * @param line one line in config file
      */
-    public void readInfo(String line) {
+    private void readInfo(String line) {
         //node info
         if(line.matches("^[nN].*$")) {
             addNode(line);
@@ -72,7 +72,7 @@ public class Forest {
      * Adds node to forest
      * @param line config file line with node info
      */
-    public void addNode(String line) {
+    private void addNode(String line) {
         String[] parsedLine = line.split(" ");
         int x =  Integer.parseInt(parsedLine[1]);
         int y = Integer.parseInt(parsedLine[2]);
@@ -85,7 +85,7 @@ public class Forest {
      * Adds edge to forest
      * @param line config file line with edge info
      */
-    public void addEdge(String line) {
+    private void addEdge(String line) {
         String[] parsedLine = line.split(" ");
         int x1 = Integer.parseInt(parsedLine[1]);
         int y1 = Integer.parseInt(parsedLine[2]);
@@ -103,7 +103,7 @@ public class Forest {
      * @param location location of node
      * @return true or false
      */
-    public boolean nodeExists(Location location) {
+    private boolean nodeExists(Location location) {
         for(Node n: forest) {
             if(location.equals(n.getLocation())) {
                 return true;
@@ -116,7 +116,7 @@ public class Forest {
      * Adds fire node to forest
      * @param line config file line with fire node info
      */
-    public void addFireNode(String line) {
+    private void addFireNode(String line) {
         String[] parsedLine = line.split(" ");
         int x = Integer.parseInt(parsedLine[1]);
         int y = Integer.parseInt(parsedLine[2]);
@@ -128,7 +128,7 @@ public class Forest {
      * Checks if fire node is a valid node in config file
      * @return true or false
      */
-    public boolean isValidFireNode() {
+    private boolean isValidFireNode() {
         Node node;
         if(nodeExists(fireNode.getLocation())) {
             node = findNode(fireNode.getLocation());
@@ -142,7 +142,7 @@ public class Forest {
      * Adds base station to forest
      * @param line config file line with base station info
      */
-    public void addBaseStation(String line) {
+    private void addBaseStation(String line) {
         String[] parsedLine = line.split(" ");
         int x = Integer.parseInt(parsedLine[1]);
         int y = Integer.parseInt(parsedLine[2]);
@@ -154,7 +154,7 @@ public class Forest {
      * Checks if base station is a valid node in config file
      * @return true or false
      */
-    public boolean isValidBaseStation() {
+    private boolean isValidBaseStation() {
         Node node;
         if(nodeExists(baseStation.getLocation())) {
             node = findNode(baseStation.getLocation());
@@ -169,7 +169,7 @@ public class Forest {
      * Sets Distances from base station for all nodes
      * Used for agent traversal
      */
-    public void setDistances() {
+    private void setDistances() {
         LinkedList<Node> nodesToVisit = new LinkedList<>();
         ArrayList<Node> visitedNodes = new ArrayList<>();
         setDistance(baseStation, nodesToVisit, visitedNodes);
@@ -183,7 +183,7 @@ public class Forest {
      * @param nodesToVisit queue of nodes to visit
      * @param visitedNodes list of visited nodes
      */
-    public void setDistance(Node node, LinkedList<Node> nodesToVisit, ArrayList<Node> visitedNodes) {
+    private void setDistance(Node node, LinkedList<Node> nodesToVisit, ArrayList<Node> visitedNodes) {
         int dist = node.getDistanceFromBase();
         int neighborDist;
         visitedNodes.add(node);
@@ -203,7 +203,7 @@ public class Forest {
      * Connects two nodes in the forest
      * @param edge edge that connects two nodes
      */
-    public void connectNodes(Edge edge) {
+    private void connectNodes(Edge edge) {
         Location first = edge.getFirst();
         Location second = edge.getSecond();
         for(Node n: forest) {
@@ -221,7 +221,7 @@ public class Forest {
      * @param loc given location
      * @return node with given location
      */
-    public Node findNode(Location loc) {
+    private Node findNode(Location loc) {
         for(Node n: forest) {
             if(n.getLocation().equals(loc)) {
                 return n;
@@ -233,7 +233,7 @@ public class Forest {
     /**
      * Connects nodes together to form graph
      */
-    public void connectGraph() {
+    private void connectGraph() {
         for(Edge e: edges) {
             if(nodeExists(e.getFirst()) && nodeExists(e.getSecond())) {
                 connectNodes(e);
@@ -245,7 +245,7 @@ public class Forest {
      * Print forest
      * Used for debugging purposes
      */
-    public void printForest() {
+    private void printForest() {
         for(Node n: forest) {
             n.printNode();
             n.printNeighbors();
@@ -256,7 +256,7 @@ public class Forest {
     /**
      * Starts node threads
      */
-    public void startThreads() {
+    private void startThreads() {
         for(Node n: forest) {
             new Thread(n).start();
         }
@@ -277,8 +277,10 @@ public class Forest {
         //should we read in another config file?
     }
 
-
-
+    /**
+     * Main entry point for simulation
+     * @param args path of config file of graph for simulation
+     */
     public static void main(String[] args) {
         if(args.length > 0) {
             Forest f = new Forest(args[0]);
