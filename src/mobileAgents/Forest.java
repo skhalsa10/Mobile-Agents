@@ -10,13 +10,15 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-
+import java.util.LinkedList;
 import static java.lang.Thread.sleep;
 
 public class Forest {
     private ArrayList<Node> forest = new ArrayList<>();
     private ArrayList<Edge> edges = new ArrayList<>();
     private GUIState GUIStateQueue;
+    private Base baseStation;
+    private Node fireNode;
 
     public Forest(String config, GUIState GUIStateQueue) {
         //One GUIStateQueue needs to be shared with everything that tells the GUI something so it will be passed in here.
@@ -40,8 +42,12 @@ public class Forest {
         }
     }
 
-    public void readInfo(String line) {
-        //TODO handle weird config files
+    /**
+     * Reads and stores info for nodes, edges,
+     * base station, fire node from config file
+     * @param line one line in config file
+     */
+    private void readInfo(String line) {
         //node info
         if(line.matches("^[nN].*$")) {
             addNode(line);
@@ -52,18 +58,24 @@ public class Forest {
         }
         // base info
         else if(line.matches( "^[sS].*$")) {
-            addBaseStation(line);
-
+            if(baseStation == null) {
+                addBaseStation(line);
+            }
         }
         // fire info
         else if(line.matches("^[fF].*$")) {
-            connectGraph();
-            addFireNode(line);
+            //connectGraph();
+            if(fireNode == null) {
+                addFireNode(line);
+            }
         }
-
     }
 
-    public void addNode(String line) {
+    /**
+     * Adds node to forest
+     * @param line config file line with node info
+     */
+    private void addNode(String line) {
         String[] parsedLine = line.split(" ");
         int x =  Integer.parseInt(parsedLine[1]);
         int y = Integer.parseInt(parsedLine[2]);
@@ -73,7 +85,11 @@ public class Forest {
         forest.add(newNode);
     }
 
-    public void addEdge(String line) {
+    /**
+     * Adds edge to forest
+     * @param line config file line with edge info
+     */
+    private void addEdge(String line) {
         String[] parsedLine = line.split(" ");
         int x1 = Integer.parseInt(parsedLine[1]);
         int y1 = Integer.parseInt(parsedLine[2]);
@@ -85,7 +101,13 @@ public class Forest {
         edges.add(newEdge);
     }
 
-    public boolean nodeExists(Location location) {
+    /**
+     * Checks if node exists in forest
+     * Used to check if edges, base station and fire node are valid
+     * @param location location of node
+     * @return true or false
+     */
+    private boolean nodeExists(Location location) {
         for(Node n: forest) {
             if(location.equals(n.getLocation())) {
                 return true;
@@ -94,38 +116,98 @@ public class Forest {
         return false;
     }
 
-    public void addFireNode(String line) {
+    /**
+     * Adds fire node to forest
+     * @param line config file line with fire node info
+     */
+    private void addFireNode(String line) {
         String[] parsedLine = line.split(" ");
         int x = Integer.parseInt(parsedLine[1]);
         int y = Integer.parseInt(parsedLine[2]);
         Location loc = new Location(x, y);
-        Node node;
-        if(nodeExists(loc)) {
-            node = findNode(loc);
-            node.setState(Node.State.ONFIRE);
-        }
+        fireNode = new Node(loc, Node.State.NOTONFIRE, GUIStateQueue);
     }
 
-    public void addBaseStation(String line) {
+    /**
+     * Checks if fire node is a valid node in config file
+     * @return true or false
+     */
+    private boolean isValidFireNode() {
+        Node node;
+        if(nodeExists(fireNode.getLocation())) {
+            node = findNode(fireNode.getLocation());
+            fireNode = node;
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Adds base station to forest
+     * @param line config file line with base station info
+     */
+    private void addBaseStation(String line) {
         String[] parsedLine = line.split(" ");
         int x = Integer.parseInt(parsedLine[1]);
         int y = Integer.parseInt(parsedLine[2]);
         Location loc = new Location(x, y);
-        Node node;
-        Node newNode;
-        if (nodeExists(loc)) {
-            node = findNode(loc);
+        baseStation = new Base(loc, Node.State.NOTONFIRE, GUIStateQueue );
+    }
 
-            newNode = new Base(loc, Node.State.NOTONFIRE, GUIStateQueue);
+    /**
+     * Checks if base station is a valid node in config file
+     * @return true or false
+     */
+    private boolean isValidBaseStation() {
+        Node node;
+        if(nodeExists(baseStation.getLocation())) {
+            node = findNode(baseStation.getLocation());
             forest.remove(node);
-            forest.add(newNode);
+            forest.add(baseStation);
+            return true;
+        }
+        return false;
+    }
 
+    /**
+     * Sets Distances from base station for all nodes
+     * Used for agent traversal
+     */
+    private void setDistances() {
+        LinkedList<Node> nodesToVisit = new LinkedList<>();
+        ArrayList<Node> visitedNodes = new ArrayList<>();
+        setDistance(baseStation, nodesToVisit, visitedNodes);
+    }
+
+    /**
+     * Helper function for setDistances()
+     * Sets the distance from the base for each neighbor node
+     * Uses bfs traversal to compute distances
+     * @param node current node
+     * @param nodesToVisit queue of nodes to visit
+     * @param visitedNodes list of visited nodes
+     */
+    private void setDistance(Node node, LinkedList<Node> nodesToVisit, ArrayList<Node> visitedNodes) {
+        int dist = node.getDistanceFromBase();
+        int neighborDist;
+        visitedNodes.add(node);
+        for(Node n: node.getNeighbors()) {
+            neighborDist = n.getDistanceFromBase();
+            if(neighborDist == 0 && !(n instanceof Base)) {
+                n.setDistanceFromBase(dist+1);
+                nodesToVisit.add(n);
+            }
+        }
+        if(!nodesToVisit.isEmpty()) {
+            setDistance(nodesToVisit.poll(), nodesToVisit,visitedNodes);
         }
     }
 
-
-
-    public void connectNodes(Edge edge) {
+    /**
+     * Connects two nodes in the forest
+     * @param edge edge that connects two nodes
+     */
+    private void connectNodes(Edge edge) {
         Location first = edge.getFirst();
         Location second = edge.getSecond();
         for(Node n: forest) {
@@ -138,7 +220,12 @@ public class Forest {
         }
     }
 
-    public Node findNode(Location loc) {
+    /**
+     * Finds the node that corresponds to given location
+     * @param loc given location
+     * @return node with given location
+     */
+    private Node findNode(Location loc) {
         for(Node n: forest) {
             if(n.getLocation().equals(loc)) {
                 return n;
@@ -147,7 +234,10 @@ public class Forest {
         return null;
     }
 
-    public void connectGraph() {
+    /**
+     * Connects nodes together to form graph
+     */
+    private void connectGraph() {
         for(Edge e: edges) {
             if(nodeExists(e.getFirst()) && nodeExists(e.getSecond())) {
                 connectNodes(e);
@@ -155,39 +245,51 @@ public class Forest {
         }
     }
 
-    public void printForest() {
+    /**
+     * Print forest
+     * Used for debugging purposes
+     */
+    private void printForest() {
         for(Node n: forest) {
             n.printNode();
             n.printNeighbors();
+            n.printDistance();
         }
     }
 
-    public void startThreads() {
+    /**
+     * Starts node threads
+     */
+    private void startThreads() {
         for(Node n: forest) {
             new Thread(n).start();
         }
     }
 
+    /**
+     * Starts Simulation
+     */
+    private void startSimulation() {
+        if(isValidBaseStation() && isValidFireNode()) {
+            connectGraph();
+            setDistances();
+            //printForest();
+            startThreads();
+            fireNode.setState(Node.State.ONFIRE);
+        }
+        //not valid config
+        //should we read in another config file?
+    }
 
-
+    /**
+     * Main entry point for simulation
+     * @param args path of config file of graph for simulation
+     */
     public static void main(String[] args) {
         if(args.length > 0) {
             GUIState s = new GUIState();
             Forest f = new Forest(args[0], s);
-            f.connectGraph();
-            //f.printForest();
-            f.startThreads();
-
-            try {
-                sleep(100000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-            for(int i = 0;i<10;i++){
-                System.out.println(s.pollState());
-            }
-
+            f.startSimulation();
         }
     }
 }

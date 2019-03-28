@@ -23,7 +23,7 @@ public class Node implements Runnable {
     private LinkedBlockingQueue<Message> messages = new LinkedBlockingQueue<>();
     private GUIState GUIStateQueue;
     private Agent agent;
-
+    private int distanceFromBase;
 
     //public Node() {}
 
@@ -47,6 +47,8 @@ public class Node implements Runnable {
         this.GUIStateQueue = GUIStateQueue;
         this.location = location;
         this.state = State.NOTONFIRE;
+        distanceFromBase = 0;
+
     }
 
     /**
@@ -155,6 +157,14 @@ public class Node implements Runnable {
         return agent;
     }
 
+
+    public int getDistanceFromBase() {
+        return distanceFromBase;
+    }
+
+    public void setDistanceFromBase(int distance) {
+        this.distanceFromBase = distance;
+    }
     /**
      * prints out the location and state of the node to System out
      */
@@ -173,10 +183,17 @@ public class Node implements Runnable {
         System.out.println();
     }
 
-    public void createAgent(boolean canWalk) {
-            agent = new Agent(getLocation(),this, canWalk);
-            System.out.println("agent created");
-        }
+
+
+    public void printDistance() {
+        System.out.println("Has Distance: " + getDistanceFromBase());
+    }
+
+    public synchronized void createAgent(boolean canWalk) {
+        agent = new Agent(getLocation(),this, canWalk);
+        System.out.println("agent created");
+    }
+
 
 
     @Override
@@ -184,6 +201,7 @@ public class Node implements Runnable {
         while(true) {
             //printNode();
             if(this instanceof Base && agent == null) {
+                System.out.println("create agent");
                 printNode();
                 createAgent(true);
             }

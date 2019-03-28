@@ -1,0 +1,23 @@
+station 6 6
+fire 3 4
+node 6 6
+node 5 4
+node 5 8
+node 4 3
+node 4 5
+node 4 7
+node 4 9
+node 3 4
+node 3 8
+node 3 10
+edge 6 6 5 4
+edge 6 6 5 8
+edge 5 4 4 3
+edge 5 4 4 5
+edge 3 4 4 3
+edge 3 4 4 5
+edge 5 8 4 7
+edge 5 8 4 9
+edge 4 7 4 9
+edge 4 9 3 8
+edge 4 9 3 10 
