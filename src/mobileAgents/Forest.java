@@ -269,7 +269,7 @@ public class Forest {
         if(isValidBaseStation() && isValidFireNode()) {
             connectGraph();
             setDistances();
-            printForest();
+            //printForest();
             startThreads();
             fireNode.setState(Node.State.ONFIRE);
         }
