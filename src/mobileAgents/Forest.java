@@ -112,9 +112,14 @@ public class Forest {
         int y = Integer.parseInt(parsedLine[2]);
         Location loc = new Location(x, y);
         Node node;
+        Node newNode;
         if (nodeExists(loc)) {
             node = findNode(loc);
-            node = new Base(loc, Node.State.ONFIRE, GUIStateQueue);
+
+            newNode = new Base(loc, Node.State.NOTONFIRE, GUIStateQueue);
+            forest.remove(node);
+            forest.add(newNode);
+
         }
     }
 

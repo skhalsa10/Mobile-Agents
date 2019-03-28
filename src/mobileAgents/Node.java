@@ -22,6 +22,10 @@ public class Node implements Runnable {
     private State state;
     private LinkedBlockingQueue<Message> messages = new LinkedBlockingQueue<>();
     private GUIState GUIStateQueue;
+    private Agent agent;
+
+
+    //public Node() {}
 
     /**
      * initializes node with a location and given state is this needed?
@@ -32,6 +36,7 @@ public class Node implements Runnable {
         this.GUIStateQueue = GUIStateQueue;
         this.location = location;
         this.state = state;
+        this.agent = null;
     }
 
     /**
@@ -146,6 +151,10 @@ public class Node implements Runnable {
         return state;
     }
 
+    public Agent getAgent() {
+        return agent;
+    }
+
     /**
      * prints out the location and state of the node to System out
      */
@@ -164,12 +173,21 @@ public class Node implements Runnable {
         System.out.println();
     }
 
-    @Override
-    public void run(){
-        while(state != State.NOTONFIRE) {
-            //printNode();
+    public void createAgent(boolean canWalk) {
+            agent = new Agent(getLocation(),this, canWalk);
+            System.out.println("agent created");
         }
 
+
+    @Override
+    public void run(){
+        while(true) {
+            //printNode();
+            if(this instanceof Base && agent == null) {
+                printNode();
+                createAgent(true);
+            }
+        }
     }
 
     public enum State { ONFIRE, NEARFIRE, NOTONFIRE, DEAD}
