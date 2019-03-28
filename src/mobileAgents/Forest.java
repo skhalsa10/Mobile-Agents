@@ -28,7 +28,7 @@ public class Forest {
             BufferedReader reader = new BufferedReader(new InputStreamReader(in));
             String line;
             while((line = reader.readLine()) != null) {
-                configMessage.appendStr(line);
+                configMessage.appendStr(line+"\n");
                 readInfo(line);
             }
 

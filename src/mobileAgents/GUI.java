@@ -145,8 +145,6 @@ public class GUI extends AnimationTimer {
         this.start();
         isPlaying = true;
 
-        generateTestMessages();
-
 
     }
 
@@ -219,6 +217,7 @@ public class GUI extends AnimationTimer {
      */
     private void initForrest() {
         String[] objects = config.split("\n");
+        //System.out.println(config);
         for(int i = 0; i< objects.length;i++){
             String[] entry = objects[i].split(" ");
             switch(entry[0]){
@@ -337,7 +336,7 @@ public class GUI extends AnimationTimer {
             public void run() {
                 processNextState();
             }
-        }, 5000,10000);
+        }, 1000,10000);
     }
 
     /**

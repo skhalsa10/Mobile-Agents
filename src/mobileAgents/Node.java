@@ -171,7 +171,7 @@ public class Node implements Runnable {
         }
 
     }
-    
+
     public enum State { ONFIRE, NEARFIRE, NOTONFIRE, DEAD}
 
 }
