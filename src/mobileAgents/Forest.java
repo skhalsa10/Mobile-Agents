@@ -17,8 +17,8 @@ import java.util.LinkedList;
 public class Forest {
     private ArrayList<Node> forest = new ArrayList<>();
     private ArrayList<Edge> edges = new ArrayList<>();
-    private Node baseStation;
-    private Node onFireNode;
+    private Base baseStation;
+    private Node fireNode;
 
     /**
      * Constructs the Forest from a config file
@@ -45,7 +45,6 @@ public class Forest {
      * @param line one line in config file
      */
     public void readInfo(String line) {
-        //TODO handle weird config files
         //node info
         if(line.matches("^[nN].*$")) {
             addNode(line);
@@ -56,15 +55,17 @@ public class Forest {
         }
         // base info
         else if(line.matches( "^[sS].*$")) {
-            addBaseStation(line);
-
+            if(baseStation == null) {
+                addBaseStation(line);
+            }
         }
         // fire info
         else if(line.matches("^[fF].*$")) {
-            connectGraph();
-            addFireNode(line);
+            //connectGraph();
+            if(fireNode == null) {
+                addFireNode(line);
+            }
         }
-
     }
 
     /**
@@ -120,11 +121,21 @@ public class Forest {
         int x = Integer.parseInt(parsedLine[1]);
         int y = Integer.parseInt(parsedLine[2]);
         Location loc = new Location(x, y);
+        fireNode = new Node(loc, Node.State.NOTONFIRE);
+    }
+
+    /**
+     * Checks if fire node is a valid node in config file
+     * @return true or false
+     */
+    public boolean isValidFireNode() {
         Node node;
-        if(nodeExists(loc)) {
-            node = findNode(loc);
-            node.setState(Node.State.ONFIRE);
+        if(nodeExists(fireNode.getLocation())) {
+            node = findNode(fireNode.getLocation());
+            fireNode = node;
+            return true;
         }
+        return false;
     }
 
     /**
@@ -136,16 +147,22 @@ public class Forest {
         int x = Integer.parseInt(parsedLine[1]);
         int y = Integer.parseInt(parsedLine[2]);
         Location loc = new Location(x, y);
+        baseStation = new Base(loc, Node.State.NOTONFIRE);
+    }
+
+    /**
+     * Checks if base station is a valid node in config file
+     * @return true or false
+     */
+    public boolean isValidBaseStation() {
         Node node;
-        Node newNode;
-        if (nodeExists(loc)) {
-            node = findNode(loc);
-            newNode = new Base(loc, Node.State.NOTONFIRE);
+        if(nodeExists(baseStation.getLocation())) {
+            node = findNode(baseStation.getLocation());
             forest.remove(node);
-            forest.add(newNode);
-            //set as base
-            baseStation = newNode;
+            forest.add(baseStation);
+            return true;
         }
+        return false;
     }
 
     /**
@@ -231,7 +248,7 @@ public class Forest {
     public void printForest() {
         for(Node n: forest) {
             n.printNode();
-            //n.printNeighbors();
+            n.printNeighbors();
             n.printDistance();
         }
     }
@@ -245,17 +262,27 @@ public class Forest {
         }
     }
 
+    /**
+     * Starts Simulation
+     */
+    private void startSimulation() {
+        if(isValidBaseStation() && isValidFireNode()) {
+            connectGraph();
+            setDistances();
+            printForest();
+            startThreads();
+            fireNode.setState(Node.State.ONFIRE);
+        }
+        //not valid config
+        //should we read in another config file?
+    }
+
 
 
     public static void main(String[] args) {
         if(args.length > 0) {
             Forest f = new Forest(args[0]);
-            //f.connectGraph();
-            //f.printForest();
-            f.startThreads();
-            //f.setDistances();
-            //f.printForest();
-
+            f.startSimulation();
         }
     }
 }
