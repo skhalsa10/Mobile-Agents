@@ -1,0 +1,28 @@
+station 0 0
+fire 5 17
+node 0 0
+node 0 5
+node 0 10
+edge 5 2 10 3
+edge 0 5 10 3
+edge 0 5 0 10
+edge 0 10 5 7
+edge 10 3 5 7
+node 0 15
+node 5 2
+node 5 7
+node 5 12
+node 5 17
+node 10 3
+node 10 15
+edge 0 0 0 5
+edge 0 0 5 2
+edge 5 7 5 12
+edge 0 10 5 12
+edge 0 10 0 15
+edge 0 15 5 17
+edge 0 15 10 15
+edge 5 12 10 15
+edge 10 15 5 17
+station 0 5
+fire 5 12
