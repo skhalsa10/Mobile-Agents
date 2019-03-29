@@ -11,7 +11,7 @@ public class Agent implements Runnable {
     private Node currentNode;
     private boolean canWalk;
     private Stack<Node> visitedPath = new Stack<>();
-    private ArrayList<Node> visitedNodes = new ArrayList<>();
+    private HashSet<Node> visitedNodes = new HashSet<>();
 
     //sendMessage()
 
@@ -32,8 +32,6 @@ public class Agent implements Runnable {
         this.currentLoc = location;
         this.currentNode = node;
         this.canWalk = canWalk;
-        //visitedPath.push(this.currentNode);
-        //visitedNodes.add(this.currentNode);
         new Thread(this).start();
     }
 
@@ -51,38 +49,36 @@ public class Agent implements Runnable {
     }
 
     /**
-     * Makes agent walk one node
-     * Uses a modified dfs traversal
-     * Checks if
+     * Agent walks until a near fire node is found
+     * Uses a dfs traversal
      */
-    private void walkOneNode() {
+    private void walk() {
+        visitedNodes.add(currentNode);
         if(currentNode.getState() == Node.State.NEARFIRE) {
             canWalk = false;
-            makeCopy();
+            System.out.println("Agent should stop walking");
+            return;
         }
         if(hasPath() && canWalk) {
             Node nextNode = walkToNext();
             if(nextNode != null) {
                 visitedPath.push(currentNode);
-                visitedNodes.add(currentNode);
                 currentNode = nextNode;
-                System.out.println("no backtrack");
+                System.out.println("Agent " + uid + " is at: ");
+                currentNode.printNode();
+                walk();
             }
             // back track
             else {
-                if(!visitedPath.isEmpty()) {
+                if(!visitedPath.empty()) {
                     currentNode = visitedPath.pop();
                     System.out.println("backtrack");
+                    System.out.println("Agent " + uid + " is at: ");
+                    currentNode.printNode();
+                    walk();
                 }
-
             }
         }
-        System.out.println("Agent " + uid + " is at: ");
-        currentNode.printNode();
-        if(canWalk) {
-            startWalkTimer();
-        }
-
     }
 
     /**
@@ -96,20 +92,6 @@ public class Agent implements Runnable {
             }
         }
         return false;
-    }
-
-    /**
-     * Timer to make agent walk one node
-     */
-    private void startWalkTimer() {
-        Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                walkOneNode();
-                timer.cancel();
-            }
-        }, 200);
     }
 
     /**
@@ -131,25 +113,11 @@ public class Agent implements Runnable {
      * Chooses the next node to walk to
      * @return next node to walk to
      */
-    /*private Node walkToNext() {
+    private Node walkToNext() {
         ArrayList<Node> availableNodes = new ArrayList<>();
         for(Node n: currentNode.getNeighbors()) {
             if(!visitedNodes.contains(n) && n.getState() != Node.State.ONFIRE) {
                 availableNodes.add(n);
-            }
-        }
-        return pickNextRandomNode(availableNodes);
-    }*/
-    private Node walkToNext() {
-        ArrayList<Node> availableNodes = new ArrayList<>();
-        int nextDistance;
-        int currentDistance = currentNode.getDistanceFromBase();
-        for(Node n: currentNode.getNeighbors()) {
-            if(!visitedNodes.contains(n) && n.getState() != Node.State.ONFIRE) {
-                nextDistance = n.getDistanceFromBase();
-                if(nextDistance >= currentDistance) {
-                    availableNodes.add(n);
-                }
             }
         }
         return pickNextRandomNode(availableNodes);
@@ -161,6 +129,13 @@ public class Agent implements Runnable {
      */
     public void printVisitedNodes() {
         System.out.println("Visited Nodes: ");
+        for(Node n: visitedNodes) {
+            n.printNode();
+        }
+    }
+
+    public void printVisitedPath() {
+        System.out.println("Visited Path: ");
         for(Node n: visitedPath) {
             n.printNode();
         }
@@ -170,9 +145,7 @@ public class Agent implements Runnable {
      * Runs the agent
      */
     public void run() {
-        if(canWalk) {
-            startWalkTimer();
-        }
+        walk();
     }
 
     /**
