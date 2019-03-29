@@ -66,7 +66,6 @@ public class Node implements Runnable {
      * @param nextState
      */
     public synchronized void setState(State nextState) {
-
         state = nextState;
         if(state == State.NEARFIRE) {
             startFireTimer();
@@ -77,6 +76,8 @@ public class Node implements Runnable {
             checkNeighbors(m);
             GUIStateQueue.putState(m);
         }
+        notifyAll();
+        printNode();
     }
 
     /**
@@ -149,7 +150,8 @@ public class Node implements Runnable {
      *
      * @return the current state of the node
      */
-    public State getState() {
+    public synchronized State getState() {
+        notifyAll();
         return state;
     }
 
@@ -190,21 +192,28 @@ public class Node implements Runnable {
     }
 
     public synchronized void createAgent(boolean canWalk) {
-        agent = new Agent(getLocation(),this, canWalk);
-        System.out.println("agent created");
+        Agent newAgent = new Agent(getLocation(),this,canWalk);
+        if(!canWalk) {
+            agent = newAgent;
+        }
+        newAgent.printAgent();
+        printNode();
+    }
+
+    public synchronized void setAgent(Agent agent) {
+        this.agent = agent;
     }
 
 
 
     @Override
     public void run(){
+        if(this instanceof Base && agent == null) {
+            createAgent(true);
+        }
         while(true) {
             //printNode();
-            if(this instanceof Base && agent == null) {
-                System.out.println("create agent");
-                printNode();
-                createAgent(true);
-            }
+
         }
     }
 
