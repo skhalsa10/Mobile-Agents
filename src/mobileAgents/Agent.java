@@ -39,11 +39,12 @@ public class Agent implements Runnable {
      * Makes a copy of the agent on each neighbor that's not on fire
      */
     private synchronized void makeCopy() {
+        System.out.println("Created in copy");
         ArrayList<Node> neighbors = currentNode.getNeighbors();
         for(Node n: neighbors) {
             if(n.getAgent() == null && n.getState() != Node.State.ONFIRE) {
                 n.createAgent(false);
-                n.getAgent().printAgent();
+                //n.getAgent().printAgent();
             }
         }
     }
@@ -52,10 +53,12 @@ public class Agent implements Runnable {
      * Agent walks until a near fire node is found
      * Uses a dfs traversal
      */
+    // Make sure state of next node doesn't change from near fire to on fire
     private void walk() {
         visitedNodes.add(currentNode);
         if(currentNode.getState() == Node.State.NEARFIRE) {
             canWalk = false;
+            currentNode.setAgent(this);
             System.out.println("Agent should stop walking");
             return;
         }
@@ -64,17 +67,17 @@ public class Agent implements Runnable {
             if(nextNode != null) {
                 visitedPath.push(currentNode);
                 currentNode = nextNode;
-                System.out.println("Agent " + uid + " is at: ");
-                currentNode.printNode();
+                //System.out.println("Agent " + uid + " is at: ");
+                //currentNode.printNode();
                 walk();
             }
             // back track
             else {
                 if(!visitedPath.empty()) {
                     currentNode = visitedPath.pop();
-                    System.out.println("backtrack");
-                    System.out.println("Agent " + uid + " is at: ");
-                    currentNode.printNode();
+                    //System.out.println("backtrack");
+                    //System.out.println("Agent " + uid + " is at: ");
+                    //currentNode.printNode();
                     walk();
                 }
             }
@@ -145,7 +148,26 @@ public class Agent implements Runnable {
      * Runs the agent
      */
     public void run() {
-        walk();
+        System.out.println("In run method");
+        printAgent();
+        if(canWalk) {
+            walk();
+        }
+        synchronized (this) {
+            while(currentNode.getState() != Node.State.NEARFIRE) {
+                currentNode.printNode();
+                try {
+                    System.out.println("are you waiting???");
+                    this.wait();
+                }
+                catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            makeCopy();
+        }
+
+
     }
 
     /**
