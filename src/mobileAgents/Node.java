@@ -3,6 +3,7 @@ package mobileAgents;
 import mobileAgents.messages.Message;
 import mobileAgents.messages.MessageGUIFire;
 import mobileAgents.messages.MessageGUINode;
+import mobileAgents.messages.MessageKillAgent;
 
 import java.util.ArrayList;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -69,12 +70,30 @@ public class Node implements Runnable {
     public synchronized void setState(State nextState) {
         state = nextState;
         if(state == State.NEARFIRE) {
-            notifyAgentOfState(state);
+            MessageGUINode message = new MessageGUINode(this.getLocation(),state);
+            /*try {
+                messages.put(message);
+                if(agent != null) {
+                    //printNode();
+                    agent.getMessageFromNode(message);
+                }
+            }
+            catch(InterruptedException e) {
+                System.err.println(e);
+            }*/
+            if(agent != null) {
+                //printNode();
+                agent.getMessageFromNode(message);
+            }
             startFireTimer();
         }
         else if(state == State.ONFIRE) {
             //creating a Message that keeps track of what location is on fire
             MessageGUIFire m = new MessageGUIFire(this.getLocation());
+            MessageKillAgent messageKillAgent = new MessageKillAgent();
+            if(agent != null) {
+                agent.getMessageFromNode(messageKillAgent);
+            }
             checkNeighbors(m);
             GUIStateQueue.putState(m);
         }
@@ -207,10 +226,6 @@ public class Node implements Runnable {
         this.agent = agent;
     }
 
-    public synchronized void notifyAgentOfState(State state) {
-        agent.checkCurrentNodeNearFire(state);
-
-    }
 
 
     @Override

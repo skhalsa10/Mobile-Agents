@@ -1,9 +1,12 @@
 package mobileAgents;
 
 import java.util.*;
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 import mobileAgents.messages.Message;
+import mobileAgents.messages.MessageGUINode;
+import mobileAgents.messages.MessageKillAgent;
 
 /**
  * Agent Class
@@ -16,6 +19,8 @@ public class Agent implements Runnable {
     private Stack<Node> visitedPath = new Stack<>();
     private HashSet<Node> visitedNodes = new HashSet<>();
     private LinkedBlockingQueue<Message> messages = new LinkedBlockingQueue<>();
+    private boolean killAgent = false;
+
 
     //sendMessage()
 
@@ -43,14 +48,20 @@ public class Agent implements Runnable {
      * Makes a copy of the agent on each neighbor that's not on fire
      */
     private synchronized void makeCopy() {
-        System.out.println("Created in copy");
         ArrayList<Node> neighbors = currentNode.getNeighbors();
         for(Node n: neighbors) {
             if(n.getAgent() == null && n.getState() != Node.State.ONFIRE) {
                 n.createAgent(false);
-                n.getAgent().printAgent();
+                //printAgent();
+                //System.out.println("Created agent: ");
+                //n.getAgent().printAgent();
+                System.out.println("Agent " + uid + " created agent " + n.getAgent().getUid());
             }
         }
+    }
+
+    public String getUid() {
+        return uid;
     }
 
     /**
@@ -63,7 +74,9 @@ public class Agent implements Runnable {
         if(currentNode.getState() == Node.State.NEARFIRE) {
             canWalk = false;
             currentNode.setAgent(this);
-            System.out.println("Agent should stop walking");
+            System.out.println("Agent stopped walking at: ");
+            currentNode.printNode();
+            makeCopy();
             return;
         }
         if(hasPath() && canWalk) {
@@ -155,34 +168,39 @@ public class Agent implements Runnable {
         return false;
     }
 
-
-
-
+    public synchronized void getMessageFromNode(Message m) {
+        try {
+            messages.put(m);
+        }
+        catch (InterruptedException e) {
+            System.err.println(e);
+        }
+    }
     /**
      * Runs the agent
      */
     public void run() {
-        System.out.println("In run method");
-        printAgent();
         if(canWalk) {
             walk();
         }
-        synchronized (this) {
-            /*while(currentNode.getState() != Node.State.NEARFIRE) {
-                currentNode.printNode();
-                try {
-                    System.out.println("are you waiting???");
-                    wait();
+        while(!killAgent) {
+            try {
+                Message newMessage = messages.take();
+                if(newMessage instanceof MessageGUINode) {
+                    if(((MessageGUINode) newMessage).getNewState() == Node.State.NEARFIRE){
+                        makeCopy();
+                    }
                 }
-                catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }*/
+                if(newMessage instanceof MessageKillAgent) {
+                    killAgent = true;
 
-            makeCopy();
+                }
+            }
+            catch(InterruptedException e) {
+                System.err.println(e);
+            }
         }
-
-
+        System.out.println("Agent " + uid + " got killed");
     }
 
     /**
