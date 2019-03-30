@@ -269,7 +269,7 @@ public class Forest {
     /**
      * Starts Simulation
      */
-    private void startSimulation() {
+    public void startSimulation() {
         if(isValidBaseStation() && isValidFireNode()) {
             connectGraph();
             setDistances();
