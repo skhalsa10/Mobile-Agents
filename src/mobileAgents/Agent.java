@@ -93,18 +93,22 @@ public class Agent implements Runnable {
             if(nextNode != null) {
                 visitedPath.push(currentNode);
                 currentNode = nextNode;
+                MessageGUIAgent m = new MessageGUIAgent(currentNode.getLocation());
+                m.movedFrom(movedFromNode.getLocation());
+                GUIStateQueue.putState(m);
                 walk();
             }
             // back track
             else {
                 if(!visitedPath.empty()) {
                     currentNode = visitedPath.pop();
+                    MessageGUIAgent m = new MessageGUIAgent(currentNode.getLocation());
+                    m.movedFrom(movedFromNode.getLocation());
+                    GUIStateQueue.putState(m);
                     walk();
                 }
             }
-            MessageGUIAgent m = new MessageGUIAgent(currentNode.getLocation());
-            m.movedFrom(movedFromNode.getLocation());
-            GUIStateQueue.putState(m);
+
         }
     }
 
