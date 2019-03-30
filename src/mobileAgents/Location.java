@@ -18,6 +18,10 @@ public class Location {
     }
 
 
+    /**
+     * Over ride Hashcode needed for overriding Equals and critical if we use inside of hash collections
+     * @return
+     */
     @Override
     public int hashCode() {
         int prime = 31;

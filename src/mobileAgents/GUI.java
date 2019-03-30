@@ -19,6 +19,7 @@ import mobileAgents.Graphics.GUIAgent;
 import mobileAgents.messages.*;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -57,7 +58,7 @@ public class GUI extends AnimationTimer {
     private Timer stateTimer;
     private HashMap<Location,Sensor> sensors;
     private HashMap<Location,GUIAgent> GUIAgents;
-    private HashMap<Location,Location> edges;
+    private HashMap<Location, ArrayList<Location>> edges;
     private LinkedBlockingQueue<Text> textQueue;
     private int largestX;
     private int largestY;
@@ -152,36 +153,33 @@ public class GUI extends AnimationTimer {
      * this method just generates fake state to test.
      */
     private void generateTestMessages() {
-        Message c = new MessageGUIConfig("node 0 0\n" +
-                "node 3 4\n" +
-                "node 2 3\n" +
-                "node 5 5\n" +
-                "edge 0 0 2 3\n" +
-                "edge 2 3 3 4\n" +
-                "edge 3 4 5 5\n" +
-                "edge 5 5 0 0\n" +
-                "station 0 0\n" +
-                "fire 5 5");
-        Message f = new MessageGUIFire(new Location(5,5));
-        ((MessageGUIFire) f).addNearFireLoc(new Location(0,0));
-        ((MessageGUIFire) f).addNearFireLoc(new Location(3,4));
-        MessageGUIAgent a1 = new MessageGUIAgent(new Location(0,0));
-        MessageGUIAgent a2 = new MessageGUIAgent(new Location(2,3));
-        a2.movedFrom(new Location(0,0));
-        System.out.println(a2.getMovedFrom());
-        MessageGUIAgent a3 = new MessageGUIAgent(new Location(3,4));
-        a3.movedFrom(new Location(2,3));
-        MessageGUIAgent a4 = new MessageGUIAgent(new Location(2,3));
-        MessageGUIEnd  e = new MessageGUIEnd();
-
-
+        Message c = new MessageGUIConfig("station 0 0\n" +
+                "fire 8 1\n" +
+                "node 0 0\n" +
+                "edge 6 1 7 2\n" +
+                "edge 7 2 7 0\n" +
+                "edge 7 0 8 1\n" +
+                "node 3 0\n" +
+                "node 5 0\n" +
+                "edge 3 0 5 0\n" +
+                "edge 5 0 4 1\n" +
+                "edge 5 0 6 1\n" +
+                "edge 5 0 7 0\n" +
+                "edge 4 1 6 1\n" +
+                "node 4 1\n" +
+                "node 7 2\n" +
+                "edge 0 0 3 0\n" +
+                "edge 1 1 0 0\n" +
+                "edge 1 1 2 2\n" +
+                "edge 2 2 3 0\n" +
+                "node 6 1\n" +
+                "edge 2 2 4 1\n" +
+                "edge 8 1 7 2\n" +
+                "node 7 0\n" +
+                "node 8 1\n" +
+                "node 1 1\n" +
+                "node 2 2\n");
         state.putState(c);
-        state.putState(f);
-        state.putState(a1);
-        state.putState(a2);
-        state.putState(a3);
-        state.putState(a4);
-        state.putState(e);
 
     }
 
@@ -208,8 +206,8 @@ public class GUI extends AnimationTimer {
     private void setSize() {
         graph.setWidth(largestX*RADIUS+100);
         graph.setHeight(largestY*RADIUS+100);
-        stage.setMinWidth(1400);
-        stage.setMinHeight(1000);
+        stage.setMinWidth(700);
+        stage.setMinHeight(500);
     }
 
     /**
@@ -252,7 +250,10 @@ public class GUI extends AnimationTimer {
                     //get offset location for GUI
                     Location left = getGuiEdgeLoc(lx,ly);
                     Location right = getGuiEdgeLoc(rx,ry);
-                    edges.put(left, right);
+                    if(!edges.containsKey(left)) {
+                        edges.put(left, new ArrayList<>());
+                    }
+                    edges.get(left).add(right);
                     break;
                 }
                 /*case "fire":{
@@ -435,8 +436,11 @@ public class GUI extends AnimationTimer {
 
             //draw the edges first so everything else draws on top.
             gc.setStroke(Color.WHITE);
-            for (Location l : edges.keySet()) {
-                gc.strokeLine(l.getX(), l.getY(), edges.get(l).getX(), edges.get(l).getY());
+            for (Location l1 : edges.keySet()) {
+                for(Location l2: edges.get(l1)){
+                    gc.strokeLine(l1.getX(),l1.getY(),l2.getX(),l2.getY());
+                }
+                //gc.strokeLine(l.getX(), l.getY(), edges.get(l).getX(), edges.get(l).getY());
             }
 
             //draw the sensors after the edges
