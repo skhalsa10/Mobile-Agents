@@ -1,6 +1,11 @@
 package mobileAgents;
 
+import mobileAgents.messages.Message;
+import mobileAgents.messages.MessageAgentKill;
+import mobileAgents.messages.MessageAgentNotify;
+
 import java.util.*;
+import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * Agent Class
@@ -12,6 +17,7 @@ public class Agent implements Runnable {
     private boolean canWalk;
     private Stack<Node> visitedPath = new Stack<>();
     private HashSet<Node> visitedNodes = new HashSet<>();
+    private LinkedBlockingQueue<Message> messages;
 
     //sendMessage()
 
@@ -22,6 +28,7 @@ public class Agent implements Runnable {
      * @param canWalk boolean to determine if agent can walk or not
      */
     public Agent(Location location, Node node, boolean canWalk) {
+        messages = new LinkedBlockingQueue<>();
         //First agent is Alpha
         if(canWalk) {
             this.uid = "Alpha";
@@ -44,7 +51,7 @@ public class Agent implements Runnable {
         for(Node n: neighbors) {
             if(n.getAgent() == null && n.getState() != Node.State.ONFIRE) {
                 n.createAgent(false);
-                //n.getAgent().printAgent();
+                n.getAgent().printAgent();
             }
         }
     }
@@ -153,18 +160,20 @@ public class Agent implements Runnable {
         if(canWalk) {
             walk();
         }
-        synchronized (this) {
-            while(currentNode.getState() != Node.State.NEARFIRE) {
-                currentNode.printNode();
-                try {
-                    System.out.println("are you waiting???");
-                    this.wait();
+
+        try {
+            Message m = messages.take();
+            while(!(m  instanceof MessageAgentKill)){
+                if(m instanceof MessageAgentNotify){
+                    makeCopy();
                 }
-                catch (InterruptedException e) {
-                    e.printStackTrace();
+                else{
+                    System.out.println("An unexpected Message was received...hmm");
                 }
+                m = messages.take();
             }
-            makeCopy();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
 
 
@@ -176,5 +185,13 @@ public class Agent implements Runnable {
      */
     public void printAgent() {
         System.out.println("Agent " + uid);
+    }
+
+    public void sendMessage(Message m){
+        try {
+            messages.put(m);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

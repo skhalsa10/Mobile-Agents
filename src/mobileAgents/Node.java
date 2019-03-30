@@ -1,6 +1,7 @@
 package mobileAgents;
 
 import mobileAgents.messages.Message;
+import mobileAgents.messages.MessageAgentNotify;
 import mobileAgents.messages.MessageGUIFire;
 
 import java.util.ArrayList;
@@ -69,6 +70,9 @@ public class Node implements Runnable {
         state = nextState;
         if(state == State.NEARFIRE) {
             startFireTimer();
+            if(agent != null){
+                agent.sendMessage(new MessageAgentNotify(State.NEARFIRE));
+            }
         }
         else if(state == State.ONFIRE) {
             //creating a Message that keeps track of what location is on fire
@@ -77,7 +81,7 @@ public class Node implements Runnable {
             GUIStateQueue.putState(m);
         }
         notifyAll();
-        printNode();
+        //printNode();
     }
 
     /**
