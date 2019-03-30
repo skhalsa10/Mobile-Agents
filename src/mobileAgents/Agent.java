@@ -36,6 +36,7 @@ public class Agent implements Runnable {
         //First agent is Alpha
         if(canWalk) {
             this.uid = "Alpha";
+            System.out.println("created agent alpha");
         }
         else {
             this.uid = "" + location.getX() + "" + location.getY();
