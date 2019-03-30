@@ -446,7 +446,7 @@ public class GUI extends AnimationTimer {
             //draw the sensors after the edges
             gc.setStroke(Color.BLACK);
             for (Location l : sensors.keySet()) {
-                sensors.get(l).updateAndRender(gc);
+                sensors.get(l).updateAndRender(gc, true);
             }
 
             //TODO we should update and render the agents here.
