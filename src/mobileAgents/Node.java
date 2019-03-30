@@ -69,7 +69,7 @@ public class Node implements Runnable {
     public synchronized void setState(State nextState) {
         state = nextState;
         if(state == State.NEARFIRE) {
-            MessageGUINode nodeMessage = new MessageGUINode(this.getLocation(),state);
+            notifyAgentOfState(state);
             startFireTimer();
         }
         else if(state == State.ONFIRE) {
@@ -157,6 +157,7 @@ public class Node implements Runnable {
         return state;
     }
 
+
     public Agent getAgent() {
         return agent;
     }
@@ -206,6 +207,10 @@ public class Node implements Runnable {
         this.agent = agent;
     }
 
+    public synchronized void notifyAgentOfState(State state) {
+        agent.checkCurrentNodeNearFire(state);
+
+    }
 
 
     @Override

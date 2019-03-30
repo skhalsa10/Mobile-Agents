@@ -18,6 +18,7 @@ public class Main extends Application {
         state = new GUIState();
         gui = new GUI(primaryStage, state);
         forest = new Forest(config,state);
+        forest.startSimulation();
 
     }
 

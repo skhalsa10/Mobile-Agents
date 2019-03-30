@@ -48,7 +48,7 @@ public class Agent implements Runnable {
         for(Node n: neighbors) {
             if(n.getAgent() == null && n.getState() != Node.State.ONFIRE) {
                 n.createAgent(false);
-                //n.getAgent().printAgent();
+                n.getAgent().printAgent();
             }
         }
     }
@@ -148,6 +148,16 @@ public class Agent implements Runnable {
         }
     }
 
+    public synchronized boolean checkCurrentNodeNearFire(Node.State state){
+        if(state == Node.State.NEARFIRE) {
+            return true;
+        }
+        return false;
+    }
+
+
+
+
     /**
      * Runs the agent
      */
@@ -162,12 +172,13 @@ public class Agent implements Runnable {
                 currentNode.printNode();
                 try {
                     System.out.println("are you waiting???");
-                    this.wait();
+                    wait();
                 }
                 catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }*/
+
             makeCopy();
         }
 
