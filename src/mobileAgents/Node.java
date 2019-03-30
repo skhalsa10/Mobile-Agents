@@ -37,6 +37,7 @@ public class Node implements Runnable {
         this.location = location;
         this.state = state;
         this.agent = null;
+        distanceFromBase = 0;
     }
 
     /**
@@ -47,6 +48,7 @@ public class Node implements Runnable {
         this.GUIStateQueue = GUIStateQueue;
         this.location = location;
         this.state = State.NOTONFIRE;
+        this.agent = null;
         distanceFromBase = 0;
 
     }
