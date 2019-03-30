@@ -346,10 +346,12 @@ public class GUI extends AnimationTimer {
     private synchronized void processNextState() {
 
         Message m = state.pollState();
+        //long timestamp
         if (m == null) {
             System.out.println("handling null in queue");
             return;
         }
+
         if(m instanceof MessageGUIConfig){
             System.out.println("should nto be processing a config file this should already be configured");
             return;
