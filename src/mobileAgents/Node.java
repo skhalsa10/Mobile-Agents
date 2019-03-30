@@ -17,13 +17,13 @@ import java.util.TimerTask;
  */
 public class Node implements Runnable {
 
-    private Location location;
-    private ArrayList<Node> neighbors = new ArrayList<>();
-    private State state;
-    private LinkedBlockingQueue<Message> messages = new LinkedBlockingQueue<>();
-    private GUIState GUIStateQueue;
-    private Agent agent;
-    private int distanceFromBase;
+    protected Location location;
+    protected ArrayList<Node> neighbors = new ArrayList<>();
+    protected State state;
+    protected LinkedBlockingQueue<Message> messages = new LinkedBlockingQueue<>();
+    protected GUIState GUIStateQueue;
+    protected Agent agent;
+    protected int distanceFromBase;
 
     //public Node() {}
 
