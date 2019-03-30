@@ -1,6 +1,9 @@
 package mobileAgents;
 
 import java.util.*;
+import java.util.concurrent.LinkedBlockingQueue;
+
+import mobileAgents.messages.Message;
 
 /**
  * Agent Class
@@ -12,6 +15,7 @@ public class Agent implements Runnable {
     private boolean canWalk;
     private Stack<Node> visitedPath = new Stack<>();
     private HashSet<Node> visitedNodes = new HashSet<>();
+    private LinkedBlockingQueue<Message> messages = new LinkedBlockingQueue<>();
 
     //sendMessage()
 
@@ -154,7 +158,7 @@ public class Agent implements Runnable {
             walk();
         }
         synchronized (this) {
-            while(currentNode.getState() != Node.State.NEARFIRE) {
+            /*while(currentNode.getState() != Node.State.NEARFIRE) {
                 currentNode.printNode();
                 try {
                     System.out.println("are you waiting???");
@@ -163,7 +167,7 @@ public class Agent implements Runnable {
                 catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-            }
+            }*/
             makeCopy();
         }
 

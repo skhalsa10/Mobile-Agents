@@ -2,6 +2,7 @@ package mobileAgents;
 
 import mobileAgents.messages.Message;
 import mobileAgents.messages.MessageGUIFire;
+import mobileAgents.messages.MessageGUINode;
 
 import java.util.ArrayList;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -68,6 +69,7 @@ public class Node implements Runnable {
     public synchronized void setState(State nextState) {
         state = nextState;
         if(state == State.NEARFIRE) {
+            MessageGUINode nodeMessage = new MessageGUINode(this.getLocation(),state);
             startFireTimer();
         }
         else if(state == State.ONFIRE) {
