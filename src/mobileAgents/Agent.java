@@ -4,10 +4,7 @@ import java.util.*;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
-import mobileAgents.messages.Message;
-import mobileAgents.messages.MessageGUIAgent;
-import mobileAgents.messages.MessageGUINode;
-import mobileAgents.messages.MessageKillAgent;
+import mobileAgents.messages.*;
 
 /**
  * Agent Class
@@ -211,6 +208,8 @@ public class Agent implements Runnable {
                 System.err.println(e);
             }
         }
+        MessageGUIKillAgent killAgentMessage = new MessageGUIKillAgent(currentNode.getLocation());
+        GUIStateQueue.putState(killAgentMessage);
         System.out.println("Agent " + uid + " got killed");
     }
 
