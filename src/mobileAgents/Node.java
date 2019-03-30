@@ -214,7 +214,7 @@ public class Node implements Runnable {
     }
 
     public synchronized void createAgent(boolean canWalk) {
-        Agent newAgent = new Agent(getLocation(),this,canWalk);
+        Agent newAgent = new Agent(getLocation(),this,canWalk,GUIStateQueue);
         if(!canWalk) {
             agent = newAgent;
         }
@@ -233,7 +233,7 @@ public class Node implements Runnable {
         if(this instanceof Base && agent == null) {
             createAgent(true);
         }
-        while(true) {
+        while(state != State.ONFIRE) {
             //printNode();
 
         }

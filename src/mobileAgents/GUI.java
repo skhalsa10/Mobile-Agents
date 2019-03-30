@@ -336,7 +336,7 @@ public class GUI extends AnimationTimer {
             public void run() {
                 processNextState();
             }
-        }, 1000,10000);
+        }, 500,10000);
     }
 
     /**

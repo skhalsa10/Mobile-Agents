@@ -5,6 +5,7 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 import mobileAgents.messages.Message;
+import mobileAgents.messages.MessageGUIAgent;
 import mobileAgents.messages.MessageGUINode;
 import mobileAgents.messages.MessageKillAgent;
 
@@ -20,6 +21,7 @@ public class Agent implements Runnable {
     private HashSet<Node> visitedNodes = new HashSet<>();
     private LinkedBlockingQueue<Message> messages = new LinkedBlockingQueue<>();
     private boolean killAgent = false;
+    private GUIState GUIStateQueue;
 
 
     //sendMessage()
@@ -30,7 +32,7 @@ public class Agent implements Runnable {
      * @param node node where agent is currently on
      * @param canWalk boolean to determine if agent can walk or not
      */
-    public Agent(Location location, Node node, boolean canWalk) {
+    public Agent(Location location, Node node, boolean canWalk, GUIState GUIStateQueue) {
         //First agent is Alpha
         if(canWalk) {
             this.uid = "Alpha";
@@ -41,6 +43,9 @@ public class Agent implements Runnable {
         this.currentLoc = location;
         this.currentNode = node;
         this.canWalk = canWalk;
+        this.GUIStateQueue = GUIStateQueue;
+        MessageGUIAgent m = new MessageGUIAgent(location);
+        GUIStateQueue.putState(m);
         new Thread(this).start();
     }
 
@@ -52,9 +57,6 @@ public class Agent implements Runnable {
         for(Node n: neighbors) {
             if(n.getAgent() == null && n.getState() != Node.State.ONFIRE) {
                 n.createAgent(false);
-                //printAgent();
-                //System.out.println("Created agent: ");
-                //n.getAgent().printAgent();
                 System.out.println("Agent " + uid + " created agent " + n.getAgent().getUid());
             }
         }
@@ -70,12 +72,18 @@ public class Agent implements Runnable {
      */
     // Make sure state of next node doesn't change from near fire to on fire
     private void walk() {
+        printVisitedPath();
+        Node movedFromNode = currentNode;
         visitedNodes.add(currentNode);
         if(currentNode.getState() == Node.State.NEARFIRE) {
             canWalk = false;
             currentNode.setAgent(this);
             System.out.println("Agent stopped walking at: ");
             currentNode.printNode();
+            //printVisitedPath();
+            MessageGUIAgent m = new MessageGUIAgent(currentLoc);
+            //m.movedFrom(movedFromNode.getLocation());
+            GUIStateQueue.putState(m);
             makeCopy();
             return;
         }
@@ -84,20 +92,18 @@ public class Agent implements Runnable {
             if(nextNode != null) {
                 visitedPath.push(currentNode);
                 currentNode = nextNode;
-                //System.out.println("Agent " + uid + " is at: ");
-                //currentNode.printNode();
                 walk();
             }
             // back track
             else {
                 if(!visitedPath.empty()) {
                     currentNode = visitedPath.pop();
-                    //System.out.println("backtrack");
-                    //System.out.println("Agent " + uid + " is at: ");
-                    //currentNode.printNode();
                     walk();
                 }
             }
+            MessageGUIAgent m = new MessageGUIAgent(currentLoc);
+            m.movedFrom(movedFromNode.getLocation());
+            GUIStateQueue.putState(m);
         }
     }
 
