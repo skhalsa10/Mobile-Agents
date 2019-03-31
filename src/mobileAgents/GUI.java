@@ -216,6 +216,7 @@ public class GUI extends AnimationTimer {
     private void initForrest() {
         String[] objects = config.split("\n");
         //System.out.println(config);
+        Location baseLoc = null;
         for(int i = 0; i< objects.length;i++){
             String[] entry = objects[i].split(" ");
             switch(entry[0]){
@@ -256,7 +257,7 @@ public class GUI extends AnimationTimer {
                     edges.get(left).add(right);
                     break;
                 }
-                /*case "fire":{
+                case "station":{
                     if(entry.length != 3){
                         System.out.println("error parsing fire");
                         System.out.println(entry.length);
@@ -265,13 +266,21 @@ public class GUI extends AnimationTimer {
                     //convert to integer
                     int x = Integer.parseInt(entry[1]);
                     int y = Integer.parseInt(entry[2]);
-                    Location l = getGuiSensorLoc(x,y);
-                    sensors.get(l).setState(Node.State.ONFIRE);
+                    baseLoc = getGuiSensorLoc(x,y);
                     break;
-                }*/
+                }
             }
         }
-
+        //IT assumes that there is only one base. if there needs to be more than one than this should loop over a list
+        if(baseLoc == null){
+            System.out.println("never processed a base station");
+        }
+        else if(!sensors.containsKey(baseLoc)){
+            System.out.println("Station was processed but doesnt have a location that matches a sensor");
+        }
+        else{
+            sensors.get(baseLoc).setAsBase();
+        }
         isInitialized = true;
     }
 
@@ -465,10 +474,10 @@ public class GUI extends AnimationTimer {
             //draw the sensors after the edges
             gc.setStroke(Color.BLACK);
             for (Location l : sensors.keySet()) {
-                sensors.get(l).updateAndRender(gc, true);
+                sensors.get(l).updateAndRender(gc, false);
             }
 
-            //TODO we should update and render the agents here.
+            //render agents
             for (Location l:GUIAgents.keySet()) {
                 if(GUIAgents.get(l) != null){
                     GUIAgents.get(l).updateAndRender(gc);
