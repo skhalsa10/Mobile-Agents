@@ -34,6 +34,8 @@ public class Agent implements Runnable {
         if(canWalk) {
             this.uid = "Alpha";
             System.out.println("created agent alpha");
+            MessageGUIAgent m = new MessageGUIAgent(location);
+            GUIStateQueue.putState(m);
         }
         else {
             this.uid = "" + location.getX() + "" + location.getY();
@@ -42,8 +44,7 @@ public class Agent implements Runnable {
         this.currentNode = node;
         this.canWalk = canWalk;
         this.GUIStateQueue = GUIStateQueue;
-        MessageGUIAgent m = new MessageGUIAgent(currentNode.getLocation());
-        GUIStateQueue.putState(m);
+
         new Thread(this).start();
     }
 
@@ -81,10 +82,6 @@ public class Agent implements Runnable {
             currentNode.setAgent(this);
             System.out.println("Agent stopped walking at: ");
             currentNode.printNode();
-            //printVisitedPath();
-            MessageGUIAgent m = new MessageGUIAgent(currentNode.getLocation());
-            //m.movedFrom(movedFromNode.getLocation());
-            GUIStateQueue.putState(m);
             makeCopy();
             return;
         }
