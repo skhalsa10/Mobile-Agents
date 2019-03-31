@@ -406,15 +406,20 @@ public class GUI extends AnimationTimer {
                 e.printStackTrace();
             }
         }
-        /*if(m instanceof  MessageGUIKillAgent){
-            MessageGUIKillAgent a = (MessageGUIKillAgent)m;
-            Location l = getGuiSensorLoc(a.getLoc().getX(),a.getLoc().getY());
-            if(GUIAgents.containsKey(l)){
-                GUIAgents.replace(l, null);
+        if(m instanceof  MessageGUICopyAgents){
+            MessageGUICopyAgents a = (MessageGUICopyAgents) m;
+            Location l2 = null;
+            //loop through the list and add them to be rendered
+            for(Location l: a.getNewAgentsList()){
+                l2 = getGuiSensorLoc(l.getX(),l.getY());
+                if(GUIAgents.containsKey(l2)){
+                    GUIAgents.replace(l2, new GUIAgent(l2));
+                }
+                else{
+                    System.out.println("Error processing KillAgent");
+                }
             }
-            else{
-                System.out.println("Error processing KillAgent");
-            }
+
             Text t = new Text(a.readMessage());
             t.setId("log-state");
             try {
@@ -422,7 +427,7 @@ public class GUI extends AnimationTimer {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        }*/
+        }
         if(m instanceof MessageGUIEnd){
             simIsOver = true;
             Text t = new Text(m.readMessage());
