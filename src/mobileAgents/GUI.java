@@ -364,8 +364,8 @@ public class GUI extends AnimationTimer {
             if(GUIAgents.containsKey(fl)){
                 if(GUIAgents.get(fl)!= null) {
                     GUIAgents.replace(fl, null);
-                    t2 = new Text("Agent at (" + fl.getX() + "," + fl.getY() + ") is now dead");
-                    t2.setId("log-state");
+                    t2 = new Text("Agent at (" + f.getFireLoc().getX() + "," + f.getFireLoc().getY() + ") is now dead");
+                    t2.setId("log-end");
                 }
             }
 
@@ -374,7 +374,7 @@ public class GUI extends AnimationTimer {
                 sensors.get(getGuiSensorLoc(l.getX(),l.getY())).setState(Node.State.NEARFIRE);
             }
             Text t = new Text(f.readMessage());
-            t.setId("log-state");
+            t.setId("log-fire");
             try {
                 textQueue.put(t);
                 if(t2 != null) {
@@ -483,7 +483,7 @@ public class GUI extends AnimationTimer {
             //draw the sensors after the edges
             gc.setStroke(Color.BLACK);
             for (Location l : sensors.keySet()) {
-                sensors.get(l).updateAndRender(gc, true);
+                sensors.get(l).updateAndRender(gc, false);
             }
 
             //TODO we should update and render the agents here.
