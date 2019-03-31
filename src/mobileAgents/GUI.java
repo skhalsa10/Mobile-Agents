@@ -362,9 +362,11 @@ public class GUI extends AnimationTimer {
             //if an agent exists we need to delete it
             Text t2 = null;
             if(GUIAgents.containsKey(fl)){
-                GUIAgents.replace(fl, null);
-                t2 = new Text("Agent at ("+fl.getX()+","+fl.getY()+") is now dead");
-                t2.setId("log-state");
+                if(GUIAgents.get(fl)!= null) {
+                    GUIAgents.replace(fl, null);
+                    t2 = new Text("Agent at (" + fl.getX() + "," + fl.getY() + ") is now dead");
+                    t2.setId("log-state");
+                }
             }
 
             //now we need to set all the NEARFIRE
