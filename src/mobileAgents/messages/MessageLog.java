@@ -4,17 +4,17 @@ import mobileAgents.Location;
 
 public class MessageLog implements Message{
     private Location createdLoc;
-    private int uid;
+    private String uid;
     private final long timeStamp;
 
-    public MessageLog(int agentUid, Location loc) {
+    public MessageLog(String agentUid, Location loc) {
         this.uid = agentUid;
         this.createdLoc = loc;
         this.timeStamp = System.nanoTime();
     }
     @Override
     public String readMessage() {
-        return "Agent " + uid + "was created near a fire at (" + createdLoc.getX() + "," + createdLoc.getY() + ")";
+        return "Agent " + uid + "is near a fire at (" + createdLoc.getX() + "," + createdLoc.getY() + ")";
     }
 
     @Override

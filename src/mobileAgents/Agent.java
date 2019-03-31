@@ -82,6 +82,8 @@ public class Agent implements Runnable {
             currentNode.setAgent(this);
             System.out.println("Agent stopped walking at: ");
             currentNode.printNode();
+            MessageLog messageLog = new MessageLog(this.uid,currentNode.getLocation());
+            sendMessage(messageLog,currentNode);
             makeCopy();
             return;
         }
@@ -183,6 +185,11 @@ public class Agent implements Runnable {
         catch (InterruptedException e) {
             System.err.println(e);
         }
+    }
+
+
+    public synchronized void sendMessage(Message m, Node receivingNode) {
+        receivingNode.processMessage(m);
     }
     /**
      * Runs the agent

@@ -149,8 +149,17 @@ public class Node implements Runnable {
 
 
     //TODO still need to work on this
-    public void processMessage(Message message) throws InterruptedException {
+    /*public void processMessage(Message message) throws InterruptedException {
         messages.put(message);
+    }*/
+
+    public synchronized void processMessage(Message m) {
+        try {
+            messages.put(m);
+        }
+        catch(InterruptedException e) {
+            System.err.println(e);
+        }
     }
 
     /**
@@ -227,6 +236,23 @@ public class Node implements Runnable {
     public synchronized void setAgent(Agent agent) {
         this.agent = agent;
     }
+
+    public synchronized void sendMessageToBase() {
+        try {
+            Message m = messages.take();
+
+        }
+        catch(InterruptedException e) {
+            System.err.println(e);
+        }
+    }
+
+    public Node pickNextNode() {
+        for(Node n: neighbors) {
+            if(n.getState() != State.ONFIRE && )
+        }
+    }
+
 
 
 
