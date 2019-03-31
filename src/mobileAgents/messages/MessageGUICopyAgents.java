@@ -56,7 +56,6 @@ public class MessageGUICopyAgents implements Message {
     public String readMessage() {
         StringBuilder output = new StringBuilder();
         String s = null;
-        output.append(s);
         for (Location l: newAgents) {
             s = "New Agent has been created at (" + l.getX()+","+l.getY()+ ")\n";
             output.append(s);
