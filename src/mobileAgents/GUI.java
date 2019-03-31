@@ -216,6 +216,7 @@ public class GUI extends AnimationTimer {
     private void initForrest() {
         String[] objects = config.split("\n");
         //System.out.println(config);
+        Location baseLoc = null;
         for(int i = 0; i< objects.length;i++){
             String[] entry = objects[i].split(" ");
             switch(entry[0]){
@@ -256,7 +257,7 @@ public class GUI extends AnimationTimer {
                     edges.get(left).add(right);
                     break;
                 }
-                /*case "fire":{
+                case "station":{
                     if(entry.length != 3){
                         System.out.println("error parsing fire");
                         System.out.println(entry.length);
@@ -265,13 +266,21 @@ public class GUI extends AnimationTimer {
                     //convert to integer
                     int x = Integer.parseInt(entry[1]);
                     int y = Integer.parseInt(entry[2]);
-                    Location l = getGuiSensorLoc(x,y);
-                    sensors.get(l).setState(Node.State.ONFIRE);
+                    baseLoc = getGuiSensorLoc(x,y);
                     break;
-                }*/
+                }
             }
         }
-
+        //IT assumes that there is only one base. if there needs to be more than one than this should loop over a list
+        if(baseLoc == null){
+            System.out.println("never processed a base station");
+        }
+        else if(!sensors.containsKey(baseLoc)){
+            System.out.println("Station was processed but doesnt have a location that matches a sensor");
+        }
+        else{
+            sensors.get(baseLoc).setAsBase();
+        }
         isInitialized = true;
     }
 
@@ -346,81 +355,96 @@ public class GUI extends AnimationTimer {
     private synchronized void processNextState() {
 
         Message m = state.pollState();
+        long timestamp = 0;
         if (m == null) {
             System.out.println("handling null in queue");
             return;
         }
-        if(m instanceof MessageGUIConfig){
-            System.out.println("should nto be processing a config file this should already be configured");
-            return;
-        }
-        if(m instanceof MessageGUIFire){
-            MessageGUIFire f = (MessageGUIFire) m;
-            //first we will change the fire node
-            sensors.get(getGuiSensorLoc(f.getFireLoc().getX(),f.getFireLoc().getY())).setState(Node.State.ONFIRE);
-            //now we need to set all the NEARFIRE
-            for(Location l: f.getNearFireList()){
-                sensors.get(getGuiSensorLoc(l.getX(),l.getY())).setState(Node.State.NEARFIRE);
+        //this marks the beginning of the time slice the goal is to capture
+        // all the bursts of state change that essentially happen at the same time
+        timestamp = m.getTimeStamp();
+        do {
+            if (m instanceof MessageGUIConfig) {
+                System.out.println("should nto be processing a config file this should already be configured");
+                return;
             }
-            Text t = new Text(f.readMessage());
-            t.setId("log-state");
-            try {
-                textQueue.put(t);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            if (m instanceof MessageGUIFire) {
+                MessageGUIFire f = (MessageGUIFire) m;
+                //first we will change the fire node
+                sensors.get(getGuiSensorLoc(f.getFireLoc().getX(), f.getFireLoc().getY())).setState(Node.State.ONFIRE);
+                //now we need to set all the NEARFIRE
+                for (Location l : f.getNearFireList()) {
+                    sensors.get(getGuiSensorLoc(l.getX(), l.getY())).setState(Node.State.NEARFIRE);
+                }
+                Text t = new Text(f.readMessage());
+                t.setId("log-state");
+                try {
+                    textQueue.put(t);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
 
-        }
-        if(m instanceof MessageGUIAgent){
-            MessageGUIAgent a = (MessageGUIAgent) m;
-            //first process removing the move from
-            if(a.getMovedFrom() != null){
-                Location l = getGuiSensorLoc(a.getMovedFrom().getX(),a.getMovedFrom().getY());
-                if(!GUIAgents.containsKey(l)){
-                    System.out.println("GUI AGENT ERROR");
-                }else{
-                    GUIAgents.replace(l, null);
+            }
+            if (m instanceof MessageGUIAgent) {
+                MessageGUIAgent a = (MessageGUIAgent) m;
+                //first process removing the move from
+                if (a.getMovedFrom() != null) {
+                    Location l = getGuiSensorLoc(a.getMovedFrom().getX(), a.getMovedFrom().getY());
+                    if (!GUIAgents.containsKey(l)) {
+                        System.out.println("GUI AGENT ERROR");
+                    } else {
+                        GUIAgents.replace(l, null);
+                    }
+                }
+                //now deal with the new Agent
+                Location l = getGuiSensorLoc(a.getAgentLoc().getX(), a.getAgentLoc().getY());
+                GUIAgents.replace(l, new GUIAgent(l));
+                //create text for log
+                Text t = new Text(a.readMessage());
+                t.setId("log-state");
+                try {
+                    textQueue.put(t);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
-            //now deal with the new Agent
-            Location l = getGuiSensorLoc(a.getAgentLoc().getX(),a.getAgentLoc().getY());
-            GUIAgents.replace(l, new GUIAgent(l));
-            //create text for log
-            Text t = new Text(a.readMessage());
-            t.setId("log-state");
-            try {
-                textQueue.put(t);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            if (m instanceof MessageGUIKillAgent) {
+                MessageGUIKillAgent a = (MessageGUIKillAgent) m;
+                Location l = getGuiSensorLoc(a.getLoc().getX(), a.getLoc().getY());
+                if (GUIAgents.containsKey(l)) {
+                    GUIAgents.replace(l, null);
+                } else {
+                    System.out.println("Error processing KillAgent");
+                }
+                Text t = new Text(a.readMessage());
+                t.setId("log-state");
+                try {
+                    textQueue.put(t);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
-        }
-        if(m instanceof  MessageGUIKillAgent){
-            MessageGUIKillAgent a = (MessageGUIKillAgent)m;
-            Location l = getGuiSensorLoc(a.getLoc().getX(),a.getLoc().getY());
-            if(GUIAgents.containsKey(l)){
-                GUIAgents.replace(l, null);
+            if (m instanceof MessageGUIEnd) {
+                simIsOver = true;
+                Text t = new Text(m.readMessage());
+                t.setId("log-end");
+                try {
+                    textQueue.put(t);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            if(state.peekState() == null){
+                m = null;
+            }
+            else if((state.peekState().getTimeStamp()-timestamp) > 500){
+                m = null;
             }
             else{
-                System.out.println("Error processing KillAgent");
+                //System.out.println();
+                m = state.pollState();
             }
-            Text t = new Text(a.readMessage());
-            t.setId("log-state");
-            try {
-                textQueue.put(t);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-        if(m instanceof MessageGUIEnd){
-            simIsOver = true;
-            Text t = new Text(m.readMessage());
-            t.setId("log-end");
-            try {
-                textQueue.put(t);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+        }while(m != null);
     }
 
 
@@ -463,10 +487,10 @@ public class GUI extends AnimationTimer {
             //draw the sensors after the edges
             gc.setStroke(Color.BLACK);
             for (Location l : sensors.keySet()) {
-                sensors.get(l).updateAndRender(gc, true);
+                sensors.get(l).updateAndRender(gc, false);
             }
 
-            //TODO we should update and render the agents here.
+            //render agents
             for (Location l:GUIAgents.keySet()) {
                 if(GUIAgents.get(l) != null){
                     GUIAgents.get(l).updateAndRender(gc);

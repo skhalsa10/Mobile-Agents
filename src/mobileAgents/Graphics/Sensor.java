@@ -19,8 +19,10 @@ public class Sensor{
     private Node.State state;
     private Paint color;
     private int radius;
+    private boolean isBase;
 
     public Sensor(Location location){
+        isBase = false;
         particles  = new ArrayList<>();
         emitter = new FireEmitter();
         this.x = (double)location.getX();
@@ -50,11 +52,19 @@ public class Sensor{
                 break;
             }
         }
+        if(isBase){
+            color = Color.GREEN;
+        }
         this.state = state;
     }
 
     public Location getLocation() {
         return location;
+    }
+
+    public void setAsBase(){
+        this.isBase = isBase;
+        color = Color.GREEN;
     }
 
     /*public void update(){

@@ -33,12 +33,14 @@ public class MessageGUIConfig implements Message {
     }
 
     public MessageGUIConfig(String string){
+        string = string.toLowerCase();
 
         configRep = new StringBuilder(string);
         this.timeStamp = System.nanoTime();
     }
 
     public void appendStr(String s){
+        s = s.toLowerCase();
         configRep.append(s);
     }
 
