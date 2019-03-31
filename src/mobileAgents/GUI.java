@@ -438,10 +438,11 @@ public class GUI extends AnimationTimer {
                 m = null;
             }
             else if((state.peekState().getTimeStamp()-timestamp) > 500){
+                System.out.println((state.peekState().getTimeStamp()-timestamp));
                 m = null;
             }
             else{
-                //System.out.println();
+                System.out.println((state.peekState().getTimeStamp()-timestamp));
                 m = state.pollState();
             }
         }while(m != null);
