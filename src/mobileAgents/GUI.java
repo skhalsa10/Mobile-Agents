@@ -357,7 +357,16 @@ public class GUI extends AnimationTimer {
         if(m instanceof MessageGUIFire){
             MessageGUIFire f = (MessageGUIFire) m;
             //first we will change the fire node
-            sensors.get(getGuiSensorLoc(f.getFireLoc().getX(),f.getFireLoc().getY())).setState(Node.State.ONFIRE);
+            Location fl = getGuiSensorLoc(f.getFireLoc().getX(),f.getFireLoc().getY());
+            sensors.get(fl).setState(Node.State.ONFIRE);
+            //if an agent exists we need to delete it
+            Text t2 = null;
+            if(GUIAgents.containsKey(fl)){
+                GUIAgents.replace(fl, null);
+                t2 = new Text("Agent at ("+fl.getX()+","+fl.getY()+") is now dead");
+                t2.setId("log-state");
+            }
+
             //now we need to set all the NEARFIRE
             for(Location l: f.getNearFireList()){
                 sensors.get(getGuiSensorLoc(l.getX(),l.getY())).setState(Node.State.NEARFIRE);
@@ -366,6 +375,9 @@ public class GUI extends AnimationTimer {
             t.setId("log-state");
             try {
                 textQueue.put(t);
+                if(t2 != null) {
+                    textQueue.put(t2);
+                }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -394,7 +406,7 @@ public class GUI extends AnimationTimer {
                 e.printStackTrace();
             }
         }
-        if(m instanceof  MessageGUIKillAgent){
+        /*if(m instanceof  MessageGUIKillAgent){
             MessageGUIKillAgent a = (MessageGUIKillAgent)m;
             Location l = getGuiSensorLoc(a.getLoc().getX(),a.getLoc().getY());
             if(GUIAgents.containsKey(l)){
@@ -410,7 +422,7 @@ public class GUI extends AnimationTimer {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        }
+        }*/
         if(m instanceof MessageGUIEnd){
             simIsOver = true;
             Text t = new Text(m.readMessage());
@@ -421,6 +433,7 @@ public class GUI extends AnimationTimer {
                 e.printStackTrace();
             }
         }
+        
     }
 
 
