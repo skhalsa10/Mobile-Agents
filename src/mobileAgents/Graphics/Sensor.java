@@ -57,7 +57,7 @@ public class Sensor{
         return location;
     }
 
-    public void update(){
+    /*public void update(){
         if (state == Node.State.ONFIRE){
                 particles.addAll(emitter.emit(x, y));
                 Iterator<Particle> it = particles.iterator();
@@ -72,9 +72,9 @@ public class Sensor{
                 }
             }
 
-    }
+    }*/
 
-    public void render(GraphicsContext gc){
+    /*public void render(GraphicsContext gc){
         if(state == Node.State.ONFIRE) {
             Iterator<Particle> it = particles.iterator();
 
@@ -86,11 +86,11 @@ public class Sensor{
             gc.setFill(color);
             gc.fillOval(x,y,radius,radius);
         }
-    }
+    }*/
 
-    public void updateAndRender(GraphicsContext gc){
+    public void updateAndRender(GraphicsContext gc, boolean basicRender){
 
-        if(state == Node.State.ONFIRE) {
+        if(!basicRender && state == Node.State.ONFIRE) {
 
             particles.addAll(emitter.emit(x, y));
 

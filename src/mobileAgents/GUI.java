@@ -396,6 +396,23 @@ public class GUI extends AnimationTimer {
                 e.printStackTrace();
             }
         }
+        if(m instanceof  MessageGUIKillAgent){
+            MessageGUIKillAgent a = (MessageGUIKillAgent)m;
+            Location l = getGuiSensorLoc(a.getLoc().getX(),a.getLoc().getY());
+            if(GUIAgents.containsKey(l)){
+                GUIAgents.replace(l, null);
+            }
+            else{
+                System.out.println("Error processing KillAgent");
+            }
+            Text t = new Text(a.readMessage());
+            t.setId("log-state");
+            try {
+                textQueue.put(t);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
         if(m instanceof MessageGUIEnd){
             simIsOver = true;
             Text t = new Text(m.readMessage());
@@ -448,7 +465,7 @@ public class GUI extends AnimationTimer {
             //draw the sensors after the edges
             gc.setStroke(Color.BLACK);
             for (Location l : sensors.keySet()) {
-                sensors.get(l).updateAndRender(gc);
+                sensors.get(l).updateAndRender(gc, true);
             }
 
             //TODO we should update and render the agents here.
