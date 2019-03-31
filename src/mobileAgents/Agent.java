@@ -52,12 +52,15 @@ public class Agent implements Runnable {
      */
     private synchronized void makeCopy() {
         ArrayList<Node> neighbors = currentNode.getNeighbors();
+        MessageGUICopyAgents m = new MessageGUICopyAgents();
         for(Node n: neighbors) {
             if(n.getAgent() == null && n.getState() != Node.State.ONFIRE) {
+                m.putNewAgentLoc(n.getLocation());
                 n.createAgent(false);
                 System.out.println("Agent " + uid + " created agent " + n.getAgent().getUid());
             }
         }
+        GUIStateQueue.putState(m);
     }
 
     public String getUid() {
