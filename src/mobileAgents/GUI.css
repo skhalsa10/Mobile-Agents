@@ -33,6 +33,11 @@
     -fx-font-size: 20;
     -fx-font-family:   "cursive";
 }
+#log-fire{
+    -fx-fill: yellow;
+    -fx-font-size: 20;
+    -fx-font-family:   "cursive";
+}
 
 .scroll-pane{
     -fx-background: black;

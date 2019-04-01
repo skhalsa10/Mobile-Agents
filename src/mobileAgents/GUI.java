@@ -62,7 +62,7 @@ public class GUI extends AnimationTimer {
     private LinkedBlockingQueue<Text> textQueue;
     private int largestX;
     private int largestY;
-    private GUIAgent a;
+    private Location baseLoc;
 
     public GUI(Stage stage, GUIState state){
         //set stage up
@@ -256,7 +256,7 @@ public class GUI extends AnimationTimer {
                     edges.get(left).add(right);
                     break;
                 }
-                /*case "fire":{
+                case "station":{
                     if(entry.length != 3){
                         System.out.println("error parsing fire");
                         System.out.println(entry.length);
@@ -265,12 +265,13 @@ public class GUI extends AnimationTimer {
                     //convert to integer
                     int x = Integer.parseInt(entry[1]);
                     int y = Integer.parseInt(entry[2]);
-                    Location l = getGuiSensorLoc(x,y);
-                    sensors.get(l).setState(Node.State.ONFIRE);
+                    baseLoc = getGuiSensorLoc(x,y);
                     break;
-                }*/
+                }
             }
         }
+
+        sensors.get(baseLoc).setAsBase();
 
         isInitialized = true;
     }
@@ -337,7 +338,7 @@ public class GUI extends AnimationTimer {
             public void run() {
                 processNextState();
             }
-        }, 1000,10000);
+        }, 1000,1000);
     }
 
     /**
@@ -346,7 +347,7 @@ public class GUI extends AnimationTimer {
     private synchronized void processNextState() {
 
         Message m = state.pollState();
-        if (m == null) {
+        if(m == null) {
             System.out.println("handling null in queue");
             return;
         }
@@ -357,15 +358,29 @@ public class GUI extends AnimationTimer {
         if(m instanceof MessageGUIFire){
             MessageGUIFire f = (MessageGUIFire) m;
             //first we will change the fire node
-            sensors.get(getGuiSensorLoc(f.getFireLoc().getX(),f.getFireLoc().getY())).setState(Node.State.ONFIRE);
+            Location fl = getGuiSensorLoc(f.getFireLoc().getX(),f.getFireLoc().getY());
+            sensors.get(fl).setState(Node.State.ONFIRE);
+            //if an agent exists we need to delete it
+            Text t2 = null;
+            if(GUIAgents.containsKey(fl)){
+                if(GUIAgents.get(fl)!= null) {
+                    GUIAgents.replace(fl, null);
+                    t2 = new Text("Agent at (" + f.getFireLoc().getX() + "," + f.getFireLoc().getY() + ") is now dead");
+                    t2.setId("log-end");
+                }
+            }
+
             //now we need to set all the NEARFIRE
             for(Location l: f.getNearFireList()){
                 sensors.get(getGuiSensorLoc(l.getX(),l.getY())).setState(Node.State.NEARFIRE);
             }
             Text t = new Text(f.readMessage());
-            t.setId("log-state");
+            t.setId("log-fire");
             try {
                 textQueue.put(t);
+                if(t2 != null) {
+                    textQueue.put(t2);
+                }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -394,6 +409,37 @@ public class GUI extends AnimationTimer {
                 e.printStackTrace();
             }
         }
+        if(m instanceof MessageGUICopyAgents){
+            MessageGUICopyAgents a = (MessageGUICopyAgents) m;
+            Location l2 = null;
+            //loop through the list and add them to be rendered
+            for(Location l: a.getNewAgentsList()){
+                l2 = getGuiSensorLoc(l.getX(),l.getY());
+                if(GUIAgents.containsKey(l2)){
+                    GUIAgents.replace(l2, new GUIAgent(l2));
+                }
+                else{
+                    System.out.println("Error processing KillAgent");
+                }
+            }
+
+            Text t = new Text(a.readMessage());
+            t.setId("log-state");
+            try {
+                textQueue.put(t);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        if(m instanceof MessageLog){
+            Text t = new Text(m.readMessage());
+            t.setId("log-log");
+            try {
+                textQueue.put(t);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
         if(m instanceof MessageGUIEnd){
             simIsOver = true;
             Text t = new Text(m.readMessage());
@@ -404,6 +450,7 @@ public class GUI extends AnimationTimer {
                 e.printStackTrace();
             }
         }
+        
     }
 
 
@@ -446,7 +493,7 @@ public class GUI extends AnimationTimer {
             //draw the sensors after the edges
             gc.setStroke(Color.BLACK);
             for (Location l : sensors.keySet()) {
-                sensors.get(l).updateAndRender(gc);
+                sensors.get(l).updateAndRender(gc, false);
             }
 
             //TODO we should update and render the agents here.

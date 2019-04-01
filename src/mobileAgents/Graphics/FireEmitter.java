@@ -12,14 +12,14 @@ public class FireEmitter implements Emitter {
 
         ArrayList<Particle> particles = new ArrayList<>();
 
-        int numP = 2;
+        int numP = 1;
 
         //new Point2D((Math.random()-.5)*.8,Math.random()*-1.5)
         //Color.rgb(240,66,0)
 
         for(int i = 0; i < numP;i++){
             Particle p = new Particle(x,y,new Point2D((Math.random()-.5)*.8,(Math.random())*-2),
-                    20,.7, Color.rgb(240,26,10), BlendMode.ADD);
+                    20,.3, Color.rgb(240,26,10), BlendMode.ADD);
             particles.add(p);
         }
 

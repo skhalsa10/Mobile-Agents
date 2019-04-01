@@ -57,40 +57,13 @@ public class Sensor{
         return location;
     }
 
-    public void update(){
-        if (state == Node.State.ONFIRE){
-                particles.addAll(emitter.emit(x, y));
-                Iterator<Particle> it = particles.iterator();
-
-                while (it.hasNext()) {
-                    Particle p = it.next();
-                    p.update();
-
-                    if (!p.isAlive()) {
-                        it.remove();
-                    }
-                }
-            }
-
+    public void setAsBase(){
+        color = Color.GREEN;
     }
 
-    public void render(GraphicsContext gc){
-        if(state == Node.State.ONFIRE) {
-            Iterator<Particle> it = particles.iterator();
+    public void updateAndRender(GraphicsContext gc, boolean basicRender){
 
-            while (it.hasNext()) {
-                Particle p = it.next();
-                p.render(gc);
-            }
-        }else{
-            gc.setFill(color);
-            gc.fillOval(x,y,radius,radius);
-        }
-    }
-
-    public void updateAndRender(GraphicsContext gc){
-
-        if(state == Node.State.ONFIRE) {
+        if(!basicRender && state == Node.State.ONFIRE) {
 
             particles.addAll(emitter.emit(x, y));
 
