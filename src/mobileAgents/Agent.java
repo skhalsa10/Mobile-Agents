@@ -39,6 +39,8 @@ public class Agent implements Runnable {
         }
         else {
             this.uid = "" + location.getX() + "" + location.getY();
+            MessageLog messageLog = new MessageLog(this.uid,location);
+            sendMessage(messageLog,node);
         }
         this.currentLoc = location;
         this.currentNode = node;
@@ -67,6 +69,8 @@ public class Agent implements Runnable {
     public String getUid() {
         return uid;
     }
+
+
 
     /**
      * Agent walks until a near fire node is found

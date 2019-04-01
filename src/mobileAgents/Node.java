@@ -74,16 +74,6 @@ public class Node implements Runnable {
         state = nextState;
         if(state == State.NEARFIRE) {
             MessageGUINode message = new MessageGUINode(this.getLocation(),state);
-            /*try {
-                messages.put(message);
-                if(agent != null) {
-                    //printNode();
-                    agent.getMessageFromNode(message);
-                }
-            }
-            catch(InterruptedException e) {
-                System.err.println(e);
-            }*/
             if(agent != null) {
                 //printNode();
                 agent.getMessageFromNode(message);
@@ -131,12 +121,10 @@ public class Node implements Runnable {
         return false;
     }
 
-    //TODO public synchronized? sendMessage();
-
     /**
      * this method will start the fire timer which will change the state of this node to ONFIRE
      */
-    public synchronized void startFireTimer() {
+    private synchronized void startFireTimer() {
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
@@ -148,12 +136,10 @@ public class Node implements Runnable {
         }, 2000);
     }
 
-
-    //TODO still need to work on this
-    /*public void processMessage(Message message) throws InterruptedException {
-        messages.put(message);
-    }*/
-
+    /**
+     * Processes a given message
+     * @param m message that was received
+     */
     public synchronized void processMessage(Message m) {
         try {
             messages.put(m);
@@ -188,19 +174,32 @@ public class Node implements Runnable {
         return state;
     }
 
-
+    /**
+     * Gets the agent on this node
+     * @return agent on node
+     */
     public Agent getAgent() {
         return agent;
     }
 
-
+    /**
+     * Gets distance from base
+     * Used for message routing
+     * @return distance from base
+     */
     public int getDistanceFromBase() {
         return distanceFromBase;
     }
 
+    /**
+     * Sets the distance from base
+     * Used for message routing
+     * @param distance distance from base
+     */
     public void setDistanceFromBase(int distance) {
         this.distanceFromBase = distance;
     }
+
     /**
      * prints out the location and state of the node to System out
      */
@@ -219,12 +218,17 @@ public class Node implements Runnable {
         System.out.println();
     }
 
-
-
+    /**
+     * Prints distance for debugging purposes
+     */
     public void printDistance() {
         System.out.println("Has Distance: " + getDistanceFromBase());
     }
 
+    /**
+     * Create Agent at this node
+     * @param canWalk determines if node can walk or not
+     */
     public synchronized void createAgent(boolean canWalk) {
         Agent newAgent = new Agent(getLocation(),this,canWalk,GUIStateQueue);
         if(!canWalk) {
@@ -234,21 +238,20 @@ public class Node implements Runnable {
         printNode();
     }
 
+    /**
+     * Sets the agent at this node
+     * @param agent agent on this node
+     */
     public synchronized void setAgent(Agent agent) {
         this.agent = agent;
     }
 
-    public synchronized void sendMessageToBase() {
-        try {
-            Message m = messages.take();
 
-        }
-        catch(InterruptedException e) {
-            System.err.println(e);
-        }
-    }
-
-    public boolean canSendMessage() {
+    /**
+     * Checks to see if a message can be sent
+     * @return true or false
+     */
+    private boolean canSendMessage() {
         for(Node n: neighbors) {
             if(n.getState() != State.ONFIRE) {
                 return true;
@@ -257,18 +260,49 @@ public class Node implements Runnable {
         return false;
     }
 
-    private Node getRandomNextNode(ArrayList<Node> availableNodes) {
-        if(availableNodes.isEmpty()) {
-            return null;
+    /**
+     * In the case where there isn't a neighbor node closest to base
+     * pick any node
+     * @return node that was picked
+     */
+    private Node chooseAnyNode() {
+        ArrayList<Node> availableNodes = new ArrayList<>();
+        for(Node n: neighbors) {
+            if(n.getState() != State.ONFIRE) {
+                availableNodes.add(n);
+            }
         }
+        return getRandomNextNode(availableNodes);
+    }
+
+    /**
+     * Randomly picks any node for the list of available nodes
+     * according to distance from base
+     * @param availableNodes list of available nodes
+     * @return node to send message to
+     */
+    private Node getRandomNextNode(ArrayList<Node> availableNodes) {
         Random rand = new Random();
-        int i = rand.nextInt(availableNodes.size());
+        int i;
+        if(availableNodes.isEmpty()) {
+            return chooseAnyNode();
+        }
+        i = rand.nextInt(availableNodes.size());
         return availableNodes.get(i);
     }
 
-    public Node pickNextNode() {
+    /**
+     * Picks the next node to send message to
+     * @return next node to receive message
+     */
+    private Node pickNextNode() {
         ArrayList<Node> availableNodes = new ArrayList<>();
         for(Node n: neighbors) {
+            // Send immediately to base
+            if(n instanceof Base) {
+                return n;
+            }
+            // Send message to node closest to base
             if(n.getState() != State.ONFIRE && n.getDistanceFromBase() <= distanceFromBase) {
                 availableNodes.add(n);
             }
@@ -279,11 +313,9 @@ public class Node implements Runnable {
 
 
 
+
     @Override
     public void run(){
-        if(this instanceof Base && agent == null) {
-            createAgent(true);
-        }
         while(state != State.ONFIRE) {
             try {
                 Message newMessage = messages.take();
@@ -296,7 +328,6 @@ public class Node implements Runnable {
             catch(InterruptedException e) {
                 System.err.println(e);
             }
-
         }
     }
 
