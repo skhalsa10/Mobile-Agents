@@ -88,7 +88,7 @@ public class Agent implements Runnable {
             currentNode.printNode();
             MessageLog messageLog = new MessageLog(this.uid,currentNode.getLocation());
             sendMessage(messageLog,currentNode);
-            makeCopy();
+            //makeCopy();
             return;
         }
         if(hasPath() && canWalk) {
@@ -168,6 +168,9 @@ public class Agent implements Runnable {
         }
     }
 
+    /**
+     * Prints visited path for debugging purposes
+     */
     public void printVisitedPath() {
         System.out.println("Visited Path: ");
         for(Node n: visitedPath) {
@@ -175,13 +178,10 @@ public class Agent implements Runnable {
         }
     }
 
-    public synchronized boolean checkCurrentNodeNearFire(Node.State state){
-        if(state == Node.State.NEARFIRE) {
-            return true;
-        }
-        return false;
-    }
-
+    /**
+     * Gets message from node
+     * @param m message from node
+     */
     public synchronized void getMessageFromNode(Message m) {
         try {
             messages.put(m);
@@ -191,8 +191,12 @@ public class Agent implements Runnable {
         }
     }
 
-
-    public synchronized void sendMessage(Message m, Node receivingNode) {
+    /**
+     * Sends message to the node it's on
+     * @param m message to be sent
+     * @param receivingNode node agent is on
+     */
+    private synchronized void sendMessage(Message m, Node receivingNode) {
         receivingNode.processMessage(m);
     }
     /**
@@ -201,6 +205,9 @@ public class Agent implements Runnable {
     public void run() {
         if(canWalk) {
             walk();
+        }
+        if(currentNode.getState() == Node.State.NEARFIRE) {
+            makeCopy();
         }
         while(!killAgent) {
             try {
