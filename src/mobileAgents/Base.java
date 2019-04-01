@@ -29,7 +29,7 @@ public class Base extends Node{
         createAgent(true);
         Message m = null;
         //TODO what if this thread is sleeping waiting for messages while it goes on fire. a node can never receive a message while it is on fire so it will never wake up and close gracefully. we may need to send a message to itsself while it changes to onfire.
-        while(!(state == State.ONFIRE)){
+        while(state != State.ONFIRE){
             try {
                 m = messages.take();
                 log.logMessage(m);
