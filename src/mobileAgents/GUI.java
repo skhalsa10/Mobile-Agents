@@ -431,7 +431,7 @@ public class GUI extends AnimationTimer {
                 e.printStackTrace();
             }
         }
-        if(m instanceof MessageLog){
+        if(m instanceof MessageGUILog){
             Text t = new Text(m.readMessage());
             t.setId("log-log");
             try {
