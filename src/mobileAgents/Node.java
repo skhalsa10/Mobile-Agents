@@ -1,9 +1,6 @@
 package mobileAgents;
 
-import mobileAgents.messages.Message;
-import mobileAgents.messages.MessageGUIFire;
-import mobileAgents.messages.MessageGUINode;
-import mobileAgents.messages.MessageKillAgent;
+import mobileAgents.messages.*;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -87,11 +84,22 @@ public class Node implements Runnable {
             if(agent != null) {
                 agent.getMessageFromNode(messageKillAgent);
             }
+            killMe();
             checkNeighbors(m);
             GUIStateQueue.putState(m);
         }
         notifyAll();
         printNode();
+    }
+
+    private void killMe() {
+        MessageKillNode m = new MessageKillNode();
+        try {
+            messages.put(m);
+        }
+        catch (InterruptedException e) {
+            System.err.println(e);
+        }
     }
 
     /**
@@ -320,7 +328,7 @@ public class Node implements Runnable {
             try {
                 Message newMessage = messages.take();
                 Node sendToNode;
-                if(canSendMessage()) {
+                if(canSendMessage() && !(newMessage instanceof MessageKillNode)) {
                     sendToNode = pickNextNode();
                     sendToNode.processMessage(newMessage);
                 }
