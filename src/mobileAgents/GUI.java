@@ -62,7 +62,7 @@ public class GUI extends AnimationTimer {
     private LinkedBlockingQueue<Text> textQueue;
     private int largestX;
     private int largestY;
-    private GUIAgent a;
+    private Location baseLoc;
 
     public GUI(Stage stage, GUIState state){
         //set stage up
@@ -256,7 +256,7 @@ public class GUI extends AnimationTimer {
                     edges.get(left).add(right);
                     break;
                 }
-                /*case "fire":{
+                case "station":{
                     if(entry.length != 3){
                         System.out.println("error parsing fire");
                         System.out.println(entry.length);
@@ -265,12 +265,13 @@ public class GUI extends AnimationTimer {
                     //convert to integer
                     int x = Integer.parseInt(entry[1]);
                     int y = Integer.parseInt(entry[2]);
-                    Location l = getGuiSensorLoc(x,y);
-                    sensors.get(l).setState(Node.State.ONFIRE);
+                    baseLoc = getGuiSensorLoc(x,y);
                     break;
-                }*/
+                }
             }
         }
+
+        sensors.get(baseLoc).setAsBase();
 
         isInitialized = true;
     }
