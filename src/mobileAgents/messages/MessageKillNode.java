@@ -1,20 +1,14 @@
 package mobileAgents.messages;
 
-import mobileAgents.Location;
-
-public class MessageLog implements Message{
-    private Location createdLoc;
-    private String uid;
+public class MessageKillNode implements Message {
     private final long timeStamp;
 
-    public MessageLog(String agentUid, Location loc) {
-        this.uid = agentUid;
-        this.createdLoc = loc;
+    public MessageKillNode() {
         this.timeStamp = System.nanoTime();
     }
     @Override
     public String readMessage() {
-        return "Agent " + uid + " is near a fire at (" + createdLoc.getX() + "," + createdLoc.getY() + ")";
+        return null;
     }
 
     @Override

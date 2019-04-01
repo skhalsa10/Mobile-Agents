@@ -39,6 +39,8 @@ public class Agent implements Runnable {
         }
         else {
             this.uid = "" + location.getX() + "" + location.getY();
+            MessageLog messageLog = new MessageLog(this.uid,location);
+            sendMessage(messageLog,node);
         }
         this.currentLoc = location;
         this.currentNode = node;
@@ -68,6 +70,8 @@ public class Agent implements Runnable {
         return uid;
     }
 
+
+
     /**
      * Agent walks until a near fire node is found
      * Uses a dfs traversal
@@ -82,7 +86,9 @@ public class Agent implements Runnable {
             currentNode.setAgent(this);
             System.out.println("Agent stopped walking at: ");
             currentNode.printNode();
-            makeCopy();
+            MessageLog messageLog = new MessageLog(this.uid,currentNode.getLocation());
+            sendMessage(messageLog,currentNode);
+            //makeCopy();
             return;
         }
         if(hasPath() && canWalk) {
@@ -162,6 +168,9 @@ public class Agent implements Runnable {
         }
     }
 
+    /**
+     * Prints visited path for debugging purposes
+     */
     public void printVisitedPath() {
         System.out.println("Visited Path: ");
         for(Node n: visitedPath) {
@@ -169,13 +178,10 @@ public class Agent implements Runnable {
         }
     }
 
-    public synchronized boolean checkCurrentNodeNearFire(Node.State state){
-        if(state == Node.State.NEARFIRE) {
-            return true;
-        }
-        return false;
-    }
-
+    /**
+     * Gets message from node
+     * @param m message from node
+     */
     public synchronized void getMessageFromNode(Message m) {
         try {
             messages.put(m);
@@ -184,12 +190,24 @@ public class Agent implements Runnable {
             System.err.println(e);
         }
     }
+
+    /**
+     * Sends message to the node it's on
+     * @param m message to be sent
+     * @param receivingNode node agent is on
+     */
+    private synchronized void sendMessage(Message m, Node receivingNode) {
+        receivingNode.processMessage(m);
+    }
     /**
      * Runs the agent
      */
     public void run() {
         if(canWalk) {
             walk();
+        }
+        if(currentNode.getState() == Node.State.NEARFIRE) {
+            makeCopy();
         }
         while(!killAgent) {
             try {
