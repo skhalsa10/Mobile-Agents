@@ -326,6 +326,11 @@ public class GUI extends AnimationTimer {
         }
     }
 
+    public void shutdown(){
+        this.stop();
+        stateTimer.cancel();
+    }
+
 
     /**
      * this will start the State Timer
