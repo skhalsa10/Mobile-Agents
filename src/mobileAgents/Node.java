@@ -2,6 +2,8 @@ package mobileAgents;
 
 import mobileAgents.messages.Message;
 import mobileAgents.messages.MessageGUIFire;
+import mobileAgents.messages.MessageGUINode;
+import mobileAgents.messages.MessageKillAgent;
 
 import java.util.ArrayList;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -70,11 +72,30 @@ public class Node implements Runnable {
     public synchronized void setState(State nextState) {
         state = nextState;
         if(state == State.NEARFIRE) {
+            MessageGUINode message = new MessageGUINode(this.getLocation(),state);
+            /*try {
+                messages.put(message);
+                if(agent != null) {
+                    //printNode();
+                    agent.getMessageFromNode(message);
+                }
+            }
+            catch(InterruptedException e) {
+                System.err.println(e);
+            }*/
+            if(agent != null) {
+                //printNode();
+                agent.getMessageFromNode(message);
+            }
             startFireTimer();
         }
         else if(state == State.ONFIRE) {
             //creating a Message that keeps track of what location is on fire
             MessageGUIFire m = new MessageGUIFire(this.getLocation());
+            MessageKillAgent messageKillAgent = new MessageKillAgent();
+            if(agent != null) {
+                agent.getMessageFromNode(messageKillAgent);
+            }
             checkNeighbors(m);
             GUIStateQueue.putState(m);
         }
@@ -157,6 +178,7 @@ public class Node implements Runnable {
         return state;
     }
 
+
     public Agent getAgent() {
         return agent;
     }
@@ -194,7 +216,7 @@ public class Node implements Runnable {
     }
 
     public synchronized void createAgent(boolean canWalk) {
-        Agent newAgent = new Agent(getLocation(),this,canWalk);
+        Agent newAgent = new Agent(getLocation(),this,canWalk,GUIStateQueue);
         if(!canWalk) {
             agent = newAgent;
         }
@@ -213,7 +235,7 @@ public class Node implements Runnable {
         if(this instanceof Base && agent == null) {
             createAgent(true);
         }
-        while(true) {
+        while(state != State.ONFIRE) {
             //printNode();
 
         }
