@@ -6,6 +6,7 @@ import mobileAgents.messages.MessageGUINode;
 import mobileAgents.messages.MessageKillAgent;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -247,10 +248,32 @@ public class Node implements Runnable {
         }
     }
 
-    public Node pickNextNode() {
+    public boolean canSendMessage() {
         for(Node n: neighbors) {
-            if(n.getState() != State.ONFIRE && )
+            if(n.getState() != State.ONFIRE) {
+                return true;
+            }
         }
+        return false;
+    }
+
+    private Node getRandomNextNode(ArrayList<Node> availableNodes) {
+        if(availableNodes.isEmpty()) {
+            return null;
+        }
+        Random rand = new Random();
+        int i = rand.nextInt(availableNodes.size());
+        return availableNodes.get(i);
+    }
+
+    public Node pickNextNode() {
+        ArrayList<Node> availableNodes = new ArrayList<>();
+        for(Node n: neighbors) {
+            if(n.getState() != State.ONFIRE && n.getDistanceFromBase() <= distanceFromBase) {
+                availableNodes.add(n);
+            }
+        }
+        return getRandomNextNode(availableNodes);
     }
 
 
@@ -262,7 +285,17 @@ public class Node implements Runnable {
             createAgent(true);
         }
         while(state != State.ONFIRE) {
-            //printNode();
+            try {
+                Message newMessage = messages.take();
+                Node sendToNode;
+                if(canSendMessage()) {
+                    sendToNode = pickNextNode();
+                    sendToNode.processMessage(newMessage);
+                }
+            }
+            catch(InterruptedException e) {
+                System.err.println(e);
+            }
 
         }
     }
