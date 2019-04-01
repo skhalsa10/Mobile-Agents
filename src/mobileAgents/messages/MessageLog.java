@@ -14,7 +14,7 @@ public class MessageLog implements Message{
     }
     @Override
     public String readMessage() {
-        return "Agent " + uid + "is near a fire at (" + createdLoc.getX() + "," + createdLoc.getY() + ")";
+        return "Agent " + uid + " is near a fire at (" + createdLoc.getX() + "," + createdLoc.getY() + ")";
     }
 
     @Override
