@@ -346,7 +346,7 @@ public class GUI extends AnimationTimer {
     private synchronized void processNextState() {
 
         Message m = state.pollState();
-        if (m == null) {
+        if(m == null) {
             System.out.println("handling null in queue");
             return;
         }
@@ -408,7 +408,7 @@ public class GUI extends AnimationTimer {
                 e.printStackTrace();
             }
         }
-        if(m instanceof  MessageGUICopyAgents){
+        if(m instanceof MessageGUICopyAgents){
             MessageGUICopyAgents a = (MessageGUICopyAgents) m;
             Location l2 = null;
             //loop through the list and add them to be rendered
@@ -424,6 +424,15 @@ public class GUI extends AnimationTimer {
 
             Text t = new Text(a.readMessage());
             t.setId("log-state");
+            try {
+                textQueue.put(t);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        if(m instanceof MessageLog){
+            Text t = new Text(m.readMessage());
+            t.setId("log-log");
             try {
                 textQueue.put(t);
             } catch (InterruptedException e) {
