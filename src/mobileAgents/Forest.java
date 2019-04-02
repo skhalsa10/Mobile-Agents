@@ -277,8 +277,9 @@ public class Forest {
             startThreads();
             fireNode.setState(Node.State.ONFIRE);
         }
-        //not valid config
-        //should we read in another config file?
+        else {
+            System.out.println("Not a valid configuration. Please enter another file");
+        }
     }
 
     /**
