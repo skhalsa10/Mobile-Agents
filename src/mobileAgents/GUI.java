@@ -3,6 +3,7 @@ package mobileAgents;
 import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
@@ -31,6 +32,7 @@ public class GUI extends AnimationTimer {
 
     private final int RADIUS = 20;
     private long lastUpdate = 0;
+    private double scale = 1;
 
     private GUIState state;
     private String config;
@@ -53,6 +55,9 @@ public class GUI extends AnimationTimer {
     private HBox buttonPane;
     private Button play;
     private Slider speedSlider;
+    private Button zoomPlus;
+    private Button zoomMinus;
+
 
 
     private boolean isPlaying;
@@ -89,6 +94,7 @@ public class GUI extends AnimationTimer {
         //the scroll pane will be placed in root
         graphScrollPane = new ScrollPane();
         graphScrollPane.setMaxHeight(800);
+        graphScrollPane.setPannable(true);
 
         graphVBox = new VBox();
         graphPane = new StackPane();
@@ -98,6 +104,9 @@ public class GUI extends AnimationTimer {
 
         buttonPane = new HBox();
         buttonPane.setAlignment(Pos.CENTER);
+        buttonPane.setSpacing(5);
+        buttonPane.setPadding(new Insets(5, 5, 5, 5));
+
         play = new Button("Play or Pause");
         play.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -106,6 +115,23 @@ public class GUI extends AnimationTimer {
             }
         });
         play.getStyleClass().add("play-button");
+        zoomPlus = new Button("+");
+        zoomPlus.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                zoomIn();
+            }
+        });
+        zoomPlus.getStyleClass().add("zoom-button");
+        zoomMinus= new Button("-");
+        zoomMinus.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                zoomOut();
+            }
+        });
+        zoomMinus.getStyleClass().add("zoom-button");
+
 
         //add nodes to containers
         graphScrollPane.setContent(graphPane);
@@ -115,7 +141,7 @@ public class GUI extends AnimationTimer {
         //logs
         logsPane.setContent(logs);
         //button row
-        buttonPane.getChildren().add(play);
+        buttonPane.getChildren().addAll(play,zoomMinus,zoomPlus);
         root.getChildren().addAll(graphScrollPane,logsPane,buttonPane);
         root.setVgrow(graphScrollPane,Priority.ALWAYS);
 
@@ -149,6 +175,21 @@ public class GUI extends AnimationTimer {
         isPlaying = true;
 
 
+    }
+
+    private void zoomIn() {
+        scale += .3;
+        setSize();
+    }
+
+    private void zoomOut() {
+        scale -= .3;
+        if(scale<= 1){
+            scale = 1;
+            setSize();
+            return;
+        }
+        setSize();
     }
 
     /**
@@ -206,8 +247,8 @@ public class GUI extends AnimationTimer {
      * this sets up the dimensions of the canvas and the stage/window
      */
     private void setSize() {
-        graph.setWidth(largestX*RADIUS+100);
-        graph.setHeight(largestY*RADIUS+100);
+        graph.setWidth((largestX*RADIUS+100)*scale);
+        graph.setHeight((largestY*RADIUS+100)*scale);
         stage.setMinWidth(700);
         stage.setMinHeight(500);
     }
@@ -492,7 +533,7 @@ public class GUI extends AnimationTimer {
             gc.setStroke(Color.WHITE);
             for (Location l1 : edges.keySet()) {
                 for(Location l2: edges.get(l1)){
-                    gc.strokeLine(l1.getX(),l1.getY(),l2.getX(),l2.getY());
+                    gc.strokeLine(l1.getX()*scale,l1.getY()*scale,l2.getX()*scale,l2.getY()*scale);
                 }
                 //gc.strokeLine(l.getX(), l.getY(), edges.get(l).getX(), edges.get(l).getY());
             }
@@ -500,13 +541,13 @@ public class GUI extends AnimationTimer {
             //draw the sensors after the edges
             gc.setStroke(Color.BLACK);
             for (Location l : sensors.keySet()) {
-                sensors.get(l).updateAndRender(gc, false);
+                sensors.get(l).updateAndRender(gc, false, scale);
             }
 
             //TODO we should update and render the agents here.
             for (Location l:GUIAgents.keySet()) {
                 if(GUIAgents.get(l) != null){
-                    GUIAgents.get(l).updateAndRender(gc);
+                    GUIAgents.get(l).updateAndRender(gc, scale);
                 }
 
             }

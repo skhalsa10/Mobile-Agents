@@ -61,7 +61,7 @@ public class Sensor{
         color = Color.GREEN;
     }
 
-    public void updateAndRender(GraphicsContext gc, boolean basicRender){
+    public void updateAndRender(GraphicsContext gc, boolean basicRender, double scale){
 
         if(!basicRender && state == Node.State.ONFIRE) {
 
@@ -78,13 +78,13 @@ public class Sensor{
                     continue;
                 }
 
-                p.render(gc);
+                p.render(gc,scale);
             }
         }else{
             gc.setGlobalAlpha(1.0);
             gc.setGlobalBlendMode(BlendMode.SRC_OVER);
             gc.setFill(color);
-            gc.fillOval(x,y,radius,radius);
+            gc.fillOval(x*scale,y*scale,radius*scale,radius*scale);
         }
 
     }
