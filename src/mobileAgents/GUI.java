@@ -30,6 +30,11 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class GUI extends AnimationTimer {
 
     private final int RADIUS = 20;
+    private final int SPEED4 = 200;
+    private final int SPEED3 = 500;
+    private final int SPEED2 = 1000;
+    private final int SPEED1 = 2000;
+    private int currentSpeed = SPEED3;
     private long lastUpdate = 0;
     private double scale = 1;
 
@@ -55,6 +60,8 @@ public class GUI extends AnimationTimer {
     private Button play;
     private Button zoomPlus;
     private Button zoomMinus;
+    private Button speedPlus;
+    private Button speedMinus;
 
 
     private boolean isPlaying;
@@ -112,7 +119,7 @@ public class GUI extends AnimationTimer {
             }
         });
         play.getStyleClass().add("play-button");
-        zoomPlus = new Button("+");
+        zoomPlus = new Button("Z+");
         zoomPlus.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -120,7 +127,7 @@ public class GUI extends AnimationTimer {
             }
         });
         zoomPlus.getStyleClass().add("zoom-button");
-        zoomMinus= new Button("-");
+        zoomMinus= new Button("Z-");
         zoomMinus.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -128,6 +135,23 @@ public class GUI extends AnimationTimer {
             }
         });
         zoomMinus.getStyleClass().add("zoom-button");
+        //lets to the speed buttons
+        speedPlus = new Button("S+");
+        speedMinus = new Button("S-");
+        speedPlus.getStyleClass().add("speed-button");
+        speedMinus.getStyleClass().add("speed-button");
+        speedPlus.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                speedUp();
+            }
+        });
+        speedMinus.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                slowDown();
+            }
+        });
 
 
         //add nodes to containers
@@ -138,7 +162,7 @@ public class GUI extends AnimationTimer {
         //logs
         logsPane.setContent(logs);
         //button row
-        buttonPane.getChildren().addAll(play,zoomMinus,zoomPlus);
+        buttonPane.getChildren().addAll(speedMinus,speedPlus,play,zoomMinus,zoomPlus);
         root.getChildren().addAll(graphScrollPane,logsPane,buttonPane);
         root.setVgrow(graphScrollPane,Priority.ALWAYS);
 
@@ -150,7 +174,7 @@ public class GUI extends AnimationTimer {
         stage.setScene(scene);
         stage.show();
 
-        //TESTING
+        //start logic stuff
         simIsOver = false;
         edges = new HashMap<>();
         sensors = new HashMap<>();
@@ -172,6 +196,54 @@ public class GUI extends AnimationTimer {
         isPlaying = true;
 
 
+    }
+
+    private void slowDown() {
+        if(currentSpeed == SPEED1){
+            speedPlus.setDisable(false);
+            return;
+        }
+        else if(currentSpeed == SPEED4){
+            speedPlus.setDisable(false);
+            currentSpeed = SPEED3;
+        }
+        else if(currentSpeed == SPEED3){
+            speedPlus.setDisable(false);
+            currentSpeed = SPEED2;
+        }else if(currentSpeed == SPEED2){
+            speedPlus.setDisable(false);
+            speedMinus.setDisable(true);
+            currentSpeed = SPEED1;
+        }
+        restartTimer();
+    }
+
+    private void speedUp() {
+        if(currentSpeed == SPEED4){
+            speedMinus.setDisable(false);
+            return;
+        }
+        else if(currentSpeed == SPEED1){
+            speedMinus.setDisable(false);
+            currentSpeed = SPEED2;
+        }
+        else if(currentSpeed == SPEED2){
+            speedMinus.setDisable(false);
+            currentSpeed = SPEED3;
+        }
+        else if(currentSpeed == SPEED3){
+            speedMinus.setDisable(false);
+            currentSpeed = SPEED4;
+            speedPlus.setDisable(true);
+        }
+        restartTimer();
+    }
+
+    private void restartTimer() {
+        stateTimer.cancel();
+        if(isInitialized) {
+            startStateTimer();
+        }
     }
 
     private void zoomIn() {
@@ -383,7 +455,7 @@ public class GUI extends AnimationTimer {
             public void run() {
                 processNextState();
             }
-        }, 1000,1000);
+        }, 1000,currentSpeed);
     }
 
     /**

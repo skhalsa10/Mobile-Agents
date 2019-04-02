@@ -108,4 +108,21 @@
     -fx-background-color: lime;
 }
 
+.speed-button{
+    -fx-text-fill: lime;
+    -fx-font-size: 25px;
+    -fx-border-color: lime;
+    -fx-border-radius: 20;
+    -fx-background-color: black;
+
+}
+
+.speed-button:pressed{
+    -fx-text-fill: black;
+    -fx-font-size: 25px;
+    -fx-border-color: black;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-background-color: lime;
+}
 
