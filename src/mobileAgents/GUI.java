@@ -3,6 +3,7 @@ package mobileAgents;
 import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
@@ -100,6 +101,9 @@ public class GUI extends AnimationTimer {
 
         buttonPane = new HBox();
         buttonPane.setAlignment(Pos.CENTER);
+        buttonPane.setSpacing(5);
+        buttonPane.setPadding(new Insets(5, 5, 5, 5));
+
         play = new Button("Play or Pause");
         play.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -115,6 +119,7 @@ public class GUI extends AnimationTimer {
                 zoomIn();
             }
         });
+        zoomPlus.getStyleClass().add("zoom-button");
         zoomMinus= new Button("-");
         zoomMinus.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -122,6 +127,7 @@ public class GUI extends AnimationTimer {
                 zoomOut();
             }
         });
+        zoomMinus.getStyleClass().add("zoom-button");
 
 
         //add nodes to containers
@@ -169,21 +175,17 @@ public class GUI extends AnimationTimer {
     }
 
     private void zoomIn() {
-        scale += 1;
+        scale += .3;
         setSize();
-        //graphPane.setMinWidth(graphPane.getMinWidth()*graph.getScaleX());
-        //graphPane.setMinWidth(graphPane.getMinHeight()*graph.getScaleY());
-        //graph.setScaleX((graph.getScaleX()+1));
-        //graph.setScaleY((graph.getScaleY()+1));
     }
 
     private void zoomOut() {
+        scale -= .3;
         if(scale<= 1){
             scale = 1;
             setSize();
             return;
         }
-        scale -= 1;
         setSize();
     }
 
