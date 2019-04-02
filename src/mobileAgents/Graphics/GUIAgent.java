@@ -22,7 +22,7 @@ public class GUIAgent {
         this.color = Color.LIME;
     }
 
-    public void updateAndRender(GraphicsContext gc){
+    public void updateAndRender(GraphicsContext gc, double scale){
         if(radius >= RADIUSCAP){
             radius = 0;
             offset = 10;
@@ -31,14 +31,14 @@ public class GUIAgent {
             radius += .4;
             offset -= .2;
         }
-        render(gc);
+        render(gc, scale);
     }
 
-    private void render(GraphicsContext gc) {
+    private void render(GraphicsContext gc, double scale) {
         gc.setGlobalAlpha(1.0);
         gc.setGlobalBlendMode(BlendMode.SRC_OVER);
         gc.setStroke(color);
         gc.setLineWidth(3);
-        gc.strokeOval(x+offset,y+offset,radius,radius);
+        gc.strokeOval((x+offset)*scale,(y+offset)*scale,radius*scale,radius*scale);
     }
 }

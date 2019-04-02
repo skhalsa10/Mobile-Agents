@@ -36,11 +36,11 @@ public class Particle {
         life -= decay;
     }
 
-    public void render(GraphicsContext gc){
+    public void render(GraphicsContext gc, double scale){
         gc.setGlobalAlpha(life);
         gc.setGlobalBlendMode(blendMode);
         gc.setFill(color);
-        gc.fillOval(x,y,radius,radius);
+        gc.fillOval(x*scale,y*scale,radius*scale,radius*scale);
     }
 
     public boolean isAlive(){
