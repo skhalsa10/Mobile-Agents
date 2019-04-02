@@ -9,6 +9,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Slider;
 import javafx.scene.effect.BlendMode;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -51,6 +52,7 @@ public class GUI extends AnimationTimer {
     //button stuff
     private HBox buttonPane;
     private Button play;
+    private Slider speedSlider;
 
 
     private boolean isPlaying;
