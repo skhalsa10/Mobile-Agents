@@ -11,6 +11,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Scanner;
+
 import static java.lang.Thread.sleep;
 
 public class Forest {
@@ -40,6 +42,37 @@ public class Forest {
         catch(IOException e) {
             System.err.println(e);
         }
+    }
+
+    private void readInConfig (String config, GUIState GUIStateQueue) {
+        this.GUIStateQueue = GUIStateQueue;
+        MessageGUIConfig configMessage = new MessageGUIConfig();
+        Path configFile = Paths.get(config);
+        try {
+            InputStream in = Files.newInputStream(configFile);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+            String line;
+            while((line = reader.readLine()) != null) {
+                configMessage.appendStr(line+"\n");
+                readInfo(line);
+            }
+
+            GUIStateQueue.putState(configMessage);
+
+        }
+        catch(IOException e) {
+            System.err.println(e);
+        }
+    }
+
+    private void setToAnotherConfig(String config, GUIState GUIStateQueue){
+        forest.clear();
+        edges.clear();
+        baseStation = null;
+        fireNode = null;
+        readInConfig(config, GUIStateQueue);
+
+
     }
 
     /**
@@ -270,15 +303,21 @@ public class Forest {
      * Starts Simulation
      */
     public void startSimulation() {
+        Scanner scanner = new Scanner(System.in);
         if(isValidBaseStation() && isValidFireNode()) {
             connectGraph();
             setDistances();
-            //printForest();
             startThreads();
             fireNode.setState(Node.State.ONFIRE);
         }
+        // doesn't have valid base station or fire node
         else {
-            System.out.println("Not a valid configuration. Please enter another file");
+            System.out.println("Not a valid configuration. Please enter another file: ");
+            if(scanner.hasNextLine()) {
+                String configFile = scanner.nextLine();
+                setToAnotherConfig(configFile, GUIStateQueue);
+            }
+
         }
     }
 
