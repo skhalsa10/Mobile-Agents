@@ -108,4 +108,17 @@
     -fx-background-color: lime;
 }
 
+.slider .track{
+    -fx-background-color: green;
+}
+.slider .thumb{
+    -fx-background-color: lime;
+    -fx-fill-width: 1;
+    -fx-fill-height: 10;
+}
+.slider .axis .axis-tick-mark, .slider .axis .axis-minor-tick-mark {
+    -fx-fill: null;
+    -fx-stroke: green;
+}
+
 

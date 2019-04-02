@@ -1,6 +1,8 @@
 package mobileAgents;
 
 import javafx.animation.AnimationTimer;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -63,6 +65,7 @@ public class GUI extends AnimationTimer {
     private boolean isPlaying;
     private boolean simIsOver;
     private Timer stateTimer;
+    int speed;
     private HashMap<Location,Sensor> sensors;
     private HashMap<Location,GUIAgent> GUIAgents;
     private HashMap<Location, ArrayList<Location>> edges;
@@ -132,6 +135,26 @@ public class GUI extends AnimationTimer {
         });
         zoomMinus.getStyleClass().add("zoom-button");
 
+        //build the slider
+        speedSlider = new Slider();
+        speedSlider.setMin(500);
+        speedSlider.setMax(5000);
+        speedSlider.setValue(1000);
+        speed = 1000;
+        speedSlider.setShowTickMarks(true);
+        speedSlider.setSnapToTicks(true);
+        speedSlider.setMinorTickCount(0);
+        speedSlider.setMajorTickUnit(500);
+        speedSlider.setBlockIncrement(500);
+        speedSlider.setId("slider");
+        speedSlider.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                speed = newValue.intValue();
+                modifySpeed();
+            }
+        });
+
 
         //add nodes to containers
         graphScrollPane.setContent(graphPane);
@@ -141,7 +164,8 @@ public class GUI extends AnimationTimer {
         //logs
         logsPane.setContent(logs);
         //button row
-        buttonPane.getChildren().addAll(play,zoomMinus,zoomPlus);
+        buttonPane.getChildren().addAll(speedSlider,play,zoomMinus,zoomPlus);
+        //buttonPane.setHgrow(speedSlider, Priority.ALWAYS);
         root.getChildren().addAll(graphScrollPane,logsPane,buttonPane);
         root.setVgrow(graphScrollPane,Priority.ALWAYS);
 
@@ -175,6 +199,13 @@ public class GUI extends AnimationTimer {
         isPlaying = true;
 
 
+    }
+
+    private void modifySpeed() {
+        stateTimer.cancel();
+        if(isInitialized) {
+            startStateTimer();
+        }
     }
 
     private void zoomIn() {
@@ -386,7 +417,7 @@ public class GUI extends AnimationTimer {
             public void run() {
                 processNextState();
             }
-        }, 1000,1000);
+        }, 1000,speed);
     }
 
     /**
