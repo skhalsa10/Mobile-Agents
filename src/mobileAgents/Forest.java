@@ -58,20 +58,25 @@ public class Forest {
      */
     private void readInfo(String line) {
         //node info
-        if(line.matches("^[nN].*$")) {
+        if(line.matches("^[nN]ode [0-9]+ [0-9]+")) {
             addNode(line);
         }
         // edge info
-        else if(line.matches("^[eE].*$")) {
+        else if(line.matches("^[eE]dge [0-9]+ [0-9]+ [0-9]+ [0-9]+")) {
             addEdge(line);
         }
         // base info
-        else if(line.matches( "^[sS].*$")) {
+        else if(line.matches( "^[sS]tation [0-9]+ [0-9]+")) {
             addBaseStation(line);
         }
         // fire info
-        else if(line.matches("^[fF].*$")) {
+        else if(line.matches("^[fF]ire [0-9]+ [0-9]+")) {
             addFireNode(line);
+        }
+        else {
+            System.err.println("Can't read line:\n" + line +
+                    " in config file.");
+            System.exit(1);
         }
     }
 
