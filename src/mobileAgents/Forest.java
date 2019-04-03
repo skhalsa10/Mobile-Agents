@@ -43,6 +43,15 @@ public class Forest {
     }
 
     /**
+     * Checks to see if the config file has a valid base station and fire node
+     * @return true or false
+     */
+    public boolean isValidConfig() {
+        return isValidBaseStation() && isValidFireNode();
+    }
+
+
+    /**
      * Reads and stores info for nodes, edges,
      * base station, fire node from config file
      * @param line one line in config file
@@ -265,15 +274,10 @@ public class Forest {
      * Starts Simulation
      */
     public void startSimulation() {
-        if(isValidBaseStation() && isValidFireNode()) {
-            connectGraph();
-            setDistances();
-            //printForest();
-            startThreads();
-            fireNode.setState(Node.State.ONFIRE);
-        }
-        //not valid config
-        //should we read in another config file?
+        connectGraph();
+        setDistances();
+        startThreads();
+        fireNode.setState(Node.State.ONFIRE);
     }
 
     /**

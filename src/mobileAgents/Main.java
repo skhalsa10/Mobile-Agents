@@ -29,11 +29,16 @@ public class Main extends Application {
                 }
             }
             config = parameters.getUnnamed().get(0);
-            //validateConfig();
             state = new GUIState();
-            gui = new GUI(primaryStage, state, fire);
-            forest = new Forest(config, state);
-            forest.startSimulation();
+            forest = new Forest(config,state);
+            if(forest.isValidConfig()) {
+                gui = new GUI(primaryStage, state, fire);
+                forest.startSimulation();
+            }
+            else {
+                printConfigInstructions();
+                System.exit(1);
+            }
         }else {
             printInstructions();
             System.exit(1);
@@ -41,8 +46,13 @@ public class Main extends Application {
 
     }
 
-    private void validateConfig() {
-        //TODO if the config file fails print out config failure message and instructions and System.exit(1)
+    /**
+     * Prints instructions for config file
+     */
+    private void printConfigInstructions() {
+        System.err.println("Invalid Config File: \n" +
+                "Locations of Base Station and Initial Fire must be a Node within file.\n" +
+                "If multiple Base Stations and Initial Fires are present, only the last occurrences are used.");
     }
 
     @Override
