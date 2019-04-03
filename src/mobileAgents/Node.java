@@ -92,6 +92,9 @@ public class Node implements Runnable {
         printNode();
     }
 
+    /**
+     * Sends a kill message to the node itself
+     */
     private void killMe() {
         MessageKillNode m = new MessageKillNode();
         try {
@@ -318,10 +321,11 @@ public class Node implements Runnable {
         return getRandomNextNode(availableNodes);
     }
 
-
-
-
-
+    /**
+     * Node keeps running until it's on fire
+     * Processes messages from its message queue to either
+     * send a message to another node or to end itself
+     */
     @Override
     public void run(){
         while(state != State.ONFIRE) {

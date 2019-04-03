@@ -6,6 +6,9 @@ package mobileAgents.messages;
 public class MessageKillAgent implements Message {
     private final long timeStamp;
 
+    /**
+     * Constructs message to kill agent
+     */
     public MessageKillAgent() {
         this.timeStamp = System.nanoTime();
     }
