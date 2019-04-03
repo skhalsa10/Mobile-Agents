@@ -75,7 +75,7 @@ public class Forest {
         }
         else if (!(line.equals(""))){
             System.err.println("Cannot read line:\n" + line +
-                    " in config file.");
+                    "\nin config file.");
             System.exit(1);
         }
     }
