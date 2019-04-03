@@ -6,11 +6,38 @@ This application solves the Mobile Agents spec provided as a project 4 in cs 351
 
 ## Contributions
 This is a group project. We both worked very closely togethor on design decisions. Michelle primarily worked on most of the simulation related classes.
-really complex classes like Node, Agent, Forrest and most other simulation related. Siri worked mostly on the GUI. Most classes in teh Graphics folder.
+really complex classes like Node, Agent, Forrest and most other simulation related. Siri worked mostly on the GUI. Most classes in the Graphics folder.
 and primarily the GUI class. We both worked on the Messages.
 
 ## Usage
-Give details about how to use the program. (Imagine making it easy for someone that you don't know to run and use your project.)
+
+It is very easy to use this application.
+
+#### Starting the App
+Change the directory of your terminal or command prompt  to the directory where you downloaded the jar to.
+
+Type `java -jar MobileAgents_mllouie_skhalsa10.jar ./config-file-path.txt` this will start
+the application in a mode that is least graphics and resource intensive. So if your machine is old or has low specs run this mode
+
+Type `java -jar MobileAgents_mllouie_skhalsa10.jar ./config-file-path.txt fire` this will launch the application with cool bad ass fire animation
+this does take more resources to process especially in a big file where there are tons of nodes on fire due to the amount of particles in the fire. 
+We have compromised and made the visual effects of the fire still on the low end in the amount of particles generated per fire.
+
+#### GUI
+The GUI its pretty fantastic looking  it is really simple but there is some things that can be explained here that are not apparently 
+obvious immediately.
+
+The GUI is split up into three main panes. 
+1. Pane 1 is the biggest pane and it renders a gui representation of the graph. it is tucked into a scroll pane so that we can accept
+big config files. You can interract with it by scrolling or panning(with a finger or mouse).
+2. Pane 2 is a pane that displays textual information about what is happening. the text is colored for different types of changes
+
+    - White - this text symbolizes messages received from the simulation log.
+    - Yellow - this text symbolizes a node that has burst into flame and the surrounding nodes that are now near fire.
+    - Green - this text symbolizes Agent related state. either movement or when a new agent is created.
+    - Red - this text symbolizes when an Agent dies.
+3. Pane 3 contains all the buttons. the S- and S+ button will speed up or slow down the simulation playback.
+the Play/Pause button will either play the animation or pause it. and the Z- and Z+ will either Zoom in or Zoom out the contents in Pane 1.
 
 ## Project Assumptions
 1. We assume that we can only have one base station and one node on fire to start the sim.
@@ -21,9 +48,16 @@ we DO NOT check to see if it is a valid planar graph and we wil accept a graph w
 other edges. The simulation still functions correctly.
 
 ## Versions 
-The jar file can be found wher
-### V1
-explain about how version 1 works
+The jar file can be found where the readme is at the root of the project structure.
+
+There is really only one version. The version has two modes. one renders the fire as red circles.
+The other renders the circle as a flame animation.
+
+RED DOT mode:
+java -jar MobileAgents_mllouie_skhalsa10.jar ./config-file-path.txt
+
+Fire animation mode:
+java -jar MobileAgents_mllouie_skhalsa10.jar ./config-file-path.txt fire
 
 
 ## Docs
@@ -34,7 +68,7 @@ What folder is your documentation (diagram and class diagram) in?
 State things that work.
 
 ### Known Issues
-If there are things that don't work put them here. It will save the graders time and keep them in a good mood.
+1. There is an issue that happen rarely where the GUI does not finish rendering the state or it process the messages wrong
+this will lead to the fire that stops spreading. The log at the bottom of the GUI shows that it did receive the state messages
+and prints it accordingly, but the Animation part does not process the change correctly.
 
-## Testing and Debugging
-If you have tests, then explain how they work and how to use them.
