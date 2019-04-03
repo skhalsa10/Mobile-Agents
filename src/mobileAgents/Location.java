@@ -48,8 +48,8 @@ public class Location {
 
     /**
      * better equals method that checks internals for equality
-     * @param o
-     * @return
+     * @param o object
+     * @return true or false
      */
     @Override
     public boolean equals(Object o) {

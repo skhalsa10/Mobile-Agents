@@ -343,6 +343,9 @@ public class Node implements Runnable {
         }
     }
 
+    /**
+     * States for nodes
+     */
     public enum State { ONFIRE, NEARFIRE, NOTONFIRE, DEAD}
 
 }

@@ -129,6 +129,11 @@ public class Forest {
         edges.add(newEdge);
     }
 
+    /**
+     * Checks if an edge is a duplicate in config file
+     * @param edge current edge being read in
+     * @return true or false
+     */
     private boolean checkDuplicateEdge(Edge edge) {
         for(Edge e: edges) {
             if(e.equals(edge)) {
@@ -315,6 +320,7 @@ public class Forest {
 
     /**
      * Main entry point for simulation
+     * For debugging purposes
      * @param args path of config file of graph for simulation
      */
     public static void main(String[] args) {

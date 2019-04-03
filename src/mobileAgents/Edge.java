@@ -33,6 +33,11 @@ public class Edge {
         return second;
     }
 
+    /**
+     * Checks if two edges are equal
+     * @param o object
+     * @return true or false
+     */
     @Override
     public boolean equals(Object o) {
         //null check
