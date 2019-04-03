@@ -58,16 +58,11 @@ public class Forest {
         }
         // base info
         else if(line.matches( "^[sS].*$")) {
-            if(baseStation == null) {
-                addBaseStation(line);
-            }
+            addBaseStation(line);
         }
         // fire info
         else if(line.matches("^[fF].*$")) {
-            //connectGraph();
-            if(fireNode == null) {
-                addFireNode(line);
-            }
+            addFireNode(line);
         }
     }
 
