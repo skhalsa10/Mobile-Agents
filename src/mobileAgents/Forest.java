@@ -73,8 +73,8 @@ public class Forest {
         else if(line.matches("^[fF]ire [0-9]+ [0-9]+")) {
             addFireNode(line);
         }
-        else {
-            System.err.println("Can't read line:\n" + line +
+        else if (!(line.equals(""))){
+            System.err.println("Cannot read line:\n" + line +
                     " in config file.");
             System.exit(1);
         }
@@ -90,6 +90,11 @@ public class Forest {
         int y = Integer.parseInt(parsedLine[2]);
         Location location = new Location(x, y);
         //I updated this to take the GUIStateQueue
+        if(nodeExists(location) && !forest.isEmpty()) {
+            System.err.println("Duplicate node found in config file:\n" +
+                    line);
+            System.exit(1);
+        }
         Node newNode = new Node (location, Node.State.NOTONFIRE, GUIStateQueue);
         forest.add(newNode);
     }
@@ -107,7 +112,21 @@ public class Forest {
         Location first = new Location(x1, y1);
         Location second = new Location(x2,y2);
         Edge newEdge = new Edge(first, second);
+        if(!edges.isEmpty() && checkDuplicateEdge(newEdge)) {
+            System.err.println("Duplicate edge found in config file:\n" +
+                    line);
+            System.exit(1);
+        }
         edges.add(newEdge);
+    }
+
+    private boolean checkDuplicateEdge(Edge edge) {
+        for(Edge e: edges) {
+            if(e.equals(edge)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
