@@ -1,5 +1,8 @@
 package mobileAgents.messages;
 
+/**
+ * this message is used to kill a node
+ */
 public class MessageKillNode implements Message {
     private final long timeStamp;
 

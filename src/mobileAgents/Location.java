@@ -1,18 +1,34 @@
 package mobileAgents;
 
+/**
+ * location class is simple and has an x and a y representing the coordinates of the node... or whatever actually.
+ */
 public class Location {
     private final int x;
     private final int y;
 
+    /**
+     * contruct a location with given x and y
+     * @param x
+     * @param y
+     */
     public Location(int x, int y){
         this.x = x;
         this.y =y;
     }
 
+    /**
+     *
+     * @return the x value
+     */
     public int getX() {
         return x;
     }
 
+    /**
+     *
+     * @return the y value
+     */
     public int getY() {
         return y;
     }
@@ -30,6 +46,11 @@ public class Location {
         return prime*(result+x+y);
     }
 
+    /**
+     * better equals method that checks internals for equality
+     * @param o
+     * @return
+     */
     @Override
     public boolean equals(Object o) {
         //null check

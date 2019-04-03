@@ -3,6 +3,10 @@ package mobileAgents;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
+/**
+ * thisclass is the class that extends application and has the main class that acts as a driver that starts the gui and the
+ * simulation.
+ */
 public class Main extends Application {
 
     private GUIState state;
@@ -12,6 +16,11 @@ public class Main extends Application {
     private boolean fire = false;
 
 
+    /**
+     * initialize the parameters and start the gui and simulation.
+     * @param primaryStage
+     * @throws Exception
+     */
     @Override
     public void start(Stage primaryStage) throws Exception {
         //get the parameters from args
@@ -55,6 +64,10 @@ public class Main extends Application {
                 "If multiple Base Stations and Initial Fires are present, only the last occurrences are used.");
     }
 
+    /**
+     * shuts down the gui gracefully and then exits the application.
+     * @throws Exception
+     */
     @Override
     public void stop() throws Exception {
         System.out.println("stopping");
@@ -69,6 +82,9 @@ public class Main extends Application {
 
     }
 
+    /**
+     * prints instructions on how  launch the application from the command line.
+     */
     private void printInstructions(){
         System.out.println("MobileAgents Help - " +
                 "MobileAgents can be launched in two ways:\n\n" +

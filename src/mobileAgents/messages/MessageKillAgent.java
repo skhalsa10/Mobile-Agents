@@ -1,5 +1,8 @@
 package mobileAgents.messages;
 
+/**
+ * this message is used to kill the agents when needed
+ */
 public class MessageKillAgent implements Message {
     private final long timeStamp;
 

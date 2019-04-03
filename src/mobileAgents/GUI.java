@@ -76,6 +76,12 @@ public class GUI extends AnimationTimer {
     private Location baseLoc;
     private boolean basicRender;
 
+    /**
+     * this initializes all components of the GUI. it is a huge method so have fun reading it if you have to read it
+     * @param stage stage for the gui
+     * @param state the state queue that we will pop state off of
+     * @param fire wether to render the fire is cool or not cool
+     */
     public GUI(Stage stage, GUIState state, boolean fire){
         basicRender = !fire;
         //set stage up
@@ -200,6 +206,9 @@ public class GUI extends AnimationTimer {
 
     }
 
+    /**
+     * this method slows the speed down by 1 the speed can be 1 of 4 states. thais changes the timer period
+     */
     private void slowDown() {
         if(currentSpeed == SPEED1){
             speedPlus.setDisable(false);
@@ -220,6 +229,9 @@ public class GUI extends AnimationTimer {
         restartTimer();
     }
 
+    /**
+     * this will speed up how fast the state rendors it essentially changes the period of the timer that pops off state
+     */
     private void speedUp() {
         if(currentSpeed == SPEED4){
             speedMinus.setDisable(false);
@@ -241,6 +253,9 @@ public class GUI extends AnimationTimer {
         restartTimer();
     }
 
+    /**
+     * restarts the timer. needed if the period changes to actiuvate the new parameter
+     */
     private void restartTimer() {
         stateTimer.cancel();
         if(isInitialized) {
@@ -248,11 +263,17 @@ public class GUI extends AnimationTimer {
         }
     }
 
+    /**
+     * this method zooms the graphics context in it it essentially changes the scale which changes the size of the canvas and everything drawn on it
+     */
     private void zoomIn() {
         scale += .3;
         setSize();
     }
 
+    /**
+     * this is the same as zoom in but zooms out
+     */
     private void zoomOut() {
         scale -= .3;
         if(scale<= 1){
@@ -440,6 +461,9 @@ public class GUI extends AnimationTimer {
         }
     }
 
+    /**
+     * this stops the animationtimer and cancels the state timer
+     */
     public void shutdown(){
         this.stop();
         stateTimer.cancel();
@@ -573,6 +597,10 @@ public class GUI extends AnimationTimer {
     }
 
 
+    /**
+     * this updates and renders the objects that can be rendered and draws the new state to the canvas
+     * @param now
+     */
     @Override
     public void handle(long now) {
         if(!isInitialized){
@@ -629,6 +657,7 @@ public class GUI extends AnimationTimer {
                 logs.getChildren().add(t);
             }
 
+            // helped to stabalize the rendor time
             lastUpdate = now;
         }
     }
