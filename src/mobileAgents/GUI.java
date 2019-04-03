@@ -74,8 +74,10 @@ public class GUI extends AnimationTimer {
     private int largestX;
     private int largestY;
     private Location baseLoc;
+    private boolean basicRender;
 
-    public GUI(Stage stage, GUIState state){
+    public GUI(Stage stage, GUIState state, boolean fire){
+        basicRender = !fire;
         //set stage up
         this.stage = stage;
         this.stage.setTitle("Mobile Agents");
@@ -610,7 +612,7 @@ public class GUI extends AnimationTimer {
             //draw the sensors after the edges
             gc.setStroke(Color.BLACK);
             for (Location l : sensors.keySet()) {
-                sensors.get(l).updateAndRender(gc, false, scale);
+                sensors.get(l).updateAndRender(gc, basicRender , scale);
             }
 
             //TODO we should update and render the agents here.
