@@ -20,9 +20,6 @@ public class Agent implements Runnable {
     private boolean killAgent = false;
     private GUIState GUIStateQueue;
 
-
-    //sendMessage()
-
     /**
      * Constructs an agent
      * @param location current location of agent
@@ -66,17 +63,18 @@ public class Agent implements Runnable {
         GUIStateQueue.putState(m);
     }
 
+    /**
+     * Gets the uid of agent
+     * @return uid of agent
+     */
     public String getUid() {
         return uid;
     }
-
-
 
     /**
      * Agent walks until a near fire node is found
      * Uses a dfs traversal
      */
-    // Make sure state of next node doesn't change from near fire to on fire
     private void walk() {
         printVisitedPath();
         Node movedFromNode = currentNode;

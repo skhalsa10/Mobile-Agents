@@ -6,9 +6,13 @@ package mobileAgents.messages;
 public class MessageKillNode implements Message {
     private final long timeStamp;
 
+    /**
+     * Constructs a message to kill a node
+     */
     public MessageKillNode() {
         this.timeStamp = System.nanoTime();
     }
+
     @Override
     public String readMessage() {
         return null;

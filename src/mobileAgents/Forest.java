@@ -13,6 +13,10 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import static java.lang.Thread.sleep;
 
+/**
+ * Class for forest
+ * Graph that connects nodes together
+ */
 public class Forest {
     private ArrayList<Node> forest = new ArrayList<>();
     private ArrayList<Edge> edges = new ArrayList<>();
@@ -20,6 +24,11 @@ public class Forest {
     private Base baseStation;
     private Node fireNode;
 
+    /**
+     * Constructs a forest
+     * @param config string of config file
+     * @param GUIStateQueue Queue that is used to update gui
+     */
     public Forest(String config, GUIState GUIStateQueue) {
         //One GUIStateQueue needs to be shared with everything that tells the GUI something so it will be passed in here.
         this.GUIStateQueue = GUIStateQueue;
