@@ -61,11 +61,20 @@ public class MessageGUIAgent implements Message {
         }
     }
 
+    /**
+     * needed for the priority queue
+     * @return
+     */
     @Override
     public long getTimeStamp() {
         return timeStamp;
     }
 
+    /**
+     * needed for the priority queue
+     * @param o
+     * @return
+     */
     @Override
     public int compareTo(Message o) {
         long result = (this.timeStamp) - o.getTimeStamp();

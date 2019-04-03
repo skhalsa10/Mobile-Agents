@@ -6,6 +6,9 @@ import mobileAgents.messages.MessageGUILog;
 
 import java.io.IOException;
 
+/**
+ * the Base is a special node. it does everything a node does but  it will create an agent.
+ */
 public class Base extends Node{
 
     private Log log;
@@ -21,7 +24,10 @@ public class Base extends Node{
     }
 
     /**
-     * this base station runs differently than other nodes. the messages get sent
+     * this base station runs differently than other nodes. the messages get sent to it
+     * it just processes the messages and sends them to the log. and a copy to the gui.
+     *
+     * It does this until it is on fire and dies.
      */
     @Override
     public void run(){

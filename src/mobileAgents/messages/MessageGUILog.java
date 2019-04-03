@@ -1,9 +1,17 @@
 package mobileAgents.messages;
 
+/**
+ * this message tells the gui that it should be treated as a log message that would have gone to the log that outputs to a file.
+ * the GUI renders this as white text.
+ */
 public class MessageGUILog implements Message {
     private final long timeStamp;
     private String log;
 
+    /**
+     * construct message with string s
+     * @param s
+     */
     public MessageGUILog(String s){
         this.timeStamp = System.nanoTime();
         this.log = s;
