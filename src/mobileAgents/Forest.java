@@ -58,19 +58,19 @@ public class Forest {
      */
     private void readInfo(String line) {
         //node info
-        if(line.matches("^[nN]ode [0-9]+ [0-9]+")) {
+        if(line.matches("^[nN]ode [0-9]+ [0-9]+[ \\s]*")) {
             addNode(line);
         }
         // edge info
-        else if(line.matches("^[eE]dge [0-9]+ [0-9]+ [0-9]+ [0-9]+")) {
+        else if(line.matches("^[eE]dge [0-9]+ [0-9]+ [0-9]+ [0-9]+[ \\s]*")) {
             addEdge(line);
         }
         // base info
-        else if(line.matches( "^[sS]tation [0-9]+ [0-9]+")) {
+        else if(line.matches( "^[sS]tation [0-9]+ [0-9]+[ \\s]*")) {
             addBaseStation(line);
         }
         // fire info
-        else if(line.matches("^[fF]ire [0-9]+ [0-9]+")) {
+        else if(line.matches("^[fF]ire [0-9]+ [0-9]+[ \\s]*")) {
             addFireNode(line);
         }
         else if (!(line.equals(""))){
