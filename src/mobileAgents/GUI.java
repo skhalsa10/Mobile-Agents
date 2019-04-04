@@ -525,7 +525,7 @@ public class GUI extends AnimationTimer {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
+            return;
         }
         if(m instanceof MessageGUIAgent){
             MessageGUIAgent a = (MessageGUIAgent) m;
@@ -547,6 +547,7 @@ public class GUI extends AnimationTimer {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            return;
         }
         if(m instanceof MessageGUICopyAgents){
             MessageGUICopyAgents a = (MessageGUICopyAgents) m;
@@ -566,6 +567,7 @@ public class GUI extends AnimationTimer {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            return;
         }
         if(m instanceof MessageGUILog){
             Text t = new Text(m.readMessage());
@@ -575,6 +577,7 @@ public class GUI extends AnimationTimer {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            return;
         }
         if(m instanceof MessageGUIEnd){
             simIsOver = true;
@@ -585,7 +588,10 @@ public class GUI extends AnimationTimer {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            return;
         }
+
+        System.out.println("a message was never processed!" + m);
 
     }
 
