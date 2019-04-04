@@ -18,6 +18,8 @@ It is very easy to use this application.
 #### Starting the App
 Change the directory of your terminal or command prompt  to the directory where you downloaded the jar to.
 
+#####When you download the jar make sure you download the jar from the master branch on csgit
+
 Type `java -jar MobileAgents_mllouie_skhalsa10.jar ./config-file-path.txt` this will start
 the application in a mode that is least graphics and resource intensive. So if your machine is old or has low specs run this mode
 
@@ -71,12 +73,10 @@ java -jar MobileAgents_mllouie_skhalsa10.jar ./config-file-path.txt fire
 What folder is your documentation (diagram and class diagram) in?
 
 ## Status
-### Implemented Features
-State things that work.
-
 ### Known Issues
-1. There is an issue that happen rarely where the GUI does not finish rendering the state or it process the messages wrong
-this will lead to the fire that stops spreading. The log at the bottom of the GUI shows that it did receive the state messages
-and prints it accordingly, but the Animation part does not process the change correctly.
+1. There is a bad concurrency bug. that ONLY happens sometimes. It happens more often than not if you run
+the program with the big_big_graph.txt will showcase the bug more often than not. It sometimes does not send a message to the GUI
+that the node is on fire.
 2. When reading in the config file, extra white spaces could lead to an invalid config file. 
-
+3. The GUI has a bug that if you press pause on the animation and then change the speed it will start processing the state
+and when you unpause it will jump ahead in the animation.
