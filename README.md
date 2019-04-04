@@ -82,4 +82,5 @@ the program with the big_big_graph.txt will showcase the bug more often than not
 that the node is on fire. This can be seen in the GUI as the FIRE never spreading to some nodes. or tons of agents in places they shouldn't be.
 2. When reading in the config file, extra white spaces could lead to an invalid config file. 
 3. The GUI has a bug that if you press pause on the animation and then change the speed it will start processing the state
-and when you unpause it will jump ahead in the animation.
+and when you unpause it will jump ahead in the animation. - THIS HAS BEEN FIXED
+4. The GUI has a bug that if you pause animation and then change the zoom. it does not render the zoom until you press play again
