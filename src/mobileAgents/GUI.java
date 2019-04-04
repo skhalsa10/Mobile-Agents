@@ -500,6 +500,9 @@ public class GUI extends AnimationTimer {
         }
         if(m instanceof MessageGUIFire){
             MessageGUIFire f = (MessageGUIFire) m;
+            if(f.getFireLoc().equals(new Location(8,8))){
+                System.out.println("8 8 is on fire what the flying fuck!");
+            }
             //first we will change the fire node
             Location fl = getGuiSensorLoc(f.getFireLoc().getX(),f.getFireLoc().getY());
             sensors.get(fl).setState(Node.State.ONFIRE);

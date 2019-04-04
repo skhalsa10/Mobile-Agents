@@ -68,8 +68,15 @@ public class Node implements Runnable {
      * @param nextState
      */
     public synchronized void setState(State nextState) {
+        if( location.equals(new Location(8,8))){
+            System.out.println("lets see here");
+        }
         state = nextState;
+
         if(state == State.NEARFIRE) {
+            if( location.equals(new Location(8,8))){
+                System.out.println("ITS NOWNEAR FIRE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            }
             MessageGUINode message = new MessageGUINode(this.getLocation(),state);
             if(agent != null) {
                 //printNode();
@@ -86,6 +93,7 @@ public class Node implements Runnable {
             }
             killMe();
             checkNeighbors(m);
+            System.out.println("sending message fire with loc " + m.getFireLoc().getX()+ ", " + m.getFireLoc().getY());
             GUIStateQueue.putState(m);
         }
         notifyAll();
@@ -113,7 +121,10 @@ public class Node implements Runnable {
      */
     private synchronized void checkNeighbors(MessageGUIFire m) {
         for(Node n: neighbors) {
-            if(checkCurrentState(n)) {
+            if(location.equals(new Location(10,10))){
+                System.out.println("this is the last node to burst into flame!!!!!!!!!!!!!!!!!!");
+            }
+            if(n.getState() == State.NOTONFIRE) {
                 n.setState(State.NEARFIRE);
                 m.addNearFireLoc(n.getLocation());
             }
@@ -125,17 +136,18 @@ public class Node implements Runnable {
      * @param neighbor checks to see if neighbor can can be set to nearfire state
      * @return true if the node is NOTONFIRE state else FALSE
      */
-    private boolean checkCurrentState(Node neighbor) {
-        if(neighbor.getState() == State.NOTONFIRE) {
-            return true;
-        }
-        return false;
+    private synchronized boolean checkCurrentState(Node neighbor) {
+        State state = neighbor.getState();
+        return (neighbor.getState() == State.NOTONFIRE);
     }
 
     /**
      * this method will start the fire timer which will change the state of this node to ONFIRE
      */
     private synchronized void startFireTimer() {
+        if( location.equals(new Location(8,8))){
+            System.out.println("ITS FIRE TIMER STARTING TIME UGH!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        }
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
@@ -181,7 +193,7 @@ public class Node implements Runnable {
      * @return the current state of the node
      */
     public synchronized State getState() {
-        notifyAll();
+        //notifyAll();
         return state;
     }
 

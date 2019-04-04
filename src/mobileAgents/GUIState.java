@@ -57,7 +57,7 @@ public class GUIState {
      * this will remove and return the head of the queue or null if there is nothing there
      * @return
      */
-    public Message pollState(){
+    public  Message pollState(){
         return stateQueue.poll();
     }
 
