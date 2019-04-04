@@ -1,8 +1,6 @@
 package mobileAgents;
 
-import mobileAgents.messages.Message;
-import mobileAgents.messages.MessageGUIEnd;
-import mobileAgents.messages.MessageGUILog;
+import mobileAgents.messages.*;
 
 import java.io.IOException;
 
@@ -35,11 +33,21 @@ public class Base extends Node{
         createAgent(true);
         Message m = null;
         //TODO what if this thread is sleeping waiting for messages while it goes on fire. a node can never receive a message while it is on fire so it will never wake up and close gracefully. we may need to send a message to itsself while it changes to onfire.
+        boolean alive = true;
         while(state != State.ONFIRE){
             try {
                 m = messages.take();
-                log.logMessage(m);
-                GUIStateQueue.putState(new MessageGUILog(m.readMessage()));
+                if(m instanceof MessageOnFire) {
+                    setState(State.ONFIRE);
+                }
+                else if (m instanceof MessageNearFire) {
+                    setState(State.NEARFIRE);
+                }
+                else if (!(m instanceof MessageKillNode)) {
+                    log.logMessage(m);
+                    GUIStateQueue.putState(new MessageGUILog(m.readMessage()));
+                }
+
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

@@ -84,11 +84,12 @@ public class Node implements Runnable {
             if(agent != null) {
                 agent.getMessageFromNode(messageKillAgent);
             }
-            killMe();
+
             checkNeighbors(m);
             GUIStateQueue.putState(m);
+            killMe();
         }
-        notifyAll();
+        //notifyAll();
         printNode();
     }
 
@@ -114,7 +115,9 @@ public class Node implements Runnable {
     private synchronized void checkNeighbors(MessageGUIFire m) {
         for(Node n: neighbors) {
             if(checkCurrentState(n)) {
-                n.setState(State.NEARFIRE);
+                //n.setState(State.NEARFIRE);
+                MessageNearFire newMessage = new MessageNearFire();
+                n.processMessage(newMessage);
                 m.addNearFireLoc(n.getLocation());
             }
         }
@@ -140,7 +143,9 @@ public class Node implements Runnable {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                setState(State.ONFIRE);
+                //setState(State.ONFIRE);
+                MessageOnFire m = new MessageOnFire();
+                processMessage(m);
                 //System.out.println("Node at " + location.getX() + " " + location.getY() + " is on fire");
                 timer.cancel();
             }
@@ -332,7 +337,13 @@ public class Node implements Runnable {
             try {
                 Message newMessage = messages.take();
                 Node sendToNode;
-                if(canSendMessage() && !(newMessage instanceof MessageKillNode)) {
+                if(newMessage instanceof MessageOnFire) {
+                    setState(State.ONFIRE);
+                }
+                else if (newMessage instanceof  MessageNearFire) {
+                    setState(State.NEARFIRE);
+                }
+                else if(canSendMessage() && !(newMessage instanceof MessageKillNode)) {
                     sendToNode = pickNextNode();
                     sendToNode.processMessage(newMessage);
                 }
