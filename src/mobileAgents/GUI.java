@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.LinkedBlockingQueue;
 
 
@@ -67,9 +68,9 @@ public class GUI extends AnimationTimer {
     private boolean isPlaying;
     private boolean simIsOver;
     private Timer stateTimer;
-    private HashMap<Location,Sensor> sensors;
-    private HashMap<Location,GUIAgent> GUIAgents;
-    private HashMap<Location, ArrayList<Location>> edges;
+    private ConcurrentHashMap<Location,Sensor> sensors;
+    private ConcurrentHashMap<Location,GUIAgent> GUIAgents;
+    private ConcurrentHashMap<Location, ArrayList<Location>> edges;
     private LinkedBlockingQueue<Text> textQueue;
     private int largestX;
     private int largestY;
@@ -184,9 +185,9 @@ public class GUI extends AnimationTimer {
 
         //start logic stuff
         simIsOver = false;
-        edges = new HashMap<>();
-        sensors = new HashMap<>();
-        GUIAgents = new HashMap<>();
+        edges = new ConcurrentHashMap<>();
+        sensors = new ConcurrentHashMap<>();
+        GUIAgents = new ConcurrentHashMap<>();
         isInitialized = false;
         largestX = 0;
         largestY = 0;
@@ -368,7 +369,7 @@ public class GUI extends AnimationTimer {
                     Location l = getGuiSensorLoc(x,y);
                     sensors.put(l, new Sensor(l));
                     //lets also add a null value to the GUIAgents map
-                    GUIAgents.put(l,null);
+                    //GUIAgents.put(l);
                     break;
                 }
                 case "edge": {
@@ -495,7 +496,7 @@ public class GUI extends AnimationTimer {
             return;
         }
         if(m instanceof MessageGUIConfig){
-            System.out.println("should nto be processing a config file this should already be configured");
+            System.out.println("should not be processing a config file this should already be configured");
             return;
         }
         if(m instanceof MessageGUIFire){
@@ -505,9 +506,7 @@ public class GUI extends AnimationTimer {
             sensors.get(fl).setState(Node.State.ONFIRE);
             //if an agent exists we need to delete it
             Text t2 = null;
-            if(GUIAgents.containsKey(fl)){
-                if(GUIAgents.get(fl)!= null) {
-                    GUIAgents.replace(fl, null);
+            if(GUIAgents.remove(fl) != null){
                     t2 = new Text("Agent at (" + f.getFireLoc().getX() + "," + f.getFireLoc().getY() + ") is now dead");
                     t2.setId("log-end");
                 }
