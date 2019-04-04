@@ -2,6 +2,9 @@ package mobileAgents.messages;
 
 import java.util.Comparator;
 
+/**
+ * this is not used. but can be used to sort the messages by ascending timestamp
+ */
 public class SortByTimeStamp implements Comparator<Message> {
 
 

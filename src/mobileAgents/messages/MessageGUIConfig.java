@@ -26,18 +26,29 @@ public class MessageGUIConfig implements Message {
     private final long timeStamp;
 
 
+    /**
+     * construct a new MessageGUIConfig with an empty string
+     */
     public MessageGUIConfig(){
 
         configRep = new StringBuilder();
         this.timeStamp = System.nanoTime();
     }
 
+    /**
+     * construct new message with input string as initial string
+     * @param string
+     */
     public MessageGUIConfig(String string){
 
         configRep = new StringBuilder(string);
         this.timeStamp = System.nanoTime();
     }
 
+    /**
+     * append s to the message string
+     * @param s string to append to the end of the config string
+     */
     public void appendStr(String s){
         configRep.append(s);
     }

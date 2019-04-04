@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.LinkedBlockingQueue;
 
 
@@ -67,15 +68,21 @@ public class GUI extends AnimationTimer {
     private boolean isPlaying;
     private boolean simIsOver;
     private Timer stateTimer;
-    private HashMap<Location,Sensor> sensors;
-    private HashMap<Location,GUIAgent> GUIAgents;
-    private HashMap<Location, ArrayList<Location>> edges;
+    private ConcurrentHashMap<Location,Sensor> sensors;
+    private ConcurrentHashMap<Location,GUIAgent> GUIAgents;
+    private ConcurrentHashMap<Location, ArrayList<Location>> edges;
     private LinkedBlockingQueue<Text> textQueue;
     private int largestX;
     private int largestY;
     private Location baseLoc;
     private boolean basicRender;
 
+    /**
+     * this initializes all components of the GUI. it is a huge method so have fun reading it if you have to read it
+     * @param stage stage for the gui
+     * @param state the state queue that we will pop state off of
+     * @param fire wether to render the fire is cool or not cool
+     */
     public GUI(Stage stage, GUIState state, boolean fire){
         basicRender = !fire;
         //set stage up
@@ -178,9 +185,9 @@ public class GUI extends AnimationTimer {
 
         //start logic stuff
         simIsOver = false;
-        edges = new HashMap<>();
-        sensors = new HashMap<>();
-        GUIAgents = new HashMap<>();
+        edges = new ConcurrentHashMap<>();
+        sensors = new ConcurrentHashMap<>();
+        GUIAgents = new ConcurrentHashMap<>();
         isInitialized = false;
         largestX = 0;
         largestY = 0;
@@ -200,6 +207,9 @@ public class GUI extends AnimationTimer {
 
     }
 
+    /**
+     * this method slows the speed down by 1 the speed can be 1 of 4 states. thais changes the timer period
+     */
     private void slowDown() {
         if(currentSpeed == SPEED1){
             speedPlus.setDisable(false);
@@ -220,6 +230,9 @@ public class GUI extends AnimationTimer {
         restartTimer();
     }
 
+    /**
+     * this will speed up how fast the state rendors it essentially changes the period of the timer that pops off state
+     */
     private void speedUp() {
         if(currentSpeed == SPEED4){
             speedMinus.setDisable(false);
@@ -241,6 +254,9 @@ public class GUI extends AnimationTimer {
         restartTimer();
     }
 
+    /**
+     * restarts the timer. needed if the period changes to actiuvate the new parameter
+     */
     private void restartTimer() {
         stateTimer.cancel();
         if(isInitialized) {
@@ -248,11 +264,17 @@ public class GUI extends AnimationTimer {
         }
     }
 
+    /**
+     * this method zooms the graphics context in it it essentially changes the scale which changes the size of the canvas and everything drawn on it
+     */
     private void zoomIn() {
         scale += .3;
         setSize();
     }
 
+    /**
+     * this is the same as zoom in but zooms out
+     */
     private void zoomOut() {
         scale -= .3;
         if(scale<= 1){
@@ -347,7 +369,7 @@ public class GUI extends AnimationTimer {
                     Location l = getGuiSensorLoc(x,y);
                     sensors.put(l, new Sensor(l));
                     //lets also add a null value to the GUIAgents map
-                    GUIAgents.put(l,null);
+                    //GUIAgents.put(l);
                     break;
                 }
                 case "edge": {
@@ -440,6 +462,9 @@ public class GUI extends AnimationTimer {
         }
     }
 
+    /**
+     * this stops the animationtimer and cancels the state timer
+     */
     public void shutdown(){
         this.stop();
         stateTimer.cancel();
@@ -471,7 +496,7 @@ public class GUI extends AnimationTimer {
             return;
         }
         if(m instanceof MessageGUIConfig){
-            System.out.println("should nto be processing a config file this should already be configured");
+            System.out.println("should not be processing a config file this should already be configured");
             return;
         }
         if(m instanceof MessageGUIFire){
@@ -481,12 +506,9 @@ public class GUI extends AnimationTimer {
             sensors.get(fl).setState(Node.State.ONFIRE);
             //if an agent exists we need to delete it
             Text t2 = null;
-            if(GUIAgents.containsKey(fl)){
-                if(GUIAgents.get(fl)!= null) {
-                    GUIAgents.replace(fl, null);
+            if(GUIAgents.remove(fl) != null){
                     t2 = new Text("Agent at (" + f.getFireLoc().getX() + "," + f.getFireLoc().getY() + ") is now dead");
                     t2.setId("log-end");
-                }
             }
 
             //now we need to set all the NEARFIRE
@@ -503,22 +525,20 @@ public class GUI extends AnimationTimer {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
+            return;
         }
         if(m instanceof MessageGUIAgent){
             MessageGUIAgent a = (MessageGUIAgent) m;
             //first process removing the move from
             if(a.getMovedFrom() != null){
                 Location l = getGuiSensorLoc(a.getMovedFrom().getX(),a.getMovedFrom().getY());
-                if(!GUIAgents.containsKey(l)){
-                    System.out.println("GUI AGENT ERROR");
-                }else{
-                    GUIAgents.replace(l, null);
-                }
+                //this removes the agent from l
+                GUIAgents.remove(l);
             }
             //now deal with the new Agent
             Location l = getGuiSensorLoc(a.getAgentLoc().getX(),a.getAgentLoc().getY());
-            GUIAgents.replace(l, new GUIAgent(l));
+            //tbhis will put an agent at l
+            GUIAgents.put(l, new GUIAgent(l));
             //create text for log
             Text t = new Text(a.readMessage());
             t.setId("log-state");
@@ -527,6 +547,7 @@ public class GUI extends AnimationTimer {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            return;
         }
         if(m instanceof MessageGUICopyAgents){
             MessageGUICopyAgents a = (MessageGUICopyAgents) m;
@@ -534,12 +555,9 @@ public class GUI extends AnimationTimer {
             //loop through the list and add them to be rendered
             for(Location l: a.getNewAgentsList()){
                 l2 = getGuiSensorLoc(l.getX(),l.getY());
-                if(GUIAgents.containsKey(l2)){
-                    GUIAgents.replace(l2, new GUIAgent(l2));
-                }
-                else{
-                    System.out.println("Error processing KillAgent");
-                }
+                //this should overwrite anything that already exists there
+                GUIAgents.put(l2, new GUIAgent(l2));
+
             }
 
             Text t = new Text(a.readMessage());
@@ -549,6 +567,7 @@ public class GUI extends AnimationTimer {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            return;
         }
         if(m instanceof MessageGUILog){
             Text t = new Text(m.readMessage());
@@ -558,6 +577,7 @@ public class GUI extends AnimationTimer {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            return;
         }
         if(m instanceof MessageGUIEnd){
             simIsOver = true;
@@ -568,11 +588,18 @@ public class GUI extends AnimationTimer {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            return;
         }
-        
+
+        System.out.println("a message was never processed!" + m);
+
     }
 
 
+    /**
+     * this updates and renders the objects that can be rendered and draws the new state to the canvas
+     * @param now
+     */
     @Override
     public void handle(long now) {
         if(!isInitialized){
@@ -629,6 +656,7 @@ public class GUI extends AnimationTimer {
                 logs.getChildren().add(t);
             }
 
+            // helped to stabalize the rendor time
             lastUpdate = now;
         }
     }

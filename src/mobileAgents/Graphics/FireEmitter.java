@@ -6,7 +6,18 @@ import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 
+/**
+ * this emmits particles that look like a fire;
+ */
 public class FireEmitter implements Emitter {
+
+    /**
+     * emits particles
+     *
+     * @param x x to emmit particle from
+     * @param y y to emit particle at
+     * @return a list of particles with random velocity
+     */
     @Override
     public ArrayList<Particle> emit(double x, double y) {
 

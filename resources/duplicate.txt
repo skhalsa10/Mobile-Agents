@@ -1,0 +1,11 @@
+node 0 0
+node 3 4
+node 2 3
+node 5 5
+edge 0 0 2 3
+node 5 5
+edge 2 3 3 4
+edge 3 4 5 5
+edge 5 5 0 0
+station 0 0
+fire 5 5

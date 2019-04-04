@@ -27,13 +27,17 @@ import java.util.concurrent.PriorityBlockingQueue;
  *
  * We may need to use a priorityblockingQueue and sort it based on a timestamp of the messages
  *
+ * The priority was the best way toimplement this as it fixed an issue with the config message being put it the queue out of order
+ *
  */
 public class GUIState {
-    //private LinkedBlockingQueue<Message> stateQueue;
+
     private PriorityBlockingQueue<Message> stateQueue;
 
+    /**
+     * initialize the state priority queue wrapped in this class
+     */
     public GUIState(){
-        //stateQueue = new LinkedBlockingQueue<>();
         stateQueue = new PriorityBlockingQueue<Message>();
     }
 

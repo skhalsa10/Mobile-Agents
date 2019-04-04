@@ -5,6 +5,8 @@ import mobileAgents.Node;
 
 /**
  * this is not as useful now that I think about what state I will need to group togethor.
+ *
+ * ***This message is deprecated***
  */
 public class MessageGUINode implements Message{
 

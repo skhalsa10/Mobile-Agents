@@ -13,6 +13,10 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import static java.lang.Thread.sleep;
 
+/**
+ * Class for forest
+ * Graph that connects nodes together
+ */
 public class Forest {
     private ArrayList<Node> forest = new ArrayList<>();
     private ArrayList<Edge> edges = new ArrayList<>();
@@ -20,6 +24,11 @@ public class Forest {
     private Base baseStation;
     private Node fireNode;
 
+    /**
+     * Constructs a forest
+     * @param config string of config file
+     * @param GUIStateQueue Queue that is used to update gui
+     */
     public Forest(String config, GUIState GUIStateQueue) {
         //One GUIStateQueue needs to be shared with everything that tells the GUI something so it will be passed in here.
         this.GUIStateQueue = GUIStateQueue;
@@ -43,31 +52,40 @@ public class Forest {
     }
 
     /**
+     * Checks to see if the config file has a valid base station and fire node
+     * @return true or false
+     */
+    public boolean isValidConfig() {
+        return isValidBaseStation() && isValidFireNode();
+    }
+
+
+    /**
      * Reads and stores info for nodes, edges,
      * base station, fire node from config file
      * @param line one line in config file
      */
     private void readInfo(String line) {
         //node info
-        if(line.matches("^[nN].*$")) {
+        if(line.matches("^[nN]ode [0-9]+ [0-9]+[ \\s]*")) {
             addNode(line);
         }
         // edge info
-        else if(line.matches("^[eE].*$")) {
+        else if(line.matches("^[eE]dge [0-9]+ [0-9]+ [0-9]+ [0-9]+[ \\s]*")) {
             addEdge(line);
         }
         // base info
-        else if(line.matches( "^[sS].*$")) {
-            if(baseStation == null) {
-                addBaseStation(line);
-            }
+        else if(line.matches( "^[sS]tation [0-9]+ [0-9]+[ \\s]*")) {
+            addBaseStation(line);
         }
         // fire info
-        else if(line.matches("^[fF].*$")) {
-            //connectGraph();
-            if(fireNode == null) {
-                addFireNode(line);
-            }
+        else if(line.matches("^[fF]ire [0-9]+ [0-9]+[ \\s]*")) {
+            addFireNode(line);
+        }
+        else if (!(line.equals(""))){
+            System.err.println("Cannot read line:\n" + line +
+                    "\nin config file.");
+            System.exit(1);
         }
     }
 
@@ -81,6 +99,11 @@ public class Forest {
         int y = Integer.parseInt(parsedLine[2]);
         Location location = new Location(x, y);
         //I updated this to take the GUIStateQueue
+        if(nodeExists(location) && !forest.isEmpty()) {
+            System.err.println("Duplicate node found in config file:\n" +
+                    line);
+            System.exit(1);
+        }
         Node newNode = new Node (location, Node.State.NOTONFIRE, GUIStateQueue);
         forest.add(newNode);
     }
@@ -98,7 +121,26 @@ public class Forest {
         Location first = new Location(x1, y1);
         Location second = new Location(x2,y2);
         Edge newEdge = new Edge(first, second);
+        if(!edges.isEmpty() && checkDuplicateEdge(newEdge)) {
+            System.err.println("Duplicate edge found in config file:\n" +
+                    line);
+            System.exit(1);
+        }
         edges.add(newEdge);
+    }
+
+    /**
+     * Checks if an edge is a duplicate in config file
+     * @param edge current edge being read in
+     * @return true or false
+     */
+    private boolean checkDuplicateEdge(Edge edge) {
+        for(Edge e: edges) {
+            if(e.equals(edge)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -270,19 +312,15 @@ public class Forest {
      * Starts Simulation
      */
     public void startSimulation() {
-        if(isValidBaseStation() && isValidFireNode()) {
-            connectGraph();
-            setDistances();
-            //printForest();
-            startThreads();
-            fireNode.setState(Node.State.ONFIRE);
-        }
-        //not valid config
-        //should we read in another config file?
+        connectGraph();
+        setDistances();
+        startThreads();
+        fireNode.setState(Node.State.ONFIRE);
     }
 
     /**
      * Main entry point for simulation
+     * For debugging purposes
      * @param args path of config file of graph for simulation
      */
     public static void main(String[] args) {

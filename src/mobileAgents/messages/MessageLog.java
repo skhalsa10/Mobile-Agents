@@ -2,6 +2,9 @@ package mobileAgents.messages;
 
 import mobileAgents.Location;
 
+/**
+ * this is the message that gets sent back to the base from any agent discoveries in the field.
+ */
 public class MessageLog implements Message{
     private Location createdLoc;
     private String uid;

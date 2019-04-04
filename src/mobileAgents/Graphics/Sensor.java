@@ -10,6 +10,11 @@ import mobileAgents.Node;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+/**
+ * this class is used by the GUI to control the render state of a sensor.
+ *
+ * Depending on what state it is in it will draw as a specific color or start the fire emitter
+ */
 public class Sensor{
 
     private ArrayList<Particle> particles;
@@ -20,6 +25,10 @@ public class Sensor{
     private Paint color;
     private int radius;
 
+    /**
+     * initialize with the locationof where it exists this location should be translated to the GUI representation.
+     * @param location of where the sensor will be rendered on the canvas
+     */
     public Sensor(Location location){
         particles  = new ArrayList<>();
         emitter = new FireEmitter();
@@ -31,7 +40,11 @@ public class Sensor{
         radius = 20;
     }
 
-    public void setState(Node.State state){
+    /**
+     *
+     * @param state the state the sensor should be changed too.
+     */
+    public synchronized void setState(Node.State state){
         switch(state){
             case NOTONFIRE:{
                 color = Color.BLUE;
@@ -53,15 +66,28 @@ public class Sensor{
         this.state = state;
     }
 
-    public Location getLocation() {
+    /**
+     *
+     * @return the location of the sensor
+     */
+    public synchronized Location getLocation() {
         return location;
     }
 
-    public void setAsBase(){
+    /**
+     * this method changes to color to green.
+     */
+    public synchronized void setAsBase(){
         color = Color.GREEN;
     }
 
-    public void updateAndRender(GraphicsContext gc, boolean basicRender, double scale){
+    /**
+     * this method will first step through the animation frame and then it renders the new state
+     * @param gc the graphics context that we will draw onto
+     * @param basicRender whethor we rendor an onfire sensor as a red circle or a fire animation
+     * @param scale this will be used to scale the size up or down
+     */
+    public synchronized void updateAndRender(GraphicsContext gc, boolean basicRender, double scale){
 
         if(!basicRender && state == Node.State.ONFIRE) {
 

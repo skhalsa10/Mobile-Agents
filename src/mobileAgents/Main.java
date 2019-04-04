@@ -3,6 +3,12 @@ package mobileAgents;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
+import java.util.concurrent.ConcurrentHashMap;
+
+/**
+ * thisclass is the class that extends application and has the main class that acts as a driver that starts the gui and the
+ * simulation.
+ */
 public class Main extends Application {
 
     private GUIState state;
@@ -12,6 +18,11 @@ public class Main extends Application {
     private boolean fire = false;
 
 
+    /**
+     * initialize the parameters and start the gui and simulation.
+     * @param primaryStage
+     * @throws Exception
+     */
     @Override
     public void start(Stage primaryStage) throws Exception {
         //get the parameters from args
@@ -29,11 +40,16 @@ public class Main extends Application {
                 }
             }
             config = parameters.getUnnamed().get(0);
-            //validateConfig();
             state = new GUIState();
-            gui = new GUI(primaryStage, state, fire);
-            forest = new Forest(config, state);
-            forest.startSimulation();
+            forest = new Forest(config,state);
+            if(forest.isValidConfig()) {
+                gui = new GUI(primaryStage, state, fire);
+                forest.startSimulation();
+            }
+            else {
+                printConfigInstructions();
+                System.exit(1);
+            }
         }else {
             printInstructions();
             System.exit(1);
@@ -41,10 +57,19 @@ public class Main extends Application {
 
     }
 
-    private void validateConfig() {
-        //TODO if the config file fails print out config failure message and instructions and System.exit(1)
+    /**
+     * Prints instructions for config file
+     */
+    private void printConfigInstructions() {
+        System.err.println("Invalid Config File: \n" +
+                "Locations of Base Station and Initial Fire must be a Node within file.\n" +
+                "If multiple Base Stations and Initial Fires are present, only the last occurrences are used.");
     }
 
+    /**
+     * shuts down the gui gracefully and then exits the application.
+     * @throws Exception
+     */
     @Override
     public void stop() throws Exception {
         System.out.println("stopping");
@@ -59,6 +84,9 @@ public class Main extends Application {
 
     }
 
+    /**
+     * prints instructions on how  launch the application from the command line.
+     */
     private void printInstructions(){
         System.out.println("MobileAgents Help - " +
                 "MobileAgents can be launched in two ways:\n\n" +
