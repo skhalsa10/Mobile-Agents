@@ -70,7 +70,7 @@ public class Sensor{
      *
      * @return the location of the sensor
      */
-    public Location getLocation() {
+    public synchronized Location getLocation() {
         return location;
     }
 

@@ -509,7 +509,6 @@ public class GUI extends AnimationTimer {
             if(GUIAgents.remove(fl) != null){
                     t2 = new Text("Agent at (" + f.getFireLoc().getX() + "," + f.getFireLoc().getY() + ") is now dead");
                     t2.setId("log-end");
-                }
             }
 
             //now we need to set all the NEARFIRE
@@ -533,15 +532,13 @@ public class GUI extends AnimationTimer {
             //first process removing the move from
             if(a.getMovedFrom() != null){
                 Location l = getGuiSensorLoc(a.getMovedFrom().getX(),a.getMovedFrom().getY());
-                if(!GUIAgents.containsKey(l)){
-                    System.out.println("GUI AGENT ERROR");
-                }else{
-                    GUIAgents.replace(l, null);
-                }
+                //this removes the agent from l
+                GUIAgents.remove(l);
             }
             //now deal with the new Agent
             Location l = getGuiSensorLoc(a.getAgentLoc().getX(),a.getAgentLoc().getY());
-            GUIAgents.replace(l, new GUIAgent(l));
+            //tbhis will put an agent at l
+            GUIAgents.put(l, new GUIAgent(l));
             //create text for log
             Text t = new Text(a.readMessage());
             t.setId("log-state");
@@ -557,12 +554,9 @@ public class GUI extends AnimationTimer {
             //loop through the list and add them to be rendered
             for(Location l: a.getNewAgentsList()){
                 l2 = getGuiSensorLoc(l.getX(),l.getY());
-                if(GUIAgents.containsKey(l2)){
-                    GUIAgents.replace(l2, new GUIAgent(l2));
-                }
-                else{
-                    System.out.println("Error processing KillAgent");
-                }
+                //this should overwrite anything that already exists there
+                GUIAgents.put(l2, new GUIAgent(l2));
+
             }
 
             Text t = new Text(a.readMessage());
@@ -592,7 +586,7 @@ public class GUI extends AnimationTimer {
                 e.printStackTrace();
             }
         }
-        
+
     }
 
 
