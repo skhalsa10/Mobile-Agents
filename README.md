@@ -27,8 +27,11 @@ Type `java -jar MobileAgents_mllouie_skhalsa10.jar ./config-file-path.txt fire` 
 this does take more resources to process especially in a big file where there are tons of nodes on fire due to the amount of particles in the fire. 
 We have compromised and made the visual effects of the fire still on the low end in the amount of particles generated per fire.
 
+The application makes a base station log file that gets created on the OS in the same directory as the .jar
+It is called MobileAgents.log
+
 #### GUI
-The GUI its pretty fantastic looking  it is really simple but there is some things that can be explained here that are not apparently 
+The GUI is really simple but there is some things that can be explained here that are not apparently 
 obvious immediately.
 
 The GUI is split up into three main panes. 
@@ -76,7 +79,7 @@ What folder is your documentation (diagram and class diagram) in?
 ### Known Issues
 1. There is a bad concurrency bug. that ONLY happens sometimes. It happens more often than not if you run
 the program with the big_big_graph.txt will showcase the bug more often than not. It sometimes does not send a message to the GUI
-that the node is on fire.
+that the node is on fire. This can be seen in the GUI as the FIRE never spreading to some nodes. or tons of agents in places they shouldn't be.
 2. When reading in the config file, extra white spaces could lead to an invalid config file. 
 3. The GUI has a bug that if you press pause on the animation and then change the speed it will start processing the state
 and when you unpause it will jump ahead in the animation.
