@@ -194,7 +194,7 @@ public class Agent implements Runnable {
      * @param m message to be sent
      * @param receivingNode node agent is on
      */
-    private synchronized void sendMessage(Message m, Node receivingNode) {
+    private void sendMessage(Message m, Node receivingNode) {
         receivingNode.processMessage(m);
     }
     /**

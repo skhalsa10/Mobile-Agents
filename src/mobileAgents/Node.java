@@ -67,29 +67,20 @@ public class Node implements Runnable {
      * after the state changes
      * @param nextState
      */
-    public synchronized void setState(State nextState) {
+    public void setState(State nextState) {
         state = nextState;
         if(state == State.NEARFIRE) {
             MessageGUINode message = new MessageGUINode(this.getLocation(),state);
             if(agent != null) {
-                //printNode();
                 agent.getMessageFromNode(message);
             }
-            startFireTimer();
         }
         else if(state == State.ONFIRE) {
-            //creating a Message that keeps track of what location is on fire
             MessageGUIFire m = new MessageGUIFire(this.getLocation());
-            MessageKillAgent messageKillAgent = new MessageKillAgent();
-            if(agent != null) {
-                agent.getMessageFromNode(messageKillAgent);
-            }
-
             checkNeighbors(m);
             GUIStateQueue.putState(m);
-            killMe();
+
         }
-        //notifyAll();
         printNode();
     }
 
@@ -112,12 +103,13 @@ public class Node implements Runnable {
      * I have added
      *
      */
-    private synchronized void checkNeighbors(MessageGUIFire m) {
+    private void checkNeighbors(MessageGUIFire m) {
         for(Node n: neighbors) {
+            MessageNearFire newMessage = new MessageNearFire();
+            n.processMessage(newMessage);
             if(checkCurrentState(n)) {
                 //n.setState(State.NEARFIRE);
-                MessageNearFire newMessage = new MessageNearFire();
-                n.processMessage(newMessage);
+
                 m.addNearFireLoc(n.getLocation());
             }
         }
@@ -138,15 +130,13 @@ public class Node implements Runnable {
     /**
      * this method will start the fire timer which will change the state of this node to ONFIRE
      */
-    private synchronized void startFireTimer() {
+    public void startFireTimer() {
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                //setState(State.ONFIRE);
                 MessageOnFire m = new MessageOnFire();
                 processMessage(m);
-                //System.out.println("Node at " + location.getX() + " " + location.getY() + " is on fire");
                 timer.cancel();
             }
         }, 2000);
@@ -156,7 +146,7 @@ public class Node implements Runnable {
      * Processes a given message
      * @param m message that was received
      */
-    public synchronized void processMessage(Message m) {
+    public void processMessage(Message m) {
         try {
             messages.put(m);
         }
@@ -186,7 +176,7 @@ public class Node implements Runnable {
      * @return the current state of the node
      */
     public synchronized State getState() {
-        notifyAll();
+        //notifyAll();
         return state;
     }
 
@@ -334,6 +324,7 @@ public class Node implements Runnable {
     @Override
     public void run(){
         boolean alive = true;
+        boolean nearFire = false;
         while(alive) {
             try {
                 Message newMessage = messages.take();
@@ -341,13 +332,20 @@ public class Node implements Runnable {
                 if(newMessage instanceof MessageOnFire) {
                     if(state != State.ONFIRE) {
                         setState(State.ONFIRE);
+                        MessageKillAgent messageKillAgent = new MessageKillAgent();
+                        killMe();
+                        if(agent != null) {
+                            agent.getMessageFromNode(messageKillAgent);
+                        }
                         alive = false;
                     }
 
                 }
                 else if (newMessage instanceof  MessageNearFire) {
-                    if(state != State.NEARFIRE) {
+                    if(state != State.NEARFIRE && !nearFire) {
+                        nearFire = true;
                         setState(State.NEARFIRE);
+                        startFireTimer();
                     }
 
                 }
