@@ -34,14 +34,23 @@ public class Base extends Node{
         Message m = null;
         //TODO what if this thread is sleeping waiting for messages while it goes on fire. a node can never receive a message while it is on fire so it will never wake up and close gracefully. we may need to send a message to itsself while it changes to onfire.
         boolean alive = true;
-        while(state != State.ONFIRE){
+        while(alive){
             try {
                 m = messages.take();
                 if(m instanceof MessageOnFire) {
-                    setState(State.ONFIRE);
+                    if(state != State.ONFIRE) {
+                        setState(State.ONFIRE);
+                        log.logString("BASE is now on fire!!! we doomed! ***Sings the doom song in the voice of Gir from Invader Zim*** doom de doom de doom!");
+                        GUIStateQueue.putState(new MessageGUILog("BASE is now on fire!!! we doomed! ***Sings the doom song in the voice of Gir from Invader Zim*** doom de doom de doom!"));
+                        alive = false;
+                    }
+
                 }
                 else if (m instanceof MessageNearFire) {
-                    setState(State.NEARFIRE);
+                    if(state != State.NEARFIRE) {
+                        setState(State.NEARFIRE);
+                    }
+
                 }
                 else if (!(m instanceof MessageKillNode)) {
                     log.logMessage(m);
@@ -53,8 +62,8 @@ public class Base extends Node{
             }
         }
 
-        log.logString("BASE is now on fire!!! we doomed! ***Sings the doom song in the voice of Gir from Invader Zim*** doom de doom de doom!");
-        GUIStateQueue.putState(new MessageGUILog("BASE is now on fire!!! we doomed! ***Sings the doom song in the voice of Gir from Invader Zim*** doom de doom de doom!"));
+        //log.logString("BASE is now on fire!!! we doomed! ***Sings the doom song in the voice of Gir from Invader Zim*** doom de doom de doom!");
+        //GUIStateQueue.putState(new MessageGUILog("BASE is now on fire!!! we doomed! ***Sings the doom song in the voice of Gir from Invader Zim*** doom de doom de doom!"));
     }
 
 }
