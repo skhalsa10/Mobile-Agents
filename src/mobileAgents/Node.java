@@ -333,15 +333,23 @@ public class Node implements Runnable {
      */
     @Override
     public void run(){
-        while(state != State.ONFIRE) {
+        boolean alive = true;
+        while(alive) {
             try {
                 Message newMessage = messages.take();
                 Node sendToNode;
                 if(newMessage instanceof MessageOnFire) {
-                    setState(State.ONFIRE);
+                    if(state != State.ONFIRE) {
+                        setState(State.ONFIRE);
+                        alive = false;
+                    }
+
                 }
                 else if (newMessage instanceof  MessageNearFire) {
-                    setState(State.NEARFIRE);
+                    if(state != State.NEARFIRE) {
+                        setState(State.NEARFIRE);
+                    }
+
                 }
                 else if(canSendMessage() && !(newMessage instanceof MessageKillNode)) {
                     sendToNode = pickNextNode();
