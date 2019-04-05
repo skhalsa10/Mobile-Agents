@@ -12,9 +12,13 @@ and primarily the GUI class. We both worked on the Messages.
 ## Usage
 
 It is very easy to use this application.
+- Entry Point: Main Class
+- JDK Version: 10
 
 #### Starting the App
 Change the directory of your terminal or command prompt  to the directory where you downloaded the jar to.
+
+#####When you download the jar make sure you download the jar from the master branch on csgit
 
 Type `java -jar MobileAgents_mllouie_skhalsa10.jar ./config-file-path.txt` this will start
 the application in a mode that is least graphics and resource intensive. So if your machine is old or has low specs run this mode
@@ -23,8 +27,11 @@ Type `java -jar MobileAgents_mllouie_skhalsa10.jar ./config-file-path.txt fire` 
 this does take more resources to process especially in a big file where there are tons of nodes on fire due to the amount of particles in the fire. 
 We have compromised and made the visual effects of the fire still on the low end in the amount of particles generated per fire.
 
+The application makes a base station log file that gets created on the OS in the same directory as the .jar
+It is called MobileAgents.log
+
 #### GUI
-The GUI its pretty fantastic looking  it is really simple but there is some things that can be explained here that are not apparently 
+The GUI is really simple but there is some things that can be explained here that are not apparently 
 obvious immediately.
 
 The GUI is split up into three main panes. 
@@ -41,9 +48,14 @@ the Play/Pause button will either play the animation or pause it. and the Z- and
 
 ## Project Assumptions
 1. We assume that we can only have one base station and one node on fire to start the sim.
-2. If a config file contains multiple bases and fire we pick one of each and ignore the rest.
+2. If a config file contains multiple bases and fire we pick the last occurrence of each and ignore the rest.
 3. If the config file has duplicate nodes or edges it will write out an error and exit the application.
-4. Although the assignment states that the sensor network is represented as a planar graph, 
+4. A node line in the config file must have the word "node" followed by two integers separated by spaces.
+5. An initial fire and base station line must have the word "fire" and "station," respectively followed by two integers separated by spaces.
+6. Edge lines must have the word "edge" followed by 4 integers separated by spaces.
+7. Edges, the initial fire, and base station must be a valid node location.
+8. If any of the above conditions (4-7) are not met, an error will printed out and the program will exit. 
+9. Although the assignment states that the sensor network is represented as a planar graph, 
 we DO NOT check to see if it is a valid planar graph and we wil accept a graph with edges that cross the path of 
 other edges. The simulation still functions correctly.
 
@@ -64,11 +76,11 @@ java -jar MobileAgents_mllouie_skhalsa10.jar ./config-file-path.txt fire
 What folder is your documentation (diagram and class diagram) in?
 
 ## Status
-### Implemented Features
-State things that work.
-
 ### Known Issues
-1. There is an issue that happen rarely where the GUI does not finish rendering the state or it process the messages wrong
-this will lead to the fire that stops spreading. The log at the bottom of the GUI shows that it did receive the state messages
-and prints it accordingly, but the Animation part does not process the change correctly.
-
+1. There is a bad concurrency bug. that ONLY happens sometimes. It happens more often than not if you run
+the program with the big_big_graph.txt will showcase the bug more often than not. It sometimes does not send a message to the GUI
+that the node is on fire. This can be seen in the GUI as the FIRE never spreading to some nodes. or tons of agents in places they shouldn't be.
+2. When reading in the config file, extra white spaces could lead to an invalid config file. 
+3. The GUI has a bug that if you press pause on the animation and then change the speed it will start processing the state
+and when you unpause it will jump ahead in the animation. - THIS HAS BEEN FIXED
+4. The GUI has a bug that if you pause animation and then change the zoom. it does not render the zoom until you press play again
