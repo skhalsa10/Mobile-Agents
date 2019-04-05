@@ -283,6 +283,9 @@ public class Node implements Runnable {
                 availableNodes.add(n);
             }
         }
+        if(availableNodes.isEmpty()) {
+            return null;
+        }
         return getRandomNextNode(availableNodes);
     }
 
@@ -334,7 +337,9 @@ public class Node implements Runnable {
                 Node sendToNode;
                 if(canSendMessage() && !(newMessage instanceof MessageKillNode)) {
                     sendToNode = pickNextNode();
-                    sendToNode.processMessage(newMessage);
+                    if(sendToNode != null) {
+                        sendToNode.processMessage(newMessage);
+                    }
                 }
             }
             catch(InterruptedException e) {
