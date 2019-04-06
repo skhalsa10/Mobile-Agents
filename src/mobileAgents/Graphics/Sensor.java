@@ -44,7 +44,7 @@ public class Sensor{
      *
      * @param state the state the sensor should be changed too.
      */
-    public synchronized void setState(Node.State state){
+    public void setState(Node.State state){
         switch(state){
             case NOTONFIRE:{
                 color = Color.BLUE;
@@ -66,14 +66,14 @@ public class Sensor{
      *
      * @return the location of the sensor
      */
-    public synchronized Location getLocation() {
+    public Location getLocation() {
         return location;
     }
 
     /**
      * this method changes to color to green.
      */
-    public synchronized void setAsBase(){
+    public void setAsBase(){
         color = Color.GREEN;
     }
 
@@ -83,7 +83,7 @@ public class Sensor{
      * @param basicRender whethor we rendor an onfire sensor as a red circle or a fire animation
      * @param scale this will be used to scale the size up or down
      */
-    public synchronized void updateAndRender(GraphicsContext gc, boolean basicRender, double scale){
+    public void updateAndRender(GraphicsContext gc, boolean basicRender, double scale){
 
         if(!basicRender && state == Node.State.ONFIRE) {
 
