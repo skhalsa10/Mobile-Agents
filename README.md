@@ -77,7 +77,12 @@ Running an extremely large graph this needed half a GB of memory to run using fi
 
 
 ## Docs
-What folder is your documentation (diagram and class diagram) in?
+The design diagram and document are located in the docs directory.
+ - Note: When the concurrency bug in Known Issues #1 was fixed, the state was changed from synchronized to unsynchronized. 
+Messages were used to change the state of a node with the start fire timer. The design diagram and document do not reflect these changes. 
+
+Test files can be found in the resources directory
+ 
 
 ## Status
 ### Known Issues
