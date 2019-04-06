@@ -4,9 +4,7 @@ import mobileAgents.Location;
 import mobileAgents.Node;
 
 /**
- * this is not as useful now that I think about what state I will need to group togethor.
- *
- * ***This message is deprecated***
+ * Used to notify agent of changes in state
  */
 public class MessageGUINode implements Message{
 
@@ -14,6 +12,9 @@ public class MessageGUINode implements Message{
     private Node.State newState;
     private final long timeStamp;
 
+    /**
+     * Constructs a message to notify agent of state
+     */
     public MessageGUINode(Location nodeLoc, Node.State newState ){
         this.location = nodeLoc;
         this.newState = newState;

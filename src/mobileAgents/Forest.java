@@ -11,7 +11,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.LinkedList;
-import static java.lang.Thread.sleep;
 
 /**
  * Class for forest
@@ -30,7 +29,8 @@ public class Forest {
      * @param GUIStateQueue Queue that is used to update gui
      */
     public Forest(String config, GUIState GUIStateQueue) {
-        //One GUIStateQueue needs to be shared with everything that tells the GUI something so it will be passed in here.
+        //One GUIStateQueue needs to be shared with everything
+        // tells the GUI something so it will be passed in here.
         this.GUIStateQueue = GUIStateQueue;
         MessageGUIConfig configMessage = new MessageGUIConfig();
         Path configFile = Paths.get(config);
@@ -42,9 +42,7 @@ public class Forest {
                 configMessage.appendStr(line+"\n");
                 readInfo(line);
             }
-
             GUIStateQueue.putState(configMessage);
-
         }
         catch(IOException e) {
             System.err.println(e);

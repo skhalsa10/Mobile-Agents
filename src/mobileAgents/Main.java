@@ -70,7 +70,7 @@ public class Main extends Application {
      */
     @Override
     public void stop() throws Exception {
-        System.out.println("stopping");
+        //System.out.println("stopping");
         gui.shutdown();
         super.stop();
         System.exit(0);

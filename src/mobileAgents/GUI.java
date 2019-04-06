@@ -496,7 +496,7 @@ public class GUI extends AnimationTimer {
 
         Message m = state.pollState();
         if(m == null) {
-            System.out.println("handling null in queue");
+            //System.out.println("handling null in queue");
             return;
         }
         if(m instanceof MessageGUIConfig){

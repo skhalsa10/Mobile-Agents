@@ -58,10 +58,6 @@ public class Sensor{
                 color = Color.RED;
                 break;
             }
-            case DEAD:{
-                color = Color.BLACK;
-                break;
-            }
         }
         this.state = state;
     }

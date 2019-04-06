@@ -21,4 +21,3 @@ edge 5 8 4 9
 edge 4 7 4 9
 edge 4 9 3 8
 edge 4 9 3 10
-edge 3 10 4 9
