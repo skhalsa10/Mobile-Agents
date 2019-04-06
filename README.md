@@ -68,8 +68,12 @@ The other renders the circle as a flame animation.
 RED DOT mode:
 java -jar MobileAgents_mllouie_skhalsa10.jar ./config-file-path.txt
 
+Running an extremely large graph this needed 300 MB of memory to run
+
 Fire animation mode:
 java -jar MobileAgents_mllouie_skhalsa10.jar ./config-file-path.txt fire
+
+Running an extremely large graph this needed half a GB of memory to run using fire animation.
 
 
 ## Docs
@@ -79,8 +83,10 @@ What folder is your documentation (diagram and class diagram) in?
 ### Known Issues
 1. There is a bad concurrency bug. that ONLY happens sometimes. It happens more often than not if you run
 the program with the big_big_graph.txt will showcase the bug more often than not. It sometimes does not send a message to the GUI
-that the node is on fire. This can be seen in the GUI as the FIRE never spreading to some nodes. or tons of agents in places they shouldn't be.
+that the node is on fire. This can be seen in the GUI as the FIRE never spreading to some nodes. or tons of agents in places they shouldn't be.THIS HAS BEEN FIXED
 2. When reading in the config file, extra white spaces could lead to an invalid config file. 
 3. The GUI has a bug that if you press pause on the animation and then change the speed it will start processing the state
 and when you unpause it will jump ahead in the animation. - THIS HAS BEEN FIXED
-4. The GUI has a bug that if you pause animation and then change the zoom. it does not render the zoom until you press play again
+4. The GUI has a bug that if you pause animation and then change the zoom. it does not render the zoom until you press play again THIS HAS BEEN FIXED
+5. There is a bug when running this application on an EXTREMELY Large graph. we used giant-close-box.txt config file.
+We get a stackoverflow exception during the agents walk. this kills the agent. the simulation continues without an agent.
