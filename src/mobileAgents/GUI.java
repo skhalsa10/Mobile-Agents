@@ -169,6 +169,7 @@ public class GUI extends AnimationTimer {
         graphPane.getChildren().add(graph);
         //logs
         logsPane.setContent(logs);
+        logsPane.vvalueProperty().bind(logs.heightProperty());
         //button row
         buttonPane.getChildren().addAll(speedMinus,speedPlus,play,zoomMinus,zoomPlus);
         root.getChildren().addAll(graphScrollPane,logsPane,buttonPane);
