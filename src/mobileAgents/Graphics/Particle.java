@@ -44,7 +44,7 @@ public class Particle {
     /**
      * update new location of this particle  my adding the velocity and decaying the life
      */
-    public void update(){
+    public synchronized void update(){
         x += velocity.getX();
         y += velocity.getY();
 
@@ -56,7 +56,7 @@ public class Particle {
      * @param gc graphics context to draw onto
      * @param scale the scale to scale up or down
      */
-    public void render(GraphicsContext gc, double scale){
+    public synchronized void render(GraphicsContext gc, double scale){
         gc.setGlobalAlpha(life);
         gc.setGlobalBlendMode(blendMode);
         gc.setFill(color);
@@ -67,7 +67,7 @@ public class Particle {
      *
      * @return true if life is greater than 0
      */
-    public boolean isAlive(){
+    public synchronized boolean isAlive(){
         return life > 0;
     }
 

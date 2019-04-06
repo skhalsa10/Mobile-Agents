@@ -163,5 +163,6 @@ edge 8 8 8 10
 edge 8 8 10 10
 edge 8 10 10 10
 edge 10 8 10 10
+edge 10 10 20 20
 station 1 1
 fire 40 40
