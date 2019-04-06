@@ -3,8 +3,6 @@ package mobileAgents;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-import java.util.concurrent.ConcurrentHashMap;
-
 /**
  * thisclass is the class that extends application and has the main class that acts as a driver that starts the gui and the
  * simulation.

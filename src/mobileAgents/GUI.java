@@ -24,7 +24,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.LinkedBlockingQueue;
 
 
@@ -68,9 +67,9 @@ public class GUI extends AnimationTimer {
     private boolean isPlaying;
     private boolean simIsOver;
     private Timer stateTimer;
-    private ConcurrentHashMap<Location,Sensor> sensors;
-    private ConcurrentHashMap<Location,GUIAgent> GUIAgents;
-    private ConcurrentHashMap<Location, ArrayList<Location>> edges;
+    private HashMap<Location,Sensor> sensors;
+    private HashMap<Location,GUIAgent> GUIAgents;
+    private HashMap<Location, ArrayList<Location>> edges;
     private LinkedBlockingQueue<Text> textQueue;
     private int largestX;
     private int largestY;
@@ -186,9 +185,9 @@ public class GUI extends AnimationTimer {
 
         //start logic stuff
         simIsOver = false;
-        edges = new ConcurrentHashMap<>();
-        sensors = new ConcurrentHashMap<>();
-        GUIAgents = new ConcurrentHashMap<>();
+        edges = new HashMap<>();
+        sensors = new HashMap<>();
+        GUIAgents = new HashMap<>();
         isInitialized = false;
         largestX = 0;
         largestY = 0;
@@ -375,7 +374,7 @@ public class GUI extends AnimationTimer {
                     Location l = getGuiSensorLoc(x,y);
                     sensors.put(l, new Sensor(l));
                     //lets also add a null value to the GUIAgents map
-                    //GUIAgents.put(l);
+                    GUIAgents.put(l,null);
                     break;
                 }
                 case "edge": {
@@ -502,7 +501,7 @@ public class GUI extends AnimationTimer {
             return;
         }
         if(m instanceof MessageGUIConfig){
-            System.out.println("should not be processing a config file this should already be configured");
+            System.out.println("should nto be processing a config file this should already be configured");
             return;
         }
         if(m instanceof MessageGUIFire){
@@ -512,9 +511,12 @@ public class GUI extends AnimationTimer {
             sensors.get(fl).setState(Node.State.ONFIRE);
             //if an agent exists we need to delete it
             Text t2 = null;
-            if(GUIAgents.remove(fl) != null){
+            if(GUIAgents.containsKey(fl)){
+                if(GUIAgents.get(fl)!= null) {
+                    GUIAgents.replace(fl, null);
                     t2 = new Text("Agent at (" + f.getFireLoc().getX() + "," + f.getFireLoc().getY() + ") is now dead");
                     t2.setId("log-end");
+                }
             }
 
             //now we need to set all the NEARFIRE
@@ -531,20 +533,22 @@ public class GUI extends AnimationTimer {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            return;
+
         }
         if(m instanceof MessageGUIAgent){
             MessageGUIAgent a = (MessageGUIAgent) m;
             //first process removing the move from
             if(a.getMovedFrom() != null){
                 Location l = getGuiSensorLoc(a.getMovedFrom().getX(),a.getMovedFrom().getY());
-                //this removes the agent from l
-                GUIAgents.remove(l);
+                if(!GUIAgents.containsKey(l)){
+                    System.out.println("GUI AGENT ERROR");
+                }else{
+                    GUIAgents.replace(l, null);
+                }
             }
             //now deal with the new Agent
             Location l = getGuiSensorLoc(a.getAgentLoc().getX(),a.getAgentLoc().getY());
-            //tbhis will put an agent at l
-            GUIAgents.put(l, new GUIAgent(l));
+            GUIAgents.replace(l, new GUIAgent(l));
             //create text for log
             Text t = new Text(a.readMessage());
             t.setId("log-state");
@@ -553,7 +557,6 @@ public class GUI extends AnimationTimer {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            return;
         }
         if(m instanceof MessageGUICopyAgents){
             MessageGUICopyAgents a = (MessageGUICopyAgents) m;
@@ -561,9 +564,12 @@ public class GUI extends AnimationTimer {
             //loop through the list and add them to be rendered
             for(Location l: a.getNewAgentsList()){
                 l2 = getGuiSensorLoc(l.getX(),l.getY());
-                //this should overwrite anything that already exists there
-                GUIAgents.put(l2, new GUIAgent(l2));
-
+                if(GUIAgents.containsKey(l2)){
+                    GUIAgents.replace(l2, new GUIAgent(l2));
+                }
+                else{
+                    System.out.println("Error processing KillAgent");
+                }
             }
 
             Text t = new Text(a.readMessage());
@@ -573,7 +579,6 @@ public class GUI extends AnimationTimer {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            return;
         }
         if(m instanceof MessageGUILog){
             Text t = new Text(m.readMessage());
@@ -583,7 +588,6 @@ public class GUI extends AnimationTimer {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            return;
         }
         if(m instanceof MessageGUIEnd){
             simIsOver = true;
@@ -594,11 +598,8 @@ public class GUI extends AnimationTimer {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            return;
         }
-
-        System.out.println("a message was never processed!" + m);
-
+        
     }
 
 

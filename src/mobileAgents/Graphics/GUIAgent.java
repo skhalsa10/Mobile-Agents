@@ -34,7 +34,7 @@ public class GUIAgent {
      * @param gc graphics context to render to
      * @param scale will scale the size bigger or smaller
      */
-    public synchronized void updateAndRender(GraphicsContext gc, double scale){
+    public void updateAndRender(GraphicsContext gc, double scale){
         if(radius >= RADIUSCAP){
             radius = 0;
             offset = 10;
@@ -51,7 +51,7 @@ public class GUIAgent {
      * @param gc graphics context to draw on
      * @param scale scale to size up or down
      */
-    private synchronized void render(GraphicsContext gc, double scale) {
+    private void render(GraphicsContext gc, double scale) {
         gc.setGlobalAlpha(1.0);
         gc.setGlobalBlendMode(BlendMode.SRC_OVER);
         gc.setStroke(color);
