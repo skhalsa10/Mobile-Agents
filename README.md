@@ -81,7 +81,8 @@ The design diagram and document are located in the docs directory.
  - Note: When the concurrency bug in Known Issues #1 was fixed, the state was changed from synchronized to unsynchronized. 
 Messages were used to change the state of a node with the start fire timer. The design diagram and document do not reflect these changes. 
 
-Test files can be found in the resources directory
+Test files can be found in the resources directory. Some test files were used to check the parsing of the config file and may not be valid 
+config files according to our design decisions.
  
 
 ## Status
