@@ -25,8 +25,6 @@ public class Node implements Runnable {
     protected Agent agent;
     protected int distanceFromBase;
 
-    //public Node() {}
-
     /**
      * initializes node with a location and given state is this needed?
      * @param location
@@ -63,7 +61,8 @@ public class Node implements Runnable {
 
 
     /**
-     * This will set the state to the next state it will fire off appropriate methods that should happen
+     * This will set the state to the next state
+     * it will fire off appropriate methods that should happen
      * after the state changes
      * @param nextState
      */
@@ -81,7 +80,6 @@ public class Node implements Runnable {
             GUIStateQueue.putState(m);
 
         }
-        printNode();
     }
 
     /**
@@ -98,18 +96,14 @@ public class Node implements Runnable {
     }
 
     /**
-     * this will Iterate through all neighbors and set the state to NEARFIRE if applicable
-     *
-     * I have added
-     *
+     * this will Iterate through all neighbors and
+     * set the state to NEARFIRE if applicable
      */
     private void checkNeighbors(MessageGUIFire m) {
         for(Node n: neighbors) {
             MessageNearFire newMessage = new MessageNearFire();
             n.processMessage(newMessage);
             if(checkCurrentState(n)) {
-                //n.setState(State.NEARFIRE);
-
                 m.addNearFireLoc(n.getLocation());
             }
         }
@@ -128,7 +122,8 @@ public class Node implements Runnable {
     }
 
     /**
-     * this method will start the fire timer which will change the state of this node to ONFIRE
+     * this method will start the fire timer which will
+     * change the state of this node to ONFIRE
      */
     public void startFireTimer() {
         Timer timer = new Timer();
@@ -176,7 +171,6 @@ public class Node implements Runnable {
      * @return the current state of the node
      */
     public synchronized State getState() {
-        //notifyAll();
         return state;
     }
 
@@ -210,7 +204,8 @@ public class Node implements Runnable {
      * prints out the location and state of the node to System out
      */
     public void printNode() {
-        System.out.println("Node at: " + getLocation().getX() + " " + getLocation().getY() + " " + state);
+        System.out.println("Node at: " + getLocation().getX() + " " +
+                getLocation().getY() + " " + state);
     }
 
     /**
@@ -240,8 +235,6 @@ public class Node implements Runnable {
         if(!canWalk) {
             agent = newAgent;
         }
-        newAgent.printAgent();
-        printNode();
     }
 
     /**
@@ -312,7 +305,8 @@ public class Node implements Runnable {
                 return n;
             }
             // Send message to node closest to base
-            if(n.getState() != State.ONFIRE && n.getDistanceFromBase() <= distanceFromBase) {
+            if(n.getState() != State.ONFIRE &&
+                    n.getDistanceFromBase() <= distanceFromBase) {
                 availableNodes.add(n);
             }
         }
@@ -368,6 +362,6 @@ public class Node implements Runnable {
     /**
      * States for nodes
      */
-    public enum State { ONFIRE, NEARFIRE, NOTONFIRE, DEAD}
+    public enum State { ONFIRE, NEARFIRE, NOTONFIRE}
 
 }

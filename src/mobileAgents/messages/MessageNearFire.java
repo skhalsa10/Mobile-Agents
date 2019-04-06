@@ -1,5 +1,8 @@
 package mobileAgents.messages;
 
+/**
+ * Message for node when its near fire
+ */
 public class MessageNearFire implements Message {
     private final long timeStamp;
 

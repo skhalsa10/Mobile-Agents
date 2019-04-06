@@ -58,8 +58,10 @@ public class Edge {
         Edge e = (Edge)o;
 
         //valueCheck
-        return (this.getFirst().equals(e.getFirst()) &&  this.getSecond().equals(e.getSecond())) ||
-                (this.getFirst().equals(e.getSecond()) && this.getSecond().equals(e.getFirst()));
+        return (this.getFirst().equals(e.getFirst()) &&
+                this.getSecond().equals(e.getSecond())) ||
+                (this.getFirst().equals(e.getSecond()) &&
+                        this.getSecond().equals(e.getFirst()));
     }
 
 

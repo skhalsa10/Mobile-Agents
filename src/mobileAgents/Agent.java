@@ -30,7 +30,6 @@ public class Agent implements Runnable {
         //First agent is Alpha
         if(canWalk) {
             this.uid = "Alpha";
-            System.out.println("created agent alpha");
             MessageGUIAgent m = new MessageGUIAgent(location);
             GUIStateQueue.putState(m);
         }
@@ -57,7 +56,6 @@ public class Agent implements Runnable {
             if(n.getAgent() == null && n.getState() != Node.State.ONFIRE) {
                 m.putNewAgentLoc(n.getLocation());
                 n.createAgent(false);
-                System.out.println("Agent " + uid + " created agent " + n.getAgent().getUid());
             }
         }
         GUIStateQueue.putState(m);
@@ -76,17 +74,13 @@ public class Agent implements Runnable {
      * Uses a dfs traversal
      */
     private void walk() {
-        printVisitedPath();
         Node movedFromNode = currentNode;
         visitedNodes.add(currentNode);
         if(currentNode.getState() == Node.State.NEARFIRE) {
             canWalk = false;
             currentNode.setAgent(this);
-            System.out.println("Agent stopped walking at: ");
-            currentNode.printNode();
             MessageLog messageLog = new MessageLog(this.uid,currentNode.getLocation());
             sendMessage(messageLog,currentNode);
-            //makeCopy();
             return;
         }
         if(hasPath() && canWalk) {
@@ -226,7 +220,6 @@ public class Agent implements Runnable {
         }
         MessageGUIKillAgent killAgentMessage = new MessageGUIKillAgent(currentNode.getLocation());
         GUIStateQueue.putState(killAgentMessage);
-        System.out.println("Agent " + uid + " got killed");
     }
 
     /**
