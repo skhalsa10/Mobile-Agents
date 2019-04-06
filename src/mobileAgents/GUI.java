@@ -227,7 +227,9 @@ public class GUI extends AnimationTimer {
             speedMinus.setDisable(true);
             currentSpeed = SPEED1;
         }
-        restartTimer();
+        if(isPlaying) {
+            restartTimer();
+        }
     }
 
     /**
@@ -251,7 +253,9 @@ public class GUI extends AnimationTimer {
             currentSpeed = SPEED4;
             speedPlus.setDisable(true);
         }
-        restartTimer();
+        if(isPlaying) {
+            restartTimer();
+        }
     }
 
     /**
@@ -283,6 +287,7 @@ public class GUI extends AnimationTimer {
             return;
         }
         setSize();
+
     }
 
     /**
@@ -482,7 +487,7 @@ public class GUI extends AnimationTimer {
             public void run() {
                 processNextState();
             }
-        }, 1000,currentSpeed);
+        }, 0,currentSpeed);
     }
 
     /**
