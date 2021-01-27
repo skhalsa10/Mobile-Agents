@@ -6,6 +6,8 @@ import javafx.scene.effect.BlendMode;
 import javafx.scene.paint.Paint;
 
 /**
+ * this will be a particle that is generated in a particle emmiter
+ *
  *  Thanks https://www.youtube.com/watch?v=vLcJRm6Y72U
  */
 public class Particle {
@@ -19,6 +21,16 @@ public class Particle {
     private Paint color;
     private BlendMode blendMode;
 
+    /**
+     * this has a lot of parameters that represent the property of how the particle behaves
+     * @param x x location
+     * @param y y location
+     * @param v velocity
+     * @param r how big the radius of the circle is
+     * @param decay how fast it decays
+     * @param color the color of the particle
+     * @param bm blend mode
+     */
     public Particle(double x, double y, Point2D v, double r, double decay, Paint color, BlendMode bm) {
         this.x = x;
         this.y = y;
@@ -29,6 +41,9 @@ public class Particle {
         this.blendMode = bm;
     }
 
+    /**
+     * update new location of this particle  my adding the velocity and decaying the life
+     */
     public void update(){
         x += velocity.getX();
         y += velocity.getY();
@@ -36,13 +51,22 @@ public class Particle {
         life -= decay;
     }
 
-    public void render(GraphicsContext gc){
+    /**
+     * render the particle
+     * @param gc graphics context to draw onto
+     * @param scale the scale to scale up or down
+     */
+    public void render(GraphicsContext gc, double scale){
         gc.setGlobalAlpha(life);
         gc.setGlobalBlendMode(blendMode);
         gc.setFill(color);
-        gc.fillOval(x,y,radius,radius);
+        gc.fillOval(x*scale,y*scale,radius*scale,radius*scale);
     }
 
+    /**
+     *
+     * @return true if life is greater than 0
+     */
     public boolean isAlive(){
         return life > 0;
     }

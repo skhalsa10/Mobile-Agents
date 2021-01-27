@@ -1,25 +1,25 @@
 package mobileAgents.messages;
 
-/**
- * this message tells the gui that it should be treated as a log message that would have gone to the log that outputs to a file.
- * the GUI renders this as white text.
- */
-public class MessageGUILog implements Message {
-    private final long timeStamp;
-    private String log;
+import mobileAgents.Location;
 
-    /**
-     * construct message with string s
-     * @param s
-     */
-    public MessageGUILog(String s){
+/**
+ * this is the message that gets sent back to the base from any agent discoveries in the field.
+ */
+public class MessageLog implements Message{
+    private Location createdLoc;
+    private String uid;
+    private final long timeStamp;
+
+    public MessageLog(String agentUid, Location loc) {
+        this.uid = agentUid;
+        this.createdLoc = loc;
         this.timeStamp = System.nanoTime();
-        this.log = s;
     }
     @Override
     public String readMessage() {
-        return log;
+        return "Agent " + uid + " is near a fire at (" + createdLoc.getX() + "," + createdLoc.getY() + ")";
     }
+
     @Override
     public long getTimeStamp() {
         return timeStamp;

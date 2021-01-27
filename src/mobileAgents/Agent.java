@@ -1,6 +1,10 @@
 package mobileAgents;
 
 import java.util.*;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
+
+import mobileAgents.messages.*;
 
 /**
  * Agent Class
@@ -12,8 +16,9 @@ public class Agent implements Runnable {
     private boolean canWalk;
     private Stack<Node> visitedPath = new Stack<>();
     private HashSet<Node> visitedNodes = new HashSet<>();
-
-    //sendMessage()
+    private LinkedBlockingQueue<Message> messages = new LinkedBlockingQueue<>();
+    private boolean killAgent = false;
+    private GUIState GUIStateQueue;
 
     /**
      * Constructs an agent
@@ -21,17 +26,23 @@ public class Agent implements Runnable {
      * @param node node where agent is currently on
      * @param canWalk boolean to determine if agent can walk or not
      */
-    public Agent(Location location, Node node, boolean canWalk) {
+    public Agent(Location location, Node node, boolean canWalk, GUIState GUIStateQueue) {
         //First agent is Alpha
         if(canWalk) {
             this.uid = "Alpha";
+            MessageGUIAgent m = new MessageGUIAgent(location);
+            GUIStateQueue.putState(m);
         }
         else {
             this.uid = "" + location.getX() + "" + location.getY();
+            MessageLog messageLog = new MessageLog(this.uid,location);
+            sendMessage(messageLog,node);
         }
         this.currentLoc = location;
         this.currentNode = node;
         this.canWalk = canWalk;
+        this.GUIStateQueue = GUIStateQueue;
+
         new Thread(this).start();
     }
 
@@ -39,27 +50,37 @@ public class Agent implements Runnable {
      * Makes a copy of the agent on each neighbor that's not on fire
      */
     private synchronized void makeCopy() {
-        System.out.println("Created in copy");
         ArrayList<Node> neighbors = currentNode.getNeighbors();
+        MessageGUICopyAgents m = new MessageGUICopyAgents();
         for(Node n: neighbors) {
             if(n.getAgent() == null && n.getState() != Node.State.ONFIRE) {
+                m.putNewAgentLoc(n.getLocation());
                 n.createAgent(false);
-                //n.getAgent().printAgent();
             }
         }
+        GUIStateQueue.putState(m);
+    }
+
+    /**
+     * Gets the uid of agent
+     * @return uid of agent
+     */
+    public String getUid() {
+        return uid;
     }
 
     /**
      * Agent walks until a near fire node is found
      * Uses a dfs traversal
      */
-    // Make sure state of next node doesn't change from near fire to on fire
     private void walk() {
+        Node movedFromNode = currentNode;
         visitedNodes.add(currentNode);
         if(currentNode.getState() == Node.State.NEARFIRE) {
             canWalk = false;
             currentNode.setAgent(this);
-            System.out.println("Agent should stop walking");
+            MessageLog messageLog = new MessageLog(this.uid,currentNode.getLocation());
+            sendMessage(messageLog,currentNode);
             return;
         }
         if(hasPath() && canWalk) {
@@ -67,20 +88,22 @@ public class Agent implements Runnable {
             if(nextNode != null) {
                 visitedPath.push(currentNode);
                 currentNode = nextNode;
-                //System.out.println("Agent " + uid + " is at: ");
-                //currentNode.printNode();
+                MessageGUIAgent m = new MessageGUIAgent(currentNode.getLocation());
+                m.movedFrom(movedFromNode.getLocation());
+                GUIStateQueue.putState(m);
                 walk();
             }
             // back track
             else {
                 if(!visitedPath.empty()) {
                     currentNode = visitedPath.pop();
-                    //System.out.println("backtrack");
-                    //System.out.println("Agent " + uid + " is at: ");
-                    //currentNode.printNode();
+                    MessageGUIAgent m = new MessageGUIAgent(currentNode.getLocation());
+                    m.movedFrom(movedFromNode.getLocation());
+                    GUIStateQueue.putState(m);
                     walk();
                 }
             }
+
         }
     }
 
@@ -137,6 +160,9 @@ public class Agent implements Runnable {
         }
     }
 
+    /**
+     * Prints visited path for debugging purposes
+     */
     public void printVisitedPath() {
         System.out.println("Visited Path: ");
         for(Node n: visitedPath) {
@@ -145,29 +171,55 @@ public class Agent implements Runnable {
     }
 
     /**
+     * Gets message from node
+     * @param m message from node
+     */
+    public synchronized void getMessageFromNode(Message m) {
+        try {
+            messages.put(m);
+        }
+        catch (InterruptedException e) {
+            System.err.println(e);
+        }
+    }
+
+    /**
+     * Sends message to the node it's on
+     * @param m message to be sent
+     * @param receivingNode node agent is on
+     */
+    private void sendMessage(Message m, Node receivingNode) {
+        receivingNode.processMessage(m);
+    }
+    /**
      * Runs the agent
      */
     public void run() {
-        System.out.println("In run method");
-        printAgent();
         if(canWalk) {
             walk();
         }
-        synchronized (this) {
-            while(currentNode.getState() != Node.State.NEARFIRE) {
-                currentNode.printNode();
-                try {
-                    System.out.println("are you waiting???");
-                    this.wait();
-                }
-                catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
+        if(currentNode.getState() == Node.State.NEARFIRE) {
             makeCopy();
         }
+        while(!killAgent) {
+            try {
+                Message newMessage = messages.take();
+                if(newMessage instanceof MessageGUINode) {
+                    if(((MessageGUINode) newMessage).getNewState() == Node.State.NEARFIRE){
+                        makeCopy();
+                    }
+                }
+                if(newMessage instanceof MessageKillAgent) {
+                    killAgent = true;
 
-
+                }
+            }
+            catch(InterruptedException e) {
+                System.err.println(e);
+            }
+        }
+        MessageGUIKillAgent killAgentMessage = new MessageGUIKillAgent(currentNode.getLocation());
+        GUIStateQueue.putState(killAgentMessage);
     }
 
     /**

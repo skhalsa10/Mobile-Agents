@@ -20,4 +20,4 @@ edge 5 8 4 7
 edge 5 8 4 9
 edge 4 7 4 9
 edge 4 9 3 8
-edge 4 9 3 10 
+edge 4 9 3 10

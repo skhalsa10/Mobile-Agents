@@ -3,6 +3,7 @@ package mobileAgents;
 import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
@@ -19,6 +20,7 @@ import mobileAgents.Graphics.GUIAgent;
 import mobileAgents.messages.*;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -28,7 +30,13 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class GUI extends AnimationTimer {
 
     private final int RADIUS = 20;
+    private final int SPEED4 = 200;
+    private final int SPEED3 = 500;
+    private final int SPEED2 = 1000;
+    private final int SPEED1 = 2000;
+    private int currentSpeed = SPEED3;
     private long lastUpdate = 0;
+    private double scale = 1;
 
     private GUIState state;
     private String config;
@@ -50,6 +58,10 @@ public class GUI extends AnimationTimer {
     //button stuff
     private HBox buttonPane;
     private Button play;
+    private Button zoomPlus;
+    private Button zoomMinus;
+    private Button speedPlus;
+    private Button speedMinus;
 
 
     private boolean isPlaying;
@@ -57,13 +69,21 @@ public class GUI extends AnimationTimer {
     private Timer stateTimer;
     private HashMap<Location,Sensor> sensors;
     private HashMap<Location,GUIAgent> GUIAgents;
-    private HashMap<Location,Location> edges;
+    private HashMap<Location, ArrayList<Location>> edges;
     private LinkedBlockingQueue<Text> textQueue;
     private int largestX;
     private int largestY;
-    private GUIAgent a;
+    private Location baseLoc;
+    private boolean basicRender;
 
-    public GUI(Stage stage, GUIState state){
+    /**
+     * this initializes all components of the GUI. it is a huge method so have fun reading it if you have to read it
+     * @param stage stage for the gui
+     * @param state the state queue that we will pop state off of
+     * @param fire wether to render the fire is cool or not cool
+     */
+    public GUI(Stage stage, GUIState state, boolean fire){
+        basicRender = !fire;
         //set stage up
         this.stage = stage;
         this.stage.setTitle("Mobile Agents");
@@ -86,6 +106,7 @@ public class GUI extends AnimationTimer {
         //the scroll pane will be placed in root
         graphScrollPane = new ScrollPane();
         graphScrollPane.setMaxHeight(800);
+        graphScrollPane.setPannable(true);
 
         graphVBox = new VBox();
         graphPane = new StackPane();
@@ -95,6 +116,9 @@ public class GUI extends AnimationTimer {
 
         buttonPane = new HBox();
         buttonPane.setAlignment(Pos.CENTER);
+        buttonPane.setSpacing(5);
+        buttonPane.setPadding(new Insets(5, 5, 5, 5));
+
         play = new Button("Play or Pause");
         play.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -103,6 +127,40 @@ public class GUI extends AnimationTimer {
             }
         });
         play.getStyleClass().add("play-button");
+        zoomPlus = new Button("Z+");
+        zoomPlus.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                zoomIn();
+            }
+        });
+        zoomPlus.getStyleClass().add("zoom-button");
+        zoomMinus= new Button("Z-");
+        zoomMinus.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                zoomOut();
+            }
+        });
+        zoomMinus.getStyleClass().add("zoom-button");
+        //lets to the speed buttons
+        speedPlus = new Button("S+");
+        speedMinus = new Button("S-");
+        speedPlus.getStyleClass().add("speed-button");
+        speedMinus.getStyleClass().add("speed-button");
+        speedPlus.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                speedUp();
+            }
+        });
+        speedMinus.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                slowDown();
+            }
+        });
+
 
         //add nodes to containers
         graphScrollPane.setContent(graphPane);
@@ -111,8 +169,9 @@ public class GUI extends AnimationTimer {
         graphPane.getChildren().add(graph);
         //logs
         logsPane.setContent(logs);
+        logsPane.vvalueProperty().bind(logs.heightProperty());
         //button row
-        buttonPane.getChildren().add(play);
+        buttonPane.getChildren().addAll(speedMinus,speedPlus,play,zoomMinus,zoomPlus);
         root.getChildren().addAll(graphScrollPane,logsPane,buttonPane);
         root.setVgrow(graphScrollPane,Priority.ALWAYS);
 
@@ -124,7 +183,7 @@ public class GUI extends AnimationTimer {
         stage.setScene(scene);
         stage.show();
 
-        //TESTING
+        //start logic stuff
         simIsOver = false;
         edges = new HashMap<>();
         sensors = new HashMap<>();
@@ -149,39 +208,119 @@ public class GUI extends AnimationTimer {
     }
 
     /**
+     * this method slows the speed down by 1 the speed can be 1 of 4 states. thais changes the timer period
+     */
+    private void slowDown() {
+        if(currentSpeed == SPEED1){
+            speedPlus.setDisable(false);
+            return;
+        }
+        else if(currentSpeed == SPEED4){
+            speedPlus.setDisable(false);
+            currentSpeed = SPEED3;
+        }
+        else if(currentSpeed == SPEED3){
+            speedPlus.setDisable(false);
+            currentSpeed = SPEED2;
+        }else if(currentSpeed == SPEED2){
+            speedPlus.setDisable(false);
+            speedMinus.setDisable(true);
+            currentSpeed = SPEED1;
+        }
+        if(isPlaying) {
+            restartTimer();
+        }
+    }
+
+    /**
+     * this will speed up how fast the state rendors it essentially changes the period of the timer that pops off state
+     */
+    private void speedUp() {
+        if(currentSpeed == SPEED4){
+            speedMinus.setDisable(false);
+            return;
+        }
+        else if(currentSpeed == SPEED1){
+            speedMinus.setDisable(false);
+            currentSpeed = SPEED2;
+        }
+        else if(currentSpeed == SPEED2){
+            speedMinus.setDisable(false);
+            currentSpeed = SPEED3;
+        }
+        else if(currentSpeed == SPEED3){
+            speedMinus.setDisable(false);
+            currentSpeed = SPEED4;
+            speedPlus.setDisable(true);
+        }
+        if(isPlaying) {
+            restartTimer();
+        }
+    }
+
+    /**
+     * restarts the timer. needed if the period changes to actiuvate the new parameter
+     */
+    private void restartTimer() {
+        stateTimer.cancel();
+        if(isInitialized) {
+            startStateTimer();
+        }
+    }
+
+    /**
+     * this method zooms the graphics context in it it essentially changes the scale which changes the size of the canvas and everything drawn on it
+     */
+    private void zoomIn() {
+        scale += .3;
+        setSize();
+    }
+
+    /**
+     * this is the same as zoom in but zooms out
+     */
+    private void zoomOut() {
+        scale -= .3;
+        if(scale<= 1){
+            scale = 1;
+            setSize();
+            return;
+        }
+        setSize();
+
+    }
+
+    /**
      * this method just generates fake state to test.
      */
     private void generateTestMessages() {
-        Message c = new MessageGUIConfig("node 0 0\n" +
-                "node 3 4\n" +
-                "node 2 3\n" +
-                "node 5 5\n" +
-                "edge 0 0 2 3\n" +
-                "edge 2 3 3 4\n" +
-                "edge 3 4 5 5\n" +
-                "edge 5 5 0 0\n" +
-                "station 0 0\n" +
-                "fire 5 5");
-        Message f = new MessageGUIFire(new Location(5,5));
-        ((MessageGUIFire) f).addNearFireLoc(new Location(0,0));
-        ((MessageGUIFire) f).addNearFireLoc(new Location(3,4));
-        MessageGUIAgent a1 = new MessageGUIAgent(new Location(0,0));
-        MessageGUIAgent a2 = new MessageGUIAgent(new Location(2,3));
-        a2.movedFrom(new Location(0,0));
-        System.out.println(a2.getMovedFrom());
-        MessageGUIAgent a3 = new MessageGUIAgent(new Location(3,4));
-        a3.movedFrom(new Location(2,3));
-        MessageGUIAgent a4 = new MessageGUIAgent(new Location(2,3));
-        MessageGUIEnd  e = new MessageGUIEnd();
-
-
+        Message c = new MessageGUIConfig("station 0 0\n" +
+                "fire 8 1\n" +
+                "node 0 0\n" +
+                "edge 6 1 7 2\n" +
+                "edge 7 2 7 0\n" +
+                "edge 7 0 8 1\n" +
+                "node 3 0\n" +
+                "node 5 0\n" +
+                "edge 3 0 5 0\n" +
+                "edge 5 0 4 1\n" +
+                "edge 5 0 6 1\n" +
+                "edge 5 0 7 0\n" +
+                "edge 4 1 6 1\n" +
+                "node 4 1\n" +
+                "node 7 2\n" +
+                "edge 0 0 3 0\n" +
+                "edge 1 1 0 0\n" +
+                "edge 1 1 2 2\n" +
+                "edge 2 2 3 0\n" +
+                "node 6 1\n" +
+                "edge 2 2 4 1\n" +
+                "edge 8 1 7 2\n" +
+                "node 7 0\n" +
+                "node 8 1\n" +
+                "node 1 1\n" +
+                "node 2 2\n");
         state.putState(c);
-        state.putState(f);
-        state.putState(a1);
-        state.putState(a2);
-        state.putState(a3);
-        state.putState(a4);
-        state.putState(e);
 
     }
 
@@ -206,10 +345,10 @@ public class GUI extends AnimationTimer {
      * this sets up the dimensions of the canvas and the stage/window
      */
     private void setSize() {
-        graph.setWidth(largestX*RADIUS+100);
-        graph.setHeight(largestY*RADIUS+100);
-        stage.setMinWidth(1400);
-        stage.setMinHeight(1000);
+        graph.setWidth((largestX*RADIUS+100)*scale);
+        graph.setHeight((largestY*RADIUS+100)*scale);
+        stage.setMinWidth(700);
+        stage.setMinHeight(500);
     }
 
     /**
@@ -252,10 +391,13 @@ public class GUI extends AnimationTimer {
                     //get offset location for GUI
                     Location left = getGuiEdgeLoc(lx,ly);
                     Location right = getGuiEdgeLoc(rx,ry);
-                    edges.put(left, right);
+                    if(!edges.containsKey(left)) {
+                        edges.put(left, new ArrayList<>());
+                    }
+                    edges.get(left).add(right);
                     break;
                 }
-                /*case "fire":{
+                case "station":{
                     if(entry.length != 3){
                         System.out.println("error parsing fire");
                         System.out.println(entry.length);
@@ -264,12 +406,13 @@ public class GUI extends AnimationTimer {
                     //convert to integer
                     int x = Integer.parseInt(entry[1]);
                     int y = Integer.parseInt(entry[2]);
-                    Location l = getGuiSensorLoc(x,y);
-                    sensors.get(l).setState(Node.State.ONFIRE);
+                    baseLoc = getGuiSensorLoc(x,y);
                     break;
-                }*/
+                }
             }
         }
+
+        sensors.get(baseLoc).setAsBase();
 
         isInitialized = true;
     }
@@ -324,6 +467,14 @@ public class GUI extends AnimationTimer {
         }
     }
 
+    /**
+     * this stops the animationtimer and cancels the state timer
+     */
+    public void shutdown(){
+        this.stop();
+        stateTimer.cancel();
+    }
+
 
     /**
      * this will start the State Timer
@@ -336,7 +487,7 @@ public class GUI extends AnimationTimer {
             public void run() {
                 processNextState();
             }
-        }, 1000,10000);
+        }, 0,currentSpeed);
     }
 
     /**
@@ -345,8 +496,8 @@ public class GUI extends AnimationTimer {
     private synchronized void processNextState() {
 
         Message m = state.pollState();
-        if (m == null) {
-            System.out.println("handling null in queue");
+        if(m == null) {
+            //System.out.println("handling null in queue");
             return;
         }
         if(m instanceof MessageGUIConfig){
@@ -356,15 +507,29 @@ public class GUI extends AnimationTimer {
         if(m instanceof MessageGUIFire){
             MessageGUIFire f = (MessageGUIFire) m;
             //first we will change the fire node
-            sensors.get(getGuiSensorLoc(f.getFireLoc().getX(),f.getFireLoc().getY())).setState(Node.State.ONFIRE);
+            Location fl = getGuiSensorLoc(f.getFireLoc().getX(),f.getFireLoc().getY());
+            sensors.get(fl).setState(Node.State.ONFIRE);
+            //if an agent exists we need to delete it
+            Text t2 = null;
+            if(GUIAgents.containsKey(fl)){
+                if(GUIAgents.get(fl)!= null) {
+                    GUIAgents.replace(fl, null);
+                    t2 = new Text("Agent at (" + f.getFireLoc().getX() + "," + f.getFireLoc().getY() + ") is now dead");
+                    t2.setId("log-end");
+                }
+            }
+
             //now we need to set all the NEARFIRE
             for(Location l: f.getNearFireList()){
                 sensors.get(getGuiSensorLoc(l.getX(),l.getY())).setState(Node.State.NEARFIRE);
             }
             Text t = new Text(f.readMessage());
-            t.setId("log-state");
+            t.setId("log-fire");
             try {
                 textQueue.put(t);
+                if(t2 != null) {
+                    textQueue.put(t2);
+                }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -393,6 +558,37 @@ public class GUI extends AnimationTimer {
                 e.printStackTrace();
             }
         }
+        if(m instanceof MessageGUICopyAgents){
+            MessageGUICopyAgents a = (MessageGUICopyAgents) m;
+            Location l2 = null;
+            //loop through the list and add them to be rendered
+            for(Location l: a.getNewAgentsList()){
+                l2 = getGuiSensorLoc(l.getX(),l.getY());
+                if(GUIAgents.containsKey(l2)){
+                    GUIAgents.replace(l2, new GUIAgent(l2));
+                }
+                else{
+                    System.out.println("Error processing KillAgent");
+                }
+            }
+
+            Text t = new Text(a.readMessage());
+            t.setId("log-state");
+            try {
+                textQueue.put(t);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        if(m instanceof MessageGUILog){
+            Text t = new Text(m.readMessage());
+            t.setId("log-log");
+            try {
+                textQueue.put(t);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
         if(m instanceof MessageGUIEnd){
             simIsOver = true;
             Text t = new Text(m.readMessage());
@@ -403,9 +599,14 @@ public class GUI extends AnimationTimer {
                 e.printStackTrace();
             }
         }
+        
     }
 
 
+    /**
+     * this updates and renders the objects that can be rendered and draws the new state to the canvas
+     * @param now
+     */
     @Override
     public void handle(long now) {
         if(!isInitialized){
@@ -435,20 +636,23 @@ public class GUI extends AnimationTimer {
 
             //draw the edges first so everything else draws on top.
             gc.setStroke(Color.WHITE);
-            for (Location l : edges.keySet()) {
-                gc.strokeLine(l.getX(), l.getY(), edges.get(l).getX(), edges.get(l).getY());
+            for (Location l1 : edges.keySet()) {
+                for(Location l2: edges.get(l1)){
+                    gc.strokeLine(l1.getX()*scale,l1.getY()*scale,l2.getX()*scale,l2.getY()*scale);
+                }
+                //gc.strokeLine(l.getX(), l.getY(), edges.get(l).getX(), edges.get(l).getY());
             }
 
             //draw the sensors after the edges
             gc.setStroke(Color.BLACK);
             for (Location l : sensors.keySet()) {
-                sensors.get(l).updateAndRender(gc);
+                sensors.get(l).updateAndRender(gc, basicRender , scale);
             }
 
             //TODO we should update and render the agents here.
             for (Location l:GUIAgents.keySet()) {
                 if(GUIAgents.get(l) != null){
-                    GUIAgents.get(l).updateAndRender(gc);
+                    GUIAgents.get(l).updateAndRender(gc, scale);
                 }
 
             }
@@ -459,6 +663,7 @@ public class GUI extends AnimationTimer {
                 logs.getChildren().add(t);
             }
 
+            // helped to stabalize the rendor time
             lastUpdate = now;
         }
     }

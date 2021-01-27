@@ -1,25 +1,22 @@
 package mobileAgents.messages;
 
 /**
- * this message tells the gui that it should be treated as a log message that would have gone to the log that outputs to a file.
- * the GUI renders this as white text.
+ * this message is used to kill the agents when needed
  */
-public class MessageGUILog implements Message {
+public class MessageKillAgent implements Message {
     private final long timeStamp;
-    private String log;
 
     /**
-     * construct message with string s
-     * @param s
+     * Constructs message to kill agent
      */
-    public MessageGUILog(String s){
+    public MessageKillAgent() {
         this.timeStamp = System.nanoTime();
-        this.log = s;
     }
     @Override
     public String readMessage() {
-        return log;
+        return null;
     }
+
     @Override
     public long getTimeStamp() {
         return timeStamp;

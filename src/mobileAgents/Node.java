@@ -1,9 +1,9 @@
 package mobileAgents;
 
-import mobileAgents.messages.Message;
-import mobileAgents.messages.MessageGUIFire;
+import mobileAgents.messages.*;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -25,8 +25,6 @@ public class Node implements Runnable {
     protected Agent agent;
     protected int distanceFromBase;
 
-    //public Node() {}
-
     /**
      * initializes node with a location and given state is this needed?
      * @param location
@@ -37,6 +35,7 @@ public class Node implements Runnable {
         this.location = location;
         this.state = state;
         this.agent = null;
+        distanceFromBase = 0;
     }
 
     /**
@@ -47,6 +46,7 @@ public class Node implements Runnable {
         this.GUIStateQueue = GUIStateQueue;
         this.location = location;
         this.state = State.NOTONFIRE;
+        this.agent = null;
         distanceFromBase = 0;
 
     }
@@ -61,35 +61,49 @@ public class Node implements Runnable {
 
 
     /**
-     * This will set the state to the next state it will fire off appropriate methods that should happen
+     * This will set the state to the next state
+     * it will fire off appropriate methods that should happen
      * after the state changes
      * @param nextState
      */
-    public synchronized void setState(State nextState) {
+    public void setState(State nextState) {
         state = nextState;
         if(state == State.NEARFIRE) {
-            startFireTimer();
+            MessageGUINode message = new MessageGUINode(this.getLocation(),state);
+            if(agent != null) {
+                agent.getMessageFromNode(message);
+            }
         }
         else if(state == State.ONFIRE) {
-            //creating a Message that keeps track of what location is on fire
             MessageGUIFire m = new MessageGUIFire(this.getLocation());
             checkNeighbors(m);
             GUIStateQueue.putState(m);
+
         }
-        notifyAll();
-        printNode();
     }
 
     /**
-     * this will Iterate through all neighbors and set the state to NEARFIRE if applicable
-     *
-     * I have added
-     *
+     * Sends a kill message to the node itself
      */
-    private synchronized void checkNeighbors(MessageGUIFire m) {
+    private void killMe() {
+        MessageKillNode m = new MessageKillNode();
+        try {
+            messages.put(m);
+        }
+        catch (InterruptedException e) {
+            System.err.println(e);
+        }
+    }
+
+    /**
+     * this will Iterate through all neighbors and
+     * set the state to NEARFIRE if applicable
+     */
+    private void checkNeighbors(MessageGUIFire m) {
         for(Node n: neighbors) {
+            MessageNearFire newMessage = new MessageNearFire();
+            n.processMessage(newMessage);
             if(checkCurrentState(n)) {
-                n.setState(State.NEARFIRE);
                 m.addNearFireLoc(n.getLocation());
             }
         }
@@ -107,27 +121,33 @@ public class Node implements Runnable {
         return false;
     }
 
-    //TODO public synchronized? sendMessage();
-
     /**
-     * this method will start the fire timer which will change the state of this node to ONFIRE
+     * this method will start the fire timer which will
+     * change the state of this node to ONFIRE
      */
-    public synchronized void startFireTimer() {
+    public void startFireTimer() {
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                setState(State.ONFIRE);
-                //System.out.println("Node at " + location.getX() + " " + location.getY() + " is on fire");
+                MessageOnFire m = new MessageOnFire();
+                processMessage(m);
                 timer.cancel();
             }
         }, 2000);
     }
 
-
-    //TODO still need to work on this
-    public void processMessage(Message message) throws InterruptedException {
-        messages.put(message);
+    /**
+     * Processes a given message
+     * @param m message that was received
+     */
+    public void processMessage(Message m) {
+        try {
+            messages.put(m);
+        }
+        catch(InterruptedException e) {
+            System.err.println(e);
+        }
     }
 
     /**
@@ -151,27 +171,41 @@ public class Node implements Runnable {
      * @return the current state of the node
      */
     public synchronized State getState() {
-        notifyAll();
         return state;
     }
 
+    /**
+     * Gets the agent on this node
+     * @return agent on node
+     */
     public Agent getAgent() {
         return agent;
     }
 
-
+    /**
+     * Gets distance from base
+     * Used for message routing
+     * @return distance from base
+     */
     public int getDistanceFromBase() {
         return distanceFromBase;
     }
 
+    /**
+     * Sets the distance from base
+     * Used for message routing
+     * @param distance distance from base
+     */
     public void setDistanceFromBase(int distance) {
         this.distanceFromBase = distance;
     }
+
     /**
      * prints out the location and state of the node to System out
      */
     public void printNode() {
-        System.out.println("Node at: " + getLocation().getX() + " " + getLocation().getY() + " " + state);
+        System.out.println("Node at: " + getLocation().getX() + " " +
+                getLocation().getY() + " " + state);
     }
 
     /**
@@ -185,38 +219,149 @@ public class Node implements Runnable {
         System.out.println();
     }
 
-
-
+    /**
+     * Prints distance for debugging purposes
+     */
     public void printDistance() {
         System.out.println("Has Distance: " + getDistanceFromBase());
     }
 
+    /**
+     * Create Agent at this node
+     * @param canWalk determines if node can walk or not
+     */
     public synchronized void createAgent(boolean canWalk) {
-        Agent newAgent = new Agent(getLocation(),this,canWalk);
+        Agent newAgent = new Agent(getLocation(),this,canWalk,GUIStateQueue);
         if(!canWalk) {
             agent = newAgent;
         }
-        newAgent.printAgent();
-        printNode();
     }
 
+    /**
+     * Sets the agent at this node
+     * @param agent agent on this node
+     */
     public synchronized void setAgent(Agent agent) {
         this.agent = agent;
     }
 
 
+    /**
+     * Checks to see if a message can be sent
+     * @return true or false
+     */
+    private boolean canSendMessage() {
+        for(Node n: neighbors) {
+            if(n.getState() != State.ONFIRE) {
+                return true;
+            }
+        }
+        return false;
+    }
 
+    /**
+     * In the case where there isn't a neighbor node closest to base
+     * pick any node
+     * @return node that was picked
+     */
+    private Node chooseAnyNode() {
+        ArrayList<Node> availableNodes = new ArrayList<>();
+        for(Node n: neighbors) {
+            if(n.getState() != State.ONFIRE) {
+                availableNodes.add(n);
+            }
+        }
+        if(availableNodes.isEmpty()) {
+            return null;
+        }
+        return getRandomNextNode(availableNodes);
+    }
+
+    /**
+     * Randomly picks any node for the list of available nodes
+     * according to distance from base
+     * @param availableNodes list of available nodes
+     * @return node to send message to
+     */
+    private Node getRandomNextNode(ArrayList<Node> availableNodes) {
+        Random rand = new Random();
+        int i;
+        if(availableNodes.isEmpty()) {
+            return chooseAnyNode();
+        }
+        i = rand.nextInt(availableNodes.size());
+        return availableNodes.get(i);
+    }
+
+    /**
+     * Picks the next node to send message to
+     * @return next node to receive message
+     */
+    private Node pickNextNode() {
+        ArrayList<Node> availableNodes = new ArrayList<>();
+        for(Node n: neighbors) {
+            // Send immediately to base
+            if(n instanceof Base) {
+                return n;
+            }
+            // Send message to node closest to base
+            if(n.getState() != State.ONFIRE &&
+                    n.getDistanceFromBase() <= distanceFromBase) {
+                availableNodes.add(n);
+            }
+        }
+        return getRandomNextNode(availableNodes);
+    }
+
+    /**
+     * Node keeps running until it's on fire
+     * Processes messages from its message queue to either
+     * send a message to another node or to end itself
+     */
     @Override
     public void run(){
-        if(this instanceof Base && agent == null) {
-            createAgent(true);
-        }
-        while(true) {
-            //printNode();
+        boolean alive = true;
+        boolean nearFire = false;
+        while(alive) {
+            try {
+                Message newMessage = messages.take();
+                Node sendToNode;
+                if(newMessage instanceof MessageOnFire) {
+                    if(state != State.ONFIRE) {
+                        setState(State.ONFIRE);
+                        MessageKillAgent messageKillAgent = new MessageKillAgent();
+                        killMe();
+                        if(agent != null) {
+                            agent.getMessageFromNode(messageKillAgent);
+                        }
+                        alive = false;
+                    }
 
+                }
+                else if (newMessage instanceof  MessageNearFire) {
+                    if(state != State.NEARFIRE && !nearFire) {
+                        nearFire = true;
+                        setState(State.NEARFIRE);
+                        startFireTimer();
+                    }
+
+                }
+                else if(canSendMessage() && !(newMessage instanceof MessageKillNode)) {
+                    sendToNode = pickNextNode();
+                    if(sendToNode != null) {
+                        sendToNode.processMessage(newMessage);
+                    }
+                }
+            }
+            catch(InterruptedException e) {
+                System.err.println(e);
+            }
         }
     }
 
-    public enum State { ONFIRE, NEARFIRE, NOTONFIRE, DEAD}
+    /**
+     * States for nodes
+     */
+    public enum State { ONFIRE, NEARFIRE, NOTONFIRE}
 
 }

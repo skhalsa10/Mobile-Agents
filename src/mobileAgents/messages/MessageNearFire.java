@@ -1,25 +1,23 @@
 package mobileAgents.messages;
 
 /**
- * this message tells the gui that it should be treated as a log message that would have gone to the log that outputs to a file.
- * the GUI renders this as white text.
+ * Message for node when its near fire
  */
-public class MessageGUILog implements Message {
+public class MessageNearFire implements Message {
     private final long timeStamp;
-    private String log;
 
     /**
-     * construct message with string s
-     * @param s
+     * Constructs a message to kill a node
      */
-    public MessageGUILog(String s){
+    public MessageNearFire() {
         this.timeStamp = System.nanoTime();
-        this.log = s;
     }
+
     @Override
     public String readMessage() {
-        return log;
+        return null;
     }
+
     @Override
     public long getTimeStamp() {
         return timeStamp;

@@ -26,7 +26,7 @@ public class Log {
         SimpleFormatter formatter = new SimpleFormatter();
         fh.setFormatter(formatter);
         //the following turns off logging into the console.
-        //logger.setUseParentHandlers(false);
+        logger.setUseParentHandlers(false);
     }
 
     /**

@@ -1,0 +1,7703 @@
+node 50 50
+node 50 49
+node 50 48
+node 50 47
+node 50 46
+node 50 45
+node 50 44
+node 50 43
+node 50 42
+node 50 41
+node 50 40
+node 50 39
+node 50 38
+node 50 37
+node 50 36
+node 50 35
+node 50 34
+node 50 33
+node 50 32
+node 50 31
+node 50 30
+node 50 29
+node 50 28
+node 50 27
+node 50 26
+node 50 25
+node 50 24
+node 50 23
+node 50 22
+node 50 21
+node 50 20
+node 50 19
+node 50 18
+node 50 17
+node 50 16
+node 50 15
+node 50 14
+node 50 13
+node 50 12
+node 50 11
+node 50 10
+node 50 9
+node 50 8
+node 50 7
+node 50 6
+node 50 5
+node 50 4
+node 50 3
+node 50 2
+node 50 1
+node 50 0
+node 49 50
+node 49 49
+node 49 48
+node 49 47
+node 49 46
+node 49 45
+node 49 44
+node 49 43
+node 49 42
+node 49 41
+node 49 40
+node 49 39
+node 49 38
+node 49 37
+node 49 36
+node 49 35
+node 49 34
+node 49 33
+node 49 32
+node 49 31
+node 49 30
+node 49 29
+node 49 28
+node 49 27
+node 49 26
+node 49 25
+node 49 24
+node 49 23
+node 49 22
+node 49 21
+node 49 20
+node 49 19
+node 49 18
+node 49 17
+node 49 16
+node 49 15
+node 49 14
+node 49 13
+node 49 12
+node 49 11
+node 49 10
+node 49 9
+node 49 8
+node 49 7
+node 49 6
+node 49 5
+node 49 4
+node 49 3
+node 49 2
+node 49 1
+node 49 0
+node 48 50
+node 48 49
+node 48 48
+node 48 47
+node 48 46
+node 48 45
+node 48 44
+node 48 43
+node 48 42
+node 48 41
+node 48 40
+node 48 39
+node 48 38
+node 48 37
+node 48 36
+node 48 35
+node 48 34
+node 48 33
+node 48 32
+node 48 31
+node 48 30
+node 48 29
+node 48 28
+node 48 27
+node 48 26
+node 48 25
+node 48 24
+node 48 23
+node 48 22
+node 48 21
+node 48 20
+node 48 19
+node 48 18
+node 48 17
+node 48 16
+node 48 15
+node 48 14
+node 48 13
+node 48 12
+node 48 11
+node 48 10
+node 48 9
+node 48 8
+node 48 7
+node 48 6
+node 48 5
+node 48 4
+node 48 3
+node 48 2
+node 48 1
+node 48 0
+node 47 50
+node 47 49
+node 47 48
+node 47 47
+node 47 46
+node 47 45
+node 47 44
+node 47 43
+node 47 42
+node 47 41
+node 47 40
+node 47 39
+node 47 38
+node 47 37
+node 47 36
+node 47 35
+node 47 34
+node 47 33
+node 47 32
+node 47 31
+node 47 30
+node 47 29
+node 47 28
+node 47 27
+node 47 26
+node 47 25
+node 47 24
+node 47 23
+node 47 22
+node 47 21
+node 47 20
+node 47 19
+node 47 18
+node 47 17
+node 47 16
+node 47 15
+node 47 14
+node 47 13
+node 47 12
+node 47 11
+node 47 10
+node 47 9
+node 47 8
+node 47 7
+node 47 6
+node 47 5
+node 47 4
+node 47 3
+node 47 2
+node 47 1
+node 47 0
+node 46 50
+node 46 49
+node 46 48
+node 46 47
+node 46 46
+node 46 45
+node 46 44
+node 46 43
+node 46 42
+node 46 41
+node 46 40
+node 46 39
+node 46 38
+node 46 37
+node 46 36
+node 46 35
+node 46 34
+node 46 33
+node 46 32
+node 46 31
+node 46 30
+node 46 29
+node 46 28
+node 46 27
+node 46 26
+node 46 25
+node 46 24
+node 46 23
+node 46 22
+node 46 21
+node 46 20
+node 46 19
+node 46 18
+node 46 17
+node 46 16
+node 46 15
+node 46 14
+node 46 13
+node 46 12
+node 46 11
+node 46 10
+node 46 9
+node 46 8
+node 46 7
+node 46 6
+node 46 5
+node 46 4
+node 46 3
+node 46 2
+node 46 1
+node 46 0
+node 45 50
+node 45 49
+node 45 48
+node 45 47
+node 45 46
+node 45 45
+node 45 44
+node 45 43
+node 45 42
+node 45 41
+node 45 40
+node 45 39
+node 45 38
+node 45 37
+node 45 36
+node 45 35
+node 45 34
+node 45 33
+node 45 32
+node 45 31
+node 45 30
+node 45 29
+node 45 28
+node 45 27
+node 45 26
+node 45 25
+node 45 24
+node 45 23
+node 45 22
+node 45 21
+node 45 20
+node 45 19
+node 45 18
+node 45 17
+node 45 16
+node 45 15
+node 45 14
+node 45 13
+node 45 12
+node 45 11
+node 45 10
+node 45 9
+node 45 8
+node 45 7
+node 45 6
+node 45 5
+node 45 4
+node 45 3
+node 45 2
+node 45 1
+node 45 0
+node 44 50
+node 44 49
+node 44 48
+node 44 47
+node 44 46
+node 44 45
+node 44 44
+node 44 43
+node 44 42
+node 44 41
+node 44 40
+node 44 39
+node 44 38
+node 44 37
+node 44 36
+node 44 35
+node 44 34
+node 44 33
+node 44 32
+node 44 31
+node 44 30
+node 44 29
+node 44 28
+node 44 27
+node 44 26
+node 44 25
+node 44 24
+node 44 23
+node 44 22
+node 44 21
+node 44 20
+node 44 19
+node 44 18
+node 44 17
+node 44 16
+node 44 15
+node 44 14
+node 44 13
+node 44 12
+node 44 11
+node 44 10
+node 44 9
+node 44 8
+node 44 7
+node 44 6
+node 44 5
+node 44 4
+node 44 3
+node 44 2
+node 44 1
+node 44 0
+node 43 50
+node 43 49
+node 43 48
+node 43 47
+node 43 46
+node 43 45
+node 43 44
+node 43 43
+node 43 42
+node 43 41
+node 43 40
+node 43 39
+node 43 38
+node 43 37
+node 43 36
+node 43 35
+node 43 34
+node 43 33
+node 43 32
+node 43 31
+node 43 30
+node 43 29
+node 43 28
+node 43 27
+node 43 26
+node 43 25
+node 43 24
+node 43 23
+node 43 22
+node 43 21
+node 43 20
+node 43 19
+node 43 18
+node 43 17
+node 43 16
+node 43 15
+node 43 14
+node 43 13
+node 43 12
+node 43 11
+node 43 10
+node 43 9
+node 43 8
+node 43 7
+node 43 6
+node 43 5
+node 43 4
+node 43 3
+node 43 2
+node 43 1
+node 43 0
+node 42 50
+node 42 49
+node 42 48
+node 42 47
+node 42 46
+node 42 45
+node 42 44
+node 42 43
+node 42 42
+node 42 41
+node 42 40
+node 42 39
+node 42 38
+node 42 37
+node 42 36
+node 42 35
+node 42 34
+node 42 33
+node 42 32
+node 42 31
+node 42 30
+node 42 29
+node 42 28
+node 42 27
+node 42 26
+node 42 25
+node 42 24
+node 42 23
+node 42 22
+node 42 21
+node 42 20
+node 42 19
+node 42 18
+node 42 17
+node 42 16
+node 42 15
+node 42 14
+node 42 13
+node 42 12
+node 42 11
+node 42 10
+node 42 9
+node 42 8
+node 42 7
+node 42 6
+node 42 5
+node 42 4
+node 42 3
+node 42 2
+node 42 1
+node 42 0
+node 41 50
+node 41 49
+node 41 48
+node 41 47
+node 41 46
+node 41 45
+node 41 44
+node 41 43
+node 41 42
+node 41 41
+node 41 40
+node 41 39
+node 41 38
+node 41 37
+node 41 36
+node 41 35
+node 41 34
+node 41 33
+node 41 32
+node 41 31
+node 41 30
+node 41 29
+node 41 28
+node 41 27
+node 41 26
+node 41 25
+node 41 24
+node 41 23
+node 41 22
+node 41 21
+node 41 20
+node 41 19
+node 41 18
+node 41 17
+node 41 16
+node 41 15
+node 41 14
+node 41 13
+node 41 12
+node 41 11
+node 41 10
+node 41 9
+node 41 8
+node 41 7
+node 41 6
+node 41 5
+node 41 4
+node 41 3
+node 41 2
+node 41 1
+node 41 0
+node 40 50
+node 40 49
+node 40 48
+node 40 47
+node 40 46
+node 40 45
+node 40 44
+node 40 43
+node 40 42
+node 40 41
+node 40 40
+node 40 39
+node 40 38
+node 40 37
+node 40 36
+node 40 35
+node 40 34
+node 40 33
+node 40 32
+node 40 31
+node 40 30
+node 40 29
+node 40 28
+node 40 27
+node 40 26
+node 40 25
+node 40 24
+node 40 23
+node 40 22
+node 40 21
+node 40 20
+node 40 19
+node 40 18
+node 40 17
+node 40 16
+node 40 15
+node 40 14
+node 40 13
+node 40 12
+node 40 11
+node 40 10
+node 40 9
+node 40 8
+node 40 7
+node 40 6
+node 40 5
+node 40 4
+node 40 3
+node 40 2
+node 40 1
+node 40 0
+node 39 50
+node 39 49
+node 39 48
+node 39 47
+node 39 46
+node 39 45
+node 39 44
+node 39 43
+node 39 42
+node 39 41
+node 39 40
+node 39 39
+node 39 38
+node 39 37
+node 39 36
+node 39 35
+node 39 34
+node 39 33
+node 39 32
+node 39 31
+node 39 30
+node 39 29
+node 39 28
+node 39 27
+node 39 26
+node 39 25
+node 39 24
+node 39 23
+node 39 22
+node 39 21
+node 39 20
+node 39 19
+node 39 18
+node 39 17
+node 39 16
+node 39 15
+node 39 14
+node 39 13
+node 39 12
+node 39 11
+node 39 10
+node 39 9
+node 39 8
+node 39 7
+node 39 6
+node 39 5
+node 39 4
+node 39 3
+node 39 2
+node 39 1
+node 39 0
+node 38 50
+node 38 49
+node 38 48
+node 38 47
+node 38 46
+node 38 45
+node 38 44
+node 38 43
+node 38 42
+node 38 41
+node 38 40
+node 38 39
+node 38 38
+node 38 37
+node 38 36
+node 38 35
+node 38 34
+node 38 33
+node 38 32
+node 38 31
+node 38 30
+node 38 29
+node 38 28
+node 38 27
+node 38 26
+node 38 25
+node 38 24
+node 38 23
+node 38 22
+node 38 21
+node 38 20
+node 38 19
+node 38 18
+node 38 17
+node 38 16
+node 38 15
+node 38 14
+node 38 13
+node 38 12
+node 38 11
+node 38 10
+node 38 9
+node 38 8
+node 38 7
+node 38 6
+node 38 5
+node 38 4
+node 38 3
+node 38 2
+node 38 1
+node 38 0
+node 37 50
+node 37 49
+node 37 48
+node 37 47
+node 37 46
+node 37 45
+node 37 44
+node 37 43
+node 37 42
+node 37 41
+node 37 40
+node 37 39
+node 37 38
+node 37 37
+node 37 36
+node 37 35
+node 37 34
+node 37 33
+node 37 32
+node 37 31
+node 37 30
+node 37 29
+node 37 28
+node 37 27
+node 37 26
+node 37 25
+node 37 24
+node 37 23
+node 37 22
+node 37 21
+node 37 20
+node 37 19
+node 37 18
+node 37 17
+node 37 16
+node 37 15
+node 37 14
+node 37 13
+node 37 12
+node 37 11
+node 37 10
+node 37 9
+node 37 8
+node 37 7
+node 37 6
+node 37 5
+node 37 4
+node 37 3
+node 37 2
+node 37 1
+node 37 0
+node 36 50
+node 36 49
+node 36 48
+node 36 47
+node 36 46
+node 36 45
+node 36 44
+node 36 43
+node 36 42
+node 36 41
+node 36 40
+node 36 39
+node 36 38
+node 36 37
+node 36 36
+node 36 35
+node 36 34
+node 36 33
+node 36 32
+node 36 31
+node 36 30
+node 36 29
+node 36 28
+node 36 27
+node 36 26
+node 36 25
+node 36 24
+node 36 23
+node 36 22
+node 36 21
+node 36 20
+node 36 19
+node 36 18
+node 36 17
+node 36 16
+node 36 15
+node 36 14
+node 36 13
+node 36 12
+node 36 11
+node 36 10
+node 36 9
+node 36 8
+node 36 7
+node 36 6
+node 36 5
+node 36 4
+node 36 3
+node 36 2
+node 36 1
+node 36 0
+node 35 50
+node 35 49
+node 35 48
+node 35 47
+node 35 46
+node 35 45
+node 35 44
+node 35 43
+node 35 42
+node 35 41
+node 35 40
+node 35 39
+node 35 38
+node 35 37
+node 35 36
+node 35 35
+node 35 34
+node 35 33
+node 35 32
+node 35 31
+node 35 30
+node 35 29
+node 35 28
+node 35 27
+node 35 26
+node 35 25
+node 35 24
+node 35 23
+node 35 22
+node 35 21
+node 35 20
+node 35 19
+node 35 18
+node 35 17
+node 35 16
+node 35 15
+node 35 14
+node 35 13
+node 35 12
+node 35 11
+node 35 10
+node 35 9
+node 35 8
+node 35 7
+node 35 6
+node 35 5
+node 35 4
+node 35 3
+node 35 2
+node 35 1
+node 35 0
+node 34 50
+node 34 49
+node 34 48
+node 34 47
+node 34 46
+node 34 45
+node 34 44
+node 34 43
+node 34 42
+node 34 41
+node 34 40
+node 34 39
+node 34 38
+node 34 37
+node 34 36
+node 34 35
+node 34 34
+node 34 33
+node 34 32
+node 34 31
+node 34 30
+node 34 29
+node 34 28
+node 34 27
+node 34 26
+node 34 25
+node 34 24
+node 34 23
+node 34 22
+node 34 21
+node 34 20
+node 34 19
+node 34 18
+node 34 17
+node 34 16
+node 34 15
+node 34 14
+node 34 13
+node 34 12
+node 34 11
+node 34 10
+node 34 9
+node 34 8
+node 34 7
+node 34 6
+node 34 5
+node 34 4
+node 34 3
+node 34 2
+node 34 1
+node 34 0
+node 33 50
+node 33 49
+node 33 48
+node 33 47
+node 33 46
+node 33 45
+node 33 44
+node 33 43
+node 33 42
+node 33 41
+node 33 40
+node 33 39
+node 33 38
+node 33 37
+node 33 36
+node 33 35
+node 33 34
+node 33 33
+node 33 32
+node 33 31
+node 33 30
+node 33 29
+node 33 28
+node 33 27
+node 33 26
+node 33 25
+node 33 24
+node 33 23
+node 33 22
+node 33 21
+node 33 20
+node 33 19
+node 33 18
+node 33 17
+node 33 16
+node 33 15
+node 33 14
+node 33 13
+node 33 12
+node 33 11
+node 33 10
+node 33 9
+node 33 8
+node 33 7
+node 33 6
+node 33 5
+node 33 4
+node 33 3
+node 33 2
+node 33 1
+node 33 0
+node 32 50
+node 32 49
+node 32 48
+node 32 47
+node 32 46
+node 32 45
+node 32 44
+node 32 43
+node 32 42
+node 32 41
+node 32 40
+node 32 39
+node 32 38
+node 32 37
+node 32 36
+node 32 35
+node 32 34
+node 32 33
+node 32 32
+node 32 31
+node 32 30
+node 32 29
+node 32 28
+node 32 27
+node 32 26
+node 32 25
+node 32 24
+node 32 23
+node 32 22
+node 32 21
+node 32 20
+node 32 19
+node 32 18
+node 32 17
+node 32 16
+node 32 15
+node 32 14
+node 32 13
+node 32 12
+node 32 11
+node 32 10
+node 32 9
+node 32 8
+node 32 7
+node 32 6
+node 32 5
+node 32 4
+node 32 3
+node 32 2
+node 32 1
+node 32 0
+node 31 50
+node 31 49
+node 31 48
+node 31 47
+node 31 46
+node 31 45
+node 31 44
+node 31 43
+node 31 42
+node 31 41
+node 31 40
+node 31 39
+node 31 38
+node 31 37
+node 31 36
+node 31 35
+node 31 34
+node 31 33
+node 31 32
+node 31 31
+node 31 30
+node 31 29
+node 31 28
+node 31 27
+node 31 26
+node 31 25
+node 31 24
+node 31 23
+node 31 22
+node 31 21
+node 31 20
+node 31 19
+node 31 18
+node 31 17
+node 31 16
+node 31 15
+node 31 14
+node 31 13
+node 31 12
+node 31 11
+node 31 10
+node 31 9
+node 31 8
+node 31 7
+node 31 6
+node 31 5
+node 31 4
+node 31 3
+node 31 2
+node 31 1
+node 31 0
+node 30 50
+node 30 49
+node 30 48
+node 30 47
+node 30 46
+node 30 45
+node 30 44
+node 30 43
+node 30 42
+node 30 41
+node 30 40
+node 30 39
+node 30 38
+node 30 37
+node 30 36
+node 30 35
+node 30 34
+node 30 33
+node 30 32
+node 30 31
+node 30 30
+node 30 29
+node 30 28
+node 30 27
+node 30 26
+node 30 25
+node 30 24
+node 30 23
+node 30 22
+node 30 21
+node 30 20
+node 30 19
+node 30 18
+node 30 17
+node 30 16
+node 30 15
+node 30 14
+node 30 13
+node 30 12
+node 30 11
+node 30 10
+node 30 9
+node 30 8
+node 30 7
+node 30 6
+node 30 5
+node 30 4
+node 30 3
+node 30 2
+node 30 1
+node 30 0
+node 29 50
+node 29 49
+node 29 48
+node 29 47
+node 29 46
+node 29 45
+node 29 44
+node 29 43
+node 29 42
+node 29 41
+node 29 40
+node 29 39
+node 29 38
+node 29 37
+node 29 36
+node 29 35
+node 29 34
+node 29 33
+node 29 32
+node 29 31
+node 29 30
+node 29 29
+node 29 28
+node 29 27
+node 29 26
+node 29 25
+node 29 24
+node 29 23
+node 29 22
+node 29 21
+node 29 20
+node 29 19
+node 29 18
+node 29 17
+node 29 16
+node 29 15
+node 29 14
+node 29 13
+node 29 12
+node 29 11
+node 29 10
+node 29 9
+node 29 8
+node 29 7
+node 29 6
+node 29 5
+node 29 4
+node 29 3
+node 29 2
+node 29 1
+node 29 0
+node 28 50
+node 28 49
+node 28 48
+node 28 47
+node 28 46
+node 28 45
+node 28 44
+node 28 43
+node 28 42
+node 28 41
+node 28 40
+node 28 39
+node 28 38
+node 28 37
+node 28 36
+node 28 35
+node 28 34
+node 28 33
+node 28 32
+node 28 31
+node 28 30
+node 28 29
+node 28 28
+node 28 27
+node 28 26
+node 28 25
+node 28 24
+node 28 23
+node 28 22
+node 28 21
+node 28 20
+node 28 19
+node 28 18
+node 28 17
+node 28 16
+node 28 15
+node 28 14
+node 28 13
+node 28 12
+node 28 11
+node 28 10
+node 28 9
+node 28 8
+node 28 7
+node 28 6
+node 28 5
+node 28 4
+node 28 3
+node 28 2
+node 28 1
+node 28 0
+node 27 50
+node 27 49
+node 27 48
+node 27 47
+node 27 46
+node 27 45
+node 27 44
+node 27 43
+node 27 42
+node 27 41
+node 27 40
+node 27 39
+node 27 38
+node 27 37
+node 27 36
+node 27 35
+node 27 34
+node 27 33
+node 27 32
+node 27 31
+node 27 30
+node 27 29
+node 27 28
+node 27 27
+node 27 26
+node 27 25
+node 27 24
+node 27 23
+node 27 22
+node 27 21
+node 27 20
+node 27 19
+node 27 18
+node 27 17
+node 27 16
+node 27 15
+node 27 14
+node 27 13
+node 27 12
+node 27 11
+node 27 10
+node 27 9
+node 27 8
+node 27 7
+node 27 6
+node 27 5
+node 27 4
+node 27 3
+node 27 2
+node 27 1
+node 27 0
+node 26 50
+node 26 49
+node 26 48
+node 26 47
+node 26 46
+node 26 45
+node 26 44
+node 26 43
+node 26 42
+node 26 41
+node 26 40
+node 26 39
+node 26 38
+node 26 37
+node 26 36
+node 26 35
+node 26 34
+node 26 33
+node 26 32
+node 26 31
+node 26 30
+node 26 29
+node 26 28
+node 26 27
+node 26 26
+node 26 25
+node 26 24
+node 26 23
+node 26 22
+node 26 21
+node 26 20
+node 26 19
+node 26 18
+node 26 17
+node 26 16
+node 26 15
+node 26 14
+node 26 13
+node 26 12
+node 26 11
+node 26 10
+node 26 9
+node 26 8
+node 26 7
+node 26 6
+node 26 5
+node 26 4
+node 26 3
+node 26 2
+node 26 1
+node 26 0
+node 25 50
+node 25 49
+node 25 48
+node 25 47
+node 25 46
+node 25 45
+node 25 44
+node 25 43
+node 25 42
+node 25 41
+node 25 40
+node 25 39
+node 25 38
+node 25 37
+node 25 36
+node 25 35
+node 25 34
+node 25 33
+node 25 32
+node 25 31
+node 25 30
+node 25 29
+node 25 28
+node 25 27
+node 25 26
+node 25 25
+node 25 24
+node 25 23
+node 25 22
+node 25 21
+node 25 20
+node 25 19
+node 25 18
+node 25 17
+node 25 16
+node 25 15
+node 25 14
+node 25 13
+node 25 12
+node 25 11
+node 25 10
+node 25 9
+node 25 8
+node 25 7
+node 25 6
+node 25 5
+node 25 4
+node 25 3
+node 25 2
+node 25 1
+node 25 0
+node 24 50
+node 24 49
+node 24 48
+node 24 47
+node 24 46
+node 24 45
+node 24 44
+node 24 43
+node 24 42
+node 24 41
+node 24 40
+node 24 39
+node 24 38
+node 24 37
+node 24 36
+node 24 35
+node 24 34
+node 24 33
+node 24 32
+node 24 31
+node 24 30
+node 24 29
+node 24 28
+node 24 27
+node 24 26
+node 24 25
+node 24 24
+node 24 23
+node 24 22
+node 24 21
+node 24 20
+node 24 19
+node 24 18
+node 24 17
+node 24 16
+node 24 15
+node 24 14
+node 24 13
+node 24 12
+node 24 11
+node 24 10
+node 24 9
+node 24 8
+node 24 7
+node 24 6
+node 24 5
+node 24 4
+node 24 3
+node 24 2
+node 24 1
+node 24 0
+node 23 50
+node 23 49
+node 23 48
+node 23 47
+node 23 46
+node 23 45
+node 23 44
+node 23 43
+node 23 42
+node 23 41
+node 23 40
+node 23 39
+node 23 38
+node 23 37
+node 23 36
+node 23 35
+node 23 34
+node 23 33
+node 23 32
+node 23 31
+node 23 30
+node 23 29
+node 23 28
+node 23 27
+node 23 26
+node 23 25
+node 23 24
+node 23 23
+node 23 22
+node 23 21
+node 23 20
+node 23 19
+node 23 18
+node 23 17
+node 23 16
+node 23 15
+node 23 14
+node 23 13
+node 23 12
+node 23 11
+node 23 10
+node 23 9
+node 23 8
+node 23 7
+node 23 6
+node 23 5
+node 23 4
+node 23 3
+node 23 2
+node 23 1
+node 23 0
+node 22 50
+node 22 49
+node 22 48
+node 22 47
+node 22 46
+node 22 45
+node 22 44
+node 22 43
+node 22 42
+node 22 41
+node 22 40
+node 22 39
+node 22 38
+node 22 37
+node 22 36
+node 22 35
+node 22 34
+node 22 33
+node 22 32
+node 22 31
+node 22 30
+node 22 29
+node 22 28
+node 22 27
+node 22 26
+node 22 25
+node 22 24
+node 22 23
+node 22 22
+node 22 21
+node 22 20
+node 22 19
+node 22 18
+node 22 17
+node 22 16
+node 22 15
+node 22 14
+node 22 13
+node 22 12
+node 22 11
+node 22 10
+node 22 9
+node 22 8
+node 22 7
+node 22 6
+node 22 5
+node 22 4
+node 22 3
+node 22 2
+node 22 1
+node 22 0
+node 21 50
+node 21 49
+node 21 48
+node 21 47
+node 21 46
+node 21 45
+node 21 44
+node 21 43
+node 21 42
+node 21 41
+node 21 40
+node 21 39
+node 21 38
+node 21 37
+node 21 36
+node 21 35
+node 21 34
+node 21 33
+node 21 32
+node 21 31
+node 21 30
+node 21 29
+node 21 28
+node 21 27
+node 21 26
+node 21 25
+node 21 24
+node 21 23
+node 21 22
+node 21 21
+node 21 20
+node 21 19
+node 21 18
+node 21 17
+node 21 16
+node 21 15
+node 21 14
+node 21 13
+node 21 12
+node 21 11
+node 21 10
+node 21 9
+node 21 8
+node 21 7
+node 21 6
+node 21 5
+node 21 4
+node 21 3
+node 21 2
+node 21 1
+node 21 0
+node 20 50
+node 20 49
+node 20 48
+node 20 47
+node 20 46
+node 20 45
+node 20 44
+node 20 43
+node 20 42
+node 20 41
+node 20 40
+node 20 39
+node 20 38
+node 20 37
+node 20 36
+node 20 35
+node 20 34
+node 20 33
+node 20 32
+node 20 31
+node 20 30
+node 20 29
+node 20 28
+node 20 27
+node 20 26
+node 20 25
+node 20 24
+node 20 23
+node 20 22
+node 20 21
+node 20 20
+node 20 19
+node 20 18
+node 20 17
+node 20 16
+node 20 15
+node 20 14
+node 20 13
+node 20 12
+node 20 11
+node 20 10
+node 20 9
+node 20 8
+node 20 7
+node 20 6
+node 20 5
+node 20 4
+node 20 3
+node 20 2
+node 20 1
+node 20 0
+node 19 50
+node 19 49
+node 19 48
+node 19 47
+node 19 46
+node 19 45
+node 19 44
+node 19 43
+node 19 42
+node 19 41
+node 19 40
+node 19 39
+node 19 38
+node 19 37
+node 19 36
+node 19 35
+node 19 34
+node 19 33
+node 19 32
+node 19 31
+node 19 30
+node 19 29
+node 19 28
+node 19 27
+node 19 26
+node 19 25
+node 19 24
+node 19 23
+node 19 22
+node 19 21
+node 19 20
+node 19 19
+node 19 18
+node 19 17
+node 19 16
+node 19 15
+node 19 14
+node 19 13
+node 19 12
+node 19 11
+node 19 10
+node 19 9
+node 19 8
+node 19 7
+node 19 6
+node 19 5
+node 19 4
+node 19 3
+node 19 2
+node 19 1
+node 19 0
+node 18 50
+node 18 49
+node 18 48
+node 18 47
+node 18 46
+node 18 45
+node 18 44
+node 18 43
+node 18 42
+node 18 41
+node 18 40
+node 18 39
+node 18 38
+node 18 37
+node 18 36
+node 18 35
+node 18 34
+node 18 33
+node 18 32
+node 18 31
+node 18 30
+node 18 29
+node 18 28
+node 18 27
+node 18 26
+node 18 25
+node 18 24
+node 18 23
+node 18 22
+node 18 21
+node 18 20
+node 18 19
+node 18 18
+node 18 17
+node 18 16
+node 18 15
+node 18 14
+node 18 13
+node 18 12
+node 18 11
+node 18 10
+node 18 9
+node 18 8
+node 18 7
+node 18 6
+node 18 5
+node 18 4
+node 18 3
+node 18 2
+node 18 1
+node 18 0
+node 17 50
+node 17 49
+node 17 48
+node 17 47
+node 17 46
+node 17 45
+node 17 44
+node 17 43
+node 17 42
+node 17 41
+node 17 40
+node 17 39
+node 17 38
+node 17 37
+node 17 36
+node 17 35
+node 17 34
+node 17 33
+node 17 32
+node 17 31
+node 17 30
+node 17 29
+node 17 28
+node 17 27
+node 17 26
+node 17 25
+node 17 24
+node 17 23
+node 17 22
+node 17 21
+node 17 20
+node 17 19
+node 17 18
+node 17 17
+node 17 16
+node 17 15
+node 17 14
+node 17 13
+node 17 12
+node 17 11
+node 17 10
+node 17 9
+node 17 8
+node 17 7
+node 17 6
+node 17 5
+node 17 4
+node 17 3
+node 17 2
+node 17 1
+node 17 0
+node 16 50
+node 16 49
+node 16 48
+node 16 47
+node 16 46
+node 16 45
+node 16 44
+node 16 43
+node 16 42
+node 16 41
+node 16 40
+node 16 39
+node 16 38
+node 16 37
+node 16 36
+node 16 35
+node 16 34
+node 16 33
+node 16 32
+node 16 31
+node 16 30
+node 16 29
+node 16 28
+node 16 27
+node 16 26
+node 16 25
+node 16 24
+node 16 23
+node 16 22
+node 16 21
+node 16 20
+node 16 19
+node 16 18
+node 16 17
+node 16 16
+node 16 15
+node 16 14
+node 16 13
+node 16 12
+node 16 11
+node 16 10
+node 16 9
+node 16 8
+node 16 7
+node 16 6
+node 16 5
+node 16 4
+node 16 3
+node 16 2
+node 16 1
+node 16 0
+node 15 50
+node 15 49
+node 15 48
+node 15 47
+node 15 46
+node 15 45
+node 15 44
+node 15 43
+node 15 42
+node 15 41
+node 15 40
+node 15 39
+node 15 38
+node 15 37
+node 15 36
+node 15 35
+node 15 34
+node 15 33
+node 15 32
+node 15 31
+node 15 30
+node 15 29
+node 15 28
+node 15 27
+node 15 26
+node 15 25
+node 15 24
+node 15 23
+node 15 22
+node 15 21
+node 15 20
+node 15 19
+node 15 18
+node 15 17
+node 15 16
+node 15 15
+node 15 14
+node 15 13
+node 15 12
+node 15 11
+node 15 10
+node 15 9
+node 15 8
+node 15 7
+node 15 6
+node 15 5
+node 15 4
+node 15 3
+node 15 2
+node 15 1
+node 15 0
+node 14 50
+node 14 49
+node 14 48
+node 14 47
+node 14 46
+node 14 45
+node 14 44
+node 14 43
+node 14 42
+node 14 41
+node 14 40
+node 14 39
+node 14 38
+node 14 37
+node 14 36
+node 14 35
+node 14 34
+node 14 33
+node 14 32
+node 14 31
+node 14 30
+node 14 29
+node 14 28
+node 14 27
+node 14 26
+node 14 25
+node 14 24
+node 14 23
+node 14 22
+node 14 21
+node 14 20
+node 14 19
+node 14 18
+node 14 17
+node 14 16
+node 14 15
+node 14 14
+node 14 13
+node 14 12
+node 14 11
+node 14 10
+node 14 9
+node 14 8
+node 14 7
+node 14 6
+node 14 5
+node 14 4
+node 14 3
+node 14 2
+node 14 1
+node 14 0
+node 13 50
+node 13 49
+node 13 48
+node 13 47
+node 13 46
+node 13 45
+node 13 44
+node 13 43
+node 13 42
+node 13 41
+node 13 40
+node 13 39
+node 13 38
+node 13 37
+node 13 36
+node 13 35
+node 13 34
+node 13 33
+node 13 32
+node 13 31
+node 13 30
+node 13 29
+node 13 28
+node 13 27
+node 13 26
+node 13 25
+node 13 24
+node 13 23
+node 13 22
+node 13 21
+node 13 20
+node 13 19
+node 13 18
+node 13 17
+node 13 16
+node 13 15
+node 13 14
+node 13 13
+node 13 12
+node 13 11
+node 13 10
+node 13 9
+node 13 8
+node 13 7
+node 13 6
+node 13 5
+node 13 4
+node 13 3
+node 13 2
+node 13 1
+node 13 0
+node 12 50
+node 12 49
+node 12 48
+node 12 47
+node 12 46
+node 12 45
+node 12 44
+node 12 43
+node 12 42
+node 12 41
+node 12 40
+node 12 39
+node 12 38
+node 12 37
+node 12 36
+node 12 35
+node 12 34
+node 12 33
+node 12 32
+node 12 31
+node 12 30
+node 12 29
+node 12 28
+node 12 27
+node 12 26
+node 12 25
+node 12 24
+node 12 23
+node 12 22
+node 12 21
+node 12 20
+node 12 19
+node 12 18
+node 12 17
+node 12 16
+node 12 15
+node 12 14
+node 12 13
+node 12 12
+node 12 11
+node 12 10
+node 12 9
+node 12 8
+node 12 7
+node 12 6
+node 12 5
+node 12 4
+node 12 3
+node 12 2
+node 12 1
+node 12 0
+node 11 50
+node 11 49
+node 11 48
+node 11 47
+node 11 46
+node 11 45
+node 11 44
+node 11 43
+node 11 42
+node 11 41
+node 11 40
+node 11 39
+node 11 38
+node 11 37
+node 11 36
+node 11 35
+node 11 34
+node 11 33
+node 11 32
+node 11 31
+node 11 30
+node 11 29
+node 11 28
+node 11 27
+node 11 26
+node 11 25
+node 11 24
+node 11 23
+node 11 22
+node 11 21
+node 11 20
+node 11 19
+node 11 18
+node 11 17
+node 11 16
+node 11 15
+node 11 14
+node 11 13
+node 11 12
+node 11 11
+node 11 10
+node 11 9
+node 11 8
+node 11 7
+node 11 6
+node 11 5
+node 11 4
+node 11 3
+node 11 2
+node 11 1
+node 11 0
+node 10 50
+node 10 49
+node 10 48
+node 10 47
+node 10 46
+node 10 45
+node 10 44
+node 10 43
+node 10 42
+node 10 41
+node 10 40
+node 10 39
+node 10 38
+node 10 37
+node 10 36
+node 10 35
+node 10 34
+node 10 33
+node 10 32
+node 10 31
+node 10 30
+node 10 29
+node 10 28
+node 10 27
+node 10 26
+node 10 25
+node 10 24
+node 10 23
+node 10 22
+node 10 21
+node 10 20
+node 10 19
+node 10 18
+node 10 17
+node 10 16
+node 10 15
+node 10 14
+node 10 13
+node 10 12
+node 10 11
+node 10 10
+node 10 9
+node 10 8
+node 10 7
+node 10 6
+node 10 5
+node 10 4
+node 10 3
+node 10 2
+node 10 1
+node 10 0
+node 9 50
+node 9 49
+node 9 48
+node 9 47
+node 9 46
+node 9 45
+node 9 44
+node 9 43
+node 9 42
+node 9 41
+node 9 40
+node 9 39
+node 9 38
+node 9 37
+node 9 36
+node 9 35
+node 9 34
+node 9 33
+node 9 32
+node 9 31
+node 9 30
+node 9 29
+node 9 28
+node 9 27
+node 9 26
+node 9 25
+node 9 24
+node 9 23
+node 9 22
+node 9 21
+node 9 20
+node 9 19
+node 9 18
+node 9 17
+node 9 16
+node 9 15
+node 9 14
+node 9 13
+node 9 12
+node 9 11
+node 9 10
+node 9 9
+node 9 8
+node 9 7
+node 9 6
+node 9 5
+node 9 4
+node 9 3
+node 9 2
+node 9 1
+node 9 0
+node 8 50
+node 8 49
+node 8 48
+node 8 47
+node 8 46
+node 8 45
+node 8 44
+node 8 43
+node 8 42
+node 8 41
+node 8 40
+node 8 39
+node 8 38
+node 8 37
+node 8 36
+node 8 35
+node 8 34
+node 8 33
+node 8 32
+node 8 31
+node 8 30
+node 8 29
+node 8 28
+node 8 27
+node 8 26
+node 8 25
+node 8 24
+node 8 23
+node 8 22
+node 8 21
+node 8 20
+node 8 19
+node 8 18
+node 8 17
+node 8 16
+node 8 15
+node 8 14
+node 8 13
+node 8 12
+node 8 11
+node 8 10
+node 8 9
+node 8 8
+node 8 7
+node 8 6
+node 8 5
+node 8 4
+node 8 3
+node 8 2
+node 8 1
+node 8 0
+node 7 50
+node 7 49
+node 7 48
+node 7 47
+node 7 46
+node 7 45
+node 7 44
+node 7 43
+node 7 42
+node 7 41
+node 7 40
+node 7 39
+node 7 38
+node 7 37
+node 7 36
+node 7 35
+node 7 34
+node 7 33
+node 7 32
+node 7 31
+node 7 30
+node 7 29
+node 7 28
+node 7 27
+node 7 26
+node 7 25
+node 7 24
+node 7 23
+node 7 22
+node 7 21
+node 7 20
+node 7 19
+node 7 18
+node 7 17
+node 7 16
+node 7 15
+node 7 14
+node 7 13
+node 7 12
+node 7 11
+node 7 10
+node 7 9
+node 7 8
+node 7 7
+node 7 6
+node 7 5
+node 7 4
+node 7 3
+node 7 2
+node 7 1
+node 7 0
+node 6 50
+node 6 49
+node 6 48
+node 6 47
+node 6 46
+node 6 45
+node 6 44
+node 6 43
+node 6 42
+node 6 41
+node 6 40
+node 6 39
+node 6 38
+node 6 37
+node 6 36
+node 6 35
+node 6 34
+node 6 33
+node 6 32
+node 6 31
+node 6 30
+node 6 29
+node 6 28
+node 6 27
+node 6 26
+node 6 25
+node 6 24
+node 6 23
+node 6 22
+node 6 21
+node 6 20
+node 6 19
+node 6 18
+node 6 17
+node 6 16
+node 6 15
+node 6 14
+node 6 13
+node 6 12
+node 6 11
+node 6 10
+node 6 9
+node 6 8
+node 6 7
+node 6 6
+node 6 5
+node 6 4
+node 6 3
+node 6 2
+node 6 1
+node 6 0
+node 5 50
+node 5 49
+node 5 48
+node 5 47
+node 5 46
+node 5 45
+node 5 44
+node 5 43
+node 5 42
+node 5 41
+node 5 40
+node 5 39
+node 5 38
+node 5 37
+node 5 36
+node 5 35
+node 5 34
+node 5 33
+node 5 32
+node 5 31
+node 5 30
+node 5 29
+node 5 28
+node 5 27
+node 5 26
+node 5 25
+node 5 24
+node 5 23
+node 5 22
+node 5 21
+node 5 20
+node 5 19
+node 5 18
+node 5 17
+node 5 16
+node 5 15
+node 5 14
+node 5 13
+node 5 12
+node 5 11
+node 5 10
+node 5 9
+node 5 8
+node 5 7
+node 5 6
+node 5 5
+node 5 4
+node 5 3
+node 5 2
+node 5 1
+node 5 0
+node 4 50
+node 4 49
+node 4 48
+node 4 47
+node 4 46
+node 4 45
+node 4 44
+node 4 43
+node 4 42
+node 4 41
+node 4 40
+node 4 39
+node 4 38
+node 4 37
+node 4 36
+node 4 35
+node 4 34
+node 4 33
+node 4 32
+node 4 31
+node 4 30
+node 4 29
+node 4 28
+node 4 27
+node 4 26
+node 4 25
+node 4 24
+node 4 23
+node 4 22
+node 4 21
+node 4 20
+node 4 19
+node 4 18
+node 4 17
+node 4 16
+node 4 15
+node 4 14
+node 4 13
+node 4 12
+node 4 11
+node 4 10
+node 4 9
+node 4 8
+node 4 7
+node 4 6
+node 4 5
+node 4 4
+node 4 3
+node 4 2
+node 4 1
+node 4 0
+node 3 50
+node 3 49
+node 3 48
+node 3 47
+node 3 46
+node 3 45
+node 3 44
+node 3 43
+node 3 42
+node 3 41
+node 3 40
+node 3 39
+node 3 38
+node 3 37
+node 3 36
+node 3 35
+node 3 34
+node 3 33
+node 3 32
+node 3 31
+node 3 30
+node 3 29
+node 3 28
+node 3 27
+node 3 26
+node 3 25
+node 3 24
+node 3 23
+node 3 22
+node 3 21
+node 3 20
+node 3 19
+node 3 18
+node 3 17
+node 3 16
+node 3 15
+node 3 14
+node 3 13
+node 3 12
+node 3 11
+node 3 10
+node 3 9
+node 3 8
+node 3 7
+node 3 6
+node 3 5
+node 3 4
+node 3 3
+node 3 2
+node 3 1
+node 3 0
+node 2 50
+node 2 49
+node 2 48
+node 2 47
+node 2 46
+node 2 45
+node 2 44
+node 2 43
+node 2 42
+node 2 41
+node 2 40
+node 2 39
+node 2 38
+node 2 37
+node 2 36
+node 2 35
+node 2 34
+node 2 33
+node 2 32
+node 2 31
+node 2 30
+node 2 29
+node 2 28
+node 2 27
+node 2 26
+node 2 25
+node 2 24
+node 2 23
+node 2 22
+node 2 21
+node 2 20
+node 2 19
+node 2 18
+node 2 17
+node 2 16
+node 2 15
+node 2 14
+node 2 13
+node 2 12
+node 2 11
+node 2 10
+node 2 9
+node 2 8
+node 2 7
+node 2 6
+node 2 5
+node 2 4
+node 2 3
+node 2 2
+node 2 1
+node 2 0
+node 1 50
+node 1 49
+node 1 48
+node 1 47
+node 1 46
+node 1 45
+node 1 44
+node 1 43
+node 1 42
+node 1 41
+node 1 40
+node 1 39
+node 1 38
+node 1 37
+node 1 36
+node 1 35
+node 1 34
+node 1 33
+node 1 32
+node 1 31
+node 1 30
+node 1 29
+node 1 28
+node 1 27
+node 1 26
+node 1 25
+node 1 24
+node 1 23
+node 1 22
+node 1 21
+node 1 20
+node 1 19
+node 1 18
+node 1 17
+node 1 16
+node 1 15
+node 1 14
+node 1 13
+node 1 12
+node 1 11
+node 1 10
+node 1 9
+node 1 8
+node 1 7
+node 1 6
+node 1 5
+node 1 4
+node 1 3
+node 1 2
+node 1 1
+node 1 0
+node 0 50
+node 0 49
+node 0 48
+node 0 47
+node 0 46
+node 0 45
+node 0 44
+node 0 43
+node 0 42
+node 0 41
+node 0 40
+node 0 39
+node 0 38
+node 0 37
+node 0 36
+node 0 35
+node 0 34
+node 0 33
+node 0 32
+node 0 31
+node 0 30
+node 0 29
+node 0 28
+node 0 27
+node 0 26
+node 0 25
+node 0 24
+node 0 23
+node 0 22
+node 0 21
+node 0 20
+node 0 19
+node 0 18
+node 0 17
+node 0 16
+node 0 15
+node 0 14
+node 0 13
+node 0 12
+node 0 11
+node 0 10
+node 0 9
+node 0 8
+node 0 7
+node 0 6
+node 0 5
+node 0 4
+node 0 3
+node 0 2
+node 0 1
+node 0 0
+edge 50 50 50 49
+edge 50 50 49 50
+edge 50 49 49 49
+edge 49 50 49 49
+edge 50 48 48 49
+edge 48 50 49 48
+edge 50 47 47 49
+edge 47 50 49 47
+edge 50 46 46 49
+edge 46 50 49 46
+edge 50 45 45 49
+edge 45 50 49 45
+edge 50 44 44 49
+edge 44 50 49 44
+edge 50 43 43 49
+edge 43 50 49 43
+edge 50 42 42 49
+edge 42 50 49 42
+edge 50 41 41 49
+edge 41 50 49 41
+edge 50 40 40 49
+edge 40 50 49 40
+edge 50 39 39 49
+edge 39 50 49 39
+edge 50 38 38 49
+edge 38 50 49 38
+edge 50 37 37 49
+edge 37 50 49 37
+edge 50 36 36 49
+edge 36 50 49 36
+edge 50 35 35 49
+edge 35 50 49 35
+edge 50 34 34 49
+edge 34 50 49 34
+edge 50 33 33 49
+edge 33 50 49 33
+edge 50 32 32 49
+edge 32 50 49 32
+edge 50 31 31 49
+edge 31 50 49 31
+edge 50 30 30 49
+edge 30 50 49 30
+edge 50 29 29 49
+edge 29 50 49 29
+edge 50 28 28 49
+edge 28 50 49 28
+edge 50 27 27 49
+edge 27 50 49 27
+edge 50 26 26 49
+edge 26 50 49 26
+edge 50 25 25 49
+edge 25 50 49 25
+edge 50 24 24 49
+edge 24 50 49 24
+edge 50 23 23 49
+edge 23 50 49 23
+edge 50 22 22 49
+edge 22 50 49 22
+edge 50 21 21 49
+edge 21 50 49 21
+edge 50 20 20 49
+edge 20 50 49 20
+edge 50 19 19 49
+edge 19 50 49 19
+edge 50 18 18 49
+edge 18 50 49 18
+edge 50 17 17 49
+edge 17 50 49 17
+edge 50 16 16 49
+edge 16 50 49 16
+edge 50 15 15 49
+edge 15 50 49 15
+edge 50 14 14 49
+edge 14 50 49 14
+edge 50 13 13 49
+edge 13 50 49 13
+edge 50 12 12 49
+edge 12 50 49 12
+edge 50 11 11 49
+edge 11 50 49 11
+edge 50 10 10 49
+edge 10 50 49 10
+edge 50 9 9 49
+edge 9 50 49 9
+edge 50 8 8 49
+edge 8 50 49 8
+edge 50 7 7 49
+edge 7 50 49 7
+edge 50 6 6 49
+edge 6 50 49 6
+edge 50 5 5 49
+edge 5 50 49 5
+edge 50 4 4 49
+edge 4 50 49 4
+edge 50 3 3 49
+edge 3 50 49 3
+edge 50 2 2 49
+edge 2 50 49 2
+edge 50 1 1 49
+edge 1 50 49 1
+edge 50 0 0 49
+edge 0 50 49 0
+edge 49 50 50 48
+edge 50 49 48 50
+edge 49 49 49 48
+edge 49 49 48 49
+edge 49 48 48 48
+edge 48 49 48 48
+edge 49 47 47 48
+edge 47 49 48 47
+edge 49 46 46 48
+edge 46 49 48 46
+edge 49 45 45 48
+edge 45 49 48 45
+edge 49 44 44 48
+edge 44 49 48 44
+edge 49 43 43 48
+edge 43 49 48 43
+edge 49 42 42 48
+edge 42 49 48 42
+edge 49 41 41 48
+edge 41 49 48 41
+edge 49 40 40 48
+edge 40 49 48 40
+edge 49 39 39 48
+edge 39 49 48 39
+edge 49 38 38 48
+edge 38 49 48 38
+edge 49 37 37 48
+edge 37 49 48 37
+edge 49 36 36 48
+edge 36 49 48 36
+edge 49 35 35 48
+edge 35 49 48 35
+edge 49 34 34 48
+edge 34 49 48 34
+edge 49 33 33 48
+edge 33 49 48 33
+edge 49 32 32 48
+edge 32 49 48 32
+edge 49 31 31 48
+edge 31 49 48 31
+edge 49 30 30 48
+edge 30 49 48 30
+edge 49 29 29 48
+edge 29 49 48 29
+edge 49 28 28 48
+edge 28 49 48 28
+edge 49 27 27 48
+edge 27 49 48 27
+edge 49 26 26 48
+edge 26 49 48 26
+edge 49 25 25 48
+edge 25 49 48 25
+edge 49 24 24 48
+edge 24 49 48 24
+edge 49 23 23 48
+edge 23 49 48 23
+edge 49 22 22 48
+edge 22 49 48 22
+edge 49 21 21 48
+edge 21 49 48 21
+edge 49 20 20 48
+edge 20 49 48 20
+edge 49 19 19 48
+edge 19 49 48 19
+edge 49 18 18 48
+edge 18 49 48 18
+edge 49 17 17 48
+edge 17 49 48 17
+edge 49 16 16 48
+edge 16 49 48 16
+edge 49 15 15 48
+edge 15 49 48 15
+edge 49 14 14 48
+edge 14 49 48 14
+edge 49 13 13 48
+edge 13 49 48 13
+edge 49 12 12 48
+edge 12 49 48 12
+edge 49 11 11 48
+edge 11 49 48 11
+edge 49 10 10 48
+edge 10 49 48 10
+edge 49 9 9 48
+edge 9 49 48 9
+edge 49 8 8 48
+edge 8 49 48 8
+edge 49 7 7 48
+edge 7 49 48 7
+edge 49 6 6 48
+edge 6 49 48 6
+edge 49 5 5 48
+edge 5 49 48 5
+edge 49 4 4 48
+edge 4 49 48 4
+edge 49 3 3 48
+edge 3 49 48 3
+edge 49 2 2 48
+edge 2 49 48 2
+edge 49 1 1 48
+edge 1 49 48 1
+edge 49 0 0 48
+edge 0 49 48 0
+edge 48 50 50 47
+edge 50 48 47 50
+edge 48 49 49 47
+edge 49 48 47 49
+edge 48 48 48 47
+edge 48 48 47 48
+edge 48 47 47 47
+edge 47 48 47 47
+edge 48 46 46 47
+edge 46 48 47 46
+edge 48 45 45 47
+edge 45 48 47 45
+edge 48 44 44 47
+edge 44 48 47 44
+edge 48 43 43 47
+edge 43 48 47 43
+edge 48 42 42 47
+edge 42 48 47 42
+edge 48 41 41 47
+edge 41 48 47 41
+edge 48 40 40 47
+edge 40 48 47 40
+edge 48 39 39 47
+edge 39 48 47 39
+edge 48 38 38 47
+edge 38 48 47 38
+edge 48 37 37 47
+edge 37 48 47 37
+edge 48 36 36 47
+edge 36 48 47 36
+edge 48 35 35 47
+edge 35 48 47 35
+edge 48 34 34 47
+edge 34 48 47 34
+edge 48 33 33 47
+edge 33 48 47 33
+edge 48 32 32 47
+edge 32 48 47 32
+edge 48 31 31 47
+edge 31 48 47 31
+edge 48 30 30 47
+edge 30 48 47 30
+edge 48 29 29 47
+edge 29 48 47 29
+edge 48 28 28 47
+edge 28 48 47 28
+edge 48 27 27 47
+edge 27 48 47 27
+edge 48 26 26 47
+edge 26 48 47 26
+edge 48 25 25 47
+edge 25 48 47 25
+edge 48 24 24 47
+edge 24 48 47 24
+edge 48 23 23 47
+edge 23 48 47 23
+edge 48 22 22 47
+edge 22 48 47 22
+edge 48 21 21 47
+edge 21 48 47 21
+edge 48 20 20 47
+edge 20 48 47 20
+edge 48 19 19 47
+edge 19 48 47 19
+edge 48 18 18 47
+edge 18 48 47 18
+edge 48 17 17 47
+edge 17 48 47 17
+edge 48 16 16 47
+edge 16 48 47 16
+edge 48 15 15 47
+edge 15 48 47 15
+edge 48 14 14 47
+edge 14 48 47 14
+edge 48 13 13 47
+edge 13 48 47 13
+edge 48 12 12 47
+edge 12 48 47 12
+edge 48 11 11 47
+edge 11 48 47 11
+edge 48 10 10 47
+edge 10 48 47 10
+edge 48 9 9 47
+edge 9 48 47 9
+edge 48 8 8 47
+edge 8 48 47 8
+edge 48 7 7 47
+edge 7 48 47 7
+edge 48 6 6 47
+edge 6 48 47 6
+edge 48 5 5 47
+edge 5 48 47 5
+edge 48 4 4 47
+edge 4 48 47 4
+edge 48 3 3 47
+edge 3 48 47 3
+edge 48 2 2 47
+edge 2 48 47 2
+edge 48 1 1 47
+edge 1 48 47 1
+edge 48 0 0 47
+edge 0 48 47 0
+edge 47 50 50 46
+edge 50 47 46 50
+edge 47 49 49 46
+edge 49 47 46 49
+edge 47 48 48 46
+edge 48 47 46 48
+edge 47 47 47 46
+edge 47 47 46 47
+edge 47 46 46 46
+edge 46 47 46 46
+edge 47 45 45 46
+edge 45 47 46 45
+edge 47 44 44 46
+edge 44 47 46 44
+edge 47 43 43 46
+edge 43 47 46 43
+edge 47 42 42 46
+edge 42 47 46 42
+edge 47 41 41 46
+edge 41 47 46 41
+edge 47 40 40 46
+edge 40 47 46 40
+edge 47 39 39 46
+edge 39 47 46 39
+edge 47 38 38 46
+edge 38 47 46 38
+edge 47 37 37 46
+edge 37 47 46 37
+edge 47 36 36 46
+edge 36 47 46 36
+edge 47 35 35 46
+edge 35 47 46 35
+edge 47 34 34 46
+edge 34 47 46 34
+edge 47 33 33 46
+edge 33 47 46 33
+edge 47 32 32 46
+edge 32 47 46 32
+edge 47 31 31 46
+edge 31 47 46 31
+edge 47 30 30 46
+edge 30 47 46 30
+edge 47 29 29 46
+edge 29 47 46 29
+edge 47 28 28 46
+edge 28 47 46 28
+edge 47 27 27 46
+edge 27 47 46 27
+edge 47 26 26 46
+edge 26 47 46 26
+edge 47 25 25 46
+edge 25 47 46 25
+edge 47 24 24 46
+edge 24 47 46 24
+edge 47 23 23 46
+edge 23 47 46 23
+edge 47 22 22 46
+edge 22 47 46 22
+edge 47 21 21 46
+edge 21 47 46 21
+edge 47 20 20 46
+edge 20 47 46 20
+edge 47 19 19 46
+edge 19 47 46 19
+edge 47 18 18 46
+edge 18 47 46 18
+edge 47 17 17 46
+edge 17 47 46 17
+edge 47 16 16 46
+edge 16 47 46 16
+edge 47 15 15 46
+edge 15 47 46 15
+edge 47 14 14 46
+edge 14 47 46 14
+edge 47 13 13 46
+edge 13 47 46 13
+edge 47 12 12 46
+edge 12 47 46 12
+edge 47 11 11 46
+edge 11 47 46 11
+edge 47 10 10 46
+edge 10 47 46 10
+edge 47 9 9 46
+edge 9 47 46 9
+edge 47 8 8 46
+edge 8 47 46 8
+edge 47 7 7 46
+edge 7 47 46 7
+edge 47 6 6 46
+edge 6 47 46 6
+edge 47 5 5 46
+edge 5 47 46 5
+edge 47 4 4 46
+edge 4 47 46 4
+edge 47 3 3 46
+edge 3 47 46 3
+edge 47 2 2 46
+edge 2 47 46 2
+edge 47 1 1 46
+edge 1 47 46 1
+edge 47 0 0 46
+edge 0 47 46 0
+edge 46 50 50 45
+edge 50 46 45 50
+edge 46 49 49 45
+edge 49 46 45 49
+edge 46 48 48 45
+edge 48 46 45 48
+edge 46 47 47 45
+edge 47 46 45 47
+edge 46 46 46 45
+edge 46 46 45 46
+edge 46 45 45 45
+edge 45 46 45 45
+edge 46 44 44 45
+edge 44 46 45 44
+edge 46 43 43 45
+edge 43 46 45 43
+edge 46 42 42 45
+edge 42 46 45 42
+edge 46 41 41 45
+edge 41 46 45 41
+edge 46 40 40 45
+edge 40 46 45 40
+edge 46 39 39 45
+edge 39 46 45 39
+edge 46 38 38 45
+edge 38 46 45 38
+edge 46 37 37 45
+edge 37 46 45 37
+edge 46 36 36 45
+edge 36 46 45 36
+edge 46 35 35 45
+edge 35 46 45 35
+edge 46 34 34 45
+edge 34 46 45 34
+edge 46 33 33 45
+edge 33 46 45 33
+edge 46 32 32 45
+edge 32 46 45 32
+edge 46 31 31 45
+edge 31 46 45 31
+edge 46 30 30 45
+edge 30 46 45 30
+edge 46 29 29 45
+edge 29 46 45 29
+edge 46 28 28 45
+edge 28 46 45 28
+edge 46 27 27 45
+edge 27 46 45 27
+edge 46 26 26 45
+edge 26 46 45 26
+edge 46 25 25 45
+edge 25 46 45 25
+edge 46 24 24 45
+edge 24 46 45 24
+edge 46 23 23 45
+edge 23 46 45 23
+edge 46 22 22 45
+edge 22 46 45 22
+edge 46 21 21 45
+edge 21 46 45 21
+edge 46 20 20 45
+edge 20 46 45 20
+edge 46 19 19 45
+edge 19 46 45 19
+edge 46 18 18 45
+edge 18 46 45 18
+edge 46 17 17 45
+edge 17 46 45 17
+edge 46 16 16 45
+edge 16 46 45 16
+edge 46 15 15 45
+edge 15 46 45 15
+edge 46 14 14 45
+edge 14 46 45 14
+edge 46 13 13 45
+edge 13 46 45 13
+edge 46 12 12 45
+edge 12 46 45 12
+edge 46 11 11 45
+edge 11 46 45 11
+edge 46 10 10 45
+edge 10 46 45 10
+edge 46 9 9 45
+edge 9 46 45 9
+edge 46 8 8 45
+edge 8 46 45 8
+edge 46 7 7 45
+edge 7 46 45 7
+edge 46 6 6 45
+edge 6 46 45 6
+edge 46 5 5 45
+edge 5 46 45 5
+edge 46 4 4 45
+edge 4 46 45 4
+edge 46 3 3 45
+edge 3 46 45 3
+edge 46 2 2 45
+edge 2 46 45 2
+edge 46 1 1 45
+edge 1 46 45 1
+edge 46 0 0 45
+edge 0 46 45 0
+edge 45 50 50 44
+edge 50 45 44 50
+edge 45 49 49 44
+edge 49 45 44 49
+edge 45 48 48 44
+edge 48 45 44 48
+edge 45 47 47 44
+edge 47 45 44 47
+edge 45 46 46 44
+edge 46 45 44 46
+edge 45 45 45 44
+edge 45 45 44 45
+edge 45 44 44 44
+edge 44 45 44 44
+edge 45 43 43 44
+edge 43 45 44 43
+edge 45 42 42 44
+edge 42 45 44 42
+edge 45 41 41 44
+edge 41 45 44 41
+edge 45 40 40 44
+edge 40 45 44 40
+edge 45 39 39 44
+edge 39 45 44 39
+edge 45 38 38 44
+edge 38 45 44 38
+edge 45 37 37 44
+edge 37 45 44 37
+edge 45 36 36 44
+edge 36 45 44 36
+edge 45 35 35 44
+edge 35 45 44 35
+edge 45 34 34 44
+edge 34 45 44 34
+edge 45 33 33 44
+edge 33 45 44 33
+edge 45 32 32 44
+edge 32 45 44 32
+edge 45 31 31 44
+edge 31 45 44 31
+edge 45 30 30 44
+edge 30 45 44 30
+edge 45 29 29 44
+edge 29 45 44 29
+edge 45 28 28 44
+edge 28 45 44 28
+edge 45 27 27 44
+edge 27 45 44 27
+edge 45 26 26 44
+edge 26 45 44 26
+edge 45 25 25 44
+edge 25 45 44 25
+edge 45 24 24 44
+edge 24 45 44 24
+edge 45 23 23 44
+edge 23 45 44 23
+edge 45 22 22 44
+edge 22 45 44 22
+edge 45 21 21 44
+edge 21 45 44 21
+edge 45 20 20 44
+edge 20 45 44 20
+edge 45 19 19 44
+edge 19 45 44 19
+edge 45 18 18 44
+edge 18 45 44 18
+edge 45 17 17 44
+edge 17 45 44 17
+edge 45 16 16 44
+edge 16 45 44 16
+edge 45 15 15 44
+edge 15 45 44 15
+edge 45 14 14 44
+edge 14 45 44 14
+edge 45 13 13 44
+edge 13 45 44 13
+edge 45 12 12 44
+edge 12 45 44 12
+edge 45 11 11 44
+edge 11 45 44 11
+edge 45 10 10 44
+edge 10 45 44 10
+edge 45 9 9 44
+edge 9 45 44 9
+edge 45 8 8 44
+edge 8 45 44 8
+edge 45 7 7 44
+edge 7 45 44 7
+edge 45 6 6 44
+edge 6 45 44 6
+edge 45 5 5 44
+edge 5 45 44 5
+edge 45 4 4 44
+edge 4 45 44 4
+edge 45 3 3 44
+edge 3 45 44 3
+edge 45 2 2 44
+edge 2 45 44 2
+edge 45 1 1 44
+edge 1 45 44 1
+edge 45 0 0 44
+edge 0 45 44 0
+edge 44 50 50 43
+edge 50 44 43 50
+edge 44 49 49 43
+edge 49 44 43 49
+edge 44 48 48 43
+edge 48 44 43 48
+edge 44 47 47 43
+edge 47 44 43 47
+edge 44 46 46 43
+edge 46 44 43 46
+edge 44 45 45 43
+edge 45 44 43 45
+edge 44 44 44 43
+edge 44 44 43 44
+edge 44 43 43 43
+edge 43 44 43 43
+edge 44 42 42 43
+edge 42 44 43 42
+edge 44 41 41 43
+edge 41 44 43 41
+edge 44 40 40 43
+edge 40 44 43 40
+edge 44 39 39 43
+edge 39 44 43 39
+edge 44 38 38 43
+edge 38 44 43 38
+edge 44 37 37 43
+edge 37 44 43 37
+edge 44 36 36 43
+edge 36 44 43 36
+edge 44 35 35 43
+edge 35 44 43 35
+edge 44 34 34 43
+edge 34 44 43 34
+edge 44 33 33 43
+edge 33 44 43 33
+edge 44 32 32 43
+edge 32 44 43 32
+edge 44 31 31 43
+edge 31 44 43 31
+edge 44 30 30 43
+edge 30 44 43 30
+edge 44 29 29 43
+edge 29 44 43 29
+edge 44 28 28 43
+edge 28 44 43 28
+edge 44 27 27 43
+edge 27 44 43 27
+edge 44 26 26 43
+edge 26 44 43 26
+edge 44 25 25 43
+edge 25 44 43 25
+edge 44 24 24 43
+edge 24 44 43 24
+edge 44 23 23 43
+edge 23 44 43 23
+edge 44 22 22 43
+edge 22 44 43 22
+edge 44 21 21 43
+edge 21 44 43 21
+edge 44 20 20 43
+edge 20 44 43 20
+edge 44 19 19 43
+edge 19 44 43 19
+edge 44 18 18 43
+edge 18 44 43 18
+edge 44 17 17 43
+edge 17 44 43 17
+edge 44 16 16 43
+edge 16 44 43 16
+edge 44 15 15 43
+edge 15 44 43 15
+edge 44 14 14 43
+edge 14 44 43 14
+edge 44 13 13 43
+edge 13 44 43 13
+edge 44 12 12 43
+edge 12 44 43 12
+edge 44 11 11 43
+edge 11 44 43 11
+edge 44 10 10 43
+edge 10 44 43 10
+edge 44 9 9 43
+edge 9 44 43 9
+edge 44 8 8 43
+edge 8 44 43 8
+edge 44 7 7 43
+edge 7 44 43 7
+edge 44 6 6 43
+edge 6 44 43 6
+edge 44 5 5 43
+edge 5 44 43 5
+edge 44 4 4 43
+edge 4 44 43 4
+edge 44 3 3 43
+edge 3 44 43 3
+edge 44 2 2 43
+edge 2 44 43 2
+edge 44 1 1 43
+edge 1 44 43 1
+edge 44 0 0 43
+edge 0 44 43 0
+edge 43 50 50 42
+edge 50 43 42 50
+edge 43 49 49 42
+edge 49 43 42 49
+edge 43 48 48 42
+edge 48 43 42 48
+edge 43 47 47 42
+edge 47 43 42 47
+edge 43 46 46 42
+edge 46 43 42 46
+edge 43 45 45 42
+edge 45 43 42 45
+edge 43 44 44 42
+edge 44 43 42 44
+edge 43 43 43 42
+edge 43 43 42 43
+edge 43 42 42 42
+edge 42 43 42 42
+edge 43 41 41 42
+edge 41 43 42 41
+edge 43 40 40 42
+edge 40 43 42 40
+edge 43 39 39 42
+edge 39 43 42 39
+edge 43 38 38 42
+edge 38 43 42 38
+edge 43 37 37 42
+edge 37 43 42 37
+edge 43 36 36 42
+edge 36 43 42 36
+edge 43 35 35 42
+edge 35 43 42 35
+edge 43 34 34 42
+edge 34 43 42 34
+edge 43 33 33 42
+edge 33 43 42 33
+edge 43 32 32 42
+edge 32 43 42 32
+edge 43 31 31 42
+edge 31 43 42 31
+edge 43 30 30 42
+edge 30 43 42 30
+edge 43 29 29 42
+edge 29 43 42 29
+edge 43 28 28 42
+edge 28 43 42 28
+edge 43 27 27 42
+edge 27 43 42 27
+edge 43 26 26 42
+edge 26 43 42 26
+edge 43 25 25 42
+edge 25 43 42 25
+edge 43 24 24 42
+edge 24 43 42 24
+edge 43 23 23 42
+edge 23 43 42 23
+edge 43 22 22 42
+edge 22 43 42 22
+edge 43 21 21 42
+edge 21 43 42 21
+edge 43 20 20 42
+edge 20 43 42 20
+edge 43 19 19 42
+edge 19 43 42 19
+edge 43 18 18 42
+edge 18 43 42 18
+edge 43 17 17 42
+edge 17 43 42 17
+edge 43 16 16 42
+edge 16 43 42 16
+edge 43 15 15 42
+edge 15 43 42 15
+edge 43 14 14 42
+edge 14 43 42 14
+edge 43 13 13 42
+edge 13 43 42 13
+edge 43 12 12 42
+edge 12 43 42 12
+edge 43 11 11 42
+edge 11 43 42 11
+edge 43 10 10 42
+edge 10 43 42 10
+edge 43 9 9 42
+edge 9 43 42 9
+edge 43 8 8 42
+edge 8 43 42 8
+edge 43 7 7 42
+edge 7 43 42 7
+edge 43 6 6 42
+edge 6 43 42 6
+edge 43 5 5 42
+edge 5 43 42 5
+edge 43 4 4 42
+edge 4 43 42 4
+edge 43 3 3 42
+edge 3 43 42 3
+edge 43 2 2 42
+edge 2 43 42 2
+edge 43 1 1 42
+edge 1 43 42 1
+edge 43 0 0 42
+edge 0 43 42 0
+edge 42 50 50 41
+edge 50 42 41 50
+edge 42 49 49 41
+edge 49 42 41 49
+edge 42 48 48 41
+edge 48 42 41 48
+edge 42 47 47 41
+edge 47 42 41 47
+edge 42 46 46 41
+edge 46 42 41 46
+edge 42 45 45 41
+edge 45 42 41 45
+edge 42 44 44 41
+edge 44 42 41 44
+edge 42 43 43 41
+edge 43 42 41 43
+edge 42 42 42 41
+edge 42 42 41 42
+edge 42 41 41 41
+edge 41 42 41 41
+edge 42 40 40 41
+edge 40 42 41 40
+edge 42 39 39 41
+edge 39 42 41 39
+edge 42 38 38 41
+edge 38 42 41 38
+edge 42 37 37 41
+edge 37 42 41 37
+edge 42 36 36 41
+edge 36 42 41 36
+edge 42 35 35 41
+edge 35 42 41 35
+edge 42 34 34 41
+edge 34 42 41 34
+edge 42 33 33 41
+edge 33 42 41 33
+edge 42 32 32 41
+edge 32 42 41 32
+edge 42 31 31 41
+edge 31 42 41 31
+edge 42 30 30 41
+edge 30 42 41 30
+edge 42 29 29 41
+edge 29 42 41 29
+edge 42 28 28 41
+edge 28 42 41 28
+edge 42 27 27 41
+edge 27 42 41 27
+edge 42 26 26 41
+edge 26 42 41 26
+edge 42 25 25 41
+edge 25 42 41 25
+edge 42 24 24 41
+edge 24 42 41 24
+edge 42 23 23 41
+edge 23 42 41 23
+edge 42 22 22 41
+edge 22 42 41 22
+edge 42 21 21 41
+edge 21 42 41 21
+edge 42 20 20 41
+edge 20 42 41 20
+edge 42 19 19 41
+edge 19 42 41 19
+edge 42 18 18 41
+edge 18 42 41 18
+edge 42 17 17 41
+edge 17 42 41 17
+edge 42 16 16 41
+edge 16 42 41 16
+edge 42 15 15 41
+edge 15 42 41 15
+edge 42 14 14 41
+edge 14 42 41 14
+edge 42 13 13 41
+edge 13 42 41 13
+edge 42 12 12 41
+edge 12 42 41 12
+edge 42 11 11 41
+edge 11 42 41 11
+edge 42 10 10 41
+edge 10 42 41 10
+edge 42 9 9 41
+edge 9 42 41 9
+edge 42 8 8 41
+edge 8 42 41 8
+edge 42 7 7 41
+edge 7 42 41 7
+edge 42 6 6 41
+edge 6 42 41 6
+edge 42 5 5 41
+edge 5 42 41 5
+edge 42 4 4 41
+edge 4 42 41 4
+edge 42 3 3 41
+edge 3 42 41 3
+edge 42 2 2 41
+edge 2 42 41 2
+edge 42 1 1 41
+edge 1 42 41 1
+edge 42 0 0 41
+edge 0 42 41 0
+edge 41 50 50 40
+edge 50 41 40 50
+edge 41 49 49 40
+edge 49 41 40 49
+edge 41 48 48 40
+edge 48 41 40 48
+edge 41 47 47 40
+edge 47 41 40 47
+edge 41 46 46 40
+edge 46 41 40 46
+edge 41 45 45 40
+edge 45 41 40 45
+edge 41 44 44 40
+edge 44 41 40 44
+edge 41 43 43 40
+edge 43 41 40 43
+edge 41 42 42 40
+edge 42 41 40 42
+edge 41 41 41 40
+edge 41 41 40 41
+edge 41 40 40 40
+edge 40 41 40 40
+edge 41 39 39 40
+edge 39 41 40 39
+edge 41 38 38 40
+edge 38 41 40 38
+edge 41 37 37 40
+edge 37 41 40 37
+edge 41 36 36 40
+edge 36 41 40 36
+edge 41 35 35 40
+edge 35 41 40 35
+edge 41 34 34 40
+edge 34 41 40 34
+edge 41 33 33 40
+edge 33 41 40 33
+edge 41 32 32 40
+edge 32 41 40 32
+edge 41 31 31 40
+edge 31 41 40 31
+edge 41 30 30 40
+edge 30 41 40 30
+edge 41 29 29 40
+edge 29 41 40 29
+edge 41 28 28 40
+edge 28 41 40 28
+edge 41 27 27 40
+edge 27 41 40 27
+edge 41 26 26 40
+edge 26 41 40 26
+edge 41 25 25 40
+edge 25 41 40 25
+edge 41 24 24 40
+edge 24 41 40 24
+edge 41 23 23 40
+edge 23 41 40 23
+edge 41 22 22 40
+edge 22 41 40 22
+edge 41 21 21 40
+edge 21 41 40 21
+edge 41 20 20 40
+edge 20 41 40 20
+edge 41 19 19 40
+edge 19 41 40 19
+edge 41 18 18 40
+edge 18 41 40 18
+edge 41 17 17 40
+edge 17 41 40 17
+edge 41 16 16 40
+edge 16 41 40 16
+edge 41 15 15 40
+edge 15 41 40 15
+edge 41 14 14 40
+edge 14 41 40 14
+edge 41 13 13 40
+edge 13 41 40 13
+edge 41 12 12 40
+edge 12 41 40 12
+edge 41 11 11 40
+edge 11 41 40 11
+edge 41 10 10 40
+edge 10 41 40 10
+edge 41 9 9 40
+edge 9 41 40 9
+edge 41 8 8 40
+edge 8 41 40 8
+edge 41 7 7 40
+edge 7 41 40 7
+edge 41 6 6 40
+edge 6 41 40 6
+edge 41 5 5 40
+edge 5 41 40 5
+edge 41 4 4 40
+edge 4 41 40 4
+edge 41 3 3 40
+edge 3 41 40 3
+edge 41 2 2 40
+edge 2 41 40 2
+edge 41 1 1 40
+edge 1 41 40 1
+edge 41 0 0 40
+edge 0 41 40 0
+edge 40 50 50 39
+edge 50 40 39 50
+edge 40 49 49 39
+edge 49 40 39 49
+edge 40 48 48 39
+edge 48 40 39 48
+edge 40 47 47 39
+edge 47 40 39 47
+edge 40 46 46 39
+edge 46 40 39 46
+edge 40 45 45 39
+edge 45 40 39 45
+edge 40 44 44 39
+edge 44 40 39 44
+edge 40 43 43 39
+edge 43 40 39 43
+edge 40 42 42 39
+edge 42 40 39 42
+edge 40 41 41 39
+edge 41 40 39 41
+edge 40 40 40 39
+edge 40 40 39 40
+edge 40 39 39 39
+edge 39 40 39 39
+edge 40 38 38 39
+edge 38 40 39 38
+edge 40 37 37 39
+edge 37 40 39 37
+edge 40 36 36 39
+edge 36 40 39 36
+edge 40 35 35 39
+edge 35 40 39 35
+edge 40 34 34 39
+edge 34 40 39 34
+edge 40 33 33 39
+edge 33 40 39 33
+edge 40 32 32 39
+edge 32 40 39 32
+edge 40 31 31 39
+edge 31 40 39 31
+edge 40 30 30 39
+edge 30 40 39 30
+edge 40 29 29 39
+edge 29 40 39 29
+edge 40 28 28 39
+edge 28 40 39 28
+edge 40 27 27 39
+edge 27 40 39 27
+edge 40 26 26 39
+edge 26 40 39 26
+edge 40 25 25 39
+edge 25 40 39 25
+edge 40 24 24 39
+edge 24 40 39 24
+edge 40 23 23 39
+edge 23 40 39 23
+edge 40 22 22 39
+edge 22 40 39 22
+edge 40 21 21 39
+edge 21 40 39 21
+edge 40 20 20 39
+edge 20 40 39 20
+edge 40 19 19 39
+edge 19 40 39 19
+edge 40 18 18 39
+edge 18 40 39 18
+edge 40 17 17 39
+edge 17 40 39 17
+edge 40 16 16 39
+edge 16 40 39 16
+edge 40 15 15 39
+edge 15 40 39 15
+edge 40 14 14 39
+edge 14 40 39 14
+edge 40 13 13 39
+edge 13 40 39 13
+edge 40 12 12 39
+edge 12 40 39 12
+edge 40 11 11 39
+edge 11 40 39 11
+edge 40 10 10 39
+edge 10 40 39 10
+edge 40 9 9 39
+edge 9 40 39 9
+edge 40 8 8 39
+edge 8 40 39 8
+edge 40 7 7 39
+edge 7 40 39 7
+edge 40 6 6 39
+edge 6 40 39 6
+edge 40 5 5 39
+edge 5 40 39 5
+edge 40 4 4 39
+edge 4 40 39 4
+edge 40 3 3 39
+edge 3 40 39 3
+edge 40 2 2 39
+edge 2 40 39 2
+edge 40 1 1 39
+edge 1 40 39 1
+edge 40 0 0 39
+edge 0 40 39 0
+edge 39 50 50 38
+edge 50 39 38 50
+edge 39 49 49 38
+edge 49 39 38 49
+edge 39 48 48 38
+edge 48 39 38 48
+edge 39 47 47 38
+edge 47 39 38 47
+edge 39 46 46 38
+edge 46 39 38 46
+edge 39 45 45 38
+edge 45 39 38 45
+edge 39 44 44 38
+edge 44 39 38 44
+edge 39 43 43 38
+edge 43 39 38 43
+edge 39 42 42 38
+edge 42 39 38 42
+edge 39 41 41 38
+edge 41 39 38 41
+edge 39 40 40 38
+edge 40 39 38 40
+edge 39 39 39 38
+edge 39 39 38 39
+edge 39 38 38 38
+edge 38 39 38 38
+edge 39 37 37 38
+edge 37 39 38 37
+edge 39 36 36 38
+edge 36 39 38 36
+edge 39 35 35 38
+edge 35 39 38 35
+edge 39 34 34 38
+edge 34 39 38 34
+edge 39 33 33 38
+edge 33 39 38 33
+edge 39 32 32 38
+edge 32 39 38 32
+edge 39 31 31 38
+edge 31 39 38 31
+edge 39 30 30 38
+edge 30 39 38 30
+edge 39 29 29 38
+edge 29 39 38 29
+edge 39 28 28 38
+edge 28 39 38 28
+edge 39 27 27 38
+edge 27 39 38 27
+edge 39 26 26 38
+edge 26 39 38 26
+edge 39 25 25 38
+edge 25 39 38 25
+edge 39 24 24 38
+edge 24 39 38 24
+edge 39 23 23 38
+edge 23 39 38 23
+edge 39 22 22 38
+edge 22 39 38 22
+edge 39 21 21 38
+edge 21 39 38 21
+edge 39 20 20 38
+edge 20 39 38 20
+edge 39 19 19 38
+edge 19 39 38 19
+edge 39 18 18 38
+edge 18 39 38 18
+edge 39 17 17 38
+edge 17 39 38 17
+edge 39 16 16 38
+edge 16 39 38 16
+edge 39 15 15 38
+edge 15 39 38 15
+edge 39 14 14 38
+edge 14 39 38 14
+edge 39 13 13 38
+edge 13 39 38 13
+edge 39 12 12 38
+edge 12 39 38 12
+edge 39 11 11 38
+edge 11 39 38 11
+edge 39 10 10 38
+edge 10 39 38 10
+edge 39 9 9 38
+edge 9 39 38 9
+edge 39 8 8 38
+edge 8 39 38 8
+edge 39 7 7 38
+edge 7 39 38 7
+edge 39 6 6 38
+edge 6 39 38 6
+edge 39 5 5 38
+edge 5 39 38 5
+edge 39 4 4 38
+edge 4 39 38 4
+edge 39 3 3 38
+edge 3 39 38 3
+edge 39 2 2 38
+edge 2 39 38 2
+edge 39 1 1 38
+edge 1 39 38 1
+edge 39 0 0 38
+edge 0 39 38 0
+edge 38 50 50 37
+edge 50 38 37 50
+edge 38 49 49 37
+edge 49 38 37 49
+edge 38 48 48 37
+edge 48 38 37 48
+edge 38 47 47 37
+edge 47 38 37 47
+edge 38 46 46 37
+edge 46 38 37 46
+edge 38 45 45 37
+edge 45 38 37 45
+edge 38 44 44 37
+edge 44 38 37 44
+edge 38 43 43 37
+edge 43 38 37 43
+edge 38 42 42 37
+edge 42 38 37 42
+edge 38 41 41 37
+edge 41 38 37 41
+edge 38 40 40 37
+edge 40 38 37 40
+edge 38 39 39 37
+edge 39 38 37 39
+edge 38 38 38 37
+edge 38 38 37 38
+edge 38 37 37 37
+edge 37 38 37 37
+edge 38 36 36 37
+edge 36 38 37 36
+edge 38 35 35 37
+edge 35 38 37 35
+edge 38 34 34 37
+edge 34 38 37 34
+edge 38 33 33 37
+edge 33 38 37 33
+edge 38 32 32 37
+edge 32 38 37 32
+edge 38 31 31 37
+edge 31 38 37 31
+edge 38 30 30 37
+edge 30 38 37 30
+edge 38 29 29 37
+edge 29 38 37 29
+edge 38 28 28 37
+edge 28 38 37 28
+edge 38 27 27 37
+edge 27 38 37 27
+edge 38 26 26 37
+edge 26 38 37 26
+edge 38 25 25 37
+edge 25 38 37 25
+edge 38 24 24 37
+edge 24 38 37 24
+edge 38 23 23 37
+edge 23 38 37 23
+edge 38 22 22 37
+edge 22 38 37 22
+edge 38 21 21 37
+edge 21 38 37 21
+edge 38 20 20 37
+edge 20 38 37 20
+edge 38 19 19 37
+edge 19 38 37 19
+edge 38 18 18 37
+edge 18 38 37 18
+edge 38 17 17 37
+edge 17 38 37 17
+edge 38 16 16 37
+edge 16 38 37 16
+edge 38 15 15 37
+edge 15 38 37 15
+edge 38 14 14 37
+edge 14 38 37 14
+edge 38 13 13 37
+edge 13 38 37 13
+edge 38 12 12 37
+edge 12 38 37 12
+edge 38 11 11 37
+edge 11 38 37 11
+edge 38 10 10 37
+edge 10 38 37 10
+edge 38 9 9 37
+edge 9 38 37 9
+edge 38 8 8 37
+edge 8 38 37 8
+edge 38 7 7 37
+edge 7 38 37 7
+edge 38 6 6 37
+edge 6 38 37 6
+edge 38 5 5 37
+edge 5 38 37 5
+edge 38 4 4 37
+edge 4 38 37 4
+edge 38 3 3 37
+edge 3 38 37 3
+edge 38 2 2 37
+edge 2 38 37 2
+edge 38 1 1 37
+edge 1 38 37 1
+edge 38 0 0 37
+edge 0 38 37 0
+edge 37 50 50 36
+edge 50 37 36 50
+edge 37 49 49 36
+edge 49 37 36 49
+edge 37 48 48 36
+edge 48 37 36 48
+edge 37 47 47 36
+edge 47 37 36 47
+edge 37 46 46 36
+edge 46 37 36 46
+edge 37 45 45 36
+edge 45 37 36 45
+edge 37 44 44 36
+edge 44 37 36 44
+edge 37 43 43 36
+edge 43 37 36 43
+edge 37 42 42 36
+edge 42 37 36 42
+edge 37 41 41 36
+edge 41 37 36 41
+edge 37 40 40 36
+edge 40 37 36 40
+edge 37 39 39 36
+edge 39 37 36 39
+edge 37 38 38 36
+edge 38 37 36 38
+edge 37 37 37 36
+edge 37 37 36 37
+edge 37 36 36 36
+edge 36 37 36 36
+edge 37 35 35 36
+edge 35 37 36 35
+edge 37 34 34 36
+edge 34 37 36 34
+edge 37 33 33 36
+edge 33 37 36 33
+edge 37 32 32 36
+edge 32 37 36 32
+edge 37 31 31 36
+edge 31 37 36 31
+edge 37 30 30 36
+edge 30 37 36 30
+edge 37 29 29 36
+edge 29 37 36 29
+edge 37 28 28 36
+edge 28 37 36 28
+edge 37 27 27 36
+edge 27 37 36 27
+edge 37 26 26 36
+edge 26 37 36 26
+edge 37 25 25 36
+edge 25 37 36 25
+edge 37 24 24 36
+edge 24 37 36 24
+edge 37 23 23 36
+edge 23 37 36 23
+edge 37 22 22 36
+edge 22 37 36 22
+edge 37 21 21 36
+edge 21 37 36 21
+edge 37 20 20 36
+edge 20 37 36 20
+edge 37 19 19 36
+edge 19 37 36 19
+edge 37 18 18 36
+edge 18 37 36 18
+edge 37 17 17 36
+edge 17 37 36 17
+edge 37 16 16 36
+edge 16 37 36 16
+edge 37 15 15 36
+edge 15 37 36 15
+edge 37 14 14 36
+edge 14 37 36 14
+edge 37 13 13 36
+edge 13 37 36 13
+edge 37 12 12 36
+edge 12 37 36 12
+edge 37 11 11 36
+edge 11 37 36 11
+edge 37 10 10 36
+edge 10 37 36 10
+edge 37 9 9 36
+edge 9 37 36 9
+edge 37 8 8 36
+edge 8 37 36 8
+edge 37 7 7 36
+edge 7 37 36 7
+edge 37 6 6 36
+edge 6 37 36 6
+edge 37 5 5 36
+edge 5 37 36 5
+edge 37 4 4 36
+edge 4 37 36 4
+edge 37 3 3 36
+edge 3 37 36 3
+edge 37 2 2 36
+edge 2 37 36 2
+edge 37 1 1 36
+edge 1 37 36 1
+edge 37 0 0 36
+edge 0 37 36 0
+edge 36 50 50 35
+edge 50 36 35 50
+edge 36 49 49 35
+edge 49 36 35 49
+edge 36 48 48 35
+edge 48 36 35 48
+edge 36 47 47 35
+edge 47 36 35 47
+edge 36 46 46 35
+edge 46 36 35 46
+edge 36 45 45 35
+edge 45 36 35 45
+edge 36 44 44 35
+edge 44 36 35 44
+edge 36 43 43 35
+edge 43 36 35 43
+edge 36 42 42 35
+edge 42 36 35 42
+edge 36 41 41 35
+edge 41 36 35 41
+edge 36 40 40 35
+edge 40 36 35 40
+edge 36 39 39 35
+edge 39 36 35 39
+edge 36 38 38 35
+edge 38 36 35 38
+edge 36 37 37 35
+edge 37 36 35 37
+edge 36 36 36 35
+edge 36 36 35 36
+edge 36 35 35 35
+edge 35 36 35 35
+edge 36 34 34 35
+edge 34 36 35 34
+edge 36 33 33 35
+edge 33 36 35 33
+edge 36 32 32 35
+edge 32 36 35 32
+edge 36 31 31 35
+edge 31 36 35 31
+edge 36 30 30 35
+edge 30 36 35 30
+edge 36 29 29 35
+edge 29 36 35 29
+edge 36 28 28 35
+edge 28 36 35 28
+edge 36 27 27 35
+edge 27 36 35 27
+edge 36 26 26 35
+edge 26 36 35 26
+edge 36 25 25 35
+edge 25 36 35 25
+edge 36 24 24 35
+edge 24 36 35 24
+edge 36 23 23 35
+edge 23 36 35 23
+edge 36 22 22 35
+edge 22 36 35 22
+edge 36 21 21 35
+edge 21 36 35 21
+edge 36 20 20 35
+edge 20 36 35 20
+edge 36 19 19 35
+edge 19 36 35 19
+edge 36 18 18 35
+edge 18 36 35 18
+edge 36 17 17 35
+edge 17 36 35 17
+edge 36 16 16 35
+edge 16 36 35 16
+edge 36 15 15 35
+edge 15 36 35 15
+edge 36 14 14 35
+edge 14 36 35 14
+edge 36 13 13 35
+edge 13 36 35 13
+edge 36 12 12 35
+edge 12 36 35 12
+edge 36 11 11 35
+edge 11 36 35 11
+edge 36 10 10 35
+edge 10 36 35 10
+edge 36 9 9 35
+edge 9 36 35 9
+edge 36 8 8 35
+edge 8 36 35 8
+edge 36 7 7 35
+edge 7 36 35 7
+edge 36 6 6 35
+edge 6 36 35 6
+edge 36 5 5 35
+edge 5 36 35 5
+edge 36 4 4 35
+edge 4 36 35 4
+edge 36 3 3 35
+edge 3 36 35 3
+edge 36 2 2 35
+edge 2 36 35 2
+edge 36 1 1 35
+edge 1 36 35 1
+edge 36 0 0 35
+edge 0 36 35 0
+edge 35 50 50 34
+edge 50 35 34 50
+edge 35 49 49 34
+edge 49 35 34 49
+edge 35 48 48 34
+edge 48 35 34 48
+edge 35 47 47 34
+edge 47 35 34 47
+edge 35 46 46 34
+edge 46 35 34 46
+edge 35 45 45 34
+edge 45 35 34 45
+edge 35 44 44 34
+edge 44 35 34 44
+edge 35 43 43 34
+edge 43 35 34 43
+edge 35 42 42 34
+edge 42 35 34 42
+edge 35 41 41 34
+edge 41 35 34 41
+edge 35 40 40 34
+edge 40 35 34 40
+edge 35 39 39 34
+edge 39 35 34 39
+edge 35 38 38 34
+edge 38 35 34 38
+edge 35 37 37 34
+edge 37 35 34 37
+edge 35 36 36 34
+edge 36 35 34 36
+edge 35 35 35 34
+edge 35 35 34 35
+edge 35 34 34 34
+edge 34 35 34 34
+edge 35 33 33 34
+edge 33 35 34 33
+edge 35 32 32 34
+edge 32 35 34 32
+edge 35 31 31 34
+edge 31 35 34 31
+edge 35 30 30 34
+edge 30 35 34 30
+edge 35 29 29 34
+edge 29 35 34 29
+edge 35 28 28 34
+edge 28 35 34 28
+edge 35 27 27 34
+edge 27 35 34 27
+edge 35 26 26 34
+edge 26 35 34 26
+edge 35 25 25 34
+edge 25 35 34 25
+edge 35 24 24 34
+edge 24 35 34 24
+edge 35 23 23 34
+edge 23 35 34 23
+edge 35 22 22 34
+edge 22 35 34 22
+edge 35 21 21 34
+edge 21 35 34 21
+edge 35 20 20 34
+edge 20 35 34 20
+edge 35 19 19 34
+edge 19 35 34 19
+edge 35 18 18 34
+edge 18 35 34 18
+edge 35 17 17 34
+edge 17 35 34 17
+edge 35 16 16 34
+edge 16 35 34 16
+edge 35 15 15 34
+edge 15 35 34 15
+edge 35 14 14 34
+edge 14 35 34 14
+edge 35 13 13 34
+edge 13 35 34 13
+edge 35 12 12 34
+edge 12 35 34 12
+edge 35 11 11 34
+edge 11 35 34 11
+edge 35 10 10 34
+edge 10 35 34 10
+edge 35 9 9 34
+edge 9 35 34 9
+edge 35 8 8 34
+edge 8 35 34 8
+edge 35 7 7 34
+edge 7 35 34 7
+edge 35 6 6 34
+edge 6 35 34 6
+edge 35 5 5 34
+edge 5 35 34 5
+edge 35 4 4 34
+edge 4 35 34 4
+edge 35 3 3 34
+edge 3 35 34 3
+edge 35 2 2 34
+edge 2 35 34 2
+edge 35 1 1 34
+edge 1 35 34 1
+edge 35 0 0 34
+edge 0 35 34 0
+edge 34 50 50 33
+edge 50 34 33 50
+edge 34 49 49 33
+edge 49 34 33 49
+edge 34 48 48 33
+edge 48 34 33 48
+edge 34 47 47 33
+edge 47 34 33 47
+edge 34 46 46 33
+edge 46 34 33 46
+edge 34 45 45 33
+edge 45 34 33 45
+edge 34 44 44 33
+edge 44 34 33 44
+edge 34 43 43 33
+edge 43 34 33 43
+edge 34 42 42 33
+edge 42 34 33 42
+edge 34 41 41 33
+edge 41 34 33 41
+edge 34 40 40 33
+edge 40 34 33 40
+edge 34 39 39 33
+edge 39 34 33 39
+edge 34 38 38 33
+edge 38 34 33 38
+edge 34 37 37 33
+edge 37 34 33 37
+edge 34 36 36 33
+edge 36 34 33 36
+edge 34 35 35 33
+edge 35 34 33 35
+edge 34 34 34 33
+edge 34 34 33 34
+edge 34 33 33 33
+edge 33 34 33 33
+edge 34 32 32 33
+edge 32 34 33 32
+edge 34 31 31 33
+edge 31 34 33 31
+edge 34 30 30 33
+edge 30 34 33 30
+edge 34 29 29 33
+edge 29 34 33 29
+edge 34 28 28 33
+edge 28 34 33 28
+edge 34 27 27 33
+edge 27 34 33 27
+edge 34 26 26 33
+edge 26 34 33 26
+edge 34 25 25 33
+edge 25 34 33 25
+edge 34 24 24 33
+edge 24 34 33 24
+edge 34 23 23 33
+edge 23 34 33 23
+edge 34 22 22 33
+edge 22 34 33 22
+edge 34 21 21 33
+edge 21 34 33 21
+edge 34 20 20 33
+edge 20 34 33 20
+edge 34 19 19 33
+edge 19 34 33 19
+edge 34 18 18 33
+edge 18 34 33 18
+edge 34 17 17 33
+edge 17 34 33 17
+edge 34 16 16 33
+edge 16 34 33 16
+edge 34 15 15 33
+edge 15 34 33 15
+edge 34 14 14 33
+edge 14 34 33 14
+edge 34 13 13 33
+edge 13 34 33 13
+edge 34 12 12 33
+edge 12 34 33 12
+edge 34 11 11 33
+edge 11 34 33 11
+edge 34 10 10 33
+edge 10 34 33 10
+edge 34 9 9 33
+edge 9 34 33 9
+edge 34 8 8 33
+edge 8 34 33 8
+edge 34 7 7 33
+edge 7 34 33 7
+edge 34 6 6 33
+edge 6 34 33 6
+edge 34 5 5 33
+edge 5 34 33 5
+edge 34 4 4 33
+edge 4 34 33 4
+edge 34 3 3 33
+edge 3 34 33 3
+edge 34 2 2 33
+edge 2 34 33 2
+edge 34 1 1 33
+edge 1 34 33 1
+edge 34 0 0 33
+edge 0 34 33 0
+edge 33 50 50 32
+edge 50 33 32 50
+edge 33 49 49 32
+edge 49 33 32 49
+edge 33 48 48 32
+edge 48 33 32 48
+edge 33 47 47 32
+edge 47 33 32 47
+edge 33 46 46 32
+edge 46 33 32 46
+edge 33 45 45 32
+edge 45 33 32 45
+edge 33 44 44 32
+edge 44 33 32 44
+edge 33 43 43 32
+edge 43 33 32 43
+edge 33 42 42 32
+edge 42 33 32 42
+edge 33 41 41 32
+edge 41 33 32 41
+edge 33 40 40 32
+edge 40 33 32 40
+edge 33 39 39 32
+edge 39 33 32 39
+edge 33 38 38 32
+edge 38 33 32 38
+edge 33 37 37 32
+edge 37 33 32 37
+edge 33 36 36 32
+edge 36 33 32 36
+edge 33 35 35 32
+edge 35 33 32 35
+edge 33 34 34 32
+edge 34 33 32 34
+edge 33 33 33 32
+edge 33 33 32 33
+edge 33 32 32 32
+edge 32 33 32 32
+edge 33 31 31 32
+edge 31 33 32 31
+edge 33 30 30 32
+edge 30 33 32 30
+edge 33 29 29 32
+edge 29 33 32 29
+edge 33 28 28 32
+edge 28 33 32 28
+edge 33 27 27 32
+edge 27 33 32 27
+edge 33 26 26 32
+edge 26 33 32 26
+edge 33 25 25 32
+edge 25 33 32 25
+edge 33 24 24 32
+edge 24 33 32 24
+edge 33 23 23 32
+edge 23 33 32 23
+edge 33 22 22 32
+edge 22 33 32 22
+edge 33 21 21 32
+edge 21 33 32 21
+edge 33 20 20 32
+edge 20 33 32 20
+edge 33 19 19 32
+edge 19 33 32 19
+edge 33 18 18 32
+edge 18 33 32 18
+edge 33 17 17 32
+edge 17 33 32 17
+edge 33 16 16 32
+edge 16 33 32 16
+edge 33 15 15 32
+edge 15 33 32 15
+edge 33 14 14 32
+edge 14 33 32 14
+edge 33 13 13 32
+edge 13 33 32 13
+edge 33 12 12 32
+edge 12 33 32 12
+edge 33 11 11 32
+edge 11 33 32 11
+edge 33 10 10 32
+edge 10 33 32 10
+edge 33 9 9 32
+edge 9 33 32 9
+edge 33 8 8 32
+edge 8 33 32 8
+edge 33 7 7 32
+edge 7 33 32 7
+edge 33 6 6 32
+edge 6 33 32 6
+edge 33 5 5 32
+edge 5 33 32 5
+edge 33 4 4 32
+edge 4 33 32 4
+edge 33 3 3 32
+edge 3 33 32 3
+edge 33 2 2 32
+edge 2 33 32 2
+edge 33 1 1 32
+edge 1 33 32 1
+edge 33 0 0 32
+edge 0 33 32 0
+edge 32 50 50 31
+edge 50 32 31 50
+edge 32 49 49 31
+edge 49 32 31 49
+edge 32 48 48 31
+edge 48 32 31 48
+edge 32 47 47 31
+edge 47 32 31 47
+edge 32 46 46 31
+edge 46 32 31 46
+edge 32 45 45 31
+edge 45 32 31 45
+edge 32 44 44 31
+edge 44 32 31 44
+edge 32 43 43 31
+edge 43 32 31 43
+edge 32 42 42 31
+edge 42 32 31 42
+edge 32 41 41 31
+edge 41 32 31 41
+edge 32 40 40 31
+edge 40 32 31 40
+edge 32 39 39 31
+edge 39 32 31 39
+edge 32 38 38 31
+edge 38 32 31 38
+edge 32 37 37 31
+edge 37 32 31 37
+edge 32 36 36 31
+edge 36 32 31 36
+edge 32 35 35 31
+edge 35 32 31 35
+edge 32 34 34 31
+edge 34 32 31 34
+edge 32 33 33 31
+edge 33 32 31 33
+edge 32 32 32 31
+edge 32 32 31 32
+edge 32 31 31 31
+edge 31 32 31 31
+edge 32 30 30 31
+edge 30 32 31 30
+edge 32 29 29 31
+edge 29 32 31 29
+edge 32 28 28 31
+edge 28 32 31 28
+edge 32 27 27 31
+edge 27 32 31 27
+edge 32 26 26 31
+edge 26 32 31 26
+edge 32 25 25 31
+edge 25 32 31 25
+edge 32 24 24 31
+edge 24 32 31 24
+edge 32 23 23 31
+edge 23 32 31 23
+edge 32 22 22 31
+edge 22 32 31 22
+edge 32 21 21 31
+edge 21 32 31 21
+edge 32 20 20 31
+edge 20 32 31 20
+edge 32 19 19 31
+edge 19 32 31 19
+edge 32 18 18 31
+edge 18 32 31 18
+edge 32 17 17 31
+edge 17 32 31 17
+edge 32 16 16 31
+edge 16 32 31 16
+edge 32 15 15 31
+edge 15 32 31 15
+edge 32 14 14 31
+edge 14 32 31 14
+edge 32 13 13 31
+edge 13 32 31 13
+edge 32 12 12 31
+edge 12 32 31 12
+edge 32 11 11 31
+edge 11 32 31 11
+edge 32 10 10 31
+edge 10 32 31 10
+edge 32 9 9 31
+edge 9 32 31 9
+edge 32 8 8 31
+edge 8 32 31 8
+edge 32 7 7 31
+edge 7 32 31 7
+edge 32 6 6 31
+edge 6 32 31 6
+edge 32 5 5 31
+edge 5 32 31 5
+edge 32 4 4 31
+edge 4 32 31 4
+edge 32 3 3 31
+edge 3 32 31 3
+edge 32 2 2 31
+edge 2 32 31 2
+edge 32 1 1 31
+edge 1 32 31 1
+edge 32 0 0 31
+edge 0 32 31 0
+edge 31 50 50 30
+edge 50 31 30 50
+edge 31 49 49 30
+edge 49 31 30 49
+edge 31 48 48 30
+edge 48 31 30 48
+edge 31 47 47 30
+edge 47 31 30 47
+edge 31 46 46 30
+edge 46 31 30 46
+edge 31 45 45 30
+edge 45 31 30 45
+edge 31 44 44 30
+edge 44 31 30 44
+edge 31 43 43 30
+edge 43 31 30 43
+edge 31 42 42 30
+edge 42 31 30 42
+edge 31 41 41 30
+edge 41 31 30 41
+edge 31 40 40 30
+edge 40 31 30 40
+edge 31 39 39 30
+edge 39 31 30 39
+edge 31 38 38 30
+edge 38 31 30 38
+edge 31 37 37 30
+edge 37 31 30 37
+edge 31 36 36 30
+edge 36 31 30 36
+edge 31 35 35 30
+edge 35 31 30 35
+edge 31 34 34 30
+edge 34 31 30 34
+edge 31 33 33 30
+edge 33 31 30 33
+edge 31 32 32 30
+edge 32 31 30 32
+edge 31 31 31 30
+edge 31 31 30 31
+edge 31 30 30 30
+edge 30 31 30 30
+edge 31 29 29 30
+edge 29 31 30 29
+edge 31 28 28 30
+edge 28 31 30 28
+edge 31 27 27 30
+edge 27 31 30 27
+edge 31 26 26 30
+edge 26 31 30 26
+edge 31 25 25 30
+edge 25 31 30 25
+edge 31 24 24 30
+edge 24 31 30 24
+edge 31 23 23 30
+edge 23 31 30 23
+edge 31 22 22 30
+edge 22 31 30 22
+edge 31 21 21 30
+edge 21 31 30 21
+edge 31 20 20 30
+edge 20 31 30 20
+edge 31 19 19 30
+edge 19 31 30 19
+edge 31 18 18 30
+edge 18 31 30 18
+edge 31 17 17 30
+edge 17 31 30 17
+edge 31 16 16 30
+edge 16 31 30 16
+edge 31 15 15 30
+edge 15 31 30 15
+edge 31 14 14 30
+edge 14 31 30 14
+edge 31 13 13 30
+edge 13 31 30 13
+edge 31 12 12 30
+edge 12 31 30 12
+edge 31 11 11 30
+edge 11 31 30 11
+edge 31 10 10 30
+edge 10 31 30 10
+edge 31 9 9 30
+edge 9 31 30 9
+edge 31 8 8 30
+edge 8 31 30 8
+edge 31 7 7 30
+edge 7 31 30 7
+edge 31 6 6 30
+edge 6 31 30 6
+edge 31 5 5 30
+edge 5 31 30 5
+edge 31 4 4 30
+edge 4 31 30 4
+edge 31 3 3 30
+edge 3 31 30 3
+edge 31 2 2 30
+edge 2 31 30 2
+edge 31 1 1 30
+edge 1 31 30 1
+edge 31 0 0 30
+edge 0 31 30 0
+edge 30 50 50 29
+edge 50 30 29 50
+edge 30 49 49 29
+edge 49 30 29 49
+edge 30 48 48 29
+edge 48 30 29 48
+edge 30 47 47 29
+edge 47 30 29 47
+edge 30 46 46 29
+edge 46 30 29 46
+edge 30 45 45 29
+edge 45 30 29 45
+edge 30 44 44 29
+edge 44 30 29 44
+edge 30 43 43 29
+edge 43 30 29 43
+edge 30 42 42 29
+edge 42 30 29 42
+edge 30 41 41 29
+edge 41 30 29 41
+edge 30 40 40 29
+edge 40 30 29 40
+edge 30 39 39 29
+edge 39 30 29 39
+edge 30 38 38 29
+edge 38 30 29 38
+edge 30 37 37 29
+edge 37 30 29 37
+edge 30 36 36 29
+edge 36 30 29 36
+edge 30 35 35 29
+edge 35 30 29 35
+edge 30 34 34 29
+edge 34 30 29 34
+edge 30 33 33 29
+edge 33 30 29 33
+edge 30 32 32 29
+edge 32 30 29 32
+edge 30 31 31 29
+edge 31 30 29 31
+edge 30 30 30 29
+edge 30 30 29 30
+edge 30 29 29 29
+edge 29 30 29 29
+edge 30 28 28 29
+edge 28 30 29 28
+edge 30 27 27 29
+edge 27 30 29 27
+edge 30 26 26 29
+edge 26 30 29 26
+edge 30 25 25 29
+edge 25 30 29 25
+edge 30 24 24 29
+edge 24 30 29 24
+edge 30 23 23 29
+edge 23 30 29 23
+edge 30 22 22 29
+edge 22 30 29 22
+edge 30 21 21 29
+edge 21 30 29 21
+edge 30 20 20 29
+edge 20 30 29 20
+edge 30 19 19 29
+edge 19 30 29 19
+edge 30 18 18 29
+edge 18 30 29 18
+edge 30 17 17 29
+edge 17 30 29 17
+edge 30 16 16 29
+edge 16 30 29 16
+edge 30 15 15 29
+edge 15 30 29 15
+edge 30 14 14 29
+edge 14 30 29 14
+edge 30 13 13 29
+edge 13 30 29 13
+edge 30 12 12 29
+edge 12 30 29 12
+edge 30 11 11 29
+edge 11 30 29 11
+edge 30 10 10 29
+edge 10 30 29 10
+edge 30 9 9 29
+edge 9 30 29 9
+edge 30 8 8 29
+edge 8 30 29 8
+edge 30 7 7 29
+edge 7 30 29 7
+edge 30 6 6 29
+edge 6 30 29 6
+edge 30 5 5 29
+edge 5 30 29 5
+edge 30 4 4 29
+edge 4 30 29 4
+edge 30 3 3 29
+edge 3 30 29 3
+edge 30 2 2 29
+edge 2 30 29 2
+edge 30 1 1 29
+edge 1 30 29 1
+edge 30 0 0 29
+edge 0 30 29 0
+edge 29 50 50 28
+edge 50 29 28 50
+edge 29 49 49 28
+edge 49 29 28 49
+edge 29 48 48 28
+edge 48 29 28 48
+edge 29 47 47 28
+edge 47 29 28 47
+edge 29 46 46 28
+edge 46 29 28 46
+edge 29 45 45 28
+edge 45 29 28 45
+edge 29 44 44 28
+edge 44 29 28 44
+edge 29 43 43 28
+edge 43 29 28 43
+edge 29 42 42 28
+edge 42 29 28 42
+edge 29 41 41 28
+edge 41 29 28 41
+edge 29 40 40 28
+edge 40 29 28 40
+edge 29 39 39 28
+edge 39 29 28 39
+edge 29 38 38 28
+edge 38 29 28 38
+edge 29 37 37 28
+edge 37 29 28 37
+edge 29 36 36 28
+edge 36 29 28 36
+edge 29 35 35 28
+edge 35 29 28 35
+edge 29 34 34 28
+edge 34 29 28 34
+edge 29 33 33 28
+edge 33 29 28 33
+edge 29 32 32 28
+edge 32 29 28 32
+edge 29 31 31 28
+edge 31 29 28 31
+edge 29 30 30 28
+edge 30 29 28 30
+edge 29 29 29 28
+edge 29 29 28 29
+edge 29 28 28 28
+edge 28 29 28 28
+edge 29 27 27 28
+edge 27 29 28 27
+edge 29 26 26 28
+edge 26 29 28 26
+edge 29 25 25 28
+edge 25 29 28 25
+edge 29 24 24 28
+edge 24 29 28 24
+edge 29 23 23 28
+edge 23 29 28 23
+edge 29 22 22 28
+edge 22 29 28 22
+edge 29 21 21 28
+edge 21 29 28 21
+edge 29 20 20 28
+edge 20 29 28 20
+edge 29 19 19 28
+edge 19 29 28 19
+edge 29 18 18 28
+edge 18 29 28 18
+edge 29 17 17 28
+edge 17 29 28 17
+edge 29 16 16 28
+edge 16 29 28 16
+edge 29 15 15 28
+edge 15 29 28 15
+edge 29 14 14 28
+edge 14 29 28 14
+edge 29 13 13 28
+edge 13 29 28 13
+edge 29 12 12 28
+edge 12 29 28 12
+edge 29 11 11 28
+edge 11 29 28 11
+edge 29 10 10 28
+edge 10 29 28 10
+edge 29 9 9 28
+edge 9 29 28 9
+edge 29 8 8 28
+edge 8 29 28 8
+edge 29 7 7 28
+edge 7 29 28 7
+edge 29 6 6 28
+edge 6 29 28 6
+edge 29 5 5 28
+edge 5 29 28 5
+edge 29 4 4 28
+edge 4 29 28 4
+edge 29 3 3 28
+edge 3 29 28 3
+edge 29 2 2 28
+edge 2 29 28 2
+edge 29 1 1 28
+edge 1 29 28 1
+edge 29 0 0 28
+edge 0 29 28 0
+edge 28 50 50 27
+edge 50 28 27 50
+edge 28 49 49 27
+edge 49 28 27 49
+edge 28 48 48 27
+edge 48 28 27 48
+edge 28 47 47 27
+edge 47 28 27 47
+edge 28 46 46 27
+edge 46 28 27 46
+edge 28 45 45 27
+edge 45 28 27 45
+edge 28 44 44 27
+edge 44 28 27 44
+edge 28 43 43 27
+edge 43 28 27 43
+edge 28 42 42 27
+edge 42 28 27 42
+edge 28 41 41 27
+edge 41 28 27 41
+edge 28 40 40 27
+edge 40 28 27 40
+edge 28 39 39 27
+edge 39 28 27 39
+edge 28 38 38 27
+edge 38 28 27 38
+edge 28 37 37 27
+edge 37 28 27 37
+edge 28 36 36 27
+edge 36 28 27 36
+edge 28 35 35 27
+edge 35 28 27 35
+edge 28 34 34 27
+edge 34 28 27 34
+edge 28 33 33 27
+edge 33 28 27 33
+edge 28 32 32 27
+edge 32 28 27 32
+edge 28 31 31 27
+edge 31 28 27 31
+edge 28 30 30 27
+edge 30 28 27 30
+edge 28 29 29 27
+edge 29 28 27 29
+edge 28 28 28 27
+edge 28 28 27 28
+edge 28 27 27 27
+edge 27 28 27 27
+edge 28 26 26 27
+edge 26 28 27 26
+edge 28 25 25 27
+edge 25 28 27 25
+edge 28 24 24 27
+edge 24 28 27 24
+edge 28 23 23 27
+edge 23 28 27 23
+edge 28 22 22 27
+edge 22 28 27 22
+edge 28 21 21 27
+edge 21 28 27 21
+edge 28 20 20 27
+edge 20 28 27 20
+edge 28 19 19 27
+edge 19 28 27 19
+edge 28 18 18 27
+edge 18 28 27 18
+edge 28 17 17 27
+edge 17 28 27 17
+edge 28 16 16 27
+edge 16 28 27 16
+edge 28 15 15 27
+edge 15 28 27 15
+edge 28 14 14 27
+edge 14 28 27 14
+edge 28 13 13 27
+edge 13 28 27 13
+edge 28 12 12 27
+edge 12 28 27 12
+edge 28 11 11 27
+edge 11 28 27 11
+edge 28 10 10 27
+edge 10 28 27 10
+edge 28 9 9 27
+edge 9 28 27 9
+edge 28 8 8 27
+edge 8 28 27 8
+edge 28 7 7 27
+edge 7 28 27 7
+edge 28 6 6 27
+edge 6 28 27 6
+edge 28 5 5 27
+edge 5 28 27 5
+edge 28 4 4 27
+edge 4 28 27 4
+edge 28 3 3 27
+edge 3 28 27 3
+edge 28 2 2 27
+edge 2 28 27 2
+edge 28 1 1 27
+edge 1 28 27 1
+edge 28 0 0 27
+edge 0 28 27 0
+edge 27 50 50 26
+edge 50 27 26 50
+edge 27 49 49 26
+edge 49 27 26 49
+edge 27 48 48 26
+edge 48 27 26 48
+edge 27 47 47 26
+edge 47 27 26 47
+edge 27 46 46 26
+edge 46 27 26 46
+edge 27 45 45 26
+edge 45 27 26 45
+edge 27 44 44 26
+edge 44 27 26 44
+edge 27 43 43 26
+edge 43 27 26 43
+edge 27 42 42 26
+edge 42 27 26 42
+edge 27 41 41 26
+edge 41 27 26 41
+edge 27 40 40 26
+edge 40 27 26 40
+edge 27 39 39 26
+edge 39 27 26 39
+edge 27 38 38 26
+edge 38 27 26 38
+edge 27 37 37 26
+edge 37 27 26 37
+edge 27 36 36 26
+edge 36 27 26 36
+edge 27 35 35 26
+edge 35 27 26 35
+edge 27 34 34 26
+edge 34 27 26 34
+edge 27 33 33 26
+edge 33 27 26 33
+edge 27 32 32 26
+edge 32 27 26 32
+edge 27 31 31 26
+edge 31 27 26 31
+edge 27 30 30 26
+edge 30 27 26 30
+edge 27 29 29 26
+edge 29 27 26 29
+edge 27 28 28 26
+edge 28 27 26 28
+edge 27 27 27 26
+edge 27 27 26 27
+edge 27 26 26 26
+edge 26 27 26 26
+edge 27 25 25 26
+edge 25 27 26 25
+edge 27 24 24 26
+edge 24 27 26 24
+edge 27 23 23 26
+edge 23 27 26 23
+edge 27 22 22 26
+edge 22 27 26 22
+edge 27 21 21 26
+edge 21 27 26 21
+edge 27 20 20 26
+edge 20 27 26 20
+edge 27 19 19 26
+edge 19 27 26 19
+edge 27 18 18 26
+edge 18 27 26 18
+edge 27 17 17 26
+edge 17 27 26 17
+edge 27 16 16 26
+edge 16 27 26 16
+edge 27 15 15 26
+edge 15 27 26 15
+edge 27 14 14 26
+edge 14 27 26 14
+edge 27 13 13 26
+edge 13 27 26 13
+edge 27 12 12 26
+edge 12 27 26 12
+edge 27 11 11 26
+edge 11 27 26 11
+edge 27 10 10 26
+edge 10 27 26 10
+edge 27 9 9 26
+edge 9 27 26 9
+edge 27 8 8 26
+edge 8 27 26 8
+edge 27 7 7 26
+edge 7 27 26 7
+edge 27 6 6 26
+edge 6 27 26 6
+edge 27 5 5 26
+edge 5 27 26 5
+edge 27 4 4 26
+edge 4 27 26 4
+edge 27 3 3 26
+edge 3 27 26 3
+edge 27 2 2 26
+edge 2 27 26 2
+edge 27 1 1 26
+edge 1 27 26 1
+edge 27 0 0 26
+edge 0 27 26 0
+edge 26 50 50 25
+edge 50 26 25 50
+edge 26 49 49 25
+edge 49 26 25 49
+edge 26 48 48 25
+edge 48 26 25 48
+edge 26 47 47 25
+edge 47 26 25 47
+edge 26 46 46 25
+edge 46 26 25 46
+edge 26 45 45 25
+edge 45 26 25 45
+edge 26 44 44 25
+edge 44 26 25 44
+edge 26 43 43 25
+edge 43 26 25 43
+edge 26 42 42 25
+edge 42 26 25 42
+edge 26 41 41 25
+edge 41 26 25 41
+edge 26 40 40 25
+edge 40 26 25 40
+edge 26 39 39 25
+edge 39 26 25 39
+edge 26 38 38 25
+edge 38 26 25 38
+edge 26 37 37 25
+edge 37 26 25 37
+edge 26 36 36 25
+edge 36 26 25 36
+edge 26 35 35 25
+edge 35 26 25 35
+edge 26 34 34 25
+edge 34 26 25 34
+edge 26 33 33 25
+edge 33 26 25 33
+edge 26 32 32 25
+edge 32 26 25 32
+edge 26 31 31 25
+edge 31 26 25 31
+edge 26 30 30 25
+edge 30 26 25 30
+edge 26 29 29 25
+edge 29 26 25 29
+edge 26 28 28 25
+edge 28 26 25 28
+edge 26 27 27 25
+edge 27 26 25 27
+edge 26 26 26 25
+edge 26 26 25 26
+edge 26 25 25 25
+edge 25 26 25 25
+edge 26 24 24 25
+edge 24 26 25 24
+edge 26 23 23 25
+edge 23 26 25 23
+edge 26 22 22 25
+edge 22 26 25 22
+edge 26 21 21 25
+edge 21 26 25 21
+edge 26 20 20 25
+edge 20 26 25 20
+edge 26 19 19 25
+edge 19 26 25 19
+edge 26 18 18 25
+edge 18 26 25 18
+edge 26 17 17 25
+edge 17 26 25 17
+edge 26 16 16 25
+edge 16 26 25 16
+edge 26 15 15 25
+edge 15 26 25 15
+edge 26 14 14 25
+edge 14 26 25 14
+edge 26 13 13 25
+edge 13 26 25 13
+edge 26 12 12 25
+edge 12 26 25 12
+edge 26 11 11 25
+edge 11 26 25 11
+edge 26 10 10 25
+edge 10 26 25 10
+edge 26 9 9 25
+edge 9 26 25 9
+edge 26 8 8 25
+edge 8 26 25 8
+edge 26 7 7 25
+edge 7 26 25 7
+edge 26 6 6 25
+edge 6 26 25 6
+edge 26 5 5 25
+edge 5 26 25 5
+edge 26 4 4 25
+edge 4 26 25 4
+edge 26 3 3 25
+edge 3 26 25 3
+edge 26 2 2 25
+edge 2 26 25 2
+edge 26 1 1 25
+edge 1 26 25 1
+edge 26 0 0 25
+edge 0 26 25 0
+edge 25 50 50 24
+edge 50 25 24 50
+edge 25 49 49 24
+edge 49 25 24 49
+edge 25 48 48 24
+edge 48 25 24 48
+edge 25 47 47 24
+edge 47 25 24 47
+edge 25 46 46 24
+edge 46 25 24 46
+edge 25 45 45 24
+edge 45 25 24 45
+edge 25 44 44 24
+edge 44 25 24 44
+edge 25 43 43 24
+edge 43 25 24 43
+edge 25 42 42 24
+edge 42 25 24 42
+edge 25 41 41 24
+edge 41 25 24 41
+edge 25 40 40 24
+edge 40 25 24 40
+edge 25 39 39 24
+edge 39 25 24 39
+edge 25 38 38 24
+edge 38 25 24 38
+edge 25 37 37 24
+edge 37 25 24 37
+edge 25 36 36 24
+edge 36 25 24 36
+edge 25 35 35 24
+edge 35 25 24 35
+edge 25 34 34 24
+edge 34 25 24 34
+edge 25 33 33 24
+edge 33 25 24 33
+edge 25 32 32 24
+edge 32 25 24 32
+edge 25 31 31 24
+edge 31 25 24 31
+edge 25 30 30 24
+edge 30 25 24 30
+edge 25 29 29 24
+edge 29 25 24 29
+edge 25 28 28 24
+edge 28 25 24 28
+edge 25 27 27 24
+edge 27 25 24 27
+edge 25 26 26 24
+edge 26 25 24 26
+edge 25 25 25 24
+edge 25 25 24 25
+edge 25 24 24 24
+edge 24 25 24 24
+edge 25 23 23 24
+edge 23 25 24 23
+edge 25 22 22 24
+edge 22 25 24 22
+edge 25 21 21 24
+edge 21 25 24 21
+edge 25 20 20 24
+edge 20 25 24 20
+edge 25 19 19 24
+edge 19 25 24 19
+edge 25 18 18 24
+edge 18 25 24 18
+edge 25 17 17 24
+edge 17 25 24 17
+edge 25 16 16 24
+edge 16 25 24 16
+edge 25 15 15 24
+edge 15 25 24 15
+edge 25 14 14 24
+edge 14 25 24 14
+edge 25 13 13 24
+edge 13 25 24 13
+edge 25 12 12 24
+edge 12 25 24 12
+edge 25 11 11 24
+edge 11 25 24 11
+edge 25 10 10 24
+edge 10 25 24 10
+edge 25 9 9 24
+edge 9 25 24 9
+edge 25 8 8 24
+edge 8 25 24 8
+edge 25 7 7 24
+edge 7 25 24 7
+edge 25 6 6 24
+edge 6 25 24 6
+edge 25 5 5 24
+edge 5 25 24 5
+edge 25 4 4 24
+edge 4 25 24 4
+edge 25 3 3 24
+edge 3 25 24 3
+edge 25 2 2 24
+edge 2 25 24 2
+edge 25 1 1 24
+edge 1 25 24 1
+edge 25 0 0 24
+edge 0 25 24 0
+edge 24 50 50 23
+edge 50 24 23 50
+edge 24 49 49 23
+edge 49 24 23 49
+edge 24 48 48 23
+edge 48 24 23 48
+edge 24 47 47 23
+edge 47 24 23 47
+edge 24 46 46 23
+edge 46 24 23 46
+edge 24 45 45 23
+edge 45 24 23 45
+edge 24 44 44 23
+edge 44 24 23 44
+edge 24 43 43 23
+edge 43 24 23 43
+edge 24 42 42 23
+edge 42 24 23 42
+edge 24 41 41 23
+edge 41 24 23 41
+edge 24 40 40 23
+edge 40 24 23 40
+edge 24 39 39 23
+edge 39 24 23 39
+edge 24 38 38 23
+edge 38 24 23 38
+edge 24 37 37 23
+edge 37 24 23 37
+edge 24 36 36 23
+edge 36 24 23 36
+edge 24 35 35 23
+edge 35 24 23 35
+edge 24 34 34 23
+edge 34 24 23 34
+edge 24 33 33 23
+edge 33 24 23 33
+edge 24 32 32 23
+edge 32 24 23 32
+edge 24 31 31 23
+edge 31 24 23 31
+edge 24 30 30 23
+edge 30 24 23 30
+edge 24 29 29 23
+edge 29 24 23 29
+edge 24 28 28 23
+edge 28 24 23 28
+edge 24 27 27 23
+edge 27 24 23 27
+edge 24 26 26 23
+edge 26 24 23 26
+edge 24 25 25 23
+edge 25 24 23 25
+edge 24 24 24 23
+edge 24 24 23 24
+edge 24 23 23 23
+edge 23 24 23 23
+edge 24 22 22 23
+edge 22 24 23 22
+edge 24 21 21 23
+edge 21 24 23 21
+edge 24 20 20 23
+edge 20 24 23 20
+edge 24 19 19 23
+edge 19 24 23 19
+edge 24 18 18 23
+edge 18 24 23 18
+edge 24 17 17 23
+edge 17 24 23 17
+edge 24 16 16 23
+edge 16 24 23 16
+edge 24 15 15 23
+edge 15 24 23 15
+edge 24 14 14 23
+edge 14 24 23 14
+edge 24 13 13 23
+edge 13 24 23 13
+edge 24 12 12 23
+edge 12 24 23 12
+edge 24 11 11 23
+edge 11 24 23 11
+edge 24 10 10 23
+edge 10 24 23 10
+edge 24 9 9 23
+edge 9 24 23 9
+edge 24 8 8 23
+edge 8 24 23 8
+edge 24 7 7 23
+edge 7 24 23 7
+edge 24 6 6 23
+edge 6 24 23 6
+edge 24 5 5 23
+edge 5 24 23 5
+edge 24 4 4 23
+edge 4 24 23 4
+edge 24 3 3 23
+edge 3 24 23 3
+edge 24 2 2 23
+edge 2 24 23 2
+edge 24 1 1 23
+edge 1 24 23 1
+edge 24 0 0 23
+edge 0 24 23 0
+edge 23 50 50 22
+edge 50 23 22 50
+edge 23 49 49 22
+edge 49 23 22 49
+edge 23 48 48 22
+edge 48 23 22 48
+edge 23 47 47 22
+edge 47 23 22 47
+edge 23 46 46 22
+edge 46 23 22 46
+edge 23 45 45 22
+edge 45 23 22 45
+edge 23 44 44 22
+edge 44 23 22 44
+edge 23 43 43 22
+edge 43 23 22 43
+edge 23 42 42 22
+edge 42 23 22 42
+edge 23 41 41 22
+edge 41 23 22 41
+edge 23 40 40 22
+edge 40 23 22 40
+edge 23 39 39 22
+edge 39 23 22 39
+edge 23 38 38 22
+edge 38 23 22 38
+edge 23 37 37 22
+edge 37 23 22 37
+edge 23 36 36 22
+edge 36 23 22 36
+edge 23 35 35 22
+edge 35 23 22 35
+edge 23 34 34 22
+edge 34 23 22 34
+edge 23 33 33 22
+edge 33 23 22 33
+edge 23 32 32 22
+edge 32 23 22 32
+edge 23 31 31 22
+edge 31 23 22 31
+edge 23 30 30 22
+edge 30 23 22 30
+edge 23 29 29 22
+edge 29 23 22 29
+edge 23 28 28 22
+edge 28 23 22 28
+edge 23 27 27 22
+edge 27 23 22 27
+edge 23 26 26 22
+edge 26 23 22 26
+edge 23 25 25 22
+edge 25 23 22 25
+edge 23 24 24 22
+edge 24 23 22 24
+edge 23 23 23 22
+edge 23 23 22 23
+edge 23 22 22 22
+edge 22 23 22 22
+edge 23 21 21 22
+edge 21 23 22 21
+edge 23 20 20 22
+edge 20 23 22 20
+edge 23 19 19 22
+edge 19 23 22 19
+edge 23 18 18 22
+edge 18 23 22 18
+edge 23 17 17 22
+edge 17 23 22 17
+edge 23 16 16 22
+edge 16 23 22 16
+edge 23 15 15 22
+edge 15 23 22 15
+edge 23 14 14 22
+edge 14 23 22 14
+edge 23 13 13 22
+edge 13 23 22 13
+edge 23 12 12 22
+edge 12 23 22 12
+edge 23 11 11 22
+edge 11 23 22 11
+edge 23 10 10 22
+edge 10 23 22 10
+edge 23 9 9 22
+edge 9 23 22 9
+edge 23 8 8 22
+edge 8 23 22 8
+edge 23 7 7 22
+edge 7 23 22 7
+edge 23 6 6 22
+edge 6 23 22 6
+edge 23 5 5 22
+edge 5 23 22 5
+edge 23 4 4 22
+edge 4 23 22 4
+edge 23 3 3 22
+edge 3 23 22 3
+edge 23 2 2 22
+edge 2 23 22 2
+edge 23 1 1 22
+edge 1 23 22 1
+edge 23 0 0 22
+edge 0 23 22 0
+edge 22 50 50 21
+edge 50 22 21 50
+edge 22 49 49 21
+edge 49 22 21 49
+edge 22 48 48 21
+edge 48 22 21 48
+edge 22 47 47 21
+edge 47 22 21 47
+edge 22 46 46 21
+edge 46 22 21 46
+edge 22 45 45 21
+edge 45 22 21 45
+edge 22 44 44 21
+edge 44 22 21 44
+edge 22 43 43 21
+edge 43 22 21 43
+edge 22 42 42 21
+edge 42 22 21 42
+edge 22 41 41 21
+edge 41 22 21 41
+edge 22 40 40 21
+edge 40 22 21 40
+edge 22 39 39 21
+edge 39 22 21 39
+edge 22 38 38 21
+edge 38 22 21 38
+edge 22 37 37 21
+edge 37 22 21 37
+edge 22 36 36 21
+edge 36 22 21 36
+edge 22 35 35 21
+edge 35 22 21 35
+edge 22 34 34 21
+edge 34 22 21 34
+edge 22 33 33 21
+edge 33 22 21 33
+edge 22 32 32 21
+edge 32 22 21 32
+edge 22 31 31 21
+edge 31 22 21 31
+edge 22 30 30 21
+edge 30 22 21 30
+edge 22 29 29 21
+edge 29 22 21 29
+edge 22 28 28 21
+edge 28 22 21 28
+edge 22 27 27 21
+edge 27 22 21 27
+edge 22 26 26 21
+edge 26 22 21 26
+edge 22 25 25 21
+edge 25 22 21 25
+edge 22 24 24 21
+edge 24 22 21 24
+edge 22 23 23 21
+edge 23 22 21 23
+edge 22 22 22 21
+edge 22 22 21 22
+edge 22 21 21 21
+edge 21 22 21 21
+edge 22 20 20 21
+edge 20 22 21 20
+edge 22 19 19 21
+edge 19 22 21 19
+edge 22 18 18 21
+edge 18 22 21 18
+edge 22 17 17 21
+edge 17 22 21 17
+edge 22 16 16 21
+edge 16 22 21 16
+edge 22 15 15 21
+edge 15 22 21 15
+edge 22 14 14 21
+edge 14 22 21 14
+edge 22 13 13 21
+edge 13 22 21 13
+edge 22 12 12 21
+edge 12 22 21 12
+edge 22 11 11 21
+edge 11 22 21 11
+edge 22 10 10 21
+edge 10 22 21 10
+edge 22 9 9 21
+edge 9 22 21 9
+edge 22 8 8 21
+edge 8 22 21 8
+edge 22 7 7 21
+edge 7 22 21 7
+edge 22 6 6 21
+edge 6 22 21 6
+edge 22 5 5 21
+edge 5 22 21 5
+edge 22 4 4 21
+edge 4 22 21 4
+edge 22 3 3 21
+edge 3 22 21 3
+edge 22 2 2 21
+edge 2 22 21 2
+edge 22 1 1 21
+edge 1 22 21 1
+edge 22 0 0 21
+edge 0 22 21 0
+edge 21 50 50 20
+edge 50 21 20 50
+edge 21 49 49 20
+edge 49 21 20 49
+edge 21 48 48 20
+edge 48 21 20 48
+edge 21 47 47 20
+edge 47 21 20 47
+edge 21 46 46 20
+edge 46 21 20 46
+edge 21 45 45 20
+edge 45 21 20 45
+edge 21 44 44 20
+edge 44 21 20 44
+edge 21 43 43 20
+edge 43 21 20 43
+edge 21 42 42 20
+edge 42 21 20 42
+edge 21 41 41 20
+edge 41 21 20 41
+edge 21 40 40 20
+edge 40 21 20 40
+edge 21 39 39 20
+edge 39 21 20 39
+edge 21 38 38 20
+edge 38 21 20 38
+edge 21 37 37 20
+edge 37 21 20 37
+edge 21 36 36 20
+edge 36 21 20 36
+edge 21 35 35 20
+edge 35 21 20 35
+edge 21 34 34 20
+edge 34 21 20 34
+edge 21 33 33 20
+edge 33 21 20 33
+edge 21 32 32 20
+edge 32 21 20 32
+edge 21 31 31 20
+edge 31 21 20 31
+edge 21 30 30 20
+edge 30 21 20 30
+edge 21 29 29 20
+edge 29 21 20 29
+edge 21 28 28 20
+edge 28 21 20 28
+edge 21 27 27 20
+edge 27 21 20 27
+edge 21 26 26 20
+edge 26 21 20 26
+edge 21 25 25 20
+edge 25 21 20 25
+edge 21 24 24 20
+edge 24 21 20 24
+edge 21 23 23 20
+edge 23 21 20 23
+edge 21 22 22 20
+edge 22 21 20 22
+edge 21 21 21 20
+edge 21 21 20 21
+edge 21 20 20 20
+edge 20 21 20 20
+edge 21 19 19 20
+edge 19 21 20 19
+edge 21 18 18 20
+edge 18 21 20 18
+edge 21 17 17 20
+edge 17 21 20 17
+edge 21 16 16 20
+edge 16 21 20 16
+edge 21 15 15 20
+edge 15 21 20 15
+edge 21 14 14 20
+edge 14 21 20 14
+edge 21 13 13 20
+edge 13 21 20 13
+edge 21 12 12 20
+edge 12 21 20 12
+edge 21 11 11 20
+edge 11 21 20 11
+edge 21 10 10 20
+edge 10 21 20 10
+edge 21 9 9 20
+edge 9 21 20 9
+edge 21 8 8 20
+edge 8 21 20 8
+edge 21 7 7 20
+edge 7 21 20 7
+edge 21 6 6 20
+edge 6 21 20 6
+edge 21 5 5 20
+edge 5 21 20 5
+edge 21 4 4 20
+edge 4 21 20 4
+edge 21 3 3 20
+edge 3 21 20 3
+edge 21 2 2 20
+edge 2 21 20 2
+edge 21 1 1 20
+edge 1 21 20 1
+edge 21 0 0 20
+edge 0 21 20 0
+edge 20 50 50 19
+edge 50 20 19 50
+edge 20 49 49 19
+edge 49 20 19 49
+edge 20 48 48 19
+edge 48 20 19 48
+edge 20 47 47 19
+edge 47 20 19 47
+edge 20 46 46 19
+edge 46 20 19 46
+edge 20 45 45 19
+edge 45 20 19 45
+edge 20 44 44 19
+edge 44 20 19 44
+edge 20 43 43 19
+edge 43 20 19 43
+edge 20 42 42 19
+edge 42 20 19 42
+edge 20 41 41 19
+edge 41 20 19 41
+edge 20 40 40 19
+edge 40 20 19 40
+edge 20 39 39 19
+edge 39 20 19 39
+edge 20 38 38 19
+edge 38 20 19 38
+edge 20 37 37 19
+edge 37 20 19 37
+edge 20 36 36 19
+edge 36 20 19 36
+edge 20 35 35 19
+edge 35 20 19 35
+edge 20 34 34 19
+edge 34 20 19 34
+edge 20 33 33 19
+edge 33 20 19 33
+edge 20 32 32 19
+edge 32 20 19 32
+edge 20 31 31 19
+edge 31 20 19 31
+edge 20 30 30 19
+edge 30 20 19 30
+edge 20 29 29 19
+edge 29 20 19 29
+edge 20 28 28 19
+edge 28 20 19 28
+edge 20 27 27 19
+edge 27 20 19 27
+edge 20 26 26 19
+edge 26 20 19 26
+edge 20 25 25 19
+edge 25 20 19 25
+edge 20 24 24 19
+edge 24 20 19 24
+edge 20 23 23 19
+edge 23 20 19 23
+edge 20 22 22 19
+edge 22 20 19 22
+edge 20 21 21 19
+edge 21 20 19 21
+edge 20 20 20 19
+edge 20 20 19 20
+edge 20 19 19 19
+edge 19 20 19 19
+edge 20 18 18 19
+edge 18 20 19 18
+edge 20 17 17 19
+edge 17 20 19 17
+edge 20 16 16 19
+edge 16 20 19 16
+edge 20 15 15 19
+edge 15 20 19 15
+edge 20 14 14 19
+edge 14 20 19 14
+edge 20 13 13 19
+edge 13 20 19 13
+edge 20 12 12 19
+edge 12 20 19 12
+edge 20 11 11 19
+edge 11 20 19 11
+edge 20 10 10 19
+edge 10 20 19 10
+edge 20 9 9 19
+edge 9 20 19 9
+edge 20 8 8 19
+edge 8 20 19 8
+edge 20 7 7 19
+edge 7 20 19 7
+edge 20 6 6 19
+edge 6 20 19 6
+edge 20 5 5 19
+edge 5 20 19 5
+edge 20 4 4 19
+edge 4 20 19 4
+edge 20 3 3 19
+edge 3 20 19 3
+edge 20 2 2 19
+edge 2 20 19 2
+edge 20 1 1 19
+edge 1 20 19 1
+edge 20 0 0 19
+edge 0 20 19 0
+edge 19 50 50 18
+edge 50 19 18 50
+edge 19 49 49 18
+edge 49 19 18 49
+edge 19 48 48 18
+edge 48 19 18 48
+edge 19 47 47 18
+edge 47 19 18 47
+edge 19 46 46 18
+edge 46 19 18 46
+edge 19 45 45 18
+edge 45 19 18 45
+edge 19 44 44 18
+edge 44 19 18 44
+edge 19 43 43 18
+edge 43 19 18 43
+edge 19 42 42 18
+edge 42 19 18 42
+edge 19 41 41 18
+edge 41 19 18 41
+edge 19 40 40 18
+edge 40 19 18 40
+edge 19 39 39 18
+edge 39 19 18 39
+edge 19 38 38 18
+edge 38 19 18 38
+edge 19 37 37 18
+edge 37 19 18 37
+edge 19 36 36 18
+edge 36 19 18 36
+edge 19 35 35 18
+edge 35 19 18 35
+edge 19 34 34 18
+edge 34 19 18 34
+edge 19 33 33 18
+edge 33 19 18 33
+edge 19 32 32 18
+edge 32 19 18 32
+edge 19 31 31 18
+edge 31 19 18 31
+edge 19 30 30 18
+edge 30 19 18 30
+edge 19 29 29 18
+edge 29 19 18 29
+edge 19 28 28 18
+edge 28 19 18 28
+edge 19 27 27 18
+edge 27 19 18 27
+edge 19 26 26 18
+edge 26 19 18 26
+edge 19 25 25 18
+edge 25 19 18 25
+edge 19 24 24 18
+edge 24 19 18 24
+edge 19 23 23 18
+edge 23 19 18 23
+edge 19 22 22 18
+edge 22 19 18 22
+edge 19 21 21 18
+edge 21 19 18 21
+edge 19 20 20 18
+edge 20 19 18 20
+edge 19 19 19 18
+edge 19 19 18 19
+edge 19 18 18 18
+edge 18 19 18 18
+edge 19 17 17 18
+edge 17 19 18 17
+edge 19 16 16 18
+edge 16 19 18 16
+edge 19 15 15 18
+edge 15 19 18 15
+edge 19 14 14 18
+edge 14 19 18 14
+edge 19 13 13 18
+edge 13 19 18 13
+edge 19 12 12 18
+edge 12 19 18 12
+edge 19 11 11 18
+edge 11 19 18 11
+edge 19 10 10 18
+edge 10 19 18 10
+edge 19 9 9 18
+edge 9 19 18 9
+edge 19 8 8 18
+edge 8 19 18 8
+edge 19 7 7 18
+edge 7 19 18 7
+edge 19 6 6 18
+edge 6 19 18 6
+edge 19 5 5 18
+edge 5 19 18 5
+edge 19 4 4 18
+edge 4 19 18 4
+edge 19 3 3 18
+edge 3 19 18 3
+edge 19 2 2 18
+edge 2 19 18 2
+edge 19 1 1 18
+edge 1 19 18 1
+edge 19 0 0 18
+edge 0 19 18 0
+edge 18 50 50 17
+edge 50 18 17 50
+edge 18 49 49 17
+edge 49 18 17 49
+edge 18 48 48 17
+edge 48 18 17 48
+edge 18 47 47 17
+edge 47 18 17 47
+edge 18 46 46 17
+edge 46 18 17 46
+edge 18 45 45 17
+edge 45 18 17 45
+edge 18 44 44 17
+edge 44 18 17 44
+edge 18 43 43 17
+edge 43 18 17 43
+edge 18 42 42 17
+edge 42 18 17 42
+edge 18 41 41 17
+edge 41 18 17 41
+edge 18 40 40 17
+edge 40 18 17 40
+edge 18 39 39 17
+edge 39 18 17 39
+edge 18 38 38 17
+edge 38 18 17 38
+edge 18 37 37 17
+edge 37 18 17 37
+edge 18 36 36 17
+edge 36 18 17 36
+edge 18 35 35 17
+edge 35 18 17 35
+edge 18 34 34 17
+edge 34 18 17 34
+edge 18 33 33 17
+edge 33 18 17 33
+edge 18 32 32 17
+edge 32 18 17 32
+edge 18 31 31 17
+edge 31 18 17 31
+edge 18 30 30 17
+edge 30 18 17 30
+edge 18 29 29 17
+edge 29 18 17 29
+edge 18 28 28 17
+edge 28 18 17 28
+edge 18 27 27 17
+edge 27 18 17 27
+edge 18 26 26 17
+edge 26 18 17 26
+edge 18 25 25 17
+edge 25 18 17 25
+edge 18 24 24 17
+edge 24 18 17 24
+edge 18 23 23 17
+edge 23 18 17 23
+edge 18 22 22 17
+edge 22 18 17 22
+edge 18 21 21 17
+edge 21 18 17 21
+edge 18 20 20 17
+edge 20 18 17 20
+edge 18 19 19 17
+edge 19 18 17 19
+edge 18 18 18 17
+edge 18 18 17 18
+edge 18 17 17 17
+edge 17 18 17 17
+edge 18 16 16 17
+edge 16 18 17 16
+edge 18 15 15 17
+edge 15 18 17 15
+edge 18 14 14 17
+edge 14 18 17 14
+edge 18 13 13 17
+edge 13 18 17 13
+edge 18 12 12 17
+edge 12 18 17 12
+edge 18 11 11 17
+edge 11 18 17 11
+edge 18 10 10 17
+edge 10 18 17 10
+edge 18 9 9 17
+edge 9 18 17 9
+edge 18 8 8 17
+edge 8 18 17 8
+edge 18 7 7 17
+edge 7 18 17 7
+edge 18 6 6 17
+edge 6 18 17 6
+edge 18 5 5 17
+edge 5 18 17 5
+edge 18 4 4 17
+edge 4 18 17 4
+edge 18 3 3 17
+edge 3 18 17 3
+edge 18 2 2 17
+edge 2 18 17 2
+edge 18 1 1 17
+edge 1 18 17 1
+edge 18 0 0 17
+edge 0 18 17 0
+edge 17 50 50 16
+edge 50 17 16 50
+edge 17 49 49 16
+edge 49 17 16 49
+edge 17 48 48 16
+edge 48 17 16 48
+edge 17 47 47 16
+edge 47 17 16 47
+edge 17 46 46 16
+edge 46 17 16 46
+edge 17 45 45 16
+edge 45 17 16 45
+edge 17 44 44 16
+edge 44 17 16 44
+edge 17 43 43 16
+edge 43 17 16 43
+edge 17 42 42 16
+edge 42 17 16 42
+edge 17 41 41 16
+edge 41 17 16 41
+edge 17 40 40 16
+edge 40 17 16 40
+edge 17 39 39 16
+edge 39 17 16 39
+edge 17 38 38 16
+edge 38 17 16 38
+edge 17 37 37 16
+edge 37 17 16 37
+edge 17 36 36 16
+edge 36 17 16 36
+edge 17 35 35 16
+edge 35 17 16 35
+edge 17 34 34 16
+edge 34 17 16 34
+edge 17 33 33 16
+edge 33 17 16 33
+edge 17 32 32 16
+edge 32 17 16 32
+edge 17 31 31 16
+edge 31 17 16 31
+edge 17 30 30 16
+edge 30 17 16 30
+edge 17 29 29 16
+edge 29 17 16 29
+edge 17 28 28 16
+edge 28 17 16 28
+edge 17 27 27 16
+edge 27 17 16 27
+edge 17 26 26 16
+edge 26 17 16 26
+edge 17 25 25 16
+edge 25 17 16 25
+edge 17 24 24 16
+edge 24 17 16 24
+edge 17 23 23 16
+edge 23 17 16 23
+edge 17 22 22 16
+edge 22 17 16 22
+edge 17 21 21 16
+edge 21 17 16 21
+edge 17 20 20 16
+edge 20 17 16 20
+edge 17 19 19 16
+edge 19 17 16 19
+edge 17 18 18 16
+edge 18 17 16 18
+edge 17 17 17 16
+edge 17 17 16 17
+edge 17 16 16 16
+edge 16 17 16 16
+edge 17 15 15 16
+edge 15 17 16 15
+edge 17 14 14 16
+edge 14 17 16 14
+edge 17 13 13 16
+edge 13 17 16 13
+edge 17 12 12 16
+edge 12 17 16 12
+edge 17 11 11 16
+edge 11 17 16 11
+edge 17 10 10 16
+edge 10 17 16 10
+edge 17 9 9 16
+edge 9 17 16 9
+edge 17 8 8 16
+edge 8 17 16 8
+edge 17 7 7 16
+edge 7 17 16 7
+edge 17 6 6 16
+edge 6 17 16 6
+edge 17 5 5 16
+edge 5 17 16 5
+edge 17 4 4 16
+edge 4 17 16 4
+edge 17 3 3 16
+edge 3 17 16 3
+edge 17 2 2 16
+edge 2 17 16 2
+edge 17 1 1 16
+edge 1 17 16 1
+edge 17 0 0 16
+edge 0 17 16 0
+edge 16 50 50 15
+edge 50 16 15 50
+edge 16 49 49 15
+edge 49 16 15 49
+edge 16 48 48 15
+edge 48 16 15 48
+edge 16 47 47 15
+edge 47 16 15 47
+edge 16 46 46 15
+edge 46 16 15 46
+edge 16 45 45 15
+edge 45 16 15 45
+edge 16 44 44 15
+edge 44 16 15 44
+edge 16 43 43 15
+edge 43 16 15 43
+edge 16 42 42 15
+edge 42 16 15 42
+edge 16 41 41 15
+edge 41 16 15 41
+edge 16 40 40 15
+edge 40 16 15 40
+edge 16 39 39 15
+edge 39 16 15 39
+edge 16 38 38 15
+edge 38 16 15 38
+edge 16 37 37 15
+edge 37 16 15 37
+edge 16 36 36 15
+edge 36 16 15 36
+edge 16 35 35 15
+edge 35 16 15 35
+edge 16 34 34 15
+edge 34 16 15 34
+edge 16 33 33 15
+edge 33 16 15 33
+edge 16 32 32 15
+edge 32 16 15 32
+edge 16 31 31 15
+edge 31 16 15 31
+edge 16 30 30 15
+edge 30 16 15 30
+edge 16 29 29 15
+edge 29 16 15 29
+edge 16 28 28 15
+edge 28 16 15 28
+edge 16 27 27 15
+edge 27 16 15 27
+edge 16 26 26 15
+edge 26 16 15 26
+edge 16 25 25 15
+edge 25 16 15 25
+edge 16 24 24 15
+edge 24 16 15 24
+edge 16 23 23 15
+edge 23 16 15 23
+edge 16 22 22 15
+edge 22 16 15 22
+edge 16 21 21 15
+edge 21 16 15 21
+edge 16 20 20 15
+edge 20 16 15 20
+edge 16 19 19 15
+edge 19 16 15 19
+edge 16 18 18 15
+edge 18 16 15 18
+edge 16 17 17 15
+edge 17 16 15 17
+edge 16 16 16 15
+edge 16 16 15 16
+edge 16 15 15 15
+edge 15 16 15 15
+edge 16 14 14 15
+edge 14 16 15 14
+edge 16 13 13 15
+edge 13 16 15 13
+edge 16 12 12 15
+edge 12 16 15 12
+edge 16 11 11 15
+edge 11 16 15 11
+edge 16 10 10 15
+edge 10 16 15 10
+edge 16 9 9 15
+edge 9 16 15 9
+edge 16 8 8 15
+edge 8 16 15 8
+edge 16 7 7 15
+edge 7 16 15 7
+edge 16 6 6 15
+edge 6 16 15 6
+edge 16 5 5 15
+edge 5 16 15 5
+edge 16 4 4 15
+edge 4 16 15 4
+edge 16 3 3 15
+edge 3 16 15 3
+edge 16 2 2 15
+edge 2 16 15 2
+edge 16 1 1 15
+edge 1 16 15 1
+edge 16 0 0 15
+edge 0 16 15 0
+edge 15 50 50 14
+edge 50 15 14 50
+edge 15 49 49 14
+edge 49 15 14 49
+edge 15 48 48 14
+edge 48 15 14 48
+edge 15 47 47 14
+edge 47 15 14 47
+edge 15 46 46 14
+edge 46 15 14 46
+edge 15 45 45 14
+edge 45 15 14 45
+edge 15 44 44 14
+edge 44 15 14 44
+edge 15 43 43 14
+edge 43 15 14 43
+edge 15 42 42 14
+edge 42 15 14 42
+edge 15 41 41 14
+edge 41 15 14 41
+edge 15 40 40 14
+edge 40 15 14 40
+edge 15 39 39 14
+edge 39 15 14 39
+edge 15 38 38 14
+edge 38 15 14 38
+edge 15 37 37 14
+edge 37 15 14 37
+edge 15 36 36 14
+edge 36 15 14 36
+edge 15 35 35 14
+edge 35 15 14 35
+edge 15 34 34 14
+edge 34 15 14 34
+edge 15 33 33 14
+edge 33 15 14 33
+edge 15 32 32 14
+edge 32 15 14 32
+edge 15 31 31 14
+edge 31 15 14 31
+edge 15 30 30 14
+edge 30 15 14 30
+edge 15 29 29 14
+edge 29 15 14 29
+edge 15 28 28 14
+edge 28 15 14 28
+edge 15 27 27 14
+edge 27 15 14 27
+edge 15 26 26 14
+edge 26 15 14 26
+edge 15 25 25 14
+edge 25 15 14 25
+edge 15 24 24 14
+edge 24 15 14 24
+edge 15 23 23 14
+edge 23 15 14 23
+edge 15 22 22 14
+edge 22 15 14 22
+edge 15 21 21 14
+edge 21 15 14 21
+edge 15 20 20 14
+edge 20 15 14 20
+edge 15 19 19 14
+edge 19 15 14 19
+edge 15 18 18 14
+edge 18 15 14 18
+edge 15 17 17 14
+edge 17 15 14 17
+edge 15 16 16 14
+edge 16 15 14 16
+edge 15 15 15 14
+edge 15 15 14 15
+edge 15 14 14 14
+edge 14 15 14 14
+edge 15 13 13 14
+edge 13 15 14 13
+edge 15 12 12 14
+edge 12 15 14 12
+edge 15 11 11 14
+edge 11 15 14 11
+edge 15 10 10 14
+edge 10 15 14 10
+edge 15 9 9 14
+edge 9 15 14 9
+edge 15 8 8 14
+edge 8 15 14 8
+edge 15 7 7 14
+edge 7 15 14 7
+edge 15 6 6 14
+edge 6 15 14 6
+edge 15 5 5 14
+edge 5 15 14 5
+edge 15 4 4 14
+edge 4 15 14 4
+edge 15 3 3 14
+edge 3 15 14 3
+edge 15 2 2 14
+edge 2 15 14 2
+edge 15 1 1 14
+edge 1 15 14 1
+edge 15 0 0 14
+edge 0 15 14 0
+edge 14 50 50 13
+edge 50 14 13 50
+edge 14 49 49 13
+edge 49 14 13 49
+edge 14 48 48 13
+edge 48 14 13 48
+edge 14 47 47 13
+edge 47 14 13 47
+edge 14 46 46 13
+edge 46 14 13 46
+edge 14 45 45 13
+edge 45 14 13 45
+edge 14 44 44 13
+edge 44 14 13 44
+edge 14 43 43 13
+edge 43 14 13 43
+edge 14 42 42 13
+edge 42 14 13 42
+edge 14 41 41 13
+edge 41 14 13 41
+edge 14 40 40 13
+edge 40 14 13 40
+edge 14 39 39 13
+edge 39 14 13 39
+edge 14 38 38 13
+edge 38 14 13 38
+edge 14 37 37 13
+edge 37 14 13 37
+edge 14 36 36 13
+edge 36 14 13 36
+edge 14 35 35 13
+edge 35 14 13 35
+edge 14 34 34 13
+edge 34 14 13 34
+edge 14 33 33 13
+edge 33 14 13 33
+edge 14 32 32 13
+edge 32 14 13 32
+edge 14 31 31 13
+edge 31 14 13 31
+edge 14 30 30 13
+edge 30 14 13 30
+edge 14 29 29 13
+edge 29 14 13 29
+edge 14 28 28 13
+edge 28 14 13 28
+edge 14 27 27 13
+edge 27 14 13 27
+edge 14 26 26 13
+edge 26 14 13 26
+edge 14 25 25 13
+edge 25 14 13 25
+edge 14 24 24 13
+edge 24 14 13 24
+edge 14 23 23 13
+edge 23 14 13 23
+edge 14 22 22 13
+edge 22 14 13 22
+edge 14 21 21 13
+edge 21 14 13 21
+edge 14 20 20 13
+edge 20 14 13 20
+edge 14 19 19 13
+edge 19 14 13 19
+edge 14 18 18 13
+edge 18 14 13 18
+edge 14 17 17 13
+edge 17 14 13 17
+edge 14 16 16 13
+edge 16 14 13 16
+edge 14 15 15 13
+edge 15 14 13 15
+edge 14 14 14 13
+edge 14 14 13 14
+edge 14 13 13 13
+edge 13 14 13 13
+edge 14 12 12 13
+edge 12 14 13 12
+edge 14 11 11 13
+edge 11 14 13 11
+edge 14 10 10 13
+edge 10 14 13 10
+edge 14 9 9 13
+edge 9 14 13 9
+edge 14 8 8 13
+edge 8 14 13 8
+edge 14 7 7 13
+edge 7 14 13 7
+edge 14 6 6 13
+edge 6 14 13 6
+edge 14 5 5 13
+edge 5 14 13 5
+edge 14 4 4 13
+edge 4 14 13 4
+edge 14 3 3 13
+edge 3 14 13 3
+edge 14 2 2 13
+edge 2 14 13 2
+edge 14 1 1 13
+edge 1 14 13 1
+edge 14 0 0 13
+edge 0 14 13 0
+edge 13 50 50 12
+edge 50 13 12 50
+edge 13 49 49 12
+edge 49 13 12 49
+edge 13 48 48 12
+edge 48 13 12 48
+edge 13 47 47 12
+edge 47 13 12 47
+edge 13 46 46 12
+edge 46 13 12 46
+edge 13 45 45 12
+edge 45 13 12 45
+edge 13 44 44 12
+edge 44 13 12 44
+edge 13 43 43 12
+edge 43 13 12 43
+edge 13 42 42 12
+edge 42 13 12 42
+edge 13 41 41 12
+edge 41 13 12 41
+edge 13 40 40 12
+edge 40 13 12 40
+edge 13 39 39 12
+edge 39 13 12 39
+edge 13 38 38 12
+edge 38 13 12 38
+edge 13 37 37 12
+edge 37 13 12 37
+edge 13 36 36 12
+edge 36 13 12 36
+edge 13 35 35 12
+edge 35 13 12 35
+edge 13 34 34 12
+edge 34 13 12 34
+edge 13 33 33 12
+edge 33 13 12 33
+edge 13 32 32 12
+edge 32 13 12 32
+edge 13 31 31 12
+edge 31 13 12 31
+edge 13 30 30 12
+edge 30 13 12 30
+edge 13 29 29 12
+edge 29 13 12 29
+edge 13 28 28 12
+edge 28 13 12 28
+edge 13 27 27 12
+edge 27 13 12 27
+edge 13 26 26 12
+edge 26 13 12 26
+edge 13 25 25 12
+edge 25 13 12 25
+edge 13 24 24 12
+edge 24 13 12 24
+edge 13 23 23 12
+edge 23 13 12 23
+edge 13 22 22 12
+edge 22 13 12 22
+edge 13 21 21 12
+edge 21 13 12 21
+edge 13 20 20 12
+edge 20 13 12 20
+edge 13 19 19 12
+edge 19 13 12 19
+edge 13 18 18 12
+edge 18 13 12 18
+edge 13 17 17 12
+edge 17 13 12 17
+edge 13 16 16 12
+edge 16 13 12 16
+edge 13 15 15 12
+edge 15 13 12 15
+edge 13 14 14 12
+edge 14 13 12 14
+edge 13 13 13 12
+edge 13 13 12 13
+edge 13 12 12 12
+edge 12 13 12 12
+edge 13 11 11 12
+edge 11 13 12 11
+edge 13 10 10 12
+edge 10 13 12 10
+edge 13 9 9 12
+edge 9 13 12 9
+edge 13 8 8 12
+edge 8 13 12 8
+edge 13 7 7 12
+edge 7 13 12 7
+edge 13 6 6 12
+edge 6 13 12 6
+edge 13 5 5 12
+edge 5 13 12 5
+edge 13 4 4 12
+edge 4 13 12 4
+edge 13 3 3 12
+edge 3 13 12 3
+edge 13 2 2 12
+edge 2 13 12 2
+edge 13 1 1 12
+edge 1 13 12 1
+edge 13 0 0 12
+edge 0 13 12 0
+edge 12 50 50 11
+edge 50 12 11 50
+edge 12 49 49 11
+edge 49 12 11 49
+edge 12 48 48 11
+edge 48 12 11 48
+edge 12 47 47 11
+edge 47 12 11 47
+edge 12 46 46 11
+edge 46 12 11 46
+edge 12 45 45 11
+edge 45 12 11 45
+edge 12 44 44 11
+edge 44 12 11 44
+edge 12 43 43 11
+edge 43 12 11 43
+edge 12 42 42 11
+edge 42 12 11 42
+edge 12 41 41 11
+edge 41 12 11 41
+edge 12 40 40 11
+edge 40 12 11 40
+edge 12 39 39 11
+edge 39 12 11 39
+edge 12 38 38 11
+edge 38 12 11 38
+edge 12 37 37 11
+edge 37 12 11 37
+edge 12 36 36 11
+edge 36 12 11 36
+edge 12 35 35 11
+edge 35 12 11 35
+edge 12 34 34 11
+edge 34 12 11 34
+edge 12 33 33 11
+edge 33 12 11 33
+edge 12 32 32 11
+edge 32 12 11 32
+edge 12 31 31 11
+edge 31 12 11 31
+edge 12 30 30 11
+edge 30 12 11 30
+edge 12 29 29 11
+edge 29 12 11 29
+edge 12 28 28 11
+edge 28 12 11 28
+edge 12 27 27 11
+edge 27 12 11 27
+edge 12 26 26 11
+edge 26 12 11 26
+edge 12 25 25 11
+edge 25 12 11 25
+edge 12 24 24 11
+edge 24 12 11 24
+edge 12 23 23 11
+edge 23 12 11 23
+edge 12 22 22 11
+edge 22 12 11 22
+edge 12 21 21 11
+edge 21 12 11 21
+edge 12 20 20 11
+edge 20 12 11 20
+edge 12 19 19 11
+edge 19 12 11 19
+edge 12 18 18 11
+edge 18 12 11 18
+edge 12 17 17 11
+edge 17 12 11 17
+edge 12 16 16 11
+edge 16 12 11 16
+edge 12 15 15 11
+edge 15 12 11 15
+edge 12 14 14 11
+edge 14 12 11 14
+edge 12 13 13 11
+edge 13 12 11 13
+edge 12 12 12 11
+edge 12 12 11 12
+edge 12 11 11 11
+edge 11 12 11 11
+edge 12 10 10 11
+edge 10 12 11 10
+edge 12 9 9 11
+edge 9 12 11 9
+edge 12 8 8 11
+edge 8 12 11 8
+edge 12 7 7 11
+edge 7 12 11 7
+edge 12 6 6 11
+edge 6 12 11 6
+edge 12 5 5 11
+edge 5 12 11 5
+edge 12 4 4 11
+edge 4 12 11 4
+edge 12 3 3 11
+edge 3 12 11 3
+edge 12 2 2 11
+edge 2 12 11 2
+edge 12 1 1 11
+edge 1 12 11 1
+edge 12 0 0 11
+edge 0 12 11 0
+edge 11 50 50 10
+edge 50 11 10 50
+edge 11 49 49 10
+edge 49 11 10 49
+edge 11 48 48 10
+edge 48 11 10 48
+edge 11 47 47 10
+edge 47 11 10 47
+edge 11 46 46 10
+edge 46 11 10 46
+edge 11 45 45 10
+edge 45 11 10 45
+edge 11 44 44 10
+edge 44 11 10 44
+edge 11 43 43 10
+edge 43 11 10 43
+edge 11 42 42 10
+edge 42 11 10 42
+edge 11 41 41 10
+edge 41 11 10 41
+edge 11 40 40 10
+edge 40 11 10 40
+edge 11 39 39 10
+edge 39 11 10 39
+edge 11 38 38 10
+edge 38 11 10 38
+edge 11 37 37 10
+edge 37 11 10 37
+edge 11 36 36 10
+edge 36 11 10 36
+edge 11 35 35 10
+edge 35 11 10 35
+edge 11 34 34 10
+edge 34 11 10 34
+edge 11 33 33 10
+edge 33 11 10 33
+edge 11 32 32 10
+edge 32 11 10 32
+edge 11 31 31 10
+edge 31 11 10 31
+edge 11 30 30 10
+edge 30 11 10 30
+edge 11 29 29 10
+edge 29 11 10 29
+edge 11 28 28 10
+edge 28 11 10 28
+edge 11 27 27 10
+edge 27 11 10 27
+edge 11 26 26 10
+edge 26 11 10 26
+edge 11 25 25 10
+edge 25 11 10 25
+edge 11 24 24 10
+edge 24 11 10 24
+edge 11 23 23 10
+edge 23 11 10 23
+edge 11 22 22 10
+edge 22 11 10 22
+edge 11 21 21 10
+edge 21 11 10 21
+edge 11 20 20 10
+edge 20 11 10 20
+edge 11 19 19 10
+edge 19 11 10 19
+edge 11 18 18 10
+edge 18 11 10 18
+edge 11 17 17 10
+edge 17 11 10 17
+edge 11 16 16 10
+edge 16 11 10 16
+edge 11 15 15 10
+edge 15 11 10 15
+edge 11 14 14 10
+edge 14 11 10 14
+edge 11 13 13 10
+edge 13 11 10 13
+edge 11 12 12 10
+edge 12 11 10 12
+edge 11 11 11 10
+edge 11 11 10 11
+edge 11 10 10 10
+edge 10 11 10 10
+edge 11 9 9 10
+edge 9 11 10 9
+edge 11 8 8 10
+edge 8 11 10 8
+edge 11 7 7 10
+edge 7 11 10 7
+edge 11 6 6 10
+edge 6 11 10 6
+edge 11 5 5 10
+edge 5 11 10 5
+edge 11 4 4 10
+edge 4 11 10 4
+edge 11 3 3 10
+edge 3 11 10 3
+edge 11 2 2 10
+edge 2 11 10 2
+edge 11 1 1 10
+edge 1 11 10 1
+edge 11 0 0 10
+edge 0 11 10 0
+edge 10 50 50 9
+edge 50 10 9 50
+edge 10 49 49 9
+edge 49 10 9 49
+edge 10 48 48 9
+edge 48 10 9 48
+edge 10 47 47 9
+edge 47 10 9 47
+edge 10 46 46 9
+edge 46 10 9 46
+edge 10 45 45 9
+edge 45 10 9 45
+edge 10 44 44 9
+edge 44 10 9 44
+edge 10 43 43 9
+edge 43 10 9 43
+edge 10 42 42 9
+edge 42 10 9 42
+edge 10 41 41 9
+edge 41 10 9 41
+edge 10 40 40 9
+edge 40 10 9 40
+edge 10 39 39 9
+edge 39 10 9 39
+edge 10 38 38 9
+edge 38 10 9 38
+edge 10 37 37 9
+edge 37 10 9 37
+edge 10 36 36 9
+edge 36 10 9 36
+edge 10 35 35 9
+edge 35 10 9 35
+edge 10 34 34 9
+edge 34 10 9 34
+edge 10 33 33 9
+edge 33 10 9 33
+edge 10 32 32 9
+edge 32 10 9 32
+edge 10 31 31 9
+edge 31 10 9 31
+edge 10 30 30 9
+edge 30 10 9 30
+edge 10 29 29 9
+edge 29 10 9 29
+edge 10 28 28 9
+edge 28 10 9 28
+edge 10 27 27 9
+edge 27 10 9 27
+edge 10 26 26 9
+edge 26 10 9 26
+edge 10 25 25 9
+edge 25 10 9 25
+edge 10 24 24 9
+edge 24 10 9 24
+edge 10 23 23 9
+edge 23 10 9 23
+edge 10 22 22 9
+edge 22 10 9 22
+edge 10 21 21 9
+edge 21 10 9 21
+edge 10 20 20 9
+edge 20 10 9 20
+edge 10 19 19 9
+edge 19 10 9 19
+edge 10 18 18 9
+edge 18 10 9 18
+edge 10 17 17 9
+edge 17 10 9 17
+edge 10 16 16 9
+edge 16 10 9 16
+edge 10 15 15 9
+edge 15 10 9 15
+edge 10 14 14 9
+edge 14 10 9 14
+edge 10 13 13 9
+edge 13 10 9 13
+edge 10 12 12 9
+edge 12 10 9 12
+edge 10 11 11 9
+edge 11 10 9 11
+edge 10 10 10 9
+edge 10 10 9 10
+edge 10 9 9 9
+edge 9 10 9 9
+edge 10 8 8 9
+edge 8 10 9 8
+edge 10 7 7 9
+edge 7 10 9 7
+edge 10 6 6 9
+edge 6 10 9 6
+edge 10 5 5 9
+edge 5 10 9 5
+edge 10 4 4 9
+edge 4 10 9 4
+edge 10 3 3 9
+edge 3 10 9 3
+edge 10 2 2 9
+edge 2 10 9 2
+edge 10 1 1 9
+edge 1 10 9 1
+edge 10 0 0 9
+edge 0 10 9 0
+edge 9 50 50 8
+edge 50 9 8 50
+edge 9 49 49 8
+edge 49 9 8 49
+edge 9 48 48 8
+edge 48 9 8 48
+edge 9 47 47 8
+edge 47 9 8 47
+edge 9 46 46 8
+edge 46 9 8 46
+edge 9 45 45 8
+edge 45 9 8 45
+edge 9 44 44 8
+edge 44 9 8 44
+edge 9 43 43 8
+edge 43 9 8 43
+edge 9 42 42 8
+edge 42 9 8 42
+edge 9 41 41 8
+edge 41 9 8 41
+edge 9 40 40 8
+edge 40 9 8 40
+edge 9 39 39 8
+edge 39 9 8 39
+edge 9 38 38 8
+edge 38 9 8 38
+edge 9 37 37 8
+edge 37 9 8 37
+edge 9 36 36 8
+edge 36 9 8 36
+edge 9 35 35 8
+edge 35 9 8 35
+edge 9 34 34 8
+edge 34 9 8 34
+edge 9 33 33 8
+edge 33 9 8 33
+edge 9 32 32 8
+edge 32 9 8 32
+edge 9 31 31 8
+edge 31 9 8 31
+edge 9 30 30 8
+edge 30 9 8 30
+edge 9 29 29 8
+edge 29 9 8 29
+edge 9 28 28 8
+edge 28 9 8 28
+edge 9 27 27 8
+edge 27 9 8 27
+edge 9 26 26 8
+edge 26 9 8 26
+edge 9 25 25 8
+edge 25 9 8 25
+edge 9 24 24 8
+edge 24 9 8 24
+edge 9 23 23 8
+edge 23 9 8 23
+edge 9 22 22 8
+edge 22 9 8 22
+edge 9 21 21 8
+edge 21 9 8 21
+edge 9 20 20 8
+edge 20 9 8 20
+edge 9 19 19 8
+edge 19 9 8 19
+edge 9 18 18 8
+edge 18 9 8 18
+edge 9 17 17 8
+edge 17 9 8 17
+edge 9 16 16 8
+edge 16 9 8 16
+edge 9 15 15 8
+edge 15 9 8 15
+edge 9 14 14 8
+edge 14 9 8 14
+edge 9 13 13 8
+edge 13 9 8 13
+edge 9 12 12 8
+edge 12 9 8 12
+edge 9 11 11 8
+edge 11 9 8 11
+edge 9 10 10 8
+edge 10 9 8 10
+edge 9 9 9 8
+edge 9 9 8 9
+edge 9 8 8 8
+edge 8 9 8 8
+edge 9 7 7 8
+edge 7 9 8 7
+edge 9 6 6 8
+edge 6 9 8 6
+edge 9 5 5 8
+edge 5 9 8 5
+edge 9 4 4 8
+edge 4 9 8 4
+edge 9 3 3 8
+edge 3 9 8 3
+edge 9 2 2 8
+edge 2 9 8 2
+edge 9 1 1 8
+edge 1 9 8 1
+edge 9 0 0 8
+edge 0 9 8 0
+edge 8 50 50 7
+edge 50 8 7 50
+edge 8 49 49 7
+edge 49 8 7 49
+edge 8 48 48 7
+edge 48 8 7 48
+edge 8 47 47 7
+edge 47 8 7 47
+edge 8 46 46 7
+edge 46 8 7 46
+edge 8 45 45 7
+edge 45 8 7 45
+edge 8 44 44 7
+edge 44 8 7 44
+edge 8 43 43 7
+edge 43 8 7 43
+edge 8 42 42 7
+edge 42 8 7 42
+edge 8 41 41 7
+edge 41 8 7 41
+edge 8 40 40 7
+edge 40 8 7 40
+edge 8 39 39 7
+edge 39 8 7 39
+edge 8 38 38 7
+edge 38 8 7 38
+edge 8 37 37 7
+edge 37 8 7 37
+edge 8 36 36 7
+edge 36 8 7 36
+edge 8 35 35 7
+edge 35 8 7 35
+edge 8 34 34 7
+edge 34 8 7 34
+edge 8 33 33 7
+edge 33 8 7 33
+edge 8 32 32 7
+edge 32 8 7 32
+edge 8 31 31 7
+edge 31 8 7 31
+edge 8 30 30 7
+edge 30 8 7 30
+edge 8 29 29 7
+edge 29 8 7 29
+edge 8 28 28 7
+edge 28 8 7 28
+edge 8 27 27 7
+edge 27 8 7 27
+edge 8 26 26 7
+edge 26 8 7 26
+edge 8 25 25 7
+edge 25 8 7 25
+edge 8 24 24 7
+edge 24 8 7 24
+edge 8 23 23 7
+edge 23 8 7 23
+edge 8 22 22 7
+edge 22 8 7 22
+edge 8 21 21 7
+edge 21 8 7 21
+edge 8 20 20 7
+edge 20 8 7 20
+edge 8 19 19 7
+edge 19 8 7 19
+edge 8 18 18 7
+edge 18 8 7 18
+edge 8 17 17 7
+edge 17 8 7 17
+edge 8 16 16 7
+edge 16 8 7 16
+edge 8 15 15 7
+edge 15 8 7 15
+edge 8 14 14 7
+edge 14 8 7 14
+edge 8 13 13 7
+edge 13 8 7 13
+edge 8 12 12 7
+edge 12 8 7 12
+edge 8 11 11 7
+edge 11 8 7 11
+edge 8 10 10 7
+edge 10 8 7 10
+edge 8 9 9 7
+edge 9 8 7 9
+edge 8 8 8 7
+edge 8 8 7 8
+edge 8 7 7 7
+edge 7 8 7 7
+edge 8 6 6 7
+edge 6 8 7 6
+edge 8 5 5 7
+edge 5 8 7 5
+edge 8 4 4 7
+edge 4 8 7 4
+edge 8 3 3 7
+edge 3 8 7 3
+edge 8 2 2 7
+edge 2 8 7 2
+edge 8 1 1 7
+edge 1 8 7 1
+edge 8 0 0 7
+edge 0 8 7 0
+edge 7 50 50 6
+edge 50 7 6 50
+edge 7 49 49 6
+edge 49 7 6 49
+edge 7 48 48 6
+edge 48 7 6 48
+edge 7 47 47 6
+edge 47 7 6 47
+edge 7 46 46 6
+edge 46 7 6 46
+edge 7 45 45 6
+edge 45 7 6 45
+edge 7 44 44 6
+edge 44 7 6 44
+edge 7 43 43 6
+edge 43 7 6 43
+edge 7 42 42 6
+edge 42 7 6 42
+edge 7 41 41 6
+edge 41 7 6 41
+edge 7 40 40 6
+edge 40 7 6 40
+edge 7 39 39 6
+edge 39 7 6 39
+edge 7 38 38 6
+edge 38 7 6 38
+edge 7 37 37 6
+edge 37 7 6 37
+edge 7 36 36 6
+edge 36 7 6 36
+edge 7 35 35 6
+edge 35 7 6 35
+edge 7 34 34 6
+edge 34 7 6 34
+edge 7 33 33 6
+edge 33 7 6 33
+edge 7 32 32 6
+edge 32 7 6 32
+edge 7 31 31 6
+edge 31 7 6 31
+edge 7 30 30 6
+edge 30 7 6 30
+edge 7 29 29 6
+edge 29 7 6 29
+edge 7 28 28 6
+edge 28 7 6 28
+edge 7 27 27 6
+edge 27 7 6 27
+edge 7 26 26 6
+edge 26 7 6 26
+edge 7 25 25 6
+edge 25 7 6 25
+edge 7 24 24 6
+edge 24 7 6 24
+edge 7 23 23 6
+edge 23 7 6 23
+edge 7 22 22 6
+edge 22 7 6 22
+edge 7 21 21 6
+edge 21 7 6 21
+edge 7 20 20 6
+edge 20 7 6 20
+edge 7 19 19 6
+edge 19 7 6 19
+edge 7 18 18 6
+edge 18 7 6 18
+edge 7 17 17 6
+edge 17 7 6 17
+edge 7 16 16 6
+edge 16 7 6 16
+edge 7 15 15 6
+edge 15 7 6 15
+edge 7 14 14 6
+edge 14 7 6 14
+edge 7 13 13 6
+edge 13 7 6 13
+edge 7 12 12 6
+edge 12 7 6 12
+edge 7 11 11 6
+edge 11 7 6 11
+edge 7 10 10 6
+edge 10 7 6 10
+edge 7 9 9 6
+edge 9 7 6 9
+edge 7 8 8 6
+edge 8 7 6 8
+edge 7 7 7 6
+edge 7 7 6 7
+edge 7 6 6 6
+edge 6 7 6 6
+edge 7 5 5 6
+edge 5 7 6 5
+edge 7 4 4 6
+edge 4 7 6 4
+edge 7 3 3 6
+edge 3 7 6 3
+edge 7 2 2 6
+edge 2 7 6 2
+edge 7 1 1 6
+edge 1 7 6 1
+edge 7 0 0 6
+edge 0 7 6 0
+edge 6 50 50 5
+edge 50 6 5 50
+edge 6 49 49 5
+edge 49 6 5 49
+edge 6 48 48 5
+edge 48 6 5 48
+edge 6 47 47 5
+edge 47 6 5 47
+edge 6 46 46 5
+edge 46 6 5 46
+edge 6 45 45 5
+edge 45 6 5 45
+edge 6 44 44 5
+edge 44 6 5 44
+edge 6 43 43 5
+edge 43 6 5 43
+edge 6 42 42 5
+edge 42 6 5 42
+edge 6 41 41 5
+edge 41 6 5 41
+edge 6 40 40 5
+edge 40 6 5 40
+edge 6 39 39 5
+edge 39 6 5 39
+edge 6 38 38 5
+edge 38 6 5 38
+edge 6 37 37 5
+edge 37 6 5 37
+edge 6 36 36 5
+edge 36 6 5 36
+edge 6 35 35 5
+edge 35 6 5 35
+edge 6 34 34 5
+edge 34 6 5 34
+edge 6 33 33 5
+edge 33 6 5 33
+edge 6 32 32 5
+edge 32 6 5 32
+edge 6 31 31 5
+edge 31 6 5 31
+edge 6 30 30 5
+edge 30 6 5 30
+edge 6 29 29 5
+edge 29 6 5 29
+edge 6 28 28 5
+edge 28 6 5 28
+edge 6 27 27 5
+edge 27 6 5 27
+edge 6 26 26 5
+edge 26 6 5 26
+edge 6 25 25 5
+edge 25 6 5 25
+edge 6 24 24 5
+edge 24 6 5 24
+edge 6 23 23 5
+edge 23 6 5 23
+edge 6 22 22 5
+edge 22 6 5 22
+edge 6 21 21 5
+edge 21 6 5 21
+edge 6 20 20 5
+edge 20 6 5 20
+edge 6 19 19 5
+edge 19 6 5 19
+edge 6 18 18 5
+edge 18 6 5 18
+edge 6 17 17 5
+edge 17 6 5 17
+edge 6 16 16 5
+edge 16 6 5 16
+edge 6 15 15 5
+edge 15 6 5 15
+edge 6 14 14 5
+edge 14 6 5 14
+edge 6 13 13 5
+edge 13 6 5 13
+edge 6 12 12 5
+edge 12 6 5 12
+edge 6 11 11 5
+edge 11 6 5 11
+edge 6 10 10 5
+edge 10 6 5 10
+edge 6 9 9 5
+edge 9 6 5 9
+edge 6 8 8 5
+edge 8 6 5 8
+edge 6 7 7 5
+edge 7 6 5 7
+edge 6 6 6 5
+edge 6 6 5 6
+edge 6 5 5 5
+edge 5 6 5 5
+edge 6 4 4 5
+edge 4 6 5 4
+edge 6 3 3 5
+edge 3 6 5 3
+edge 6 2 2 5
+edge 2 6 5 2
+edge 6 1 1 5
+edge 1 6 5 1
+edge 6 0 0 5
+edge 0 6 5 0
+edge 5 50 50 4
+edge 50 5 4 50
+edge 5 49 49 4
+edge 49 5 4 49
+edge 5 48 48 4
+edge 48 5 4 48
+edge 5 47 47 4
+edge 47 5 4 47
+edge 5 46 46 4
+edge 46 5 4 46
+edge 5 45 45 4
+edge 45 5 4 45
+edge 5 44 44 4
+edge 44 5 4 44
+edge 5 43 43 4
+edge 43 5 4 43
+edge 5 42 42 4
+edge 42 5 4 42
+edge 5 41 41 4
+edge 41 5 4 41
+edge 5 40 40 4
+edge 40 5 4 40
+edge 5 39 39 4
+edge 39 5 4 39
+edge 5 38 38 4
+edge 38 5 4 38
+edge 5 37 37 4
+edge 37 5 4 37
+edge 5 36 36 4
+edge 36 5 4 36
+edge 5 35 35 4
+edge 35 5 4 35
+edge 5 34 34 4
+edge 34 5 4 34
+edge 5 33 33 4
+edge 33 5 4 33
+edge 5 32 32 4
+edge 32 5 4 32
+edge 5 31 31 4
+edge 31 5 4 31
+edge 5 30 30 4
+edge 30 5 4 30
+edge 5 29 29 4
+edge 29 5 4 29
+edge 5 28 28 4
+edge 28 5 4 28
+edge 5 27 27 4
+edge 27 5 4 27
+edge 5 26 26 4
+edge 26 5 4 26
+edge 5 25 25 4
+edge 25 5 4 25
+edge 5 24 24 4
+edge 24 5 4 24
+edge 5 23 23 4
+edge 23 5 4 23
+edge 5 22 22 4
+edge 22 5 4 22
+edge 5 21 21 4
+edge 21 5 4 21
+edge 5 20 20 4
+edge 20 5 4 20
+edge 5 19 19 4
+edge 19 5 4 19
+edge 5 18 18 4
+edge 18 5 4 18
+edge 5 17 17 4
+edge 17 5 4 17
+edge 5 16 16 4
+edge 16 5 4 16
+edge 5 15 15 4
+edge 15 5 4 15
+edge 5 14 14 4
+edge 14 5 4 14
+edge 5 13 13 4
+edge 13 5 4 13
+edge 5 12 12 4
+edge 12 5 4 12
+edge 5 11 11 4
+edge 11 5 4 11
+edge 5 10 10 4
+edge 10 5 4 10
+edge 5 9 9 4
+edge 9 5 4 9
+edge 5 8 8 4
+edge 8 5 4 8
+edge 5 7 7 4
+edge 7 5 4 7
+edge 5 6 6 4
+edge 6 5 4 6
+edge 5 5 5 4
+edge 5 5 4 5
+edge 5 4 4 4
+edge 4 5 4 4
+edge 5 3 3 4
+edge 3 5 4 3
+edge 5 2 2 4
+edge 2 5 4 2
+edge 5 1 1 4
+edge 1 5 4 1
+edge 5 0 0 4
+edge 0 5 4 0
+edge 4 50 50 3
+edge 50 4 3 50
+edge 4 49 49 3
+edge 49 4 3 49
+edge 4 48 48 3
+edge 48 4 3 48
+edge 4 47 47 3
+edge 47 4 3 47
+edge 4 46 46 3
+edge 46 4 3 46
+edge 4 45 45 3
+edge 45 4 3 45
+edge 4 44 44 3
+edge 44 4 3 44
+edge 4 43 43 3
+edge 43 4 3 43
+edge 4 42 42 3
+edge 42 4 3 42
+edge 4 41 41 3
+edge 41 4 3 41
+edge 4 40 40 3
+edge 40 4 3 40
+edge 4 39 39 3
+edge 39 4 3 39
+edge 4 38 38 3
+edge 38 4 3 38
+edge 4 37 37 3
+edge 37 4 3 37
+edge 4 36 36 3
+edge 36 4 3 36
+edge 4 35 35 3
+edge 35 4 3 35
+edge 4 34 34 3
+edge 34 4 3 34
+edge 4 33 33 3
+edge 33 4 3 33
+edge 4 32 32 3
+edge 32 4 3 32
+edge 4 31 31 3
+edge 31 4 3 31
+edge 4 30 30 3
+edge 30 4 3 30
+edge 4 29 29 3
+edge 29 4 3 29
+edge 4 28 28 3
+edge 28 4 3 28
+edge 4 27 27 3
+edge 27 4 3 27
+edge 4 26 26 3
+edge 26 4 3 26
+edge 4 25 25 3
+edge 25 4 3 25
+edge 4 24 24 3
+edge 24 4 3 24
+edge 4 23 23 3
+edge 23 4 3 23
+edge 4 22 22 3
+edge 22 4 3 22
+edge 4 21 21 3
+edge 21 4 3 21
+edge 4 20 20 3
+edge 20 4 3 20
+edge 4 19 19 3
+edge 19 4 3 19
+edge 4 18 18 3
+edge 18 4 3 18
+edge 4 17 17 3
+edge 17 4 3 17
+edge 4 16 16 3
+edge 16 4 3 16
+edge 4 15 15 3
+edge 15 4 3 15
+edge 4 14 14 3
+edge 14 4 3 14
+edge 4 13 13 3
+edge 13 4 3 13
+edge 4 12 12 3
+edge 12 4 3 12
+edge 4 11 11 3
+edge 11 4 3 11
+edge 4 10 10 3
+edge 10 4 3 10
+edge 4 9 9 3
+edge 9 4 3 9
+edge 4 8 8 3
+edge 8 4 3 8
+edge 4 7 7 3
+edge 7 4 3 7
+edge 4 6 6 3
+edge 6 4 3 6
+edge 4 5 5 3
+edge 5 4 3 5
+edge 4 4 4 3
+edge 4 4 3 4
+edge 4 3 3 3
+edge 3 4 3 3
+edge 4 2 2 3
+edge 2 4 3 2
+edge 4 1 1 3
+edge 1 4 3 1
+edge 4 0 0 3
+edge 0 4 3 0
+edge 3 50 50 2
+edge 50 3 2 50
+edge 3 49 49 2
+edge 49 3 2 49
+edge 3 48 48 2
+edge 48 3 2 48
+edge 3 47 47 2
+edge 47 3 2 47
+edge 3 46 46 2
+edge 46 3 2 46
+edge 3 45 45 2
+edge 45 3 2 45
+edge 3 44 44 2
+edge 44 3 2 44
+edge 3 43 43 2
+edge 43 3 2 43
+edge 3 42 42 2
+edge 42 3 2 42
+edge 3 41 41 2
+edge 41 3 2 41
+edge 3 40 40 2
+edge 40 3 2 40
+edge 3 39 39 2
+edge 39 3 2 39
+edge 3 38 38 2
+edge 38 3 2 38
+edge 3 37 37 2
+edge 37 3 2 37
+edge 3 36 36 2
+edge 36 3 2 36
+edge 3 35 35 2
+edge 35 3 2 35
+edge 3 34 34 2
+edge 34 3 2 34
+edge 3 33 33 2
+edge 33 3 2 33
+edge 3 32 32 2
+edge 32 3 2 32
+edge 3 31 31 2
+edge 31 3 2 31
+edge 3 30 30 2
+edge 30 3 2 30
+edge 3 29 29 2
+edge 29 3 2 29
+edge 3 28 28 2
+edge 28 3 2 28
+edge 3 27 27 2
+edge 27 3 2 27
+edge 3 26 26 2
+edge 26 3 2 26
+edge 3 25 25 2
+edge 25 3 2 25
+edge 3 24 24 2
+edge 24 3 2 24
+edge 3 23 23 2
+edge 23 3 2 23
+edge 3 22 22 2
+edge 22 3 2 22
+edge 3 21 21 2
+edge 21 3 2 21
+edge 3 20 20 2
+edge 20 3 2 20
+edge 3 19 19 2
+edge 19 3 2 19
+edge 3 18 18 2
+edge 18 3 2 18
+edge 3 17 17 2
+edge 17 3 2 17
+edge 3 16 16 2
+edge 16 3 2 16
+edge 3 15 15 2
+edge 15 3 2 15
+edge 3 14 14 2
+edge 14 3 2 14
+edge 3 13 13 2
+edge 13 3 2 13
+edge 3 12 12 2
+edge 12 3 2 12
+edge 3 11 11 2
+edge 11 3 2 11
+edge 3 10 10 2
+edge 10 3 2 10
+edge 3 9 9 2
+edge 9 3 2 9
+edge 3 8 8 2
+edge 8 3 2 8
+edge 3 7 7 2
+edge 7 3 2 7
+edge 3 6 6 2
+edge 6 3 2 6
+edge 3 5 5 2
+edge 5 3 2 5
+edge 3 4 4 2
+edge 4 3 2 4
+edge 3 3 3 2
+edge 3 3 2 3
+edge 3 2 2 2
+edge 2 3 2 2
+edge 3 1 1 2
+edge 1 3 2 1
+edge 3 0 0 2
+edge 0 3 2 0
+edge 2 50 50 1
+edge 50 2 1 50
+edge 2 49 49 1
+edge 49 2 1 49
+edge 2 48 48 1
+edge 48 2 1 48
+edge 2 47 47 1
+edge 47 2 1 47
+edge 2 46 46 1
+edge 46 2 1 46
+edge 2 45 45 1
+edge 45 2 1 45
+edge 2 44 44 1
+edge 44 2 1 44
+edge 2 43 43 1
+edge 43 2 1 43
+edge 2 42 42 1
+edge 42 2 1 42
+edge 2 41 41 1
+edge 41 2 1 41
+edge 2 40 40 1
+edge 40 2 1 40
+edge 2 39 39 1
+edge 39 2 1 39
+edge 2 38 38 1
+edge 38 2 1 38
+edge 2 37 37 1
+edge 37 2 1 37
+edge 2 36 36 1
+edge 36 2 1 36
+edge 2 35 35 1
+edge 35 2 1 35
+edge 2 34 34 1
+edge 34 2 1 34
+edge 2 33 33 1
+edge 33 2 1 33
+edge 2 32 32 1
+edge 32 2 1 32
+edge 2 31 31 1
+edge 31 2 1 31
+edge 2 30 30 1
+edge 30 2 1 30
+edge 2 29 29 1
+edge 29 2 1 29
+edge 2 28 28 1
+edge 28 2 1 28
+edge 2 27 27 1
+edge 27 2 1 27
+edge 2 26 26 1
+edge 26 2 1 26
+edge 2 25 25 1
+edge 25 2 1 25
+edge 2 24 24 1
+edge 24 2 1 24
+edge 2 23 23 1
+edge 23 2 1 23
+edge 2 22 22 1
+edge 22 2 1 22
+edge 2 21 21 1
+edge 21 2 1 21
+edge 2 20 20 1
+edge 20 2 1 20
+edge 2 19 19 1
+edge 19 2 1 19
+edge 2 18 18 1
+edge 18 2 1 18
+edge 2 17 17 1
+edge 17 2 1 17
+edge 2 16 16 1
+edge 16 2 1 16
+edge 2 15 15 1
+edge 15 2 1 15
+edge 2 14 14 1
+edge 14 2 1 14
+edge 2 13 13 1
+edge 13 2 1 13
+edge 2 12 12 1
+edge 12 2 1 12
+edge 2 11 11 1
+edge 11 2 1 11
+edge 2 10 10 1
+edge 10 2 1 10
+edge 2 9 9 1
+edge 9 2 1 9
+edge 2 8 8 1
+edge 8 2 1 8
+edge 2 7 7 1
+edge 7 2 1 7
+edge 2 6 6 1
+edge 6 2 1 6
+edge 2 5 5 1
+edge 5 2 1 5
+edge 2 4 4 1
+edge 4 2 1 4
+edge 2 3 3 1
+edge 3 2 1 3
+edge 2 2 2 1
+edge 2 2 1 2
+edge 2 1 1 1
+edge 1 2 1 1
+edge 2 0 0 1
+edge 0 2 1 0
+edge 1 50 50 0
+edge 50 1 0 50
+edge 1 49 49 0
+edge 49 1 0 49
+edge 1 48 48 0
+edge 48 1 0 48
+edge 1 47 47 0
+edge 47 1 0 47
+edge 1 46 46 0
+edge 46 1 0 46
+edge 1 45 45 0
+edge 45 1 0 45
+edge 1 44 44 0
+edge 44 1 0 44
+edge 1 43 43 0
+edge 43 1 0 43
+edge 1 42 42 0
+edge 42 1 0 42
+edge 1 41 41 0
+edge 41 1 0 41
+edge 1 40 40 0
+edge 40 1 0 40
+edge 1 39 39 0
+edge 39 1 0 39
+edge 1 38 38 0
+edge 38 1 0 38
+edge 1 37 37 0
+edge 37 1 0 37
+edge 1 36 36 0
+edge 36 1 0 36
+edge 1 35 35 0
+edge 35 1 0 35
+edge 1 34 34 0
+edge 34 1 0 34
+edge 1 33 33 0
+edge 33 1 0 33
+edge 1 32 32 0
+edge 32 1 0 32
+edge 1 31 31 0
+edge 31 1 0 31
+edge 1 30 30 0
+edge 30 1 0 30
+edge 1 29 29 0
+edge 29 1 0 29
+edge 1 28 28 0
+edge 28 1 0 28
+edge 1 27 27 0
+edge 27 1 0 27
+edge 1 26 26 0
+edge 26 1 0 26
+edge 1 25 25 0
+edge 25 1 0 25
+edge 1 24 24 0
+edge 24 1 0 24
+edge 1 23 23 0
+edge 23 1 0 23
+edge 1 22 22 0
+edge 22 1 0 22
+edge 1 21 21 0
+edge 21 1 0 21
+edge 1 20 20 0
+edge 20 1 0 20
+edge 1 19 19 0
+edge 19 1 0 19
+edge 1 18 18 0
+edge 18 1 0 18
+edge 1 17 17 0
+edge 17 1 0 17
+edge 1 16 16 0
+edge 16 1 0 16
+edge 1 15 15 0
+edge 15 1 0 15
+edge 1 14 14 0
+edge 14 1 0 14
+edge 1 13 13 0
+edge 13 1 0 13
+edge 1 12 12 0
+edge 12 1 0 12
+edge 1 11 11 0
+edge 11 1 0 11
+edge 1 10 10 0
+edge 10 1 0 10
+edge 1 9 9 0
+edge 9 1 0 9
+edge 1 8 8 0
+edge 8 1 0 8
+edge 1 7 7 0
+edge 7 1 0 7
+edge 1 6 6 0
+edge 6 1 0 6
+edge 1 5 5 0
+edge 5 1 0 5
+edge 1 4 4 0
+edge 4 1 0 4
+edge 1 3 3 0
+edge 3 1 0 3
+edge 1 2 2 0
+edge 2 1 0 2
+edge 1 1 1 0
+edge 1 1 0 1
+edge 1 0 0 0
+edge 0 1 0 0
+station 0 0
+fire 50 50
